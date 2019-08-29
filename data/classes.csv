@@ -1,0 +1,13 @@
+Name ,HP ,Str ,Mag ,Dex ,Spd ,Lck ,Def ,Res ,Cha
+Lord ,20,  ,  ,10,  ,  ,  ,  ,10
+Mercenary ,20,5,  ,  ,5,  ,  ,-5,5
+Thief ,20,  ,  ,10,10,  ,  ,  ,5
+Armored Knight ,20,  ,  ,  ,-10,  ,10,-5,5
+Cavalier ,20,5,  ,5,-10,  ,5,  ,5
+Brigand ,30,10,  ,  ,  ,  ,  ,-5,5
+Archer ,5,  ,  ,10,  ,5,  ,  ,5
+Brawler ,30,  ,-10,10,10,  ,  ,-10,5
+Mage ,5,-5,10,5,  ,  ,-5,5,5
+Dark Mage ,5,-5,10,5,  ,  ,-5,5, 
+Priest ,5,-5,5,5,  ,  ,-5,10,10
+Pegasus Knight ,15,  ,  ,  ,10,  ,  ,5,10

@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run babel && node-sass public/style/style.scss public/style/style.css --output-style compressed",
-    "babel": "babel source --out-dir public/js --presets minify",
-    "babel-watch": "babel source --out-dir public/js --watch --verbose",
+    "build": "npm run webpack && npm run sass",
+    "webpack": "webpack --env.production",
+    "webpack-watch": "webpack --env.development -w --debug --output-path-info --display-modules",
+    "sass": "node-sass public/style/style.scss public/style/style.css --output-style compressed",
     "sass-watch": "node-sass public/style/style.scss public/style/style.css --output-style compressed --watch",
     "start": "serve public"
   },
@@ -18,11 +19,22 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "async": "^3.1.0",
     "babel-loader": "^8.0.6",
     "babel-preset-minify": "^0.5.1",
-    "node-sass": "^4.12.0"
+    "compression": "^1.7.4",
+    "compression-webpack-plugin": "^3.0.0",
+    "csv-parse": "^4.4.5",
+    "node-sass": "^4.12.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "source-map-loader": "^0.2.4",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "lodash": "^4.17.15",
     "serve": "^11.1.0"
   }
 }

@@ -1,4 +1,4 @@
-Name,Hp,Str,Mag,Dex,Spd,Lck,Def,Res,Cha
+name,growths_hp,growths_str,growths_mag,growths_dex,growths_spd,growths_lck,growths_def,growths_res,growths_cha
 Byleth,45,45,35,45,45,45,35,30,45
 Claude ,35,40,25,60,55,45,30,25,55
 Lorenz ,55,40,40,45,40,25,30,40,35

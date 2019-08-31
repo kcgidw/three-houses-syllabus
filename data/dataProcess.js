@@ -21,7 +21,18 @@ async.parallel([
 					throw err;
 				} else {
 					console.log('Parsed characters.csv');
-					DATA.characters = parsed;
+					DATA.characters = parsed.map((i) => {
+						let res = {
+							name: i.name,
+							growths: {},
+						};
+						Object.keys(i).forEach((k) => {
+							if(k.indexOf('growths_') !== -1) {
+								res.growths[k] = i[k];
+							}
+						});
+						return res;
+					});
 
 				}
 			});
@@ -37,7 +48,7 @@ async.parallel([
 					throw err;
 				} else {
 					console.log('Parsed classes.csv');
-					DATA.characters = parsed;
+					DATA.classes = parsed;
 
 					fs.writeFile(path.resolve(__dirname, 'data.json'), JSON.stringify(DATA), (err) => {
 						if (err) {

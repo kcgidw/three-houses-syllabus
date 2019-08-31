@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run webpack && npm run sass",
+    "data": "node data/dataProcess.js && mv data/data.json public/data.json",
     "webpack": "webpack --env.production",
     "webpack-watch": "webpack --env.development -w --debug --output-path-info --display-modules",
     "sass": "node-sass public/style/style.scss public/style/style.css --output-style compressed",

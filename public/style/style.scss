@@ -8,25 +8,52 @@
 	--gray500: hsl(210, 6%, 60%);
 	--gray700: hsl(210, 6%, 40%);
 	--gray900: hsl(210, 6%, 18%);
-	--beige100: hsl(55, 10%, 98%);
-	--beige200: hsl(55, 10%, 95%);
-	--beige300: hsl(55, 10%, 85%);
-	--beige400: hsl(55, 10%, 75%);
-	--beige500: hsl(55, 10%, 65%);
-	--beige600: hsl(55, 10%, 55%);
-	--beige700: hsl(55, 10%, 45%);
-	--beige800: hsl(53, 10%, 35%);
-	--beige900: hsl(55, 10%, 25%);
+	--beige100: hsl(55, 9%, 98%);
+	--beige200: hsl(55, 9%, 95%);
+	--beige300: hsl(55, 9%, 85%);
+	--beige400: hsl(55, 9%, 75%);
+	--beige500: hsl(55, 9%, 65%);
+	--beige600: hsl(55, 9%, 55%);
+	--beige700: hsl(55, 9%, 45%);
+	--beige800: hsl(53, 9%, 35%);
+	--beige900: hsl(55, 9%, 25%);
+	--lavgray100: hsl(250, 10%, 98%);
+	--lavgray200: hsl(250, 10%, 95%);
+	--lavgray300: hsl(250, 10%, 85%);
+	--lavgray400: hsl(250, 10%, 75%);
+	--lavgray500: hsl(250, 10%, 65%);
+	--lavgray600: hsl(250, 10%, 55%);
+	--lavgray700: hsl(250, 10%, 45%);
+	--lavgray800: hsl(250, 10%, 35%);
+	--lavgray900: hsl(250, 10%, 25%);
+	--lavender100: hsl(250, 100%, 95%);
+	--lavender200: hsl(250, 100%, 90%);
+	--lavender300: hsl(250, 100%, 80%);
+	--lavender400: hsl(250, 100%, 72%);
+	--brown800: hsl(40, 70%, 25%);
+	--red500: hsl(0, 50%, 50%);
+	--green500: hsl(90, 100%, 40%);
+	--blue400: hsl(190, 90%, 50%);
+	--blue500: hsl(190, 90%, 40%);
+	--teal100: hsl(170, 60%, 97%);
+	--teal500: hsl(170, 100%, 40%);
+	--shadow: hsla(0, 0%, 0%, 0.1);
 }
 
 body {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
-	background-color: var(--beige100);
-	color: var(--beige900);
+	background-color: var(--lavgray900);
+	color: var(--lavgray900);
 }
 
 .name {
 	font-family: 'Podkova', sans-serif;
+}
+.good {
+	color: var(--green500) !important;
+}
+.bad {
+	color: var(--red500) !important;
 }
 
 h1 {
@@ -36,9 +63,11 @@ h1 {
 #top-header {
 	width: 100vw;
 	font-family: 'Podkova', sans-serif;
-	background-color: var(--beige900);
-	color: var(--beige100);
-	padding: 10px 10px;
+	background-color: var(--lavgray900);
+	color: var(--lavgray100);
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
 	h1 {
 		font-size: 1.4em;
 	}
@@ -46,7 +75,9 @@ h1 {
 
 #left-sidebar {
 	float: left;
-	background-color: var(--beige200);
+	color: var(--beige800);
+	background-color: var(--beige300);
+	border-right: solid 2px var(--lavender400);
 	width: 180px;
 	height: 100%;
 
@@ -61,16 +92,16 @@ h1 {
 				cursor: pointer;
 
 				&:not(:last-child) {
-					border-bottom: solid 1px var(--beige400);
+					border-bottom: solid 1px var(--beige200);
 				}
 
 				&.inactive {
 					opacity: 0.5;
 				}
 				&.selected {
-					color: black;
+					background-color: var(--lavender400);
+					color: var(--beige100);
 					font-weight: bold;
-					border-right: solid 5px green;
 				}
 			}
 		}
@@ -80,19 +111,45 @@ h1 {
 #main {
 	padding: 20px;
 	margin-left: 180px; // sidebar width
+	height: calc(100% - 40px); // header height
+	background-color: var(--beige100);
 	h1 {
-		font-size: 2em;
+		font-size: 2.4em;
+	}
+	h2 {
+		font-size: 1.4em;
+	}
+
+	#character-body {
+		display: flex;
+		overflow: scroll;
+		height: 100%;
+		margin-left: 2px;
+		& > * {
+			margin-right: 20px;
+			min-width: 400px;
+		}
 	}
 
 	table {
 		border-spacing: 0;
+		border-top: solid 1px var(--beige300);
+		border-radius: 2px;
+		text-align: center;
 		td, th {
-			border-left: solid 1px var(--beige400);
-			border-bottom: solid 1px var(--beige400);
+			border-left: solid 1px var(--beige300);
+			border-bottom: solid 1px var(--beige300);
 			padding: 4px;
+			min-width: 25px;
 			&:last-child {
-				border-right: solid 1px var(--beige400);
+				border-right: solid 1px var(--beige300);
 			}
+		}
+		td {
+			color: var(--beige600);
+		}
+		th {
+			background-color: var(--beige200);
 		}
 	}
 }

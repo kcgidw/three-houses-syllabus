@@ -1,4 +1,4 @@
-let DATA = {
+let STATIC = {
 	characters: undefined,
 	stats: undefined,
 	classes: undefined,
@@ -6,11 +6,17 @@ let DATA = {
 
 function loadData(cb) {
 	$.getJSON('data.json', (data) => {
-		DATA = data;
+		STATIC = data;
 		console.log(data);
-		DATA.stats = ['hp','str','mag','dex','spd','lck','def','res','cha'];
+		STATIC.stats = ['hp','str','mag','dex','spd','lck','def','res','cha'];
 		cb(data);
 	});
 }
 
-export {loadData, DATA};
+function findCharData(name) {
+	return STATIC.characters.find((i) => {
+		return i.name == name;
+	});
+}
+
+export {loadData, STATIC, findCharData};

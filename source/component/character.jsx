@@ -4,11 +4,15 @@ import * as Util from '../util';
 class Character extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			supportable: this.getSupportable(),
+		};
 		this.getTableColumns = this.getTableColumns.bind(this);
 		this.getGrowths = this.getGrowths.bind(this);
+		this.getSupportable = this.getSupportable.bind(this);
 	}
 	getTableColumns() {
-		return Data.DATA.stats.map((s) => {
+		return Data.STATIC.stats.map((s) => {
 			return (<th key={s}>{Util.capitalize(s)}</th>);
 		});
 	}
@@ -20,10 +24,22 @@ class Character extends React.Component {
 			return (<td key={g} className={classes}>{val}</td>);
 		});
 	}
+	getSupportable() {
+		let supportable = this.props.charData.supports;
+		let res = supportable.filter((name) => {
+			return this.props.roster.find((charPlan) => {
+				return charPlan.name == name && charPlan.active;
+			});
+		});
+		return res;
+	}
 	render() {
 		return (<div>
 			<div id="character-name" className="name">
 				<h1>{this.props.charData.name}</h1>
+			</div>
+			<div id="supportable">
+				<span>Supportable Allies: {this.state.supportable.length} ({this.state.supportable.join(', ')})</span>
 			</div>
 			<div id="character-body">
 				<div id="character-goals">

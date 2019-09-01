@@ -2,12 +2,14 @@ import { loadData } from "./data";
 import CharacterList from "./component/characterList";
 import Character from "./component/character";
 import ReactDOM from 'react-dom';
+import * as Roster from './roster';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			charFocus: this.props.data.characters[0],
+			roster: Roster.createRoster(this.props.data.characters),
 		};
 		this.selectChar = this.selectChar.bind(this);
 	}
@@ -25,7 +27,7 @@ class App extends React.Component {
 				<CharacterList characters={this.props.data.characters} selected={this.state.charFocus} selectChar={this.selectChar}/>
 			</div>
 			<div id="main">
-				<Character charData={this.state.charFocus}/>
+				<Character charData={this.state.charFocus} roster={this.state.roster}/>
 			</div>
 		</div>);
 	}

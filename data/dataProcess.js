@@ -28,7 +28,7 @@ async.parallel([
 						};
 						Object.keys(i).forEach((k) => {
 							if(k.indexOf('growths_') !== -1) {
-								res.growths[k] = i[k];
+								res.growths[k.replace('growths_', '')] = i[k];
 							}
 						});
 						return res;

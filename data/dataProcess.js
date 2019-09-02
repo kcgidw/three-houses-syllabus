@@ -21,6 +21,7 @@ async.series([
 					let res = {
 						name: char.name,
 						id: idx,
+						house: char.house,
 						growths: {},
 					};
 					Object.keys(char).forEach((k) => {

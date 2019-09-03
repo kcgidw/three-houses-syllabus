@@ -1,10 +1,12 @@
 import * as Data from '../data';
 import * as Util from '../util';
+import * as Roster from '../roster';
 
-class Character extends React.Component {
+class CharacterPlan extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			charPlan: Roster.findCharPlan(this.props.roster, this.props.charData.name),
 			supportable: this.getSupportable(),
 		};
 		this.getTableColumns = this.getTableColumns.bind(this);
@@ -25,11 +27,9 @@ class Character extends React.Component {
 		});
 	}
 	getSupportable() {
-		let supportable = this.props.charData.supports;
-		let res = supportable.filter((name) => {
-			return this.props.roster.find((charPlan) => {
-				return charPlan.name == name && charPlan.active;
-			});
+		let allSupports = this.props.charData.supports;
+		let res = allSupports.filter((name) => {
+			return Roster.findActiveCharPlan(this.props.roster, name);
 		});
 		return res;
 	}
@@ -78,4 +78,4 @@ class Character extends React.Component {
 	}
 }
 
-export default Character;
+export default CharacterPlan;

@@ -10,12 +10,10 @@
         "mocha": true
     },
     "globals": {
-        "io": false,
+        "React": false,
+        "ReactDOM": false,
         "_": false,
-        "$": false,
-        "FAO": false,
-        "mitt": false,
-        "Vue": false
+        "$": false
     },
     "extends": [
         "plugin:vue/essential"

@@ -5,14 +5,16 @@ class CharacterList extends React.Component {
 	}
 
 	select(char) {
-		this.props.selectChar(char);
+		this.props.onCharPlanSelect(char);
 	}
 
 	getList() {
-		return this.props.characters.map((item) => {
+		return this.props.roster.map((item) => {
 			let classes = 'name';
 			if(this.props.selected == item) {
 				classes += ' selected';
+			} else if(!item.active) {
+				classes += ' inactive';
 			}
 			let selectThisChar = this.select.bind(this, item);
 			return (

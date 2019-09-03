@@ -1,10 +1,10 @@
-let STATIC = {
+export let STATIC = {
 	characters: undefined,
 	stats: undefined,
 	classes: undefined,
 };
 
-function loadData(cb) {
+export function loadData(cb) {
 	$.getJSON('data.json', (data) => {
 		STATIC = data;
 		console.log(data);
@@ -13,10 +13,13 @@ function loadData(cb) {
 	});
 }
 
-function findCharData(name) {
+export function findCharData(name) {
 	return STATIC.characters.find((i) => {
 		return i.name == name;
 	});
 }
-
-export {loadData, STATIC, findCharData};
+export function filterByHouse(house) {
+	return STATIC.characters.filter((cd) => {
+		return cd.house == house;
+	});
+}

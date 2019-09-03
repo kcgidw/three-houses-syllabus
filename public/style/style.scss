@@ -17,31 +17,39 @@
 	--beige700: hsl(55, 9%, 45%);
 	--beige800: hsl(53, 9%, 35%);
 	--beige900: hsl(55, 9%, 25%);
-	--lavgray100: hsl(250, 10%, 98%);
-	--lavgray200: hsl(250, 10%, 95%);
-	--lavgray300: hsl(250, 10%, 85%);
-	--lavgray400: hsl(250, 10%, 75%);
-	--lavgray500: hsl(250, 10%, 65%);
-	--lavgray600: hsl(250, 10%, 55%);
-	--lavgray700: hsl(250, 10%, 45%);
-	--lavgray800: hsl(250, 10%, 35%);
-	--lavgray900: hsl(250, 10%, 25%);
+	--lavgray100: hsl(250, 18%, 98%);
+	--lavgray200: hsl(250, 18%, 95%);
+	--lavgray300: hsl(250, 18%, 85%);
+	--lavgray400: hsl(250, 18%, 75%);
+	--lavgray500: hsl(250, 18%, 65%);
+	--lavgray600: hsl(250, 18%, 55%);
+	--lavgray700: hsl(250, 18%, 45%);
+	--lavgray800: hsl(250, 18%, 35%);
+	--lavgray900: hsl(250, 18%, 25%);
 	--lavender100: hsl(250, 100%, 95%);
 	--lavender200: hsl(250, 100%, 90%);
-	--lavender300: hsl(250, 100%, 80%);
-	--lavender400: hsl(250, 100%, 72%);
+	--lavender300: hsl(250, 100%, 85%);
+	--lavender400: hsl(250, 100%, 80%);
+	--lavender500: hsl(250, 90%, 72%);
+	--lavender600: hsl(250, 80%, 65%);
+	--lavender700: hsl(250, 80%, 60%);
+	--lavender800: hsl(250, 70%, 50%);
+	--lavender900: hsl(250, 60%, 40%);
 	--brown800: hsl(40, 70%, 25%);
 	--red500: hsl(0, 50%, 50%);
 	--green500: hsl(90, 100%, 40%);
-	--blue400: hsl(190, 90%, 50%);
-	--blue500: hsl(190, 90%, 40%);
+	--blue600: hsl(210, 100%, 50%);
+	--blue700: hsl(210, 100%, 40%);
+	--blue800: hsl(210, 100%, 30%);
+	--blue900: hsl(210, 100%, 20%);
 	--teal100: hsl(170, 60%, 97%);
 	--teal500: hsl(170, 100%, 40%);
 	--shadow: hsla(0, 0%, 0%, 0.1);
 }
 
 body {
-	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-family: 'Podkova', sans-serif;
+	// font-family: 'Yanone Kaffeesatz', sans-serif;
 	background-color: var(--lavgray900);
 	color: var(--lavgray900);
 }
@@ -55,8 +63,30 @@ body {
 .bad {
 	color: var(--red500) !important;
 }
+.btn {
+	cursor: pointer;
+	border-radius: 4px;
+	text-align: center;
 
-h1 {
+	&.primary {
+		font-size: 1em;
+	}
+	&.second {
+		font-size: 1em;
+	}
+	&.tert {
+		font-size: .8em;
+		border: none;
+		padding: 3px 6px;
+		background-color: var(--beige200);
+
+		&:hover {
+			background-color: var(--beige300);
+		}
+	}
+}
+
+h1, h2, h3 {
 	margin: 0;
 }
 
@@ -80,6 +110,23 @@ h1 {
 	border-right: solid 2px var(--lavender400);
 	width: 180px;
 	height: 100%;
+	overflow-y: scroll;
+
+	#btn-roster-edit-container {
+		width: calc(100% - (5px * 2));
+		padding: 5px;
+		text-align: center;
+
+		.btn {
+			border-radius: 2px;
+			border: none;
+			width: calc(100% - (5px * 2));
+			padding: 5px;
+
+			background-color: var(--beige200);
+			color: var(--beige900);
+		}
+	}
 
 	.characters {
 		ul {
@@ -88,7 +135,7 @@ h1 {
 
 			li {
 				list-style: none;
-				padding: 15px 15px;
+				padding: 5px 15px;
 				cursor: pointer;
 
 				&:not(:last-child) {
@@ -113,6 +160,8 @@ h1 {
 	margin-left: 180px; // sidebar width
 	height: calc(100% - 40px); // header height
 	background-color: var(--beige100);
+	overflow-y: scroll;
+	
 	h1 {
 		font-size: 2.4em;
 	}
@@ -120,35 +169,69 @@ h1 {
 		font-size: 1.4em;
 	}
 
+	#edit-roster-body {
+		display: flex;
+
+		.roster-sublist {
+			min-width: 200px;
+			text-align: center;
+		}
+
+		ol {
+			list-style: none;
+			padding: 0;
+			margin: auto;
+			width: 180px;
+			text-align: left;
+			li {
+				& > div {
+					cursor: pointer;
+					padding: 10px;
+					border: solid 1px var(--lavgray300);
+					border-radius: 2px;
+					margin-top: 9px;
+
+					&:not(.active):hover {
+						background-color: var(--lavgray200);
+					}
+					&.active {
+						background-color: var(--lavender100);
+						color: var(--lavender900);
+					}
+				}
+			}
+		}
+	}
+
 	#character-body {
 		display: flex;
-		overflow: scroll;
 		margin-left: 2px;
 		& > * {
 			margin-right: 20px;
 			min-width: 400px;
 		}
-	}
 
-	table {
-		border-spacing: 0;
-		border-top: solid 1px var(--beige300);
-		border-radius: 2px;
-		text-align: center;
-		td, th {
-			border-left: solid 1px var(--beige300);
-			border-bottom: solid 1px var(--beige300);
-			padding: 4px;
-			min-width: 25px;
-			&:last-child {
-				border-right: solid 1px var(--beige300);
+		table {
+			border-spacing: 0;
+			border-top: solid 1px var(--beige300);
+			border-radius: 2px;
+			text-align: center;
+			td, th {
+				border-left: solid 1px var(--beige300);
+				border-bottom: solid 1px var(--beige300);
+				padding: 4px;
+				min-width: 25px;
+				&:last-child {
+					border-right: solid 1px var(--beige300);
+				}
+			}
+			td {
+				color: var(--beige600);
+			}
+			th {
+				background-color: var(--beige200);
 			}
 		}
-		td {
-			color: var(--beige600);
-		}
-		th {
-			background-color: var(--beige200);
-		}
 	}
+
 }

@@ -36,16 +36,21 @@ class EditRoster extends React.Component {
 				break;
 		}
 		return (<div className="roster-sublist">
-			<h2>{title}</h2>
+			<h2 className={house}>{title}</h2>
 			<button className="btn tert" onClick={(e) => {this.props.onToggleHouse(house);}}>Toggle All</button>
 			<ol>{this.getHouseCharPlans(house)}</ol>
 		</div>);
 	}
 	render() {
-		return (<div id="edit-roster-body">
-			{this.renderSublist('be')}
-			{this.renderSublist('bl')}
-			{this.renderSublist('gd')}
+		return (<div id="edit-roster-body" className="main-card">
+			<div className="main-card-header">
+				<h1>Edit Roster</h1>
+			</div>
+			<div id="sublists" className="main-card-body">
+				{this.renderSublist('be')}
+				{this.renderSublist('bl')}
+				{this.renderSublist('gd')}
+			</div>
 		</div>);
 	}
 }

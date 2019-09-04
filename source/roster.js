@@ -27,9 +27,6 @@ export function filterByHouse(roster, house) {
 export function createCharacterPlan(charData) {
 	return {
 		name: charData.name,
-		// house: charData.house,
-		// growths: charData.growths,
-		// supports: charData.supports,
 		active: charData.name === 'Byleth',
 		classes: {},
 		skillLevels: {},

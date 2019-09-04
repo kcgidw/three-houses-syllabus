@@ -10,7 +10,7 @@ class CharacterList extends React.Component {
 
 	getList() {
 		return this.props.roster.map((item) => {
-			let classes = 'name';
+			let classes = 'sidebar-clickable';
 			if(this.props.selected == item) {
 				classes += ' selected';
 			} else if(!item.active) {

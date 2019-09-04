@@ -8,55 +8,60 @@
 	--gray500: hsl(210, 6%, 60%);
 	--gray700: hsl(210, 6%, 40%);
 	--gray900: hsl(210, 6%, 18%);
-	--beige100: hsl(55, 9%, 98%);
-	--beige200: hsl(55, 9%, 95%);
+	--beige100: hsl(55, 9%, 97%);
+	--beige200: hsl(55, 9%, 90%);
 	--beige300: hsl(55, 9%, 85%);
 	--beige400: hsl(55, 9%, 75%);
 	--beige500: hsl(55, 9%, 65%);
-	--beige600: hsl(55, 9%, 55%);
-	--beige700: hsl(55, 9%, 45%);
-	--beige800: hsl(53, 9%, 35%);
-	--beige900: hsl(55, 9%, 25%);
-	--lavgray100: hsl(250, 18%, 98%);
-	--lavgray200: hsl(250, 18%, 95%);
-	--lavgray300: hsl(250, 18%, 85%);
-	--lavgray400: hsl(250, 18%, 75%);
-	--lavgray500: hsl(250, 18%, 65%);
-	--lavgray600: hsl(250, 18%, 55%);
-	--lavgray700: hsl(250, 18%, 45%);
-	--lavgray800: hsl(250, 18%, 35%);
-	--lavgray900: hsl(250, 18%, 25%);
-	--lavender100: hsl(250, 100%, 95%);
-	--lavender200: hsl(250, 100%, 90%);
-	--lavender300: hsl(250, 100%, 85%);
-	--lavender400: hsl(250, 100%, 80%);
-	--lavender500: hsl(250, 90%, 72%);
-	--lavender600: hsl(250, 80%, 65%);
-	--lavender700: hsl(250, 80%, 60%);
-	--lavender800: hsl(250, 70%, 50%);
-	--lavender900: hsl(250, 60%, 40%);
+	--beige600: hsl(55, 7%, 55%);
+	--beige700: hsl(50, 7%, 45%);
+	--beige800: hsl(50, 7%, 35%);
+	--beige900: hsl(50, 7%, 25%);
+	--lavgray100: hsl(250, 20%, 98%);
+	--lavgray200: hsl(250, 20%, 95%);
+	--lavgray300: hsl(250, 20%, 85%);
+	--lavgray400: hsl(250, 20%, 75%);
+	--lavgray500: hsl(250, 20%, 65%);
+	--lavgray600: hsl(250, 20%, 55%);
+	--lavgray700: hsl(250, 20%, 45%);
+	--lavgray800: hsl(250, 20%, 35%);
+	--lavgray900: hsl(250, 20%, 25%);
+	--lavender100: hsl(240, 100%, 96%);
+	--lavender200: hsl(240, 100%, 90%);
+	--lavender300: hsl(240, 90%, 85%);
+	--lavender400: hsl(240, 80%, 80%);
+	--lavender500: hsl(240, 70%, 72%);
+	--lavender600: hsl(240, 60%, 65%);
+	--lavender700: hsl(240, 50%, 60%);
+	--lavender800: hsl(240, 40%, 50%);
+	--lavender900: hsl(240, 30%, 40%);
 	--brown800: hsl(40, 70%, 25%);
 	--red500: hsl(0, 50%, 50%);
-	--green500: hsl(90, 100%, 40%);
+	--green500: hsl(90, 100%, 35%);
+	--gold500: hsl(50, 90%, 50%);
+	--blue200: hsl(210, 100%, 90%);
+	--blue300: hsl(210, 100%, 80%);
 	--blue600: hsl(210, 100%, 50%);
 	--blue700: hsl(210, 100%, 40%);
 	--blue800: hsl(210, 100%, 30%);
 	--blue900: hsl(210, 100%, 20%);
 	--teal100: hsl(170, 60%, 97%);
 	--teal500: hsl(170, 100%, 40%);
-	--shadow: hsla(0, 0%, 0%, 0.1);
+	--shadow: hsla(0, 0%, 0%, 0.2);
 }
+
+$Podkova: 'Podkova', sans-serif;
+$Crimson: 'Crimson Pro', serif;
+$Barlow: 'Barlow', sans-serif;
 
 body {
-	font-family: 'Podkova', sans-serif;
-	// font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-family: $Podkova;
 	background-color: var(--lavgray900);
 	color: var(--lavgray900);
+
+	--top-header-height: 25px;
 }
 
-.name {
-	font-family: 'Podkova', sans-serif;
-}
 .good {
 	color: var(--green500) !important;
 }
@@ -70,6 +75,13 @@ body {
 
 	&.primary {
 		font-size: 1em;
+		border: none;
+		padding: 6px 20px;
+		background: var(--lavender600);
+		color: var(--lavender100);
+		&:hover {
+		background: var(--lavender500);
+		}
 	}
 	&.second {
 		font-size: 1em;
@@ -78,77 +90,90 @@ body {
 		font-size: .8em;
 		border: none;
 		padding: 3px 6px;
-		background-color: var(--beige200);
+		background: none;
+		text-decoration: underline;
 
 		&:hover {
 			background-color: var(--beige300);
 		}
 	}
 }
+.number {
+	font-weight: 700;
+}
 
 h1, h2, h3 {
 	margin: 0;
 }
+h1 {
+	font-family: $Crimson;
+}
 
 #top-header {
-	width: 100vw;
-	font-family: 'Podkova', sans-serif;
-	background-color: var(--lavgray900);
-	color: var(--lavgray100);
-	height: 40px;
-	line-height: 40px;
+	position: relative;
+	height: var(--top-header-height);
 	padding-left: 10px;
+	background-color: var(--beige100);
+	color: var(--lavgray600);
+	box-shadow: 0 0 12px var(--shadow);
+	// border-bottom: solid 1px var(--beige400);
+	box-sizing: border-box;
 	h1 {
-		font-size: 1.4em;
+		font-size: 20px;
+		line-height: 20px;
+		margin: 0;
 	}
 }
 
 #left-sidebar {
 	float: left;
-	color: var(--beige800);
-	background-color: var(--beige300);
-	border-right: solid 2px var(--lavender400);
 	width: 180px;
-	height: 100%;
-	overflow-y: scroll;
+	height: calc(100% - var(--top-header-height));
+	overflow-y: auto;
 
-	#btn-roster-edit-container {
-		width: calc(100% - (5px * 2));
-		padding: 5px;
-		text-align: center;
+	box-shadow: 0 0 12px var(--shadow);
+	background-color: var(--beige100);
+	color: var(--beige800);
+	font-weight: 600;
 
-		.btn {
-			border-radius: 2px;
-			border: none;
-			width: calc(100% - (5px * 2));
-			padding: 5px;
+	h3.sidebar-header {
+		font-size: 12px;
+		font-family: $Barlow;
+		margin: 10px 0;
+		color: var(--beige700);
+		padding-left: 10px;
+	}
 
-			background-color: var(--beige200);
-			color: var(--beige900);
+	ul, ol {
+		padding: 0;
+		margin: 0;
+		li {
+			list-style: none;
+		}
+	}
+
+	li.sidebar-clickable {
+		cursor: pointer;
+		padding: 5px 30px;
+		&:not(.selected):hover {
+			background-color: var(--lavender100);
+			color: var(--lavender900);
+		}
+		&.selected {
+			background-color: var(--lavender200);
+			color: var(--lavender900);
 		}
 	}
 
 	.characters {
 		ul {
-			padding: 0;
-			margin: 0;
-
 			li {
-				list-style: none;
-				padding: 5px 15px;
-				cursor: pointer;
-
-				&:not(:last-child) {
-					border-bottom: solid 1px var(--beige200);
-				}
-
+				border: none;
+				// &:not(.inactive):not(:last-child) {
+				// 	border-bottom: solid 1px var(--beige200);
+				// }
 				&.inactive {
-					opacity: 0.5;
-				}
-				&.selected {
-					background-color: var(--lavender400);
-					color: var(--beige100);
-					font-weight: bold;
+					color: var(--beige400);
 				}
 			}
 		}
@@ -156,23 +181,64 @@ h1, h2, h3 {
 }
 
 #main {
-	padding: 20px;
+	padding: 10px;
+	height: calc(100% - var(--top-header-height));
 	margin-left: 180px; // sidebar width
-	height: calc(100% - 40px); // header height
-	background-color: var(--beige100);
-	overflow-y: scroll;
+	background-color: var(--beige400);
+	overflow-y: auto;
+	box-sizing: border-box;
 	
-	h1 {
-		font-size: 2.4em;
-	}
 	h2 {
 		font-size: 1.4em;
 	}
 
+	.main-card {
+		background-color: var(--beige100);
+		padding: 0;
+		border-radius: 4px;
+		overflow: hidden; // for border-radius
+		box-shadow: 0 5px 12px var(--shadow);
+
+		.main-card-header {
+			background-color: var(--lavgray800);
+			color: var(--lavgray300);
+			padding: 0 30px;
+
+			h1 {
+				font-size: 2em;
+				font-family: $Crimson;
+				font-weight: 500;
+				line-height: 50px;
+			}
+		}
+		.main-card-body {
+			padding: 30px 30px;
+		}
+	}
+
 	#edit-roster-body {
-		display: flex;
+		#sublists {
+			display: flex;
+		}
+
+		.be {
+			background-color: var(--red500);
+			color: var(--beige100);
+		}
+		.bl {
+			background-color: var(--blue700);
+			color: var(--gold500);
+		}
+		.gd {
+			background-color: var(--gold500);
+			color: var(--beige900);
+		}
 
 		.roster-sublist {
+			h2 {
+				font-family: $Crimson;
+				font-weight: 400;
+			}
 			min-width: 200px;
 			text-align: center;
 		}
@@ -187,16 +253,20 @@ h1, h2, h3 {
 				& > div {
 					cursor: pointer;
 					padding: 10px;
-					border: solid 1px var(--lavgray300);
+					border: solid 1px var(--lavgray400);
+					color: var(--lavgray400);
 					border-radius: 2px;
 					margin-top: 9px;
 
 					&:not(.active):hover {
 						background-color: var(--lavgray200);
+						color: var(--lavgray500);
 					}
 					&.active {
+						border-color: var(--lavender600);
 						background-color: var(--lavender100);
-						color: var(--lavender900);
+						color: var(--lavender600);
+						box-shadow: 0 0 4px var(--lavender300);
 					}
 				}
 			}

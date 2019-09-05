@@ -79,7 +79,7 @@ class App extends React.Component {
 	getMainView() {
 		switch (this.state.view) {
 			case VIEWS.SAVELOAD:
-				return (<SaveLoadView roster={this.state.roster}/>);
+				return (<SaveLoadView roster={this.state.roster} loadRosterJSON={this.loadRosterJSON.bind(this)} />);
 			case VIEWS.ROSTER:
 				return (<EditRosterView roster={this.state.roster} onToggle={this.handleRosterToggle} onToggleHouse={this.handleHouseToggle.bind(this)} />);
 			case VIEWS.CHARPLAN:
@@ -87,6 +87,11 @@ class App extends React.Component {
 			default:
 				throw 'Bad view';
 		}
+	}
+	loadRosterJSON(json) {
+		this.setState({
+			roster: Roster.deserialize(json),
+		});
 	}
 	render() {
 		return (<div id="wrapper">

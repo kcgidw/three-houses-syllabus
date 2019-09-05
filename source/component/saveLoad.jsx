@@ -16,7 +16,7 @@ export default class SaveLoadView extends React.Component {
 	onLoadSubmit(e) {
 		let text = e.target[0].value;
 		if (text) {
-			let json = this.props.loadState();
+			this.props.loadRosterJSON(text);
 		} else {
 			console.warn('no text to load');
 		}
@@ -30,9 +30,9 @@ export default class SaveLoadView extends React.Component {
 			<div className="main-card-body">
 				{/* <p>Syllabus auto-saves your roster state Into your browser.</p> */}
 				<div id="save">
-					<h3>Serialize Roster</h3>
+					<h3>Save Roster</h3>
 					<form onSubmit={this.onSaveSubmit}>
-						<p>Save your roster's current state into JSON text.</p>
+						<p>Serialize your roster's current state into JSON text.</p>
 						<textarea></textarea>
 						<br />
 						<input className="btn primary" type="submit" value="Save" />

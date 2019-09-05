@@ -71,3 +71,6 @@ export function updateCharPlan(roster, charPlan, newState) {
 		return Object.assign({}, cp);
 	});
 }
+export function deserialize(json) {
+	return JSON.parse(json);
+}

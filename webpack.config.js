@@ -58,6 +58,11 @@ module.exports = (env) => {
 				minimize: true,
 				minimizer: [new UglifyJsPlugin({ sourceMap: true }),]
 			},
+			resolve: {
+				alias: { // import local development versions for devtools
+					'react-tabs': 'react-tabs/dist/react-tabs.production.min.js'
+				}
+			},
 			externals: { // resolve to external cdns
 				'react': 'React',
 				'react-dom': 'ReactDOM',
@@ -69,7 +74,7 @@ module.exports = (env) => {
 			devtool: 'source-map',
 			resolve: {
 				alias: { // import local development versions for devtools
-					// 'react-dom': 'react-dom/umd/react-dom.development.js'
+					'react-tabs': 'react-tabs/dist/react-tabs.development.js'
 				}
 			},
 			externals: { // resolve to external cdns

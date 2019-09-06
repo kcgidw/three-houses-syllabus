@@ -1,6 +1,8 @@
 import * as Data from '../data';
 import * as Util from '../util';
 import * as Roster from '../roster';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import React, { Component, PropTypes } from 'react';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -38,43 +40,40 @@ class CharacterPlan extends React.Component {
 			<div id="character-name" className="main-card-header">
 				<h1>{this.props.charData.name}</h1>
 			</div>
-			<div className="main-card-body">
-				<div id="supportable">
-					<span>Supportable Allies: {this.state.supportable.length} ({this.state.supportable.join(', ')})</span>
-				</div>
-				<div id="character-body">
-					<div id="character-goals">
-						<h2>Class Goals</h2>
-						<div>
-							{/* <h3>Basic</h3>
-						<h3>Beginner</h3>
-						<h3>Intermediate</h3>
-						<h3>Advanced</h3>
-						<h3>Master</h3> */}
+			<div className="main-card-body has-tabs">
+				<Tabs>
+					<TabList>
+						<Tab>Overview</Tab>
+						<Tab>Classes</Tab>
+						<Tab>Skill Levels</Tab>
+						<Tab>Abilities</Tab>
+					</TabList>
+					<TabPanel>
+						<div className="character-body main-card-content">
+							<div id="supportable" className="card">
+								<span className="heavy">{this.state.supportable.length}</span> supportable allies
+							</div>
+							<div id="base-growths" className="card">
+								<h3>Growths</h3>
+								<table>
+									<thead>
+										<tr>{this.getTableColumns()}</tr>
+									</thead>
+									<tbody>
+										<tr className="number">{this.getGrowths()}</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
-						<h2>Skill Level Goals</h2>
-					</div>
-					<div id="character-growths">
-						<h2>Growths</h2>
-						<table>
-							<thead>
-								<tr>{this.getTableColumns()}</tr>
-							</thead>
-							<tbody>
-								<tr className="number">{this.getGrowths()}</tr>
-							</tbody>
-						</table>
-					</div>
-					<div id="character-skills">
-						<h2>Skill Levels</h2>
-					</div>
-					<div id="character-abilities">
-						<h2>Abilities</h2>
-					</div>
-					<div id="character-arts">
-						<h2>Combat Arts</h2>
-					</div>
-				</div>
+					</TabPanel>
+					<TabPanel>
+					</TabPanel>
+					<TabPanel>
+					</TabPanel>
+					<TabPanel>
+					</TabPanel>
+				</Tabs>
+
 			</div>
 		</div>);
 	}

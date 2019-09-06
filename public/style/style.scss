@@ -9,7 +9,7 @@
 	--gray700: hsl(210, 6%, 40%);
 	--gray900: hsl(210, 6%, 18%);
 	--beige100: hsl(55, 9%, 97%);
-	--beige200: hsl(55, 9%, 90%);
+	--beige200: hsl(55, 9%, 92%);
 	--beige300: hsl(55, 9%, 85%);
 	--beige400: hsl(55, 9%, 75%);
 	--beige500: hsl(55, 9%, 65%);
@@ -52,7 +52,7 @@
 
 $Podkova: 'Podkova', sans-serif;
 $Crimson: 'Crimson Pro', serif;
-$Barlow: 'Barlow', sans-serif;
+// $Barlow: 'Barlow', sans-serif;
 
 body {
 	font-family: $Podkova;
@@ -104,15 +104,26 @@ body {
 .number {
 	font-weight: 700;
 }
+.card {
+	padding: 15px 20px 20px;
+	margin: 15px;
+	border-radius: 2px;
+	box-shadow: 0 0 5px var(--shadow);
+}
+.heavy {
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
 textarea {
-	font-family: $Barlow;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	width: 600px;
 	height: 200px;
 }
 
 h1, h2, h3 {
-	margin: 0;
+	margin: 0 0 5px;
 }
 h1 {
 	font-family: $Crimson;
@@ -149,7 +160,8 @@ h1 {
 
 	h3.sidebar-header {
 		font-size: 11px;
-		font-family: $Barlow;
+		font-family: $Crimson;
+		font-weight: 400;
 		margin: 10px 0;
 		color: var(--beige700);
 		padding-left: 10px;
@@ -222,6 +234,7 @@ h1 {
 			background-color: var(--lavgray800);
 			color: var(--lavgray300);
 			padding: 0 30px;
+			overflow: hidden; // margin collapse
 
 			h1 {
 				font-size: 2em;
@@ -231,7 +244,11 @@ h1 {
 			}
 		}
 		.main-card-body {
-			padding: 30px 30px;
+			padding: 15px 30px 30px;
+			overflow: scroll;
+			&.has-tabs {
+				padding: 0 30px 30px;
+			}
 		}
 	}
 
@@ -258,6 +275,7 @@ h1 {
 				font-family: $Crimson;
 				font-weight: 400;
 				line-height: 2em;
+				border-radius: 2px;
 			}
 			.house-toggler {
 				margin: 10px 0;
@@ -297,13 +315,9 @@ h1 {
 		}
 	}
 
-	#character-body {
+	.character-body {
 		display: flex;
 		margin-left: 2px;
-		& > * {
-			margin-right: 20px;
-			min-width: 400px;
-		}
 
 		table {
 			border-spacing: 0;
@@ -328,4 +342,36 @@ h1 {
 		}
 	}
 
+}
+
+.react-tabs {
+	box-sizing: border-box;
+	&__tab-list {
+		width: 100%;
+		padding-left: 0;
+		margin: 0;
+		// background-color: var(--lavgray600);
+	}
+		
+	&__tab {
+		display: inline-block;
+		width: 100px;
+		font-size: 1em;
+		line-height: 2.4em;
+		text-align: center;
+		cursor: pointer;
+		color: var(--beige600);
+
+		&:hover:not(&--selected) {
+			// background-color: var(--beige200);
+			border-bottom: solid 5px var(--lavender100);
+			color: var(--lavender800);
+		}
+
+		&--selected {
+			// background-color: var(--lavender100);
+			color: var(--lavender900);
+			border-bottom: solid 5px var(--lavender300);
+		}
+	}
 }

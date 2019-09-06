@@ -35,21 +35,22 @@ export default class SaveLoadView extends React.Component {
 				<h1>Save / Load</h1>
 			</div>
 			<div className="main-card-body">
-				{/* <p>Syllabus auto-saves your roster state Into your browser.</p> */}
-				<div id="save">
-					<h2>Roster Serialization</h2>
-					<p>The text below is your roster's current state converted into JSON text.</p>
-					<textarea value={this.state.json} readOnly></textarea>
-				</div>
-				<br />
-				<div id="load">
-					<h2>Load Roster</h2>
-					<form onSubmit={this.onLoadSubmit}>
-						<p>Paste a previously copied serialization into the box below.</p>
-						<textarea></textarea>
-						<br />
-						<input className="btn primary" type="submit" value="Load" />
-					</form>
+				<div className="main-card-content">
+					<div id="save">
+						<h2>Roster Serialization</h2>
+						<p>The text below is your roster's current state converted into JSON text.</p>
+						<textarea value={this.state.json} readOnly></textarea>
+					</div>
+					<br />
+					<div id="load">
+						<h2>Load Roster</h2>
+						<form onSubmit={this.onLoadSubmit}>
+							<p>Paste a previously copied serialization into the box below.</p>
+							<textarea></textarea>
+							<br />
+							<input className="btn primary" type="submit" value="Load" />
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>);

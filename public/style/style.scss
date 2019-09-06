@@ -59,7 +59,7 @@ body {
 	background-color: var(--lavgray900);
 	color: var(--lavgray900);
 
-	--top-header-height: 25px;
+	--top-header-height: 30px;
 }
 #wrapper {
 	height: 100%;
@@ -104,6 +104,12 @@ body {
 .number {
 	font-weight: 700;
 }
+textarea {
+	font-family: $Barlow;
+	font-size: 11px;
+	width: 600px;
+	height: 200px;
+}
 
 h1, h2, h3 {
 	margin: 0;
@@ -121,10 +127,12 @@ h1 {
 	box-shadow: 0 0 12px var(--shadow);
 	// border-bottom: solid 1px var(--beige400);
 	box-sizing: border-box;
+	line-height: var(--top-header-height);
 	h1 {
 		font-size: 20px;
-		line-height: 20px;
 		margin: 0;
+		position: relative;
+		top: -2px;
 	}
 }
 
@@ -140,7 +148,7 @@ h1 {
 	font-weight: 600;
 
 	h3.sidebar-header {
-		font-size: 12px;
+		font-size: 11px;
 		font-family: $Barlow;
 		margin: 10px 0;
 		color: var(--beige700);
@@ -160,7 +168,12 @@ h1 {
 		padding: 5px 30px;
 		&:not(.selected):hover {
 			background-color: var(--lavender100);
-			color: var(--lavender900);
+			&.inactive {
+				color: var(--lavender400);
+			}
+			&:not(.inactive) {
+				color: var(--lavender900);
+			}
 		}
 		&.selected {
 			background-color: var(--lavender200);
@@ -184,7 +197,7 @@ h1 {
 }
 
 #main {
-	padding: 10px;
+	padding: 15px;
 	height: calc(100% - var(--top-header-height));
 	margin-left: 180px; // sidebar width
 	background-color: var(--beige400);
@@ -196,11 +209,14 @@ h1 {
 	}
 
 	.main-card {
-		background-color: var(--beige100);
+		max-width: 1200px;
+		margin: auto;
 		padding: 0;
 		border-radius: 4px;
 		overflow: hidden; // for border-radius
+		
 		box-shadow: 0 5px 12px var(--shadow);
+		background-color: var(--beige100);
 
 		.main-card-header {
 			background-color: var(--lavgray800);
@@ -241,9 +257,14 @@ h1 {
 			h2 {
 				font-family: $Crimson;
 				font-weight: 400;
+				line-height: 2em;
+			}
+			.house-toggler {
+				margin: 10px 0;
 			}
 			min-width: 200px;
 			text-align: center;
+			padding: 10px;
 		}
 
 		ol {

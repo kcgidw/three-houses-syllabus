@@ -37,7 +37,7 @@ class EditRoster extends React.Component {
 		}
 		return (<div className="roster-sublist">
 			<h2 className={house}>{title}</h2>
-			<button className="btn tert" onClick={(e) => {this.props.onToggleHouse(house);}}>Toggle All</button>
+			<button className="btn tert house-toggler" onClick={(e) => {this.props.onToggleHouse(house);}}>Toggle All</button>
 			<ol>{this.getHouseCharPlans(house)}</ol>
 		</div>);
 	}

@@ -5,13 +5,20 @@ import * as Roster from '../roster';
 export default class SaveLoadView extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onSaveSubmit = this.onSaveSubmit.bind(this);
+		this.state = {
+			json: JSON.stringify(this.props.roster),
+		};
 		this.onLoadSubmit = this.onLoadSubmit.bind(this);
 	}
-	onSaveSubmit(e) {
-		let text = e.target[0];
-		text.value = JSON.stringify(this.props.roster);
-		e.preventDefault();
+	updateJsonSave() {
+		this.setState({
+			json: JSON.stringify(this.props.roster),
+		});
+	}
+	componentDidUpdate(prevProps) {
+		if(prevProps != this.props) {
+			this.updateJsonSave();
+		}
 	}
 	onLoadSubmit(e) {
 		let text = e.target[0].value;
@@ -30,16 +37,13 @@ export default class SaveLoadView extends React.Component {
 			<div className="main-card-body">
 				{/* <p>Syllabus auto-saves your roster state Into your browser.</p> */}
 				<div id="save">
-					<h3>Save Roster</h3>
-					<form onSubmit={this.onSaveSubmit}>
-						<p>Serialize your roster's current state into JSON text.</p>
-						<textarea></textarea>
-						<br />
-						<input className="btn primary" type="submit" value="Save" />
-					</form>
+					<h2>Roster Serialization</h2>
+					<p>The text below is your roster's current state converted into JSON text.</p>
+					<textarea value={this.state.json} readOnly></textarea>
 				</div>
+				<br />
 				<div id="load">
-					<h3>Load Roster</h3>
+					<h2>Load Roster</h2>
 					<form onSubmit={this.onLoadSubmit}>
 						<p>Paste a previously copied serialization into the box below.</p>
 						<textarea></textarea>

@@ -18,6 +18,11 @@ export function findCharData(name) {
 		return i.name == name;
 	});
 }
+export function findClass(name) {
+	return STATIC.classes.find((c) => {
+		return c.name == name;
+	});
+}
 export function filterByHouse(house) {
 	return STATIC.characters.filter((cd) => {
 		return cd.house == house;

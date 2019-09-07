@@ -1,0 +1,239 @@
+name,desc,origin
+Sword Prowess Lv 1,"Grants Hit +5, Avo +7, and Crit Avo +5 when using a sword.",Raise Sword skill level to E+
+Sword Prowess Lv 2,"Grants Hit +6, Avo +10, and Crit Avo +6 when using a sword.",Raise Sword skill level to D+
+Sword Prowess Lv 3,"Grants Hit +7, Avo +13, and Crit Avo +7 when using a sword.",Raise Sword skill level to C+
+Sword Prowess Lv 4,"Grants Hit +8, Avo +16, and Crit Avo +8 when using a sword.",Raise Sword skill level to B+
+Sword Prowess Lv 5,"Grants Hit +10, Avo +20, and Crit Avo +10 when using a sword.",Raise Sword skill level to A+
+Lance Prowess Lv 1,"Grants Hit +6, Avo +6, and Crit Avo +5 when using a lance.",Raise Lance skill level to E+
+Lance Prowess Lv 2,"Grants Hit +8, Avo +8, and Crit Avo +6 when using a lance.",Raise Lance skill level to D+
+Lance Prowess Lv 3,"Grants Hit +10, Avo +10, and Crit Avo +7 when using a lance.",Raise Lance skill level to C+
+Lance Prowess Lv 4,"Grants Hit +12, Avo +12, and Crit Avo +8 when using a lance.",Raise Lance skill level to B+
+Lance Prowess Lv 5,"Grants Hit +15, Avo +15, and Crit Avo +10 when using a lance.",Raise Lance skill level to A+
+Axe Prowess Lv 1,"Grants Hit +7, Avo +5, and Crit Avo +5 when using an axe.",Raise Axe skill level to E+
+Axe Prowess Lv 2,"Grants Hit +10, Avo +6, and Crit Avo +6 when using an axe.",Raise Axe skill level to D+
+Axe Prowess Lv 3,"Grants Hit +13, Avo +7, and Crit Avo +7 when using an axe.",Raise Axe skill level to C+
+Axe Prowess Lv 4,"Grants Hit +16, Avo +8, and Crit Avo +8 when using an axe.",Raise Axe skill level to B+
+Axe Prowess Lv 5,"Grants Hit +20, Avo +10, and Crit Avo +10 when using an axe.",Raise Axe skill level to A+
+Bow Prowess Lv 1,"Grants Hit +6, Avo +6, and Crit Avo +5 when using a bow.",Raise Bow skill level to E+
+Bow Prowess Lv 2,"Grants Hit +8, Avo +8, and Crit Avo +6 when using a bow.",Raise Bow skill level to D+
+Bow Prowess Lv 3,"Grants Hit +10, Avo +10, and Crit Avo +7 when using a bow.",Raise Bow skill level to C+
+Bow Prowess Lv 4,"Grants Hit +12, Avo +12, and Crit Avo +8 when using a bow.",Raise Bow skill level to B+
+Bow Prowess Lv 5,"Grants Hit +15, Avo +15, and Crit Avo +10 when using a bow.",Raise Bow skill level to A+
+Brawling Prowess Lv 1,"Grants Hit +5, Avo +7, and Crit Avo +5 when brawling.",Raise Brawling skill level to E+
+Brawling Prowess Lv 2,"Grants Hit +6, Avo +10, and Crit Avo +6 when brawling.",Raise Brawling skill level to D+
+Brawling Prowess Lv 3,"Grants Hit +7, Avo +13, and Crit Avo +7 when brawling.",Raise Brawling skill level to C+
+Brawling Prowess Lv 4,"Grants Hit +8, Avo +16, and Crit Avo +8 when brawling.",Raise Brawling skill level to B+
+Brawling Prowess Lv 5,"Grants Hit +10, Avo +20, and Crit Avo +10 when brawling.",Raise Brawling skill level to A+
+Reason Lv 1,"Grants Hit +7, Avo +5, and Crit Avo +5 when using black or dark magic.",Raise Reason skill level to E+
+Reason Lv 2,"Grants Hit +10, Avo +6, and Crit Avo +6 when using black or dark magic.",Raise Reason skill level to D+
+Reason Lv 3,"Grants Hit +13, Avo +7, and Crit Avo +7 when using black or dark magic.",Raise Reason skill level to C+
+Reason Lv 4,"Grants Hit +16, Avo +8, and Crit Avo +8 when using black or dark magic.",Raise Reason skill level to B+
+Reason Lv 5,"Grants Hit +20, Avo +10, and Crit Avo +10 when using black or dark magic.",Raise Reason skill level to A+
+Faith Lv 1,"Grants Hit +5, Avo +7, and Crit Avo +5 when using white magic.",Raise Faith skill level to E+
+Faith Lv 2,"Grants Hit +6, Avo +10, and Crit Avo +6 when using white magic.",Raise Faith skill level to D+
+Faith Lv 3,"Grants Hit +7, Avo +13, and Crit Avo +7 when using white magic.",Raise Faith skill level to C+
+Faith Lv 4,"Grants Hit +8, Avo +16, and Crit Avo +8 when using white magic.",Raise Faith skill level to B+
+Faith Lv 5,"Grants Hit +10, Avo +20, and Crit Avo +10 when using white magic.",Raise Faith skill level to A+
+Authority Lv 1,Grants Mt +2 with gambits.,Raise Authority skill level to E+
+Authority Lv 2,Grants Mt +4 with gambits.,Raise Authority skill level to D+
+Authority Lv 3,Grants Mt +6 with gambits.,Raise Authority skill level to C+
+Authority Lv 4,Grants Mt +8 with gambits.,Raise Authority skill level to B+
+Authority Lv 5,Grants Mt +10 with gambits.,Raise Authority skill level to A+
+Swordfaire,Grants Atk +5 when using a sword.,"Raise Sword skill level to S+, Class: Hero, Swordmaster, Assassin, Enlightened One, Mortal Savant"
+Lancefaire,Grants Atk +5 when using a lance.,"Raise Lance skill level to S+, Class: High Lord, Paladin, Great Lord, Falcon Knight, Great Knight"
+Axefaire,Grants Atk +5 when using an axe.,"Raise Axe skill level to S+, Class: Armored Lord, Fortress Knight, Wyvern Rider, Warrior, Emperor, Wyvern Lord, Great Knight, War Master"
+Bowfaire,Grants Atk +5 when using a bow.,"Raise Bow skill level to S+, Class: Wyvern Master, Sniper, Barbarossa, Bow Knight"
+Fistfaire,Grants Atk +5 when brawling.,"Raise Brawling skill level to S+, Class: Grappler, War Master"
+Black Tomefaire,Grants Atk +5 when using black magic.,"Raise Reason skill level to S+ (except Edelgard, Hubert and Lysithea), Class: Warlock, Mortal Savant, Dark Knight"
+White Tomefaire,Grants Atk +5 when using white magic.,"Raise Faith skill level to S+, Class: Holy Knight"
+Dark Tomefaire,Grants Atk +5 when using dark magic.,"Raise Reason skill level to S+ for Edelgard, Hubert or Lysithea, Class: Dark Knight"
+Sword Crit +10,Grants Crit +10 when using a sword.,"Raise Sword skill level to S, Class: Swordmaster"
+Lance Crit +10,Grants Crit +10 when using a lance.,Raise Lance skill level to S
+Axe Crit +10,Grants Crit +10 when using an axe.,"Raise Axe skill level to S, Class: Warrior"
+Bow Crit +10,Grants Crit +10 when using a bow.,Raise Bow skill level to S
+Brawl Crit +10,Grants Crit +10 when brawling.,Raise Brawling skill level to S
+Black Magic Crit +10,Grants Crit +10 when using black magic.,Budding talent: Edelgard and Felix
+White Magic Crit +10,"When using white magic, Grants Crit +10 .",
+Dark Magic Crit +10,"When using dark magic, Grants Crit +10 .",
+Sword Avo +20,Grants Avo +20 when using a sword.,
+Lance Avo +20,"When using a lance, Grants Avo +20 .",
+Axe Avo +20,Grants Avo +20 when using an axe.,
+Bow Avo +20,Grants Avo +20 when using a bow.,
+Brawl Avo +20,Grants Avo +20 when brawling.,
+Black Magic Avo +20,Grants Avo +20 when using black magic.,Budding talent: Sylvain
+White Magic Avo +20,Grants Avo +20 when using white magic.,Budding talent: Dorothea
+Dark Magic Avo +20,"When using dark magic, Grants Avo +20 .",
+HP +5,Increases maximum HP by 5.,Class mastered: Noble or Commoner
+Strength +2,Increases Str by 2.,Class mastered: Fighter
+Magic +2,Increases Mag by 2.,Class mastered: Monk
+Dexterity +4,Increases Dex by 4.,Raise Riding skill level to C
+Speed +2,Increases Spd by 2.,Class mastered: Myrmidon
+Pomp & Circumstance,Grants Lck/Cha +4.,"Class mastered: Armored Lord, High Lord or Wyvern Master"
+Defense +2,Increases Def by 2.,Class mastered: Soldier
+Resistance +2,Increases Res by 2.,Class mastered: Lord
+Movement +1,Increases Mv by 1.,Raise Riding skill level to A+
+Hit +20,Increases Hit by 20.,Class mastered:Archer
+Avo +10,Increases Avo by 10.,"Class: Pegasus Knight, Falcon Knight, Wyvern Lord"
+Crit +20,Increases Crit by 20.,Class: War Master
+Defiant Str,Grants Str +8 when HP is ≤ 25%.,Class mastered: Hero
+Defiant Mag,Grants Mag +8 when HP is ≤ 25%.,Class mastered: Gremory
+Defiant Spd,Grants Spd +8 when HP is ≤ 25%.,Class mastered: Bow Knight
+Defiant Def,Grants Def +8 when HP is ≤ 25%.,Class mastered: Great Knight
+Defiant Res,Grants Res +8 when HP is ≤ 25%.,Class mastered: Holy Knight
+Defiant Avo,Grants Avo +30 when HP is ≤ 25%.,Class mastered: Falcon Knight
+Defiant Crit,Grants Crit +50 when HP is ≤ 25%.,Class mastered: Wyvern Lord
+Imperial Lineage,Multiplies experience earned by 1.2.,Personal: Edelgard
+Royal Lineage,Multiplies experience earned by 1.2.,Personal: Dimitri
+Leicester Lineage,Multiplies experience earned by 1.2.,Personal: Claude
+Mastermind,Doubles skill experience earned in battle.,Personal: Lysithea
+Death Blow,"If unit initiates combat, grants Str +6 during combat.",Class mastered: Brigand
+Fiendish Blow,"If unit initiates combat, grants Mag +6 during combat","Class: Dark Bishop, Class mastered: Mage"
+Darting Blow,"If unit initiates combat, grants AS +6 during combat",Class mastered: Pegasus Knight
+Armored Blow,"If unit initiates combat, grants Def +6 during combat",Class mastered: Armored Knight
+Warding Blow,"If unit initiates combat, grants Res +6 during combat",Class mastered: Mortal Savant
+Officer Duty,Grants Mt +5 with gambits.,Personal: Hubert
+Lady Knight,Grants Mt +3 and Hit +5 with gambits.,Personal: Ingrid
+Watchful Eye,Grants Hit +20.,Personal: Ignatz
+Distinguished House,Unit deals 2 extra damage while in formation with a battalion.,Personal: Lorenz
+Veteran Knight,Unit takes 2 less damage while in formation with a battalion.,Personal: Gilbert
+Charm,Adjacent allies deal 3 extra damage during combat.,"Class: Lord, Armored Lord, High Lord, Wyvern Master, Emperor, Great Lord, Barbarossa"
+Advocate,Adjacent male allies deal 3 extra damage during combat.,Personal: Hilda
+Guardian,Adjacent female allies deal 3 extra damage during combat.,Personal: Seteth
+Lily’s Poise,Adjacent allies take 3 less damage during combat.,Personal: Flayn
+Infirmary Master,Adjacent allies gain Crit Avo +10 during combat.,Personal: Manuela
+Philanderer,"If a female ally is adjacent, unit deals 2 extra damage and takes 2 less damage during combat.",Personal: Sylvain
+Rivalry,"If a male ally is adjacent, unit deals 2 extra damage and takes 2 less damage during combat.",Personal: Leonie
+Born Fighter,Adjacent foes suffer Avo -10 during combat.,Personal: Caspar
+Rally Strength,Use Rally to grant Str +4 to an ally.,"Raise Authority skill level for Raphael (C), Ignatz (S) or Alois (D)"
+Rally Magic,Use Rally to grant Mag +4 to an ally.,Raise Authority skill level to D for Hubert or Ingrid
+Rally Speed,Use Rally to grant Spd +4 to an ally.,"Raise Authority skill level for Hubert (S), Annette (C+) or Ignatz (D)"
+Rally Defense,Use Rally to grant Def +4 to an ally.,Raise Authority skill level to D for Seteth or Gilbert
+Rally Resistance,Use Rally to grant Res +4 to an ally.,"Raise Authority skill level for Hubert (C+), Annette (D) or Seteth (S)"
+Rally Movement,Use Rally to grant Mv +1 to an ally.,Raise Authority skill level to S for protagonist or Annette
+Rally Dexterity,Use Rally to grant Dex +8 to an ally.,Raise Authority skill level for Ferdinand (D) or Ignatz (C+)
+Rally Luck,Use Rally to grant Lck +8 to an ally.,Raise Authority skill level to D for Flayn
+Rally Charm,Use Rally to grant Cha +8 to an ally.,"Raise Authority skill level for Edelgard (S), Dorothea (D), Dimitri (S), Claude (S) or Manuela (D)"
+Seal Strength,"If unit damages foe during combat, foe suffers Str -6 for 1 turn after combat.",Budding talent: Ignatz
+Seal Magic,"If unit damages foe during combat, foe suffers Mag -6 for 1 turn after combat.",Budding talent: Flayn
+Seal Speed,"If unit damages foe during combat, foe suffers Spd -6 for 1 turn after combat.",Budding talent: Ferdinand
+Seal Defense,"If unit damages foe during combat, foe suffers Def -6 for 1 turn after combat.",Class mastered: Wyvern Rider
+Seal Resistance,"If unit damages foe during combat, foe suffers Res -6 for 1 turn after combat.",Class mastered: Dark Knight
+Seal Movement,"If unit damages foe during combat, foe suffers Mv -1 for 1 turn after combat.",Budding talent: Dimitri
+Heartseeker,Adjacent foes suffer Avo -20 during combat.,"Class: Dark Mage, Dark Bishop"
+Swordbreaker+,Grants Hit/Avo +30 when using a lance against sword users.,
+Lancebreaker+,Grants Hit/Avo +30 when using an axe against lance users.,
+Axebreaker+,Grants Hit/Avo +30 when using a sword against axe users.,
+Bowbreaker,Grants Hit/Avo +20 when using magic against bow users.,Raise Reason skill level to B
+Fistbreaker,Grants Hit/Avo +20 when using a bow against brawlers.,Raise Bow skill level to B
+Tomebreaker,Grants Hit/Avo +20 when brawling against magic users.,Raise Brawling skill level to B
+Model Leader,Doubles experience earned for battalions.,"Raise Authority skill level to C+ for protagonist, Edelgard, Dimitri, Claude or Seteth"
+Defensive Tactics,Battalion endurance takes half damage.,Raise Authority skill level to B
+Offensive Tactics,Grants Mt +5 and Hit +20 with gambits.,Raise Authority skill level to S+
+Fire,"Allows unit to cast Fire. If Fire is already available, then unit can cast it twice as often.",Class: Mage
+Miasma Δ,"Allows unit to cast Miasma Δ. If Miasma Δ is already available, then unit can cast it twice as often.","Class: Dark Mage, Dark Bishop"
+Heal,"Allows unit to cast Heal. If Heal is already available, then unit can cast it twice as often.",Class: Priest
+Renewal,Unit recovers up to 20% of max HP at the start of each turn.,Class mastered: Bishop
+Catnap,"If unit takes no action except Wait, recovers up to 10% of max HP.",Personal: Linhardt
+Goody Basket,Chance to recover up to 10% of max HP at the start of each turn. Trigger % = Lck stat.,Personal: Raphael
+Songstress,Adjacent allies recover up to 10% of max HP at the start of each turn.,Personal: Dorothea
+Hunter’s Boon,Grants Crit +20 when foe’s HP is ? 50%.,Personal: Petra
+Poison Strike,"If unit initiates combat and lands a hit, targeted foe loses up to 20% of max HP after combat.",Class mastered: Dark Mage
+Live to Serve,"When healing an ally with white magic, unit recovers the same amount of HP.",Personal: Mercedes
+Lifetaker,Unit recovers HP equal to 50% of damage dealt after defeating a foe.,Class mastered: Dark Bishop
+Survival Instinct,"If unit initiates combat and defeats foe, grants Str/Mag/Dex/Spd +4 for one turn.",Personal: Shamir
+Lethality,Chance to instantly kill a foe when dealing damage. Trigger % = 0.25×Dex.,Class mastered: Assassin
+Poison,Chance to inflict poison on foe when dealing damage. Trigger % = Dex stat.,Enemy
+Pavise,Chance to reduce sword/lance/axe/brawling damage by half. Trigger % = Dex stat.,Class mastered: Fortress Knight
+Aegis,Chance to reduce bow/magic damage by half. Trigger % = Dex stat.,Class mastered: Paladin
+Miracle,"Chance to survive lethal damage with 1 HP, if HP is > 1. Trigger % = Lck stat.",Class mastered: Priest
+Terrain Resistance,Nullifies damage from terrain.,"Class: Paladin, Bishop, Enlightened One, Holy Knight"
+Special Dance,"When using the Dance ability, grant Dex/Spd/Lck +4 to target ally.",Class mastered: Dancer
+Paragon,Doubles experience earned.,
+Professor’s Guidance,Multiplies this unit’s and adjacent allies’ experience earned by 1.2.,Personal: Protagonist
+Discipline,Doubles skill experience earned in battle.,
+Aptitude,Makes each stat 20% more likely to increase on level up.,Personal: Cyril
+Vantage,"When foe initiates combat, unit still attacks first if HP is ≤ 50%.","Class mastered: Mercenary, Class: Hero"
+Missing Number,Missing Number (icon is based on Wary Fighter),SpoOoOoky
+Desperation,"If unit initiates combat with HP ≤ 50%, unit’s follow-up attack (if possible) occurs before foe’s counterattack.",Class mastered: Cavalier
+Quick Riposte,"If foe initiates combat while unit’s HP is ≥ 50%, unit makes guaranteed follow-up attack.",Class mastered: War Master
+Wrath,"If foe initiates combat while unit’s HP is ≤ 50%, grants Crit +50.",Class mastered: Warrior
+Dance,Use Dance to allow an ally to move again.,Class: Dancer
+Steal,Allows unit to steal a non-weapon item from a foe with a lower Spd stat.,"Class: Thief, Class mastered: Thief"
+Locktouch,Allows unit to open doors and chests without keys.,"Class: Thief, Assassin"
+Stealth,Makes it more difficult for foes to target unit.,Class: Assassin
+Canto,"Allows unit to move again after completing certain actions, if there is movement remaining.","Class: Cavalier, Pegasus Knight, Wyvern Master, Paladin, Wyvern Lord, Barbarossa, Falcon Knight, Wyvern Lord, Great Knight, Bow Knight, Holy Knight, Dark Knight"
+Pass,Allows unit to pass through spaces occupied by foes.,Budding talent: Bernadetta
+Swordbreaker,Grants Hit/Avo +20 when using a lance against sword users.,Raise Lance skill level to B
+Lancebreaker,Grants Hit/Avo +20 when using an axe against lance users.,Raise Axe skill level to B
+Bowrange +1,Increases bow range by 1.,"Class: Archer, Sniper"
+Bowrange +2,Increases bow range by 2.,Class: Bow Knight
+Black Magic Range +1,Increases black magic range by 1.,"Raise Reason skill level to S (except for Edelgard, Hubert and Lysithea)"
+Dark Magic Range +1,Increases dark magic range by 1.,"Raise Reason skill level to S for Edelgard, Hubert or Lysithea"
+White Magic Range +1,Increases white magic range by 1 for attacks that damage foes.,Raise Faith skill level to S
+Unarmed Combat,Allows unit to fight without a weapon.,"Class: Brawler, Grappler, Class mastered: Brawler"
+Black Magic Uses x2,Doubles the number of uses for black magic.,"Class: Warlock, Gremory"
+Dark Magic Uses x2,Doubles the number of uses for dark magic.,Class: Gremory
+White Magic Uses x2,Doubles the number of uses for white magic.,"Class: Bishop, Gremory"
+White Magic Heal +5,Heal 5 extra HP when using white magic.,Class: Priest
+White Magic Heal +10,Heal 10 extra HP when using white magic.,Class: Bishop
+Weight -3,Reduces total equipment weight by 3.,Raise Heavy Armour skill level to C
+Weight -5,Reduces total equipment weight by 5.,"Raise Heavy Armour skill level to A+, Class: Fortress Knight"
+Axebreaker,Grants Hit/Avo +20 when using a sword against axe users.,Raise Sword skill level to B
+Unsealable Magic,Prevents unit from being silenced.,
+Immune Status,Nullifies status effects and debuffs.,
+General,Nullifies instant death effects and halves damage from enemy gambits.,Enemy/NPC
+Commander,"Nullifies instant death effects, status effects, and movement effects, and greatly reduces damage from enemy gambits.",Enemy/NPC
+Infinite Magic,Removes the limitation on the number of times magic can be used.,
+Magic Bind,"If unit lands a hit, targeted foe is unable to use magic for 1 turn.",
+Infantry Effect Null,Cancels effectiveness against infantry units.,
+Armored Effect Null,Nullifies any extra effectiveness against armored units.,Raise Heavy Armour skill level to S+
+Cavalry Effect Null,Nullifies any extra effectiveness against cavalry units.,Raise Riding skill level to S+
+Flying Effect Null,Nullifies any extra effectiveness against fliers.,Raise Flying skill level to S+
+Dragon Effect Null,Cancels effectiveness against dragons.,
+Monster Effect Null,Nullifies any extra effectiveness against monsters.,Enemy
+Effect Null,Cancels all types of effectiveness.,
+Air of Intimidation,On Hold,Unused?
+Vital Defense,Makes critical hits against this unit impossible.,Enemy Demonic Beasts
+Giant Wings,"Grants Avo +30 against sword, lance, or axe users.",Enemy Demonic Beasts
+Anti-Magic Armor,Nullifies damage from magic attacks.,Enemy Demonic Beasts
+Divine Dragon Horn,Unit recovers 100% of HP at the start of each turn if a White Beast is within 10 spaces.,
+Path of the Conqueror,On Hold,Unused?
+Noncombatant,Unit cannot be targeted by foes.,
+Battalion Desperation,"If unit initiates combat when battalion endurance is ≤ 1/3, unit’s follow-up attack (if possible) occurs before foe’s counterattack.","Raise Authority skill level to C for Dorothea, Ferdinand, Ashe, Ingrid, Claude, Lysithea, Ignatz, Leonie, Hanneman, Cyril or Shamir. Raise to A for protagonist, Hubert or Seteth."
+Cursed Power,Unit recovers HP on swamp terrain.,
+Anchor,Prevents unit from being moved.,
+Counterattack,Allows unit to counterattack regardless of distance to attacker.,Enemy
+Twin Crests,Allows unit to take two actions in one turn.,Enemy
+Ancient Dragon Wrath,Calculates damage using the lower of foe’s Prt or Rsl.,Enemy
+Surging Light,Performs Staggering Blow immediately.,Enemy
+Ancient Dragonskin,"Halves all damage taken, negates some abilities and combat arts, and prevents unit from being moved.",Enemy
+Keen Intuition,Grants Avo +30 during combat with a foe 2 or more spaces away.,
+Staunch Shield,"If unit takes no action except Wait, grants Def +4 for 1 turn.",Personal: Dedue
+Lone Wolf,Unit deals 5 extra damage when no battalion is assigned or when battalion endurance is 0.,Personal: Felix
+Fighting Spirit,Unit takes 5 less damage when no battalion is assigned or when battalion endurance is 0.,Personal: Catherine
+Confidence,Grants Hit/Avo +15 when unit is at full HP.,Personal: Ferdinand
+Persecution Complex,Grants Atk +5 when unit is not at full HP.,Personal: Bernadetta
+Animal Friend,Unit recovers up to 20% of max HP at the start of each turn when adjacent to a cavalry or flying ally.,Personal: Marianne
+Perseverance,Use Rally to grant Str +4 to an ally.,Personal: Annette
+Crest Scholar,Use Rally to grant Mag +4 to an ally.,Personal: Hanneman
+Compassion,Use Rally to grant Lck +8 to an ally.,Personal: Alois
+Lockpick,Allows unit to open doors and chests without keys.,Personal: Ashe
+Battalion Vantage,"When foe initiates combat, unit still attacks first if battalion endurance is ≤ 1/3.","Raise Authority skill level to C for protagonist, Edelgard, Felix, Sylvain, Lorenz or Catherine. Raise to A for Dimitri or Ignatz."
+Battalion Wrath,"If foe initiates combat while unit’s battalion endurance is ≤ 1/3, grants Crit +50.","Raise Authority skill level to C for Hubert, Bernadetta, Caspar, Petra, Dimitri, Dedue, Hilda, Raphael, Seteth, Alois or Gibert. Raise to A for Annette or Claude."
+Battalion Renewal,Unit recovers up to 30% of max HP at the start of each turn while battalion endurance is ≤ 1/3.,"Raise Authority skill level to C for Linhardt, Mercedes, Annette, Marianne, Manuela or Flayn. Raise to A for Edelgard."
+Black Magic Uses Up+,Quadruples the number of uses for black magic.,
+Dark Magic Uses x4,Quadruples the number of uses for dark magic.,
+White Magic Uses Up+,Quadruples the number of uses for white magic.,
+Mighty King of Legend,Negates 1 attack per turn and strengthens stats while the 10 Elites are present.,Enemy
+10 Elites,Grants power to the Mighty King of Legend.,Enemy
+Alert Stance,"If unit takes no action except Wait, grants Avo +15 for 1 turn.",Raise Flying skill level to B
+Alert Stance+,"If unit takes no action except Wait, grants Avo +30 for 1 turn.",Raise Flying skill level to A+
+Close Counter,Allows unit to counterattack adjacent foes.,Raise Bow skill level to C
+Professor’s Guidance+,Unit deals 2 extra damage during combat. Multiplies this unit’s and adjacent allies’ experience earned by 1.2.,Personal: Protagonist (halfway through Chapter 10’s story mission)
+Imperial Lineage+,"If unit takes no action except Wait, grants Res +4 for 1 turn. Multiplies experience earned by 1.2.",Personal: Edelgard (from Part 2)
+Royal Lineage+,Grants Avo +20 while unit is at full HP. Multiplies experience earned by 1.2.,Personal: Dimitri (from Part 2)
+Leicester Lineage+,Allows unit to pass through spaces occupied by foes. Multiplies experience earned by 1.2.,Personal: Claude (from Part 2)
+Murderous Intent,"If unit initiates combat, grants Hit +20 during combat.",
+Sacred Power,Adjacent allies deal 3 extra damage and take 3 less damage during combat.,"Personal: Rhea, Class mastered: Enlightened One"
+Agarthan Technology,Adjacent foes deal 3 less damage during combat.,Enemy
+Blade Breaker,"If unit damages foe, foe suffers Str/Def -6 for 1 turn after combat.",Personal: Jeralt

@@ -4,69 +4,90 @@ const parse = require('csv-parse');
 const async = require('async');
 const _ = require('lodash');
 
-const characters = path.resolve(__dirname, 'characters.csv');
-const classes = path.resolve(__dirname, 'classes.csv');
-const supports = path.resolve(__dirname, 'supports.csv');
-
 const DATA = {};
 
+function processCsvFile(filename, fn, cb) {
+	return function(cb) {
+		fs.readFile(path.resolve(__dirname, filename), function(err, fileData) {
+			if (err) throw err;
+			console.log('Begin parsing ' + filename);
+			parse(fileData, { columns: true, trim: true }, function(err, parsed) {
+				if (err) throw err;
+				fn(parsed, cb);
+			});
+		});
+	};
+}
+
 async.series([
-	function(cb) {
-		fs.readFile(characters, function(err, fileData) {
-			if (err) throw err;
-			parse(fileData, { columns: true, trim: true }, function(err, parsed) {
-				if (err) throw err;
-				console.log('Parsed characters.csv');
-				DATA.characters = parsed.map((char, idx) => {
-					let res = {
-						name: char.name,
-						id: idx,
-						house: char.house,
-						growths: {},
-					};
-					Object.keys(char).forEach((k) => {
-						if(k.indexOf('growths_') !== -1) {
-							res.growths[k.replace('growths_', '')] = char[k];
-						}
-					});
-					return res;
-				});
-				cb();
+	processCsvFile('characters.csv', function(parsed, cb) {
+		DATA.characters = parsed.map((char, idx) => {
+			let res = {
+				name: char.name,
+				id: idx,
+				house: char.house,
+				growths: {},
+			};
+			Object.keys(char).forEach((k) => {
+				if (k.indexOf('growths_') !== -1) {
+					res.growths[k.replace('growths_', '')] = char[k];
+				}
 			});
+			return res;
 		});
-	},
-	function(cb) {
-		fs.readFile(classes, function(err, fileData) {
-			if (err) throw err;
-			parse(fileData, { columns: true, trim: true }, function(err, parsed) {
-				if (err) throw err;
-				console.log('Parsed classes.csv');
-				DATA.classes = parsed;
-				cb();
-			});
+		cb();
+	}),
+	processCsvFile('abilities.csv', function(parsed, cb) {
+		DATA.abilities = parsed.map((row) => {
+			delete row.origin;
+			return row;
 		});
-	},
-	function(cb) {
-		fs.readFile(supports, function(err, fileData) {
-			if (err) throw err;
-			parse(fileData, { columns: false, trim: true }, function(err, parsed) {
-				if (err) throw err;
-				console.log('Parsed supports.csv');
-				parsed.forEach((i) => {
-					let name = i[0].toLowerCase().trim();
-					let obj = DATA.characters.find((cur) => {
-						return cur.name.toLowerCase().trim() == name;
-					});
-					if(obj) {
-						let supportsStr = i[1].replace(/ /g, '');
-						let supports = supportsStr.split(",");
-						obj.supports = supports;
+		cb();
+	}),
+	processCsvFile('classes.csv', function(parsed, cb) {
+		DATA.classes = parsed.map((row) => {
+			let res = {
+				name: row.name,
+				growths: {},
+				certification: {},
+				masteredAbility: row.mastered_ability,
+				tags: row.tags ? row.tags.replace(/ /g,'').split(',') : [],
+			// equippedAbilities: [],
+			};
+			Object.keys(row).forEach((k) => {
+				let val = row[k];
+				if(val !== '') {
+					if (k.indexOf('growths_') !== -1) {
+						if(isNaN(val)) throw new Error('bad val ' + val);
+						res.growths[k.replace('growths_', '')] = val;
+					} else if (k.indexOf('cert_') !== -1) {
+						res.certification[k.replace('cert_', '')] = val;
+					} else if (k.indexOf('equip_ability') !== -1) {
+					// validate that ability exists
+					// if(!DATA.abilities.find((i) => (i.name.trim() == val.trim()))) {
+					// 	throw new Error(`Can't find ability ` + val);
+					// }
+					// res.equippedAbilities.push(val);
 					}
-				});
-				cb();
+				}
 			});
+			return res;
 		});
-	}
+		cb();
+	}),
+	processCsvFile('supports.csv', function(parsed, cb) {
+		parsed.forEach((i) => {
+			let obj = DATA.characters.find((cur) => {
+				return cur.name.trim() == i.name.trim();
+			});
+			if (obj) {
+				let supportsStr = i.supports.replace(/ /g, '');
+				let supports = supportsStr.split(",");
+				obj.supports = supports;
+			}
+		});
+		cb();
+	}),
 ], finish);
 
 function finish() {

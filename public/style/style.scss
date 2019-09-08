@@ -122,6 +122,14 @@ textarea {
 	height: 200px;
 }
 
+ul, ol {
+	padding: 0;
+	margin: 0;
+	li {
+		list-style: none;
+	}
+}
+
 h1, h2, h3 {
 	margin: 0 0 5px;
 }
@@ -165,14 +173,6 @@ h1 {
 		margin: 10px 0;
 		color: var(--beige700);
 		padding-left: 10px;
-	}
-
-	ul, ol {
-		padding: 0;
-		margin: 0;
-		li {
-			list-style: none;
-		}
 	}
 
 	li.sidebar-clickable {
@@ -245,7 +245,7 @@ h1 {
 		}
 		.main-card-body {
 			padding: 15px 30px 30px;
-			overflow: scroll;
+			overflow: auto;
 			&.has-tabs {
 				padding: 0 30px 30px;
 			}
@@ -263,7 +263,7 @@ h1 {
 		}
 		.bl {
 			background-color: var(--blue700);
-			color: var(--gold500);
+			color: var(--blue200);
 		}
 		.gd {
 			background-color: var(--gold500);
@@ -350,7 +350,6 @@ h1 {
 		width: 100%;
 		padding-left: 0;
 		margin: 0;
-		// background-color: var(--lavgray600);
 	}
 		
 	&__tab {
@@ -363,13 +362,11 @@ h1 {
 		color: var(--beige600);
 
 		&:hover:not(&--selected) {
-			// background-color: var(--beige200);
 			border-bottom: solid 5px var(--lavender100);
 			color: var(--lavender800);
 		}
 
 		&--selected {
-			// background-color: var(--lavender100);
 			color: var(--lavender900);
 			border-bottom: solid 5px var(--lavender300);
 		}

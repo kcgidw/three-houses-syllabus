@@ -24,6 +24,7 @@ class App extends React.Component {
 		this.getMainView = this.getMainView.bind(this);
 		this.handleRosterToggle = this.handleRosterToggle.bind(this);
 		this.getSortedRoster = this.getSortedRoster.bind(this);
+		this.updateRoster = this.updateRoster.bind(this);
 	}
 	getSortedRoster() {
 		return [... this.state.roster].sort((a, b) => {
@@ -76,6 +77,11 @@ class App extends React.Component {
 			roster: Roster.toggleHouseActive(this.state.roster, house),
 		});
 	}
+	updateRoster(newRoster) {
+		this.setState({
+			roster: newRoster
+		});
+	}
 	getMainView() {
 		switch (this.state.view) {
 			case VIEWS.SAVELOAD:
@@ -83,7 +89,7 @@ class App extends React.Component {
 			case VIEWS.ROSTER:
 				return (<EditRosterView roster={this.state.roster} onToggle={this.handleRosterToggle} onToggleHouse={this.handleHouseToggle.bind(this)} />);
 			case VIEWS.CHARPLAN:
-				return (<CharacterPlan key={this.state.charPlanFocus.name} charData={Data.findCharData(this.state.charPlanFocus.name)} roster={this.state.roster} />);
+				return (<CharacterPlan key={this.state.charPlanFocus.name} charData={Data.findCharData(this.state.charPlanFocus.name)} roster={this.state.roster} updateRoster={this.updateRoster.bind(this)} />);
 			default:
 				throw 'Bad view';
 		}

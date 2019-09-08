@@ -3,6 +3,7 @@ import * as Util from '../util';
 import * as Roster from '../roster';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import React, { Component, PropTypes } from 'react';
+import ClassCard from './classCard';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -11,6 +12,9 @@ class CharacterPlan extends React.Component {
 			charPlan: Roster.findCharPlan(this.props.roster, this.props.charData.name),
 			supportable: this.getSupportable(),
 		};
+		if(!this.state.charPlan) {
+			throw `Can't find charPlan for ` + this.props.charData.name;
+		}
 		this.getTableColumns = this.getTableColumns.bind(this);
 		this.getGrowths = this.getGrowths.bind(this);
 		this.getSupportable = this.getSupportable.bind(this);
@@ -34,6 +38,14 @@ class CharacterPlan extends React.Component {
 			return Roster.findActiveCharPlan(this.props.roster, name);
 		});
 		return res;
+	}
+	renderClasses() {
+		return Object.keys(this.state.charPlan.classes).map((className) => {
+			let classData = Data.findClass(className);
+			return (<li key={className}>
+				<ClassCard data={classData} />
+			</li>);
+		});
 	}
 	render() {
 		return (<div className="main-card">
@@ -67,6 +79,10 @@ class CharacterPlan extends React.Component {
 						</div>
 					</TabPanel>
 					<TabPanel>
+						<button className="btn primary">Add Class</button>
+						<ol>
+							{this.renderClasses()}
+						</ol>
 					</TabPanel>
 					<TabPanel>
 					</TabPanel>

@@ -4,6 +4,7 @@ import * as Roster from '../roster';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import React, { Component, PropTypes } from 'react';
 import ClassCard from './classCard';
+import GrowthsTable from './growthsTable';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -15,22 +16,7 @@ class CharacterPlan extends React.Component {
 		if(!this.state.charPlan) {
 			throw `Can't find charPlan for ` + this.props.charData.name;
 		}
-		this.getTableColumns = this.getTableColumns.bind(this);
-		this.getGrowths = this.getGrowths.bind(this);
 		this.getSupportable = this.getSupportable.bind(this);
-	}
-	getTableColumns() {
-		return Data.STATIC.stats.map((s) => {
-			return (<th key={s}>{Util.capitalize(s)}</th>);
-		});
-	}
-	getGrowths() {
-		let growths = this.props.charData.growths;
-		return Object.keys(growths).map((g) => {
-			let val = growths[g];
-			let classes = Util.getGrowthClassName(val);
-			return (<td key={g} className={classes}>{val}</td>);
-		});
 	}
 	getSupportable() {
 		let allSupports = this.props.charData.supports;
@@ -67,14 +53,7 @@ class CharacterPlan extends React.Component {
 							</div>
 							<div id="base-growths" className="card">
 								<h3>Growths</h3>
-								<table>
-									<thead>
-										<tr>{this.getTableColumns()}</tr>
-									</thead>
-									<tbody>
-										<tr className="number">{this.getGrowths()}</tr>
-									</tbody>
-								</table>
+								<GrowthsTable growths={this.props.charData.growths} />
 							</div>
 						</div>
 					</TabPanel>

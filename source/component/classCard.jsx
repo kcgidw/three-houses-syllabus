@@ -1,3 +1,5 @@
+import GrowthsTable from "./growthsTable";
+
 export default class ClassCard extends React.Component {
 	constructor(props) {
 		super(props);
@@ -34,6 +36,12 @@ export default class ClassCard extends React.Component {
 					<h3>Certification</h3>
 					<ol>
 						{this.renderCertification()}
+					</ol>
+				</div>
+				<div className="class-growths">
+					<h3>Growths</h3>
+					<ol>
+						{/* <GrowthsTable growths={this.props.data.growths} /> */}
 					</ol>
 				</div>
 				{this.renderMasteredAbility()}

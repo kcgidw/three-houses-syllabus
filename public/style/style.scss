@@ -118,7 +118,8 @@ body {
 textarea {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	height: 200px;
 }
 
@@ -250,12 +251,13 @@ h1 {
 				padding: 0 30px 30px;
 			}
 		}
+		.main-card-content {
+			display: flex;
+			flex-wrap: wrap;
+		}
 	}
 
-	#edit-roster-body {
-		#sublists {
-			display: flex;
-		}
+	#edit-roster-card {
 
 		.be {
 			background-color: var(--red500);
@@ -370,5 +372,9 @@ h1 {
 			color: var(--lavender900);
 			border-bottom: solid 5px var(--lavender300);
 		}
+	}
+
+	&__tab-panel--selected {
+		padding-top: 25px;
 	}
 }

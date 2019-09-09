@@ -42,11 +42,11 @@ class EditRoster extends React.Component {
 		</div>);
 	}
 	render() {
-		return (<div id="edit-roster-body" className="main-card">
+		return (<div id="edit-roster-card" className="main-card">
 			<div className="main-card-header">
 				<h1>Edit Roster</h1>
 			</div>
-			<div id="sublists" className="main-card-body">
+			<div id="sublists" className="main-card-body main-card-content">
 				{this.renderSublist('be')}
 				{this.renderSublist('bl')}
 				{this.renderSublist('gd')}

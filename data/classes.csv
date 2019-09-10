@@ -5,10 +5,10 @@ Myrmidon,10,,,,5,,,-5,5,D,,,,,,,,,,,,,,Speed +2,Swap,beginner,
 Soldier,10,,,5,,,,-5,5,,D,,,,,,,,,,,,,Defense +2,Reposition,beginner,
 Fighter,10,5,,,,,,-5,5,,,D,D,D,,,,,,,,,,Strength +2,Shove,beginner,
 Monk,5,,,,,,,5,5,,,,,,D,D,,,,,,,,Magic +2,Draw Back,beginner,
-Lord,20,,,10,,,,,10,,D+,,,,,,,C,,,Charm,,,Resistance +2,Subdue,intermediate,houseLeader
+Lord,20,,,10,,,,,10,,D+,,,,,,C,,,,Charm,,,Resistance +2,Subdue,intermediate,houseLeader
 Mercenary,20,5,,,5,,,-5,5,C,,,,,,,,,,,,,,Vantage,,intermediate,
 Thief,20,,,10,10,,,,5,C,,,,,,,,,,,Steal,Locktouch,,Steal,,intermediate,
-Armored Knight,20,,,,-10,,10,-5,5,,,C,,,,,,D,,,,,,Armored Bow,,intermediate,
+Armored Knight,20,,,,-10,,10,-5,5,,,C,,,,,,D,,,,,,Armored Blow,,intermediate,
 Cavalier,20,5,,5,-10,,5,,5,,C,,,,,,,,D,,Canto,,,Desperation,,intermediate,
 Brigand,30,10,,,,,,-5,5,,,C,,,,,,,,,,,,Death Blow,,intermediate,
 Archer,5,,,10,,5,,,5,,,,C,,,,,,,,Bowrange +1,,,Hit +20,,intermediate,

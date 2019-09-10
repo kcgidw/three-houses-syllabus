@@ -17,15 +17,15 @@
 	--beige700: hsl(50, 7%, 45%);
 	--beige800: hsl(50, 7%, 35%);
 	--beige900: hsl(50, 7%, 25%);
-	--lavgray100: hsl(250, 20%, 98%);
-	--lavgray200: hsl(250, 20%, 95%);
-	--lavgray300: hsl(250, 20%, 85%);
-	--lavgray400: hsl(250, 20%, 75%);
-	--lavgray500: hsl(250, 20%, 65%);
-	--lavgray600: hsl(250, 20%, 55%);
-	--lavgray700: hsl(250, 20%, 45%);
-	--lavgray800: hsl(250, 20%, 35%);
-	--lavgray900: hsl(250, 20%, 25%);
+	--lavgray100: hsl(250, 25%, 98%);
+	--lavgray200: hsl(250, 25%, 95%);
+	--lavgray300: hsl(250, 25%, 90%);
+	--lavgray400: hsl(250, 25%, 85%);
+	--lavgray500: hsl(250, 25%, 75%);
+	--lavgray600: hsl(250, 25%, 65%);
+	--lavgray700: hsl(250, 25%, 55%);
+	--lavgray800: hsl(250, 25%, 45%);
+	--lavgray900: hsl(250, 25%, 30%);
 	--lavender100: hsl(240, 100%, 96%);
 	--lavender200: hsl(240, 100%, 90%);
 	--lavender300: hsl(240, 90%, 85%);
@@ -57,7 +57,7 @@ $Crimson: 'Crimson Pro', serif;
 body {
 	font-family: $Podkova;
 	background-color: var(--lavgray900);
-	color: var(--lavgray900);
+	color: var(--beige800);
 
 	--top-header-height: 30px;
 }
@@ -75,25 +75,38 @@ body {
 	cursor: pointer;
 	border-radius: 4px;
 	text-align: center;
+	font-weight: 700;
 
 	&.primary {
+		min-width: 80px;
 		font-size: 1em;
+		padding: 6px 0;
 		border: none;
-		padding: 6px 20px;
+		box-shadow: 0 2px 4px var(--shadow);
 		background: var(--lavender600);
 		color: var(--lavender100);
 		&:hover {
-		background: var(--lavender500);
+			background: var(--lavender500);
 		}
 	}
-	&.second {
+	&.secondary {
+		min-width: 80px;
 		font-size: 1em;
+		padding: 6px 20px;
+		border: solid 1px var(--lavender500);
+		background: var(--beige100);
+		color: var(--lavender700);
+		&:hover {
+			background: var(--beige200);
+		}
 	}
 	&.tert {
-		font-size: .8em;
-		border: none;
 		padding: 3px 6px;
+		border: none;
+		box-shadow: none;
 		background: none;
+
+		font-size: .8em;
 		text-decoration: underline;
 
 		&:hover {
@@ -108,15 +121,20 @@ body {
 	padding: 15px 20px 20px;
 	margin: 15px;
 	border-radius: 2px;
-	box-shadow: 0 0 5px var(--shadow);
+	box-shadow: 0 2px 5px var(--shadow);
 }
 .heavy {
 	font-weight: 700;
 	font-size: 1.2em;
 }
+.empty-data-comment {
+	font-style: italic;
+	color: var(--beige600);
+	font-size: 0.8em;
+}
 
 textarea {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 11px;
 	width: 100%;
 	max-width: 600px;
@@ -165,7 +183,7 @@ h1 {
 	box-shadow: 0 0 12px var(--shadow);
 	background-color: var(--beige100);
 	color: var(--beige800);
-	font-weight: 600;
+	font-weight: 500;
 
 	h3.sidebar-header {
 		font-size: 11px;
@@ -179,10 +197,12 @@ h1 {
 	li.sidebar-clickable {
 		cursor: pointer;
 		padding: 5px 30px;
+		line-height: 19px;
 		&:not(.selected):hover {
 			background-color: var(--lavender100);
 			&.inactive {
 				color: var(--lavender400);
+				font-size: .9em;
 			}
 			&:not(.inactive) {
 				color: var(--lavender900);
@@ -191,6 +211,9 @@ h1 {
 		&.selected {
 			background-color: var(--lavender200);
 			color: var(--lavender900);
+		}
+		&.inactive {
+			font-size: .9em;
 		}
 	}
 
@@ -222,7 +245,7 @@ h1 {
 	}
 
 	.main-card {
-		max-width: 1200px;
+		max-width: 1280px;
 		margin: auto;
 		padding: 0;
 		border-radius: 4px;
@@ -254,11 +277,43 @@ h1 {
 		.main-card-content {
 			display: flex;
 			flex-wrap: wrap;
+
+			h1, h2, h3 {
+				color: var(--lavgray900);
+			}
+			
+			table {
+				border-spacing: 0;
+				border-top: solid 1px var(--beige300);
+				border-radius: 2px;
+				text-align: center;
+				td, th {
+					border-left: solid 1px var(--beige300);
+					border-bottom: solid 1px var(--beige300);
+					padding: 4px;
+					min-width: 25px;
+					&:last-child {
+						border-right: solid 1px var(--beige300);
+					}
+				}
+				td {
+					color: var(--beige600);
+				}
+				th {
+					font-weight: 500;
+					font-size: .9em;
+					background-color: var(--beige200);
+				}
+			}
+
+			.classes-list {
+				display: flex;
+				flex-wrap: wrap;
+			}
 		}
 	}
 
 	#edit-roster-card {
-
 		.be {
 			background-color: var(--red500);
 			color: var(--beige100);
@@ -285,65 +340,55 @@ h1 {
 			min-width: 200px;
 			text-align: center;
 			padding: 10px;
-		}
 
-		ol {
-			list-style: none;
-			padding: 0;
-			margin: auto;
-			width: 180px;
-			text-align: left;
-			li {
-				& > div {
-					cursor: pointer;
-					padding: 10px;
-					border: solid 1px var(--lavgray400);
-					color: var(--lavgray400);
-					border-radius: 2px;
-					margin-top: 9px;
+			ol {
+				list-style: none;
+				padding: 0;
+				margin: auto;
+				width: 180px;
+				text-align: left;
+				li {
+					& > div {
+						cursor: pointer;
+						padding: 10px;
+						border: solid 1px var(--lavgray400);
+						color: var(--lavgray400);
+						border-radius: 2px;
+						margin-top: 9px;
 
-					&:not(.active):hover {
-						background-color: var(--lavgray200);
-						color: var(--lavgray500);
-					}
-					&.active {
-						border-color: var(--lavender600);
-						background-color: var(--lavender100);
-						color: var(--lavender600);
-						box-shadow: 0 0 4px var(--lavender300);
+						&:not(.active):hover {
+							background-color: var(--lavgray200);
+							color: var(--lavgray500);
+						}
+						&.active {
+							border-color: var(--lavender600);
+							background-color: var(--lavender100);
+							color: var(--lavender600);
+							box-shadow: 0 2px 4px var(--lavender300);
+						}
 					}
 				}
 			}
 		}
+
 	}
 
 	.character-body {
 		display: flex;
 		margin-left: 2px;
-
-		table {
-			border-spacing: 0;
-			border-top: solid 1px var(--beige300);
-			border-radius: 2px;
-			text-align: center;
-			td, th {
-				border-left: solid 1px var(--beige300);
-				border-bottom: solid 1px var(--beige300);
-				padding: 4px;
-				min-width: 25px;
-				&:last-child {
-					border-right: solid 1px var(--beige300);
-				}
-			}
-			td {
-				color: var(--beige600);
-			}
-			th {
-				background-color: var(--beige200);
-			}
-		}
 	}
 
+}
+
+.class-card {
+	width: 320px;
+	min-height: 340px;
+	h2.class-name {
+		font-size: 1.2em;
+	}
+	.class-card-section {
+		margin-top: 15px;
+	}
 }
 
 .react-tabs {

@@ -1,6 +1,11 @@
 import * as Data from '../data';
 import * as Util from '../util';
 
+const TABLE_TYPE = {
+	BASE: 'BASE',
+	MODIFIER: 'MODIFIER',
+};
+
 export default class GrowthsTable extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,10 +19,16 @@ export default class GrowthsTable extends React.Component {
 	}
 	renderRowCells() {
 		let growths = this.props.growths;
-		return Object.keys(growths).map((g) => {
-			let val = growths[g];
-			let classes = Util.getGrowthClassName(val);
-			return (<td key={g} className={classes}>{val}</td>);
+		return Data.STATIC.stats.map((gColumn) => {
+			let val = growths[gColumn];
+			let classes;
+			if(this.props.tableType === TABLE_TYPE.BASE) {
+				classes = Util.appraiseBaseGrowthRate(val);
+			}
+			if(this.props.tableType === TABLE_TYPE.MODIFIER) {
+				classes = Util.appraiseGrowthRateModifier(val);
+			}
+			return (<td key={gColumn} className={classes}>{val}</td>);
 		});
 	}
 	render() {

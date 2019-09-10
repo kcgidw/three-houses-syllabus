@@ -17,6 +17,8 @@ class CharacterPlan extends React.Component {
 			throw `Can't find charPlan for ` + this.props.charData.name;
 		}
 		this.getSupportable = this.getSupportable.bind(this);
+		this.renderCharPlanClasses = this.renderCharPlanClasses.bind(this);
+		this.renderClasses = this.renderClasses.bind(this);
 	}
 	getSupportable() {
 		let allSupports = this.props.charData.supports;
@@ -25,13 +27,31 @@ class CharacterPlan extends React.Component {
 		});
 		return res;
 	}
-	renderClasses() {
+	renderCharPlanClasses() {
 		return Object.keys(this.state.charPlan.classes).map((className) => {
 			let classData = Data.findClass(className);
+			let action = () => {
+				this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, className));
+			};
 			return (<li key={className}>
-				<ClassCard data={classData} />
+				<ClassCard data={classData} handleClick={action} isAdded={true} />
 			</li>);
 		});
+	}
+	renderClasses() {
+		return Data.STATIC.classes
+			.filter((classData) => {
+				return this.state.charPlan.classes[classData.name] === undefined;
+			})
+			.map((classData) => {
+				let name = classData.name;
+				let action = () => {
+					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, name));
+				};
+				return (<li key={name}>
+					<ClassCard data={classData} handleClick={action} isAdded={false} />
+				</li>);
+			});
 	}
 	render() {
 		return (<div className="main-card">
@@ -53,15 +73,19 @@ class CharacterPlan extends React.Component {
 							</div>
 							<div id="base-growths" className="card">
 								<h3>Growths</h3>
-								<GrowthsTable growths={this.props.charData.growths} />
+								<GrowthsTable growths={this.props.charData.growths} tableType="BASE" />
 							</div>
 						</div>
 					</TabPanel>
 					<TabPanel>
-						<button className="btn primary">Add Class</button>
-						<ol>
-							{this.renderClasses()}
-						</ol>
+						<div className="main-card-content">
+							<ol className="classes-list">
+								{this.renderCharPlanClasses()}
+							</ol>
+							<ol className="classes-list">
+								{this.renderClasses()}
+							</ol>
+						</div>
 					</TabPanel>
 					<TabPanel>
 					</TabPanel>

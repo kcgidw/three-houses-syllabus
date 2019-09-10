@@ -53,16 +53,15 @@ export function toggleHouseActive(roster, house) {
 	});
 	return roster;
 }
-// export function addClass(roster, charPlan, className) {
-// 	let res = Object.assign({}, charPlan);
-// 	res.classes[className] = 1;
-// 	return res;
-// }
-// export function removeClass(roster, charPlan, className) {
-// 	let res = Object.assign({}, charPlan);
-// 	delete res.classes[className];
-// 	return res;
-// }
+export function toggleClass(roster, charPlan, className) {
+	let res = Object.assign({}, charPlan);
+	if(res.classes[className]) {
+		delete res.classes[className];
+	} else {
+		res.classes[className] = true;
+	}
+	return updateCharPlan(roster, charPlan, res);
+}
 export function updateCharPlan(roster, charPlan, newState) {
 	return roster.map((cp) => {
 		if(cp.name == charPlan.name) { // don't match by obj reference!

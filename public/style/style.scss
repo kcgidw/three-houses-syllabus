@@ -17,15 +17,15 @@
 	--beige700: hsl(50, 7%, 45%);
 	--beige800: hsl(50, 7%, 35%);
 	--beige900: hsl(50, 7%, 25%);
-	--lavgray100: hsl(250, 25%, 98%);
-	--lavgray200: hsl(250, 25%, 95%);
-	--lavgray300: hsl(250, 25%, 90%);
-	--lavgray400: hsl(250, 25%, 85%);
-	--lavgray500: hsl(250, 25%, 75%);
-	--lavgray600: hsl(250, 25%, 65%);
-	--lavgray700: hsl(250, 25%, 55%);
-	--lavgray800: hsl(250, 25%, 45%);
-	--lavgray900: hsl(250, 25%, 30%);
+	--lavgray100: hsl(250, 20%, 98%);
+	--lavgray200: hsl(250, 20%, 95%);
+	--lavgray300: hsl(250, 20%, 90%);
+	--lavgray400: hsl(250, 20%, 85%);
+	--lavgray500: hsl(250, 20%, 75%);
+	--lavgray600: hsl(250, 20%, 65%);
+	--lavgray700: hsl(250, 20%, 55%);
+	--lavgray800: hsl(250, 20%, 45%);
+	--lavgray900: hsl(250, 20%, 30%);
 	--lavender100: hsl(240, 100%, 96%);
 	--lavender200: hsl(240, 100%, 90%);
 	--lavender300: hsl(240, 90%, 85%);
@@ -33,8 +33,8 @@
 	--lavender500: hsl(240, 70%, 72%);
 	--lavender600: hsl(240, 60%, 65%);
 	--lavender700: hsl(240, 50%, 60%);
-	--lavender800: hsl(240, 40%, 50%);
-	--lavender900: hsl(240, 30%, 40%);
+	--lavender800: hsl(240, 40%, 45%);
+	--lavender900: hsl(240, 30%, 35%);
 	--brown800: hsl(40, 70%, 25%);
 	--red500: hsl(0, 50%, 50%);
 	--green500: hsl(90, 100%, 35%);
@@ -63,9 +63,10 @@ $Crimson: 'Crimson Pro', serif;
 // $Barlow: 'Barlow', sans-serif;
 
 body {
-	font-family: $Podkova;
 	background-color: var(--lavgray900);
 	color: var(--beige800);
+	font-family: $Podkova;
+	font-size: 14px;
 
 	--top-header-height: 30px;
 }
@@ -105,7 +106,7 @@ body {
 		background: var(--beige100);
 		color: var(--lavender700);
 		&:hover {
-			background: var(--beige200);
+			background: var(--lavgray200);
 		}
 	}
 	&.tert {
@@ -142,6 +143,7 @@ body {
 }
 .pill {
 	display: inline;
+	margin-right: 5px;
     padding: 3px 9px;
 	border-radius: 20px;
 	background-color: var(--beige300);
@@ -198,6 +200,7 @@ h1 {
 	box-shadow: 0 0 12px var(--shadow);
 	background-color: var(--beige100);
 	color: var(--beige800);
+	font-size: 15px;
 	font-weight: 500;
 
 	h3.sidebar-header {
@@ -254,10 +257,6 @@ h1 {
 	background-color: var(--beige400);
 	overflow-y: auto;
 	box-sizing: border-box;
-	
-	h2 {
-		font-size: 1.4em;
-	}
 
 	.main-card {
 		max-width: 1280px;
@@ -403,7 +402,7 @@ h1 {
 	width: 320px;
 	min-height: 340px;
 	h2.class-name {
-		font-size: 1.2em;
+		font-size: 1.5em;
 	}
 	.class-card-section {
 		margin-top: 15px;

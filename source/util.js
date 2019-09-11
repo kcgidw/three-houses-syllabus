@@ -20,3 +20,12 @@ export function appraiseGrowthRateModifier(val) {
 	}
 	return '';
 }
+export function compareClass(dataA, dataB) {
+	const tierOrder = ['basic', 'beginner', 'intermediate', 'advanced', 'master', 'event'];
+	let a = tierOrder.indexOf(dataA.tier);
+	let b = tierOrder.indexOf(dataB.tier);
+	if(a - b !== 0) {
+		return a- b;
+	}
+	return dataA.name.localeCompare(dataB.name);
+}

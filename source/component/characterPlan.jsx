@@ -28,15 +28,19 @@ class CharacterPlan extends React.Component {
 		return res;
 	}
 	renderCharPlanClasses() {
-		return Object.keys(this.state.charPlan.classes).map((className) => {
-			let classData = Data.findClass(className);
-			let action = () => {
-				this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, className));
-			};
-			return (<li key={className}>
-				<ClassCard data={classData} handleClick={action} isAdded={true} />
-			</li>);
-		});
+		return Object.keys(this.state.charPlan.classes)
+			.map((name) => {
+				return Data.findClass(name);
+			})
+			.sort(Util.compareClass)
+			.map((classData) => {
+				let action = () => {
+					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, classData.name));
+				};
+				return (<li key={classData.name}>
+					<ClassCard data={classData} handleClick={action} isAdded={true} />
+				</li>);
+			});
 	}
 	renderClasses() {
 		return Data.STATIC.classes

@@ -51,6 +51,7 @@ async.series([
 				growths: {},
 				certification: {},
 				masteredAbility: row.mastered_ability,
+				tier: row.tier,
 				tags: row.tags ? row.tags.replace(/ /g,'').split(',') : [],
 			// equippedAbilities: [],
 			};

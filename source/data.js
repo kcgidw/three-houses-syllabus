@@ -35,6 +35,9 @@ export function findAbility(name) {
 }
 export function filterByHouse(house) {
 	return STATIC.characters.filter((cd) => {
+		if(house === 'seiros') {
+			return ['kos', 'cos'].indexOf(cd.house) > -1;
+		}
 		return cd.house == house;
 	});
 }

@@ -45,8 +45,16 @@
 	--blue700: hsl(210, 100%, 40%);
 	--blue800: hsl(210, 100%, 30%);
 	--blue900: hsl(210, 100%, 20%);
-	--teal100: hsl(170, 60%, 97%);
-	--teal500: hsl(170, 100%, 40%);
+	--teal100: hsl(170, 90%, 97%);
+	--teal100: hsl(170, 90%, 90%);
+	--teal200: hsl(170, 95%, 80%);
+	--teal300: hsl(170, 95%, 70%);
+	--teal400: hsl(170, 100%, 60%);
+	--teal500: hsl(170, 100%, 50%);
+	--teal600: hsl(170, 100%, 40%);
+	--teal700: hsl(170, 100%, 35%);
+	--teal800: hsl(170, 100%, 30%);
+	--teal900: hsl(170, 100%, 20%);
 	--shadow: hsla(0, 0%, 0%, 0.2);
 }
 
@@ -332,6 +340,10 @@ h1 {
 		.gd {
 			background-color: var(--gold500);
 			color: var(--beige900);
+		}
+		.seiros {
+			background-color: var(--teal700);
+			color: var(--teal100);
 		}
 
 		.roster-sublist {

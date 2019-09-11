@@ -38,15 +38,17 @@ async.series([
 		cb();
 	}),
 	processCsvFile('abilities.csv', function(parsed, cb) {
-		DATA.abilities = parsed.map((row) => {
+		DATA.abilities = parsed.map((row, idx) => {
 			delete row.origin;
+			row.id = idx;
 			return row;
 		});
 		cb();
 	}),
 	processCsvFile('classes.csv', function(parsed, cb) {
-		DATA.classes = parsed.map((row) => {
+		DATA.classes = parsed.map((row, idx) => {
 			let res = {
+				id: idx,
 				name: row.name,
 				growths: {},
 				certification: {},

@@ -132,6 +132,13 @@ body {
 	color: var(--beige600);
 	font-size: 0.8em;
 }
+.pill {
+	display: inline;
+    padding: 3px 9px;
+	border-radius: 20px;
+	background-color: var(--beige300);
+    font-size: 11px;
+}
 
 textarea {
 	font-family: "Lucida Console", Monaco, monospace;

@@ -6,9 +6,16 @@ import * as Roster from '../roster';
 export default class ClassCard extends React.Component {
 	constructor(props) {
 		super(props);
+		this.renderTags = this.renderTags.bind(this);
 		this.renderMasteredAbility = this.renderMasteredAbility.bind(this);
 		this.renderMasteredCombatArt = this.renderMasteredCombatArt.bind(this);
 		this.renderActionButton = this.renderActionButton.bind(this);
+	}
+
+	renderTags() {
+		return [this.props.data.tier].concat(this.props.data.tags).map((t) => {
+			return (<li className="pill" key={t}>{t}</li>);
+		});
 	}
 
 	renderMasteredAbility() {
@@ -42,7 +49,11 @@ export default class ClassCard extends React.Component {
 		return (
 			<div className="class-card card">
 				<h2 className="class-card-header class-name">{this.props.data.name}</h2>
-				{/* <div className="class-card-section class-tier"></div> */}
+				<div className="class-card-section class-tags">
+					<ol>
+						{this.renderTags()}
+					</ol>
+				</div>
 				<div className="class-card-section class-cert">
 					<h3>Certification</h3>
 					<ol>

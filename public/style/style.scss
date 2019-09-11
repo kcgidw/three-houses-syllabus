@@ -63,9 +63,10 @@ $Crimson: 'Crimson Pro', serif;
 // $Barlow: 'Barlow', sans-serif;
 
 body {
-	font-family: $Podkova;
 	background-color: var(--lavgray900);
 	color: var(--beige800);
+	font-family: $Podkova;
+	font-size: 14px;
 
 	--top-header-height: 30px;
 }
@@ -105,7 +106,7 @@ body {
 		background: var(--beige100);
 		color: var(--lavender700);
 		&:hover {
-			background: var(--beige200);
+			background: var(--lavgray200);
 		}
 	}
 	&.tert {
@@ -142,6 +143,7 @@ body {
 }
 .pill {
 	display: inline;
+	margin-right: 5px;
     padding: 3px 9px;
 	border-radius: 20px;
 	background-color: var(--beige300);
@@ -198,6 +200,7 @@ h1 {
 	box-shadow: 0 0 12px var(--shadow);
 	background-color: var(--beige100);
 	color: var(--beige800);
+	font-size: 15px;
 	font-weight: 500;
 
 	h3.sidebar-header {
@@ -254,10 +257,6 @@ h1 {
 	background-color: var(--beige400);
 	overflow-y: auto;
 	box-sizing: border-box;
-	
-	h2 {
-		font-size: 1.4em;
-	}
 
 	.main-card {
 		max-width: 1280px;
@@ -403,7 +402,7 @@ h1 {
 	width: 320px;
 	min-height: 340px;
 	h2.class-name {
-		font-size: 1.2em;
+		font-size: 1.5em;
 	}
 	.class-card-section {
 		margin-top: 15px;

@@ -8,9 +8,9 @@
     "build": "npm run webpack && npm run sass",
     "data": "node data/dataProcess.js",
     "webpack": "webpack --env.production",
-    "webpack-watch": "webpack --env.development -w --debug --output-path-info --display-modules",
+    "webpack-w": "webpack --env.development -w --debug --output-path-info --display-modules",
     "sass": "node-sass public/style/style.scss public/style/style.css --output-style compressed",
-    "sass-watch": "node-sass public/style/style.scss public/style/style.css --output-style compressed --watch",
+    "sass-w": "node-sass public/style/style.scss public/style/style.css --output-style compressed --watch",
     "start": "serve public"
   },
   "author": "",

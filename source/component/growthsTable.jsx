@@ -32,7 +32,7 @@ export default class GrowthsTable extends React.Component {
 		});
 	}
 	render() {
-		return (<table>
+		return (<table className="growths-table">
 			<thead>
 				<tr>{this.renderHeaderCells()}</tr>
 			</thead>

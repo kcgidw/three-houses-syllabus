@@ -4,22 +4,22 @@ class CharacterList extends React.Component {
 		this.select = this.select.bind(this);
 	}
 
-	select(char) {
-		this.props.onCharPlanSelect(char);
+	select(charPlan) {
+		this.props.onCharPlanSelect(charPlan);
 	}
 
 	getList() {
-		return this.props.roster.map((item) => {
+		return this.props.roster.map((charPlan) => {
 			let classes = 'sidebar-clickable';
-			if(this.props.selected == item) {
+			if (this.props.selected == charPlan) {
 				classes += ' selected';
-			} else if(!item.active) {
+			} else if (!charPlan.active) {
 				classes += ' inactive';
 			}
-			let selectThisChar = this.select.bind(this, item);
+			let selectThisChar = this.select.bind(this, charPlan);
 			return (
-				<li key={item.name} className={classes} onClick={selectThisChar}>
-					{item.name}
+				<li key={charPlan.name} className={classes} onClick={selectThisChar}>
+					{charPlan.name}
 				</li>);
 		});
 	}

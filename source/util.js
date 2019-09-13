@@ -9,7 +9,7 @@ export function appraiseBaseGrowthRate(val) {
 	if(val >= 50) {
 		return 'good';
 	}
-	return '';
+	return 'neutral';
 }
 export function appraiseGrowthRateModifier(val) {
 	if(val < 0) {
@@ -18,7 +18,7 @@ export function appraiseGrowthRateModifier(val) {
 	if(val > 0) {
 		return 'good';
 	}
-	return '';
+	return 'neutral';
 }
 export function compareClass(dataA, dataB) {
 	const tierOrder = ['basic', 'beginner', 'intermediate', 'advanced', 'master', 'event'];

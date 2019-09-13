@@ -4,9 +4,11 @@ import CharacterPlan from "./component/characterPlan";
 import * as Roster from './roster';
 import EditRosterView from './component/editRoster';
 import SaveLoadView from './component/saveLoad';
+import SupportSheetView from "./component/supportSheet";
 
 const VIEWS = {
 	SAVELOAD: 'SAVELOAD',
+	SUPPORTS: 'SUPPORTS',
 	ROSTER: 'ROSTER',
 	CHARPLAN: 'CHARPLAN',
 };
@@ -18,9 +20,7 @@ class App extends React.Component {
 			charPlanFocus: undefined,
 			roster: Roster.createRoster(this.props.data.characters),
 		};
-		this.viewSaveLoad = this.viewSaveLoad.bind(this);
-		this.viewCharPlan = this.viewCharPlan.bind(this);
-		this.viewRosterEdit = this.viewRosterEdit.bind(this);
+		this.setView = this.setView.bind(this);
 		this.getMainView = this.getMainView.bind(this);
 		this.handleRosterToggle = this.handleRosterToggle.bind(this);
 		this.getSortedRoster = this.getSortedRoster.bind(this);
@@ -49,22 +49,10 @@ class App extends React.Component {
 			return 0;
 		});
 	}
-	viewSaveLoad() {
+	setView(view, charPlanFocus) {
 		this.setState({
-			view: VIEWS.SAVELOAD,
-			charPlanFocus: undefined,
-		});
-	}
-	viewRosterEdit() {
-		this.setState({
-			view: VIEWS.ROSTER,
-			charPlanFocus: undefined,
-		});
-	}
-	viewCharPlan(charPlan) {
-		this.setState({
-			charPlanFocus: charPlan,
-			view: VIEWS.CHARPLAN,
+			charPlanFocus: charPlanFocus,
+			view: view,
 		});
 	}
 	handleRosterToggle(cp) {
@@ -86,6 +74,8 @@ class App extends React.Component {
 		switch (this.state.view) {
 			case VIEWS.SAVELOAD:
 				return (<SaveLoadView roster={this.state.roster} loadRosterJSON={this.loadRosterJSON.bind(this)} />);
+			case VIEWS.SUPPORTS:
+				return (<SupportSheetView roster={this.state.roster} />);
 			case VIEWS.ROSTER:
 				return (<EditRosterView roster={this.state.roster} onToggle={this.handleRosterToggle} onToggleHouse={this.handleHouseToggle.bind(this)} />);
 			case VIEWS.CHARPLAN:
@@ -108,13 +98,14 @@ class App extends React.Component {
 				<div id="sidebar-menus">
 					<h3 className="sidebar-header">MENU</h3>
 					<ul>
-						<li className={"sidebar-clickable" + (this.state.view === VIEWS.SAVELOAD ? " selected" : "")} onClick={this.viewSaveLoad}>Save/Load</li>
-						<li className={"sidebar-clickable" + (this.state.view === VIEWS.ROSTER ? " selected" : "")} onClick={this.viewRosterEdit}>Edit Roster</li>
+						<li className={"sidebar-clickable" + (this.state.view === VIEWS.SAVELOAD ? " selected" : "")} onClick={() => this.setView(VIEWS.SAVELOAD)}>Save/Load</li>
+						<li className={"sidebar-clickable" + (this.state.view === VIEWS.SUPPORTS ? " selected" : "")} onClick={() => this.setView(VIEWS.SUPPORTS)} roster={this.state.roster}>Support Sheet</li>
+						<li className={"sidebar-clickable" + (this.state.view === VIEWS.ROSTER ? " selected" : "")} onClick={() => this.setView(VIEWS.ROSTER)}>Edit Roster</li>
 					</ul>
 				</div>
 				<div id="sidebar-units">
 					<h3 className="sidebar-header">UNIT</h3>
-					<CharacterList roster={this.getSortedRoster()} selected={this.state.charPlanFocus} onCharPlanSelect={this.viewCharPlan}/>
+					<CharacterList roster={this.getSortedRoster()} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
 				</div>
 			</div>
 			<div id="main">

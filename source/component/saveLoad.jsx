@@ -36,7 +36,7 @@ export default class SaveLoadView extends React.Component {
 			</div>
 			<div className="main-card-body">
 				<div className="main-card-content">
-					<div> {/* To prevent flex wrap */}
+					<div id="save-load-wrapper"> {/* To prevent flex wrap */}
 						<div id="save">
 							<h2>Roster Serialization</h2>
 							<p>The text below is your roster's current state converted into JSON text.</p>
@@ -48,6 +48,7 @@ export default class SaveLoadView extends React.Component {
 							<form onSubmit={this.onLoadSubmit}>
 								<p>Paste a previously copied serialization into the box below.</p>
 								<textarea></textarea>
+								<br />
 								<br />
 								<input className="btn primary" type="submit" value="Load" />
 							</form>

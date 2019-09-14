@@ -21,50 +21,59 @@ export default class ClassCard extends React.Component {
 	renderMasteredAbility() {
 		if (this.props.data.masteredAbility) {
 			let desc = Data.findAbility(this.props.data.masteredAbility).desc;
-			return (<div className="class-card-section class-master-ability">
-				<h3>Mastered Ability</h3>
-				<strong>{this.props.data.masteredAbility}:</strong> {desc}
+			return (<div className="class-card-section">
+				<div className="class-card-unit">
+					<h4>Mastered Ability</h4>
+					<strong>{this.props.data.masteredAbility}:</strong> {desc}
+				</div>
 			</div>);
 		}
 	}
 
 	renderMasteredCombatArt() {
 		if (this.props.data.masteredAbility) {
-			return (<div className="class-card-section class-master-ability">
-				<h3>Mastered Combat Art</h3>
-				{this.props.data.masteredCombatArt}
+			return (<div className="class-card-section">
+				<div className="class-card-unit">
+					<h4>Mastered Combat Art</h4>
+					{this.props.data.masteredCombatArt}
+				</div>
 			</div>);
 		}
 	}
 
 	renderActionButton() {
-		// debugger;
-		if(this.props.isAdded) {
-			return (<button className="btn secondary" onClick={this.props.handleClick}>Remove</button>);
+		if(this.props.isPinned) {
+			return (<button className="btn secondary" onClick={this.props.handleClick}>Unpin</button>);
 		}
-		return (<button className="btn primary" onClick={this.props.handleClick}>Add</button>);
+		return (<button className="btn primary" onClick={this.props.handleClick}>Pin</button>);
 	}
 
 	render() {
 		return (
-			<div className="class-card card">
-				<h2 className="class-card-header class-name">{this.props.data.name}</h2>
-				<div className="class-card-section class-tags">
-					<ol>
-						{this.renderTags()}
-					</ol>
+			<div className={"class-card card " + (this.props.isPinned ? "pinned" : "")}>
+				<div className="class-card-header class-card-section">
+					<div className="class-card-unit">
+						<h2 className="class-name">{this.props.data.name}</h2>
+					</div>
+					<div className="class-tags class-card-unit">
+						<ol>
+							{this.renderTags()}
+						</ol>
+					</div>
 				</div>
 				<div className="class-card-section class-cert">
-					<h3>Certification</h3>
-					<ol>
-						<SkillLevelsTable data={this.props.data.certification} />
-					</ol>
-				</div>
-				<div className="class-card-section class-growths">
-					<h3>Growths</h3>
-					<ol>
-						<GrowthsTable growths={this.props.data.growths} tableType="MODIFIER"/>
-					</ol>
+					<div className="class-card-unit class-cert">
+						<h4>Certification</h4>
+						<ol>
+							<SkillLevelsTable data={this.props.data.certification} />
+						</ol>
+					</div>
+					<div className="class-card-unit class-growths">
+						<h4>Growths</h4>
+						<ol>
+							<GrowthsTable growths={this.props.data.growths} tableType="MODIFIER"/>
+						</ol>
+					</div>
 				</div>
 				{this.renderMasteredAbility()}
 				<div className="class-card-section class-card-action">

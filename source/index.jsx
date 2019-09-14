@@ -96,7 +96,7 @@ class App extends React.Component {
 			</div>
 			<div id="left-sidebar">
 				<div id="sidebar-menus">
-					<h3 className="sidebar-header">MENU</h3>
+					<h4>Menu</h4>
 					<ul>
 						<li className={"sidebar-clickable" + (this.state.view === VIEWS.SAVELOAD ? " selected" : "")} onClick={() => this.setView(VIEWS.SAVELOAD)}>Save/Load</li>
 						<li className={"sidebar-clickable" + (this.state.view === VIEWS.SUPPORTS ? " selected" : "")} onClick={() => this.setView(VIEWS.SUPPORTS)} roster={this.state.roster}>Support Sheet</li>
@@ -104,7 +104,7 @@ class App extends React.Component {
 					</ul>
 				</div>
 				<div id="sidebar-units">
-					<h3 className="sidebar-header">UNIT</h3>
+					<h4>Unit</h4>
 					<CharacterList roster={this.getSortedRoster()} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
 				</div>
 			</div>

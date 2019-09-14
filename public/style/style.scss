@@ -116,6 +116,7 @@ body {
 		background: none;
 
 		font-size: .8em;
+		font-weight: 400;
 		text-decoration: underline;
 
 		&:hover {
@@ -136,11 +137,6 @@ body {
 	font-weight: 700;
 	font-size: 1.2em;
 }
-.empty-data-comment {
-	font-style: italic;
-	color: var(--beige600);
-	font-size: 0.8em;
-}
 .pill {
 	display: inline;
 	margin-right: 5px;
@@ -151,11 +147,12 @@ body {
 }
 
 textarea {
-	font-family: "Lucida Console", Monaco, monospace;
-	font-size: 11px;
 	width: 100%;
 	max-width: 600px;
 	height: 200px;
+	border: solid 1px var(--beige400);
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 11px;
 }
 
 ul, ol {
@@ -166,11 +163,18 @@ ul, ol {
 	}
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	margin: 0 0 5px;
 }
 h1 {
 	font-family: $Crimson;
+}
+h4 {
+	font-size: 11px;
+	font-family: $Crimson;
+	font-weight: 400;
+	color: var(--beige700);
+	text-transform: uppercase;
 }
 
 #top-header {
@@ -203,12 +207,8 @@ h1 {
 	font-size: 15px;
 	font-weight: 500;
 
-	h3.sidebar-header {
-		font-size: 11px;
-		font-family: $Crimson;
-		font-weight: 400;
+	h4 {
 		margin: 10px 0;
-		color: var(--beige700);
 		padding-left: 10px;
 	}
 
@@ -251,7 +251,7 @@ h1 {
 }
 
 #main {
-	padding: 15px;
+	padding: 15px 15px 0;
 	height: calc(100% - var(--top-header-height));
 	margin-left: 180px; // sidebar width
 	background-color: var(--beige400);
@@ -259,8 +259,8 @@ h1 {
 	box-sizing: border-box;
 
 	.main-card {
-		max-width: 1280px;
-		margin: auto;
+		max-width: 1680px;
+		margin: 0 auto 15px;
 		padding: 0;
 		border-radius: 4px;
 		overflow: hidden; // for border-radius
@@ -399,7 +399,10 @@ h1 {
 				}
 			}
 		}
+	}
 
+	#save-load-wrapper {
+		width: 100%;
 	}
 
 	.character-body {
@@ -410,13 +413,46 @@ h1 {
 }
 
 .class-card {
-	width: 320px;
-	min-height: 340px;
+	min-height: 310px;
+	width: 330px;
+	position: relative;
+
+	&:not(.pinned) {
+		border: solid 1px var(--beige300);
+		box-shadow: none;
+	}
+	&.pinned {
+		border: solid 1px var(--lavgray400);
+		box-shadow: 0 5px 10px var(--lavgray400);
+	}
+
+	.class-card-section {
+		&:not(:first-child) {
+			margin-top: 15px;
+			.class-card-unit {
+				margin-top: 15px;
+			}
+		}
+		&.class-card-header {
+			display: flex;
+			& > *:not(:last-child) {
+				margin-right: 10px;
+			}
+		}
+		.pill {
+			position: relative;
+			top: 5px;
+		}
+		&.class-card-action {
+			position: absolute;
+			bottom: 20px;
+		}
+	}
 	h2.class-name {
 		font-size: 1.5em;
 	}
-	.class-card-section {
-		margin-top: 15px;
+	h4 {
+		color: var(--beige700) !important;
 	}
 }
 

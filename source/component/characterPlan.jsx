@@ -38,7 +38,7 @@ class CharacterPlan extends React.Component {
 					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, classData.name));
 				};
 				return (<li key={classData.name}>
-					<ClassCard data={classData} handleClick={action} isAdded={true} />
+					<ClassCard data={classData} handleClick={action} isPinned={true} />
 				</li>);
 			});
 	}
@@ -53,7 +53,7 @@ class CharacterPlan extends React.Component {
 					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, name));
 				};
 				return (<li key={name}>
-					<ClassCard data={classData} handleClick={action} isAdded={false} />
+					<ClassCard data={classData} handleClick={action} isPinned={false} />
 				</li>);
 			});
 	}

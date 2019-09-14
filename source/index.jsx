@@ -92,7 +92,13 @@ class App extends React.Component {
 	render() {
 		return (<div id="wrapper">
 			<div id="top-header">
-				<h1>Syllabus</h1>
+				<div id="top-left">
+					<h1>Syllabus</h1>
+				</div>
+				<div className="flex-spacer"></div>
+				<div id="top-right">
+					<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
+				</div>
 			</div>
 			<div id="left-sidebar">
 				<div id="sidebar-menus">

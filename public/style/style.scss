@@ -29,12 +29,12 @@
 	--lavender100: hsl(240, 100%, 96%);
 	--lavender200: hsl(240, 100%, 90%);
 	--lavender300: hsl(240, 90%, 85%);
-	--lavender400: hsl(240, 80%, 80%);
-	--lavender500: hsl(240, 70%, 72%);
-	--lavender600: hsl(240, 60%, 65%);
-	--lavender700: hsl(240, 50%, 60%);
-	--lavender800: hsl(240, 40%, 45%);
-	--lavender900: hsl(240, 30%, 35%);
+	--lavender400: hsl(240, 85%, 80%);
+	--lavender500: hsl(240, 80%, 72%);
+	--lavender600: hsl(240, 70%, 65%);
+	--lavender700: hsl(240, 60%, 60%);
+	--lavender800: hsl(240, 50%, 50%);
+	--lavender900: hsl(240, 40%, 40%);
 	--brown800: hsl(40, 70%, 25%);
 	--red500: hsl(0, 50%, 50%);
 	--green500: hsl(90, 100%, 35%);
@@ -145,6 +145,12 @@ body {
 	background-color: var(--beige300);
     font-size: 11px;
 }
+a {
+	color: var(--lavender400);
+}
+.flex-spacer {
+	flex-grow: 1;
+}
 
 textarea {
 	width: 100%;
@@ -180,18 +186,22 @@ h4 {
 #top-header {
 	position: relative;
 	height: var(--top-header-height);
-	padding-left: 10px;
+	padding: 0 10px;
 	background-color: var(--beige100);
 	color: var(--lavgray600);
 	box-shadow: 0 0 12px var(--shadow);
 	// border-bottom: solid 1px var(--beige400);
 	box-sizing: border-box;
 	line-height: var(--top-header-height);
+	display: flex;
 	h1 {
 		font-size: 20px;
 		margin: 0;
 		position: relative;
 		top: -2px;
+	}
+	#top-right {
+		font-size: 14px;
 	}
 }
 

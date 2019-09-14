@@ -91,6 +91,23 @@ async.series([
 		});
 		cb();
 	}),
+	processCsvFile('skillLevels.csv', function(parsed, cb) {
+		parsed.forEach((row) => {
+			let obj = DATA.characters.find((cur) => {
+				return cur.name.trim() == row.character.trim();
+			});
+			if(obj) {
+				obj.skillLevels = {};
+				Object.keys(row).forEach((col) => {
+					let val = row[col];
+					if(col !== 'character' && val) {
+						obj.skillLevels[col] = val;
+					}
+				});
+			}
+		});
+		cb();
+	}),
 ], finish);
 
 function finish() {

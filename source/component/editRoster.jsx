@@ -49,7 +49,7 @@ class EditRoster extends React.Component {
 			<div className="main-card-header">
 				<h1>Edit Roster</h1>
 			</div>
-			<div id="sublists" className="main-card-body main-card-content">
+			<div id="edit-roster-content" className="main-card-body main-card-content">
 				{this.renderSublist('be')}
 				{this.renderSublist('bl')}
 				{this.renderSublist('gd')}

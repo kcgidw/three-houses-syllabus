@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import React, { Component, PropTypes } from 'react';
 import ClassCard from './classCard';
 import GrowthsTable from './growthsTable';
+import SkillLevelsTable from './skillLevelsTable';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -71,13 +72,14 @@ class CharacterPlan extends React.Component {
 						<Tab>Abilities</Tab>
 					</TabList>
 					<TabPanel>
-						<div className="character-body main-card-content">
-							<div id="supportable" className="card">
-								<span className="heavy">{this.state.supportable.length}</span> supportable allies
-							</div>
-							<div id="base-growths" className="card">
+						<div id="overview-content" className="character-body main-card-content">
+							<div id="base-growths" className="overview-unit">
 								<h3>Growths</h3>
 								<GrowthsTable growths={this.props.charData.growths} tableType="BASE" />
+							</div>
+							<div id="base-proficiencies" className="overview-unit">
+								<h3>Proficiencies</h3>
+								<SkillLevelsTable data={this.props.charData.skillLevels} tableType="PROFICIENCY" />
 							</div>
 						</div>
 					</TabPanel>

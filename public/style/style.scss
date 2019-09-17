@@ -39,8 +39,10 @@
 	--red500: hsl(0, 50%, 50%);
 	--green500: hsl(90, 100%, 35%);
 	--gold500: hsl(50, 90%, 50%);
+	--gold700: hsl(44, 100%, 40%);
 	--blue200: hsl(210, 100%, 90%);
 	--blue300: hsl(210, 100%, 80%);
+	--blue500: hsl(210, 100%, 60%);
 	--blue600: hsl(210, 100%, 50%);
 	--blue700: hsl(210, 100%, 40%);
 	--blue800: hsl(210, 100%, 30%);
@@ -79,6 +81,9 @@ body {
 }
 .bad {
 	color: var(--red500) !important;
+}
+.budding {
+	color: var(--gold700) !important;
 }
 .btn {
 	cursor: pointer;
@@ -124,7 +129,7 @@ body {
 		}
 	}
 }
-.number {
+.bold {
 	font-weight: 700;
 }
 .card {
@@ -169,6 +174,10 @@ ul, ol {
 	}
 }
 
+
+h1, h2, h3 {
+	color: var(--lavgray900);
+}
 h1, h2, h3, h4 {
 	margin: 0 0 5px;
 }
@@ -188,17 +197,17 @@ h4 {
 	height: var(--top-header-height);
 	padding: 0 10px;
 	background-color: var(--beige100);
-	color: var(--lavgray600);
 	box-shadow: 0 0 12px var(--shadow);
 	// border-bottom: solid 1px var(--beige400);
 	box-sizing: border-box;
 	line-height: var(--top-header-height);
 	display: flex;
 	h1 {
-		font-size: 20px;
 		margin: 0;
 		position: relative;
 		top: -2px;
+		font-size: 20px;
+		color: var(--lavgray600);
 	}
 	#top-right {
 		font-size: 14px;
@@ -280,11 +289,11 @@ h4 {
 
 		.main-card-header {
 			background-color: var(--lavgray800);
-			color: var(--lavgray300);
 			padding: 0 30px;
 			overflow: hidden; // margin collapse
 
 			h1 {
+				color: var(--lavgray300);
 				font-size: 2em;
 				font-family: $Crimson;
 				font-weight: 500;
@@ -302,8 +311,72 @@ h4 {
 			display: flex;
 			flex-wrap: wrap;
 
-			h1, h2, h3 {
-				color: var(--lavgray900);
+			&#edit-roster-content {
+				.be {
+					background-color: var(--red500);
+					color: var(--beige100);
+				}
+				.bl {
+					background-color: var(--blue700);
+					color: var(--blue200);
+				}
+				.gd {
+					background-color: var(--gold500);
+					color: var(--beige900);
+				}
+				.seiros {
+					background-color: var(--teal700);
+					color: var(--teal100);
+				}
+
+				.roster-sublist {
+					h2 {
+						font-family: $Crimson;
+						font-weight: 400;
+						line-height: 2em;
+						border-radius: 2px;
+					}
+					.house-toggler {
+						margin: 10px 0;
+					}
+					min-width: 200px;
+					text-align: center;
+					padding: 10px;
+
+					ol {
+						list-style: none;
+						padding: 0;
+						margin: auto;
+						width: 180px;
+						text-align: left;
+						li {
+							& > div {
+								cursor: pointer;
+								padding: 10px;
+								border: solid 1px var(--lavgray400);
+								color: var(--lavgray400);
+								border-radius: 2px;
+								margin-top: 9px;
+
+								&:not(.active):hover {
+									background-color: var(--lavgray200);
+									color: var(--lavgray500);
+								}
+								&.active {
+									border-color: var(--lavender600);
+									background-color: var(--lavender100);
+									color: var(--lavender600);
+									box-shadow: 0 2px 4px var(--lavender300);
+								}
+							}
+						}
+					}
+				}
+			}
+			&#overview-content {
+				.overview-unit:not(:last-child) {
+					margin-right: 30px;
+				}
 			}
 			
 			table {
@@ -344,69 +417,6 @@ h4 {
 			.classes-list {
 				display: flex;
 				flex-wrap: wrap;
-			}
-		}
-	}
-
-	#edit-roster-card {
-		.be {
-			background-color: var(--red500);
-			color: var(--beige100);
-		}
-		.bl {
-			background-color: var(--blue700);
-			color: var(--blue200);
-		}
-		.gd {
-			background-color: var(--gold500);
-			color: var(--beige900);
-		}
-		.seiros {
-			background-color: var(--teal700);
-			color: var(--teal100);
-		}
-
-		.roster-sublist {
-			h2 {
-				font-family: $Crimson;
-				font-weight: 400;
-				line-height: 2em;
-				border-radius: 2px;
-			}
-			.house-toggler {
-				margin: 10px 0;
-			}
-			min-width: 200px;
-			text-align: center;
-			padding: 10px;
-
-			ol {
-				list-style: none;
-				padding: 0;
-				margin: auto;
-				width: 180px;
-				text-align: left;
-				li {
-					& > div {
-						cursor: pointer;
-						padding: 10px;
-						border: solid 1px var(--lavgray400);
-						color: var(--lavgray400);
-						border-radius: 2px;
-						margin-top: 9px;
-
-						&:not(.active):hover {
-							background-color: var(--lavgray200);
-							color: var(--lavgray500);
-						}
-						&.active {
-							border-color: var(--lavender600);
-							background-color: var(--lavender100);
-							color: var(--lavender600);
-							box-shadow: 0 2px 4px var(--lavender300);
-						}
-					}
-				}
 			}
 		}
 	}

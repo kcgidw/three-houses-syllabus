@@ -37,7 +37,7 @@ export default class GrowthsTable extends React.Component {
 				<tr>{this.renderHeaderCells()}</tr>
 			</thead>
 			<tbody>
-				<tr className="number">{this.renderRowCells()}</tr>
+				<tr className="bold">{this.renderRowCells()}</tr>
 			</tbody>
 		</table>);
 	}

@@ -20,6 +20,18 @@ export function appraiseGrowthRateModifier(val) {
 	}
 	return 'neutral';
 }
+export function classifyProficiency(val) {
+	if(val === '+') {
+		return 'good';
+	}
+	if(val === '-') {
+		return 'bad';
+	}
+	if(val.indexOf('B') !== -1) {
+		return 'budding';
+	}
+	return 'neutral';
+}
 export function compareClass(dataA, dataB) {
 	const tierOrder = ['basic', 'beginner', 'intermediate', 'advanced', 'master', 'event'];
 	let a = tierOrder.indexOf(dataA.tier);

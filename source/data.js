@@ -7,9 +7,11 @@ export let STATIC = {
 export function loadData(cb) {
 	$.getJSON('data.json', (data) => {
 		STATIC = data;
+		console.log('Data retrieved.');
 		console.log(data);
 		STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
 		STATIC.skillLevels = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
+		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S'];
 		cb(data);
 	});
 }

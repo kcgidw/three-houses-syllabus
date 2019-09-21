@@ -41,3 +41,9 @@ export function compareClass(dataA, dataB) {
 	}
 	return dataA.name.localeCompare(dataB.name);
 }
+export function compareGrade(gradeA, gradeB) {
+	const grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S'];
+	let a = grades.indexOf(gradeA.tier);
+	let b = grades.indexOf(gradeB.tier);
+	return a - b;
+}

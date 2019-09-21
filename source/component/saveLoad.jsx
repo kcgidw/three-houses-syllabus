@@ -36,7 +36,7 @@ export default class SaveLoadView extends React.Component {
 			</div>
 			<div className="main-card-body">
 				<div className="main-card-content">
-					<div id="save-load-wrapper"> {/* To prevent flex wrap */}
+					<div className="antiflex-wrapper">
 						<div id="save">
 							<h2>Roster Serialization</h2>
 							<p>The text below is your roster's current state converted into JSON text.</p>

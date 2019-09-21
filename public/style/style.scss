@@ -48,15 +48,15 @@
 	--blue800: hsl(210, 100%, 30%);
 	--blue900: hsl(210, 100%, 20%);
 	--teal100: hsl(170, 90%, 97%);
-	--teal100: hsl(170, 90%, 90%);
-	--teal200: hsl(170, 95%, 80%);
-	--teal300: hsl(170, 95%, 70%);
-	--teal400: hsl(170, 100%, 60%);
-	--teal500: hsl(170, 100%, 50%);
-	--teal600: hsl(170, 100%, 40%);
-	--teal700: hsl(170, 100%, 35%);
-	--teal800: hsl(170, 100%, 30%);
-	--teal900: hsl(170, 100%, 20%);
+	--teal100: hsl(170, 90%, 85%);
+	--teal200: hsl(170, 95%, 75%);
+	--teal300: hsl(170, 95%, 65%);
+	--teal400: hsl(170, 100%, 55%);
+	--teal500: hsl(170, 100%, 45%);
+	--teal600: hsl(170, 100%, 35%);
+	--teal700: hsl(170, 100%, 25%);
+	--teal800: hsl(170, 100%, 20%);
+	--teal900: hsl(170, 100%, 15%);
 	--shadow: hsla(0, 0%, 0%, 0.2);
 }
 
@@ -81,6 +81,9 @@ body {
 }
 .bad {
 	color: var(--red500) !important;
+}
+.neutral {
+	color: var(--beige600) !important;
 }
 .budding {
 	color: var(--gold700) !important;
@@ -127,6 +130,22 @@ body {
 		&:hover {
 			background-color: var(--beige300);
 		}
+	}
+}
+.star-btn {
+	background: none;
+	border: none;
+	color: var(--beige300);
+	cursor: pointer;
+	padding: 5px;
+	&.active {
+		color: var(--lavender300);
+	}
+	&.active:hover {
+		color: var(--lavender200);
+	}
+	&:not(.active):hover {
+		color: var(--beige400);
 	}
 }
 .bold {
@@ -325,7 +344,7 @@ h4 {
 					color: var(--beige900);
 				}
 				.seiros {
-					background-color: var(--teal700);
+					background-color: var(--teal600);
 					color: var(--teal100);
 				}
 
@@ -376,6 +395,23 @@ h4 {
 			&#overview-content {
 				.overview-unit:not(:last-child) {
 					margin-right: 30px;
+				}
+			}
+			&#learning-content {
+				td.learnable-row-star {
+					padding: 2px;
+    				text-align: center;
+				}
+				td.learnable-row-name {
+					min-width: 110px;
+					font-weight: 700;
+				}
+				td.learnable-row-grade {
+					min-width: 20px;
+    				text-align: center;
+				}
+				td.learnable-row-desc {
+					width: 100%;
 				}
 			}
 			
@@ -430,6 +466,39 @@ h4 {
 		margin-left: 2px;
 	}
 
+}
+
+table {
+	border-spacing: 0;
+	border-top: solid 1px var(--beige300);
+	border-radius: 2px;
+	td, th {
+		border-left: solid 1px var(--beige300);
+		border-bottom: solid 1px var(--beige300);
+		&:last-child {
+			border-right: solid 1px var(--beige300);
+		}
+	}
+
+	&.condensed {
+		text-align: center;
+		td, th {
+			padding: 4px;
+			min-width: 25px;
+		}
+	}
+	&.textual {
+		text-align: left;
+		td, th {
+			padding: 8px;
+		}
+	}
+
+	th {
+		font-weight: 500;
+		font-size: .9em;
+		background-color: var(--beige200);
+	}
 }
 
 .class-card {

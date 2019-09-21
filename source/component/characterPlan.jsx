@@ -6,28 +6,32 @@ import React, { Component, PropTypes } from 'react';
 import ClassCard from './classCard';
 import GrowthsTable from './growthsTable';
 import SkillLevelsTable from './skillLevelsTable';
+import StarButton from './star';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			charPlan: Roster.findCharPlan(this.props.roster, this.props.charData.name),
-			supportable: this.getSupportable(),
+			// supportable: this.getSupportable(),
 		};
 		if(!this.state.charPlan) {
 			throw `Can't find charPlan for ` + this.props.charData.name;
 		}
-		this.getSupportable = this.getSupportable.bind(this);
+		// this.getSupportable = this.getSupportable.bind(this);
 		this.renderCharPlanClasses = this.renderCharPlanClasses.bind(this);
 		this.renderClasses = this.renderClasses.bind(this);
+		this.renderLearnableAbilityRow = this.renderLearnableAbilityRow.bind(this);
+		this.renderLearnableRows = this.renderLearnableRows.bind(this);
+		this.renderLearnedRows = this.renderLearnedRows.bind(this);
 	}
-	getSupportable() {
-		let allSupports = this.props.charData.supports;
-		let res = allSupports.filter((name) => {
-			return Roster.findActiveCharPlan(this.props.roster, name);
-		});
-		return res;
-	}
+	// getSupportable() {
+	// 	let allSupports = this.props.charData.supports;
+	// 	let res = allSupports.filter((name) => {
+	// 		return Roster.findActiveCharPlan(this.props.roster, name);
+	// 	});
+	// 	return res;
+	// }
 	renderCharPlanClasses() {
 		return Object.keys(this.state.charPlan.classes)
 			.map((name) => {
@@ -58,6 +62,49 @@ class CharacterPlan extends React.Component {
 				</li>);
 			});
 	}
+	renderLearnableAbilityRow(skill, grade, abilityData, active, onClick) {
+		return (<tr className="learnable-row" key={abilityData.name}>
+			<td className="learnable-row-star"><StarButton active={active} onClick={onClick}></StarButton></td>
+			<td className="learnable-row-skill">{skill}</td>
+			<td className="learnable-row-grade">{grade}</td>
+			<td className="learnable-row-name">{abilityData.name}</td>
+			<td className="learnable-row-desc">{abilityData.desc}</td>
+		</tr>);
+	}
+	renderLearnedRows() {
+		let learned = this.state.charPlan.learned;
+		let flat = [];
+		if (learned) {
+			for (let abilityName in learned) {
+				let ability = Data.findAbility(abilityName);
+				let onClick = () => {
+					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, abilityName));
+				};
+				let reqs = Roster.getAbilityRequirements(this.state.charPlan, abilityName);
+				flat.push(this.renderLearnableAbilityRow(reqs.skill, reqs.grade, ability, true, onClick));
+			}
+		}
+		return flat;
+	}
+	renderLearnableRows() {
+		let learnable = this.props.charData.learnable;
+		let flat = [];
+		if (learnable) {
+			for (let skill in learnable) {
+				for (let grade of Data.STATIC.grades) {
+					if (learnable[skill][grade]) {
+						let ability = Data.findAbility(learnable[skill][grade]);
+						let isLearned = Roster.hasLearnedAbility(this.state.charPlan, ability.name);
+						let onClick = () => {
+							this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, ability.name));
+						};
+						flat.push(this.renderLearnableAbilityRow(skill, grade, ability, isLearned, onClick));
+					}
+				}
+			}
+		}
+		return flat;
+	}
 	render() {
 		return (<div className="main-card">
 			<div id="character-name" className="main-card-header">
@@ -68,8 +115,7 @@ class CharacterPlan extends React.Component {
 					<TabList>
 						<Tab>Overview</Tab>
 						<Tab>Classes</Tab>
-						<Tab>Skill Levels</Tab>
-						<Tab>Abilities</Tab>
+						<Tab>Learning</Tab>
 					</TabList>
 					<TabPanel>
 						<div id="overview-content" className="character-body main-card-content">
@@ -84,7 +130,7 @@ class CharacterPlan extends React.Component {
 						</div>
 					</TabPanel>
 					<TabPanel>
-						<div className="main-card-content">
+						<div id="classes-content" className="main-card-content">
 							<ol className="classes-list">
 								{this.renderCharPlanClasses()}
 							</ol>
@@ -94,8 +140,25 @@ class CharacterPlan extends React.Component {
 						</div>
 					</TabPanel>
 					<TabPanel>
-					</TabPanel>
-					<TabPanel>
+						<div id="learning-content" className="main-card-content">
+							<div className="antiflex-wrapper">
+								<div id="learning-pinned-abilities">
+									<table className="skill-level-learned textual">
+										<tbody>
+											{this.renderLearnedRows()}
+										</tbody>
+									</table>
+								</div>
+								{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
+								<div id="learning-learnable-abilities">
+									<table className="skill-level-data textual">
+										<tbody>
+											{this.renderLearnableRows()}
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
 					</TabPanel>
 				</Tabs>
 

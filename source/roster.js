@@ -1,9 +1,11 @@
 import * as Data from './data';
 
-export function createRoster(allChars) {
-	return allChars.map((c) => {
-		return createCharacterPlan(c);
+export function createRoster(allChars, loadedRoster) {
+	let res = allChars.map((c) => {
+		let loadedCharPlan = loadedRoster ? findCharPlan(loadedRoster, c.name) : undefined;
+		return createCharacterPlan(c, loadedCharPlan);
 	});
+	return res;
 }
 export function filterByActive(roster, active = true) {
 	return roster.filter((cp) => {
@@ -24,13 +26,14 @@ export function filterByHouse(roster, house) {
 	});
 	return res;
 }
-export function createCharacterPlan(charData) {
-	return {
+export function createCharacterPlan(charData, loadedCharPlan={}) {
+	return Object.assign({}, {
 		name: charData.name,
 		active: charData.name === 'Byleth',
 		classes: {},
 		skillLevels: {},
-	};
+		learned: {},
+	}, loadedCharPlan);
 }
 export function setCharPlanActive(roster, charPlan, val) {
 	// toggles value if no val provided
@@ -62,6 +65,36 @@ export function toggleClass(roster, charPlan, className) {
 	}
 	return updateCharPlan(roster, charPlan, res);
 }
+export function toggleLearn(roster, charPlan, abilityName) {
+	let res = Object.assign({}, charPlan);
+	if (res.learned[abilityName]) {
+		delete res.learned[abilityName];
+	} else {
+		res.learned[abilityName] = true;
+	}
+	return updateCharPlan(roster, charPlan, res);
+}
+export function hasLearnedAbility(charPlan, abilityName) {
+	return charPlan.learned[abilityName] !== undefined;
+}
+export function getAbilityRequirements(charPlan, abilityName) {
+	if (!charPlan.learned[abilityName]) {
+		return undefined;
+	}
+	let cd = Data.findCharData(charPlan.name);
+	let learnables = cd.learnable;
+	for(let skill in learnables) {
+		for(let grade of Data.STATIC.grades) {
+			if(learnables[skill][grade] === abilityName) {
+				return {
+					skill: skill,
+					grade: grade,
+				};
+			}
+		}
+	}
+	return undefined;
+}
 export function updateCharPlan(roster, charPlan, newState) {
 	return roster.map((cp) => {
 		if(cp.name == charPlan.name) { // don't match by obj reference!
@@ -69,7 +102,4 @@ export function updateCharPlan(roster, charPlan, newState) {
 		}
 		return Object.assign({}, cp);
 	});
-}
-export function deserialize(json) {
-	return JSON.parse(json);
 }

@@ -18,13 +18,19 @@ class App extends React.Component {
 		this.state = {
 			view: VIEWS.ROSTER,
 			charPlanFocus: undefined,
-			roster: Roster.createRoster(this.props.data.characters),
+			roster: Roster.createRoster(this.props.data.characters, this.props.savedRoster),
 		};
 		this.setView = this.setView.bind(this);
 		this.getMainView = this.getMainView.bind(this);
 		this.handleRosterToggle = this.handleRosterToggle.bind(this);
 		this.getSortedRoster = this.getSortedRoster.bind(this);
 		this.updateRoster = this.updateRoster.bind(this);
+	}
+	componentDidUpdate(prevProps) {
+		if(localStorage.getItem('save') != JSON.stringify(this.state.roster)) {
+			console.log('saving');
+			localStorage.setItem('save', JSON.stringify(this.state.roster));
+		}
 	}
 	getSortedRoster() {
 		return [... this.state.roster].sort((a, b) => {
@@ -86,7 +92,7 @@ class App extends React.Component {
 	}
 	loadRosterJSON(json) {
 		this.setState({
-			roster: Roster.deserialize(json),
+			roster: JSON.parse(json)
 		});
 	}
 	render() {
@@ -121,6 +127,23 @@ class App extends React.Component {
 	}
 }
 
+let save = (function fetchLocalStorageRoster() {
+	let save = localStorage.getItem('save');
+	try {
+		if(save) {
+			console.log('Save found');
+			console.log(save);
+			return JSON.parse(save);
+		} else {
+			console.log('No save found');
+		}
+	} catch(e) {
+		console.error('Error loading roster. Clearing localStorage.');
+		console.error('Previous localStorage: ' + save);
+		localStorage.clear();
+	}
+})();
+
 Data.loadData(function(data) {
-	ReactDOM.render(<App data={data}/>, document.getElementById('root'));
+	ReactDOM.render(<App data={data} savedRoster={save}/>, document.getElementById('root'));
 });

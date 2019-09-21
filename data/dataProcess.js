@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const parse = require('csv-parse');
+const yaml = require('js-yaml');
 const async = require('async');
 const _ = require('lodash');
 
@@ -55,7 +56,6 @@ async.series([
 				masteredAbility: row.mastered_ability,
 				tier: row.tier,
 				tags: row.tags ? row.tags.replace(/ /g,'').split(',') : [],
-			// equippedAbilities: [],
 			};
 			Object.keys(row).forEach((k) => {
 				let val = row[k];
@@ -65,12 +65,6 @@ async.series([
 						res.growths[k.replace('growths_', '')] = val;
 					} else if (k.indexOf('cert_') !== -1) {
 						res.certification[k.replace('cert_', '')] = val;
-					} else if (k.indexOf('equip_ability') !== -1) {
-					// validate that ability exists
-					// if(!DATA.abilities.find((i) => (i.name.trim() == val.trim()))) {
-					// 	throw new Error(`Can't find ability ` + val);
-					// }
-					// res.equippedAbilities.push(val);
 					}
 				}
 			});
@@ -108,6 +102,26 @@ async.series([
 		});
 		cb();
 	}),
+	function(cb) {
+		const filename = 'learnable.yaml';
+		console.log('Begin parsing ' + filename);
+		let learned = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, filename), 'utf-8'));
+		Object.keys(learned).forEach((name) => {
+			let char = DATA.characters.find((c) => (c.name == name));
+			if(char) {
+				char.learnable = learned[name];
+			} else if(name === 'UNIVERSAL') {
+				DATA.characters.push({
+					name: name,
+					learnable: learned[name]
+				});
+			}
+			for(let s of Object.values(learned[name].authority)) {
+				validateAbilitiyExists(s, DATA.abilities);
+			}
+		});
+		cb();
+	},
 ], finish);
 
 function finish() {
@@ -117,4 +131,11 @@ function finish() {
 		}
 		console.log('File saved');
 	});
+}
+
+function validateAbilitiyExists(abilityName, abilities) {
+	let found = abilities.find((a) => (a.name == abilityName));
+	if(!found) {
+		throw `Bad ability ${abilityName}`;
+	}
 }

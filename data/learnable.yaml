@@ -1,0 +1,128 @@
+---
+UNIVERSAL:
+  sword:
+    B: Axebreaker
+    S: Sword Crit +10
+    S+: Swordfaire
+  lance:
+    B: Swordbreaker
+    S: Lance Crit +10
+    S+: Lancefaire
+  axe:
+    B: Lancebreaker 
+    S: Axe Crit +10
+    S+: Axefaire
+  bow:
+    B: Close Counter
+    S: Bow Crit +10
+    S+: Bowfaire
+  brawling:
+    B: Healing Focus
+    S: Brawl Crit +10
+    S+: Fistfaire
+  reason:
+    S: Black Magic Range +1
+    S+: Black Tomefaire
+  faith:
+    S: White Magic Range +1
+    S+: White Tomefaire
+  authority:
+    B: Defensive Tactics
+    S+: Offensive Tactics
+  heavyArmor:
+    C: Weight -3
+    B: Smite
+    A+: Weight -5
+    S+: Armored Effect Null
+  riding:
+    C: Dexterity +4
+    A+: Movement +1
+    S+: Cavalry Effect Null
+  flying:
+    B: Alert Stance
+    A+: Alert Stance+
+    S+: Flying Effect Null
+
+Byleth:
+  authority:
+    C: Battalion Vantage
+    C+: Model Leader
+    A: Battalion Desperation
+    S: Rally Movement
+
+# black eagle
+
+# blue lion
+
+# golden deer
+
+Claude:
+  authority:
+    C: Battalion Desperation
+    C+: Model Leader
+    A: Battalion Wrath
+    S: Rally Charm
+Lorenz:
+  authority:
+    C: Battalion Vantage
+Hilda:
+  authority:
+    C: Battalion Wrath
+Raphael:
+  authority:
+    D: Rally Strength
+    C: Battalion Wrath
+Lysithea:
+  authority:
+    C: Battalion Desperation
+Ignatz:
+  authority:
+    D: Rally Speed
+    C: Battalion Desperation
+    C+: Rally Dexterity
+    A: Battalion Vantage
+    S: Rally Strength
+Marianne:
+  authority:
+    C: Battalion Renewal
+Leonie:
+  authority:
+    C: Battalion Desperation
+
+# seiros
+
+Manuela:
+  authority:
+    D: Rally Charm
+    C: Battalion Renewal
+Hanneman:
+  authority:
+    C: Battalion Desperation
+Seteth:
+  authority:
+    D: Rally Defense
+    C: Battalion Wrath
+    C+: Model Leader
+    A: Battalion Desperation
+    S: Rally Resistance
+Flayn:
+  authority:
+    D: Rally Luck
+    C: Battalion Renewal
+Cyril:
+  authority:
+    C: Battalion Desperation
+Catherine:
+  authority:
+    C: Battalion Vantage
+Alois:
+  authority:
+    D: Rally Strength
+    C: Battalion Wrath
+Gilbert:
+  authority:
+    D: Rally Defense
+    C: Battalion Wrath
+Shamir:
+  authority:
+    C: Battalion Desperation

@@ -1,7 +1,7 @@
 import GrowthsTable from "./growthsTable";
 import SkillLevelsTable from "./skillLevelsTable";
 import * as Data from '../data';
-import * as Roster from '../roster';
+import StarButton from './star';
 
 export default class ClassCard extends React.Component {
 	constructor(props) {
@@ -9,7 +9,6 @@ export default class ClassCard extends React.Component {
 		this.renderTags = this.renderTags.bind(this);
 		this.renderMasteredAbility = this.renderMasteredAbility.bind(this);
 		this.renderMasteredCombatArt = this.renderMasteredCombatArt.bind(this);
-		this.renderActionButton = this.renderActionButton.bind(this);
 	}
 
 	renderTags() {
@@ -41,13 +40,6 @@ export default class ClassCard extends React.Component {
 		}
 	}
 
-	renderActionButton() {
-		if(this.props.isPinned) {
-			return (<button className="btn secondary" onClick={this.props.handleClick}>Unpin</button>);
-		}
-		return (<button className="btn primary" onClick={this.props.handleClick}>Pin</button>);
-	}
-
 	render() {
 		return (
 			<div className={"class-card card " + (this.props.isPinned ? "pinned" : "")}>
@@ -55,17 +47,21 @@ export default class ClassCard extends React.Component {
 					<div className="class-card-unit">
 						<h2 className="class-name">{this.props.data.name}</h2>
 					</div>
-					<div className="class-tags class-card-unit">
-						<ol>
-							{this.renderTags()}
-						</ol>
+					<span style={{width: '10px'}}></span>
+					<div className="class-card-unit">
+						<StarButton active={this.props.isPinned} onClick={this.props.handleClick} />
 					</div>
+				</div>
+				<div className="class-tags class-card-section">
+					<ol>
+						{this.renderTags()}
+					</ol>
 				</div>
 				<div className="class-card-section class-cert">
 					<div className="class-card-unit class-cert">
 						<h4>Certification</h4>
 						<ol>
-							<SkillLevelsTable data={this.props.data.certification} />
+							<SkillLevelsTable data={this.props.data.certification} tableType="GRADE" />
 						</ol>
 					</div>
 					<div className="class-card-unit class-growths">
@@ -76,9 +72,6 @@ export default class ClassCard extends React.Component {
 					</div>
 				</div>
 				{this.renderMasteredAbility()}
-				<div className="class-card-section class-card-action">
-					{this.renderActionButton()}
-				</div>
 			</div>
 		);
 	}

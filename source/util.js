@@ -20,17 +20,26 @@ export function appraiseGrowthRateModifier(val) {
 	}
 	return 'neutral';
 }
-export function classifyProficiency(val) {
-	if(val === '+') {
-		return 'good';
-	}
-	if(val === '-') {
-		return 'bad';
-	}
-	if(val.indexOf('B') !== -1) {
-		return 'budding';
-	}
-	return 'neutral';
+export function renderProficiency(val) {
+	let res = val.split('').map((char, i) => {
+		switch(char) {
+			case '+':
+				return <span className="good" key={i}>
+					<i className="material-icons">arrow_upward</i>
+				</span>;
+			case '-':
+				return <span className="bad" key={i}>
+					<i className="material-icons">arrow_downward</i>
+				</span>;
+			case 'B':
+				return <span className="budding" key={i}>
+					<i className="material-icons-outlined">lightbulb</i>
+				</span>;
+			default:
+				console.error(`Bad proficiency ${val}`);
+		}
+	});
+	return res;
 }
 export function compareClass(dataA, dataB) {
 	const tierOrder = ['basic', 'beginner', 'intermediate', 'advanced', 'master', 'event'];

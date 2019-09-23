@@ -1,10 +1,14 @@
 import * as Data from './data';
 
 export function createRoster(allChars, loadedRoster) {
-	let res = allChars.map((c) => {
-		let loadedCharPlan = loadedRoster ? findCharPlan(loadedRoster, c.name) : undefined;
-		return createCharacterPlan(c, loadedCharPlan);
-	});
+	let res = allChars
+		.filter((c) => {
+			return c.name !== 'UNIVERSAL';
+		})
+		.map((c) => {
+			let loadedCharPlan = loadedRoster ? findCharPlan(loadedRoster, c.name) : undefined;
+			return createCharacterPlan(c, loadedCharPlan);
+		});
 	return res;
 }
 export function filterByActive(roster, active = true) {

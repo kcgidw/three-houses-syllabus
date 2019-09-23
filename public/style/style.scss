@@ -133,11 +133,11 @@ body {
 	}
 }
 .star-btn {
+	padding: 0;
 	background: none;
 	border: none;
 	color: var(--beige300);
 	cursor: pointer;
-	padding: 5px;
 	&.active {
 		color: var(--lavender300);
 	}
@@ -150,12 +150,6 @@ body {
 }
 .bold {
 	font-weight: 700;
-}
-.card {
-	padding: 15px 20px 20px;
-	margin: 15px;
-	border-radius: 2px;
-	box-shadow: 0 2px 5px var(--shadow);
 }
 .heavy {
 	font-weight: 700;
@@ -293,7 +287,7 @@ h4 {
 	height: calc(100% - var(--top-header-height));
 	margin-left: 180px; // sidebar width
 	background-color: var(--beige400);
-	overflow-y: auto;
+	overflow-y: scroll;
 	box-sizing: border-box;
 
 	.main-card {
@@ -329,6 +323,10 @@ h4 {
 		.main-card-content {
 			display: flex;
 			flex-wrap: wrap;
+
+			.antiflex-wrapper {
+				width: 100%;
+			}
 
 			&#edit-roster-content {
 				.be {
@@ -482,6 +480,7 @@ table {
 
 	&.condensed {
 		text-align: center;
+		font-size: 15px;
 		td, th {
 			padding: 4px;
 			min-width: 25px;
@@ -489,6 +488,7 @@ table {
 	}
 	&.textual {
 		text-align: left;
+		font-size: 14px;
 		td, th {
 			padding: 8px;
 		}
@@ -502,7 +502,11 @@ table {
 }
 
 .class-card {
-	min-height: 310px;
+	padding: 10px 15px 15px;
+	margin: 10px;
+	border-radius: 3px;
+	box-shadow: 0 2px 5px var(--shadow);
+	min-height: 280px;
 	width: 330px;
 	position: relative;
 
@@ -523,22 +527,21 @@ table {
 			}
 		}
 		&.class-card-header {
+			position: relative;
 			display: flex;
-			& > *:not(:last-child) {
-				margin-right: 10px;
+			align-items: center;
+
+			.class-card-unit {
+				display: inline-block;
+			}
+			.class-name {
+				margin-bottom: 0;
+			}
+			.star-btn {
+				position: relative;
+				top: -2px;
 			}
 		}
-		.pill {
-			position: relative;
-			top: 5px;
-		}
-		&.class-card-action {
-			position: absolute;
-			bottom: 20px;
-		}
-	}
-	h2.class-name {
-		font-size: 1.5em;
 	}
 	h4 {
 		color: var(--beige700) !important;
@@ -551,25 +554,27 @@ table {
 		width: 100%;
 		padding-left: 0;
 		margin: 0;
+		font-size: 15px;
 	}
 		
 	&__tab {
 		display: inline-block;
-		width: 100px;
+		padding: 3px 5px 0;
+		margin-right: 5px;
 		font-size: 1em;
-		line-height: 2.4em;
+		line-height: 2em;
 		text-align: center;
 		cursor: pointer;
 		color: var(--beige600);
 
 		&:hover:not(&--selected) {
-			border-bottom: solid 5px var(--lavender100);
+			border-bottom: solid 4px var(--lavender100);
 			color: var(--lavender800);
 		}
 
 		&--selected {
 			color: var(--lavender900);
-			border-bottom: solid 5px var(--lavender300);
+			border-bottom: solid 4px var(--lavender300);
 		}
 	}
 

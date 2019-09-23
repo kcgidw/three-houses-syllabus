@@ -21,8 +21,14 @@ export default class SkillLevelsTable extends React.Component {
 		let data = this.props.data;
 		return Object.keys(data).map((slColumn) => {
 			let val = data[slColumn];
-			let classNames = Util.classifyProficiency(val);
-			return (<td key={slColumn} className={"bold " + classNames}>{val}</td>);
+			let className = '';
+			if (this.props.tableType === TABLE_TYPE.PROFICIENCY) {
+				val = Util.renderProficiency(val);
+			}
+			if (this.props.tableType === TABLE_TYPE.GRADE) {
+				className = 'bold';
+			}
+			return (<td key={slColumn} className={className}>{val}</td>);
 		});
 	}
 	render() {

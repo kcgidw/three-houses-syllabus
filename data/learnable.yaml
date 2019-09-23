@@ -1,128 +1,447 @@
 ---
 UNIVERSAL:
-  sword:
-    B: Axebreaker
-    S: Sword Crit +10
-    S+: Swordfaire
-  lance:
-    B: Swordbreaker
-    S: Lance Crit +10
-    S+: Lancefaire
-  axe:
-    B: Lancebreaker 
-    S: Axe Crit +10
-    S+: Axefaire
-  bow:
-    B: Close Counter
-    S: Bow Crit +10
-    S+: Bowfaire
-  brawling:
-    B: Healing Focus
-    S: Brawl Crit +10
-    S+: Fistfaire
-  reason:
-    S: Black Magic Range +1
-    S+: Black Tomefaire
-  faith:
-    S: White Magic Range +1
-    S+: White Tomefaire
-  authority:
-    B: Defensive Tactics
-    S+: Offensive Tactics
-  heavyArmor:
-    C: Weight -3
-    B: Smite
-    A+: Weight -5
-    S+: Armored Effect Null
-  riding:
-    C: Dexterity +4
-    A+: Movement +1
-    S+: Cavalry Effect Null
-  flying:
-    B: Alert Stance
-    A+: Alert Stance+
-    S+: Flying Effect Null
+  abilities:
+    sword:
+      B: Axebreaker
+      S: Sword Crit +10
+      S+: Swordfaire
+    lance:
+      B: Swordbreaker
+      S: Lance Crit +10
+      S+: Lancefaire
+    axe:
+      B: Lancebreaker
+      S: Axe Crit +10
+      S+: Axefaire
+    bow:
+      B: Close Counter
+      S: Bow Crit +10
+      S+: Bowfaire
+    brawling:
+      S: Brawl Crit +10
+      S+: Fistfaire
+    reason:
+      S: Black Magic Range +1
+      S+: Black Tomefaire
+    faith:
+      S: White Magic Range +1
+      S+: White Tomefaire
+    authority:
+      B: Defensive Tactics
+      S+: Offensive Tactics
+    heavyArmor:
+      C: Weight -3
+      A+: Weight -5
+      S+: Armored Effect Null
+    riding:
+      C: Dexterity +4
+      A+: Movement +1
+      S+: Cavalry Effect Null
+    flying:
+      B: Alert Stance
+      A+: Alert Stance+
+      S+: Flying Effect Null
+  combat arts:
+    sword:
+      D: Wrath Strike
+      C: Grounder 
+    lance:
+      D: Tempest Lance
+      C: Knightkneeler
+    axe:
+      D: Smash
+      C: Helm Splitter
+    bow:
+      D: Curved Shot
+    brawling:
+      D: Fading Blow
+      C: Rushing Blow
+      B: Healing Focus
+    reason:
+      D: Heal
+      D+: Nosferatu
+    heavyArmor:
+      B: Smite
 
 Byleth:
-  authority:
-    C: Battalion Vantage
-    C+: Model Leader
-    A: Battalion Desperation
-    S: Rally Movement
+  abilities:
+    authority:
+      C: Battalion Vantage
+      C+: Model Leader
+      A: Battalion Desperation
+      S: Rally Movement
+  combat arts:
+    sword:
+      C+: Bane of Monsters
+      A: Windsweep
+    brawling:
+      C+: Draining Blow 
+      A: Mystic Blow
+    reason:
+      D: Fire
+      D+: Thunder
+      C: Bolganone
+      A: Ragnarok
 
 # black eagle
 
+Edelgard:
+  abilities:
+    authority:
+      C: Battalion Vantage
+      C+: Model Leader
+      A: Battalion Renewal
+      S: Rally Charm
+  combat arts:
+    sword:
+      C+: Haze Strike
+      A: Hexblade
+    axe:
+      C+: Monster Breaker
+      A: Lightning Axe
+Hubert:
+  abilities:
+    authority:
+      D: Rally Magic
+      C: Battalion Wrath
+      C+: Rally Resistance
+      A: Battalion Desperation
+      S: Rally Speed
+  combat arts:
+    bow:
+      C+: Heavy Draw
+      A: Schism Shot
+Dorothea:
+  abilities:
+    authority:
+      D: Rally Charm
+      C: Battalion Desperation
+  combat arts:
+    sword:
+      C+: Hexblade
+Ferdinand:
+  abilities:
+    authority:
+      D: Rally Dexterity
+      C: Battalion Desperation
+  combat arts:
+    sword:
+      C+: Sunder
+    lance:
+      C+:	Shatter Slash
+      A: Swift Strike
+    axe:
+      C+: Focused Strike
+      A: Armored Strike
+Bernadetta:
+  abilities:
+    authority:
+      C: Battalion Wrath
+  combat arts:
+    lance:
+      C+: Vengeance
+    bow:
+      C+: Deadeye
+      A: Encloser
+Caspar:
+  abilities:
+    authority:
+      C: Battalion Wrath
+  combat arts:
+    axe:
+      C+: Wild Abandon
+      A: Exhaustive Strike
+    brawling:
+      C+: Bombard
+      A: Mighty Blow
+Petra:
+  abilities:
+    authority:
+      C: Battalion Wrath
+  combat arts:
+    sword:
+      C+: Bane of Monsters
+      A: Finesse Blade
+    axe:
+      C+: Wild Abandon
+      A: Diamond Axe
+    bow:
+      C+: Warning Shot
+Linhardt:
+  abilities:
+    authority:
+      C: Battalion Renewal
+
 # blue lion
+
+Dimitri:
+  abilities:
+    authority:
+      C: Battalion Wrath
+      C+: Model Leader
+      A: Battalion Vantage
+      S: Rally Charm
+  combat arts:
+    sword:
+      C+: Sunder
+      A: Windsweep
+    lance:
+      C+: Monster Piercer
+      A: Glowing Ember
+Dedue:
+  abilities:
+    authority:
+      C: Battalion Wrath
+  combat arts:
+    lance:
+      C+: Vengeance
+    axe:
+      C+: Monster Breaker
+      A: Armored Strike
+    brawling:
+      C+: One-Two Punch
+      A: Mighty Blow
+Felix:
+  abilities:
+    authority:
+      C: Battalion Vantage
+  combat arts:
+    sword:
+      C+: Sunder
+      A: Finesse Blade
+    bow:
+      C+: Heavy Draw
+    brawling:
+      C+: Nimble Combo
+      A: Mystic Blow
+Mercedes:
+  abilities:
+    authority:
+      C: Battalion Renewal
+Ashe:
+  abilities:
+    authority:
+      C: Battalion Desperation
+  combat arts:
+    axe:
+      C+: Focused Strike
+    bow:
+      C+: Deadeye
+      A: Warning Shot
+Annette:
+  abilities:
+    authority:
+      D: Rally Resistance
+      C: Battalion Renewal
+      C+: Rally Speed
+      A: Battalion Wrath
+      S: Rally Movement
+  combat arts:
+    axe:
+      C+: Lightning Axe
+Sylvain:
+  abilities:
+    authority:
+      C: Battalion Vantage
+  combat arts:
+    lance:
+      C+: Monster Piercer
+      A: Swift Strikes
+    axe:
+      C+: Spike
+      A: Lightning Axe
+Ingrid:
+  abilities:
+    authority:
+      D: Rally Magic
+      C: Battalion Desperation
+  combat arts:
+    sword:
+      C+: Hexblade
+    lance:
+      C+: Hit and Run
+      A: Frozen Lance
 
 # golden deer
 
 Claude:
-  authority:
-    C: Battalion Desperation
-    C+: Model Leader
-    A: Battalion Wrath
-    S: Rally Charm
+  abilities:
+    authority:
+      C: Battalion Desperation
+      C+: Model Leader
+      A: Battalion Wrath
+      S: Rally Charm
+  combat arts:
+    sword:
+      C+: Bane of Monsters
+      A: Finesse Blade
+    bow:
+      C+: Monster Blast
+      A: Encloser
 Lorenz:
-  authority:
-    C: Battalion Vantage
+  abilities:
+    authority:
+      C: Battalion Vantage
+  combat arts:
+    lance:
+      C+: Frozen Lance
 Hilda:
-  authority:
-    C: Battalion Wrath
+  abilities:
+    authority:
+      C: Battalion Wrath
+  combat arts:
+    lance:
+      C+: Shatter Slash
+    axe:
+      C+: Spike
+      A: Diamond Axe
 Raphael:
-  authority:
-    D: Rally Strength
-    C: Battalion Wrath
+  abilities:
+    authority:
+      D: Rally Strength
+      C: Battalion Wrath
+  combat arts:
+    axe:
+      C+: Wild Abandon
+    brawling:
+      C+: Monster Crusher
+      A: Draining Blow
 Lysithea:
-  authority:
-    C: Battalion Desperation
+  abilities:
+    authority:
+      C: Battalion Desperation
 Ignatz:
-  authority:
-    D: Rally Speed
-    C: Battalion Desperation
-    C+: Rally Dexterity
-    A: Battalion Vantage
-    S: Rally Strength
+  abilities:
+    authority:
+      D: Rally Speed
+      C: Battalion Desperation
+      C+: Rally Dexterity
+      A: Battalion Vantage
+      S: Rally Strength
+  combat arts:
+    sword:
+      C+: Haze Slice
+    bow:
+      C+: Break Shot
+      A: Ward Arrow
 Marianne:
-  authority:
-    C: Battalion Renewal
+  abilities:
+    authority:
+      C: Battalion Renewal
+  combat arts:
+    sword:
+      C+: Soulblade
 Leonie:
-  authority:
-    C: Battalion Desperation
+  abilities:
+    authority:
+      C: Battalion Desperation
+  combat arts:
+    lance:
+      C+: Monster Piercer
+      A: Lance Jab
+    bow:
+      C+: Break Shot
+      A: Point-Blank Volley
 
 # seiros
 
 Manuela:
-  authority:
-    D: Rally Charm
-    C: Battalion Renewal
+  abilities:
+    authority:
+      D: Rally Charm
+      C: Battalion Renewal
+  combat arts:
+    sword:
+      C+: Hexblade
 Hanneman:
-  authority:
-    C: Battalion Desperation
+  abilities:
+    authority:
+      C: Battalion Desperation
+  combat arts:
+    bow:
+      C+: Schism Shot
+      A: Ward Arrow
 Seteth:
-  authority:
-    D: Rally Defense
-    C: Battalion Wrath
-    C+: Model Leader
-    A: Battalion Desperation
-    S: Rally Resistance
+  abilities:
+    authority:
+      D: Rally Defense
+      C: Battalion Wrath
+      C+: Model Leader
+      A: Battalion Desperation
+      S: Rally Resistance
+  combat arts:
+    sword:
+      C+: Haze Slice
+    axe:
+      C+: Focused Strike
+      A: Diamond Axe
+    lance:
+      C+: Monster Piercer
+      A: Swift Strikes
 Flayn:
-  authority:
-    D: Rally Luck
-    C: Battalion Renewal
+  abilities:
+    authority:
+      D: Rally Luck
+      C: Battalion Renewal
+  combat arts:
+    lance:
+      C+: Hit and Run
+      A: Frozen Lance
 Cyril:
-  authority:
-    C: Battalion Desperation
+  abilities:
+    authority:
+      C: Battalion Desperation
+  combat arts:
+    lance:
+      C+: Vengeance
+      A: Lance Jab
+    axe:
+      C+: Monster Breaker
+      A: Armored Strike
+    bow:
+      C+: Point-Blank Volley
 Catherine:
-  authority:
-    C: Battalion Vantage
+  abilities:
+    authority:
+      C: Battalion Vantage
+  combat arts:
+    sword:
+      C+: Bane of Monsters
+      A: Finesse Blade
+    brawling:
+      C+: Nimble Combo
+      A: Bombard
 Alois:
-  authority:
-    D: Rally Strength
-    C: Battalion Wrath
+  abilities:
+    authority:
+      D: Rally Strength
+      C: Battalion Wrath
+  combat arts:
+    axe:
+      C+: Spike
+      A: Exhaustive Strike
+    brawling:
+      C+: One-Two Punch
+      A: Mighty Blow
 Gilbert:
-  authority:
-    D: Rally Defense
-    C: Battalion Wrath
+  abilities:
+    authority:
+      D: Rally Defense
+      C: Battalion Wrath
+  combat arts:
+    lance:
+      C+: Shatter Slash
+      A: Glowing Ember
+    axe:
+      C+: Spike
 Shamir:
-  authority:
-    C: Battalion Desperation
+  abilities:
+    authority:
+      C: Battalion Desperation
+  combat arts:
+    lance:
+      C+: Hit and Run
+      A: Lance Jab
+    bow:
+      C+: Heavy Draw
+      A: Monster Blast

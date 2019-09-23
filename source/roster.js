@@ -86,7 +86,7 @@ export function getAbilityRequirements(charPlan, abilityName) {
 		return undefined;
 	}
 	let cd = Data.findCharData(charPlan.name);
-	let learnables = cd.learnable;
+	let learnables = cd.learnable.abilities;
 	for(let skill in learnables) {
 		for(let grade of Data.STATIC.grades) {
 			if(learnables[skill][grade] === abilityName) {
@@ -97,6 +97,7 @@ export function getAbilityRequirements(charPlan, abilityName) {
 			}
 		}
 	}
+	console.error(`Can't find requirements for ability ${abilityName}`);
 	return undefined;
 }
 export function updateCharPlan(roster, charPlan, newState) {

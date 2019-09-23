@@ -87,7 +87,7 @@ class CharacterPlan extends React.Component {
 		return flat;
 	}
 	renderLearnableRows() {
-		let learnable = this.props.charData.learnable;
+		let learnable = this.props.charData.learnable.abilities;
 		let flat = [];
 		if (learnable) {
 			for (let skill in learnable) {

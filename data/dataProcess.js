@@ -105,19 +105,23 @@ async.series([
 	function(cb) {
 		const filename = 'learnable.yaml';
 		console.log('Begin parsing ' + filename);
-		let learned = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, filename), 'utf-8'));
-		Object.keys(learned).forEach((name) => {
-			let char = DATA.characters.find((c) => (c.name == name));
-			if(char) {
-				char.learnable = learned[name];
-			} else if(name === 'UNIVERSAL') {
-				DATA.characters.push({
-					name: name,
-					learnable: learned[name]
-				});
+		let data = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, filename), 'utf-8'));
+		Object.keys(data).forEach((characterName) => {
+			let char = DATA.characters.find((c) => (c.name == characterName));
+			let abilities = data[characterName].abilities;
+			let combatArts = data[characterName]['combat arts'];
+			for(let skillType of Object.keys(abilities)) {
+				for(let grade in abilities[skillType]) {
+					validateAbilitiyExists(abilities[skillType][grade], DATA.abilities);
+				}
 			}
-			for(let s of Object.values(learned[name].authority)) {
-				validateAbilitiyExists(s, DATA.abilities);
+			if(char) {
+				char.learnable = data[characterName];
+			} else if(characterName === 'UNIVERSAL') {
+				DATA.characters.push({
+					name: characterName,
+					learnable: data[characterName]
+				});
 			}
 		});
 		cb();

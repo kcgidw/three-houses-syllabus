@@ -78,6 +78,9 @@ export function toggleLearn(roster, charPlan, abilityName) {
 	}
 	return updateCharPlan(roster, charPlan, res);
 }
+export function hasPinnedClass(charPlan, className) {
+	return charPlan.classes[className] !== undefined;
+}
 export function hasLearnedAbility(charPlan, abilityName) {
 	return charPlan.learned[abilityName] !== undefined;
 }

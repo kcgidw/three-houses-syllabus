@@ -18,7 +18,6 @@ class CharacterPlan extends React.Component {
 		if(!this.state.charPlan) {
 			throw `Can't find charPlan for ` + this.props.charData.name;
 		}
-		// this.getSupportable = this.getSupportable.bind(this);
 		this.renderCharPlanClasses = this.renderCharPlanClasses.bind(this);
 		this.renderClasses = this.renderClasses.bind(this);
 		this.renderLearnableAbilityRow = this.renderLearnableAbilityRow.bind(this);
@@ -49,16 +48,13 @@ class CharacterPlan extends React.Component {
 	}
 	renderClasses() {
 		return Data.STATIC.classes
-			.filter((classData) => {
-				return this.state.charPlan.classes[classData.name] === undefined;
-			})
 			.map((classData) => {
 				let name = classData.name;
 				let action = () => {
 					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, name));
 				};
 				return (<li key={name}>
-					<ClassCard data={classData} handleClick={action} isPinned={false} />
+					<ClassCard data={classData} handleClick={action} isPinned={Roster.hasPinnedClass(this.state.charPlan, name)} />
 				</li>);
 			});
 	}
@@ -111,7 +107,7 @@ class CharacterPlan extends React.Component {
 				<h1>{this.props.charData.name}</h1>
 			</div>
 			<div className="main-card-body has-tabs">
-				<Tabs>
+				<Tabs forceRenderTabPanel>
 					<TabList>
 						<Tab>Overview</Tab>
 						<Tab>Classes</Tab>

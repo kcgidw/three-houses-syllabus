@@ -206,6 +206,7 @@ h4 {
 }
 
 #top-header {
+	z-index: 2;
 	position: relative;
 	height: var(--top-header-height);
 	padding: 0 10px;
@@ -228,6 +229,7 @@ h4 {
 }
 
 #left-sidebar {
+	z-index: 1;
 	float: left;
 	width: 180px;
 	height: calc(100% - var(--top-header-height));
@@ -283,6 +285,7 @@ h4 {
 }
 
 #main {
+	position: relative; // ensures shadows display over this space
 	padding: 15px 15px 0;
 	height: calc(100% - var(--top-header-height));
 	margin-left: 180px; // sidebar width
@@ -397,7 +400,7 @@ h4 {
 			}
 			&#learning-content {
 				td.learnable-row-star {
-					padding: 2px;
+					padding: 4px;
     				text-align: center;
 				}
 				td.learnable-row-name {
@@ -539,7 +542,7 @@ table {
 			}
 			.star-btn {
 				position: relative;
-				top: -2px;
+				top: -1px;
 			}
 		}
 	}
@@ -578,7 +581,10 @@ table {
 		}
 	}
 
-	&__tab-panel--selected {
+	&__tab-panel {
 		padding-top: 25px;
+		&:not(&--selected) {
+			display: none;
+		}
 	}
 }

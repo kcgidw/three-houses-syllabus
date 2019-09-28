@@ -2,6 +2,7 @@ import * as Data from './data';
 
 export function createRoster(allChars, loadedRoster) {
 	let res = allChars
+		.filter((c) => (findCharPlan(allChars, c.name)))
 		.map((c) => {
 			let loadedCharPlan = loadedRoster ? findCharPlan(loadedRoster, c.name) : undefined;
 			return createCharacterPlan(c, loadedCharPlan);

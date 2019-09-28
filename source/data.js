@@ -17,11 +17,10 @@ export function loadData(cb) {
 		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S'];
 
 		STATIC.universal = findCharData('UNIVERSAL');
-		STATIC.characters
-			.filter((cd) => (cd.name !== 'UNIVERSAL'))
-			.forEach((cd) => {
-				buildAllLearnables(cd);
-			});
+		STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL'));
+		STATIC.characters.forEach((cd) => {
+			buildAllLearnables(cd);
+		});
 
 		console.log(STATIC);
 		cb(data);

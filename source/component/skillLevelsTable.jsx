@@ -1,5 +1,6 @@
 import * as Data from '../data';
 import * as Util from '../util';
+import SkillIcon from './skill-icon';
 
 const TABLE_TYPE = {
 	GRADE: 'GRADE',
@@ -14,7 +15,8 @@ export default class SkillLevelsTable extends React.Component {
 	}
 	renderHeaderCells() {
 		return Object.keys(this.props.data).map((s) => {
-			return (<th key={s}>{Util.capitalize(s)}</th>);
+			// return (<th key={s}>{Util.capitalize(s)}</th>);
+			return (<th key={s}><SkillIcon skill={s}></SkillIcon></th>);
 		});
 	}
 	renderRowCells() {

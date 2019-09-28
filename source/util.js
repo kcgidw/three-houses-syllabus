@@ -1,3 +1,5 @@
+import * as Data from './data';
+
 export function capitalize(str) {
 	return str[0].toUpperCase() + str.slice(1);
 }
@@ -45,14 +47,23 @@ export function compareClass(dataA, dataB) {
 	const tierOrder = ['basic', 'beginner', 'intermediate', 'advanced', 'master', 'event'];
 	let a = tierOrder.indexOf(dataA.tier);
 	let b = tierOrder.indexOf(dataB.tier);
-	if(a - b !== 0) {
-		return a- b;
+	if(a !== b) {
+		return a - b;
 	}
 	return dataA.name.localeCompare(dataB.name);
 }
+export function compareSkill(skillA, skillB, gradeA, gradeB) {
+	const order = Data.STATIC.skillCategories;
+	let a = order.indexOf(skillA);
+	let b = order.indexOf(skillB);
+	if(a !== b) {
+		return a - b;
+	}
+	return compareGrade(gradeA, gradeB);
+}
 export function compareGrade(gradeA, gradeB) {
-	const grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S'];
-	let a = grades.indexOf(gradeA.tier);
-	let b = grades.indexOf(gradeB.tier);
+	const order = Data.STATIC.grades;
+	let a = order.indexOf(gradeA);
+	let b = order.indexOf(gradeB);
 	return a - b;
 }

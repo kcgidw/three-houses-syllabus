@@ -3,6 +3,8 @@ export let STATIC = {
 	universal: undefined,
 	stats: undefined,
 	classes: undefined,
+	skillCategories: undefined,
+	grades: undefined,
 };
 
 export function loadData(cb) {

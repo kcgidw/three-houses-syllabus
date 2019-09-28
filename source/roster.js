@@ -2,9 +2,6 @@ import * as Data from './data';
 
 export function createRoster(allChars, loadedRoster) {
 	let res = allChars
-		.filter((c) => {
-			return c.name !== 'UNIVERSAL';
-		})
 		.map((c) => {
 			let loadedCharPlan = loadedRoster ? findCharPlan(loadedRoster, c.name) : undefined;
 			return createCharacterPlan(c, loadedCharPlan);
@@ -89,10 +86,10 @@ export function getAbilityRequirements(charPlan, abilityName) {
 		return undefined;
 	}
 	let cd = Data.findCharData(charPlan.name);
-	let learnables = cd.learnable.abilities;
+	let learnables = cd.allLearnables;
 	for(let skill in learnables) {
-		for(let grade of Data.STATIC.grades) {
-			if(learnables[skill][grade] === abilityName) {
+		for(let grade in learnables[skill]) {
+			if(learnables[skill][grade].name === abilityName) {
 				return {
 					skill: skill,
 					grade: grade,
@@ -111,3 +108,7 @@ export function updateCharPlan(roster, charPlan, newState) {
 		return Object.assign({}, cp);
 	});
 }
+const LEARNABLE_TYPE = {
+	'ABILITY': 'ABILITY',
+	'COMBAT_ART': 'COMBAT_ART',
+};

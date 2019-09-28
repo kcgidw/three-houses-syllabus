@@ -83,19 +83,20 @@ class CharacterPlan extends React.Component {
 		return flat;
 	}
 	renderLearnableRows() {
-		let learnable = this.props.charData.learnable.abilities;
 		let flat = [];
-		if (learnable) {
-			for (let skill in learnable) {
-				for (let grade of Data.STATIC.grades) {
-					if (learnable[skill][grade]) {
-						let ability = Data.findAbility(learnable[skill][grade]);
-						let isLearned = Roster.hasLearnedAbility(this.state.charPlan, ability.name);
-						let onClick = () => {
-							this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, ability.name));
-						};
-						flat.push(this.renderLearnableAbilityRow(skill, grade, ability, isLearned, onClick));
-					}
+		let all = this.props.charData.allLearnables;
+		for (let skill in all) {
+			for (let grade in all[skill]) {
+				if(!all[skill][grade]) debugger;
+				let learnable = all[skill][grade];
+				let isAbility = learnable.type === 'ABILITY';
+				if(isAbility) {
+					let ability = Data.findAbility(learnable.name);
+					let isLearned = Roster.hasLearnedAbility(this.state.charPlan, ability.name);
+					let onClick = () => {
+						this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, ability.name));
+					};
+					flat.push(this.renderLearnableAbilityRow(skill, grade, ability, isLearned, onClick));
 				}
 			}
 		}

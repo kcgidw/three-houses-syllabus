@@ -1,18 +1,55 @@
 export let STATIC = {
 	characters: undefined,
+	universal: undefined,
 	stats: undefined,
 	classes: undefined,
 };
 
 export function loadData(cb) {
 	$.getJSON('data.json', (data) => {
-		STATIC = data;
 		console.log('Data retrieved.');
-		console.log(data);
+
+		STATIC = data;
 		STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
-		STATIC.skillLevels = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
+		STATIC.skillCategories = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
 		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S'];
+
+		STATIC.universal = findCharData('UNIVERSAL');
+		STATIC.characters
+			.filter((cd) => (cd.name !== 'UNIVERSAL'))
+			.forEach((cd) => {
+				buildAllLearnables(cd);
+			});
+
+		console.log(STATIC);
 		cb(data);
+	});
+}
+
+const LEARNABLE_TYPE = {
+	'ABILITY': 'ABILITY',
+	'COMBAT_ART': 'COMBAT_ART',
+};
+function buildAllLearnables(charData) {
+	charData.allLearnables = {};
+	[charData.learnable, STATIC.universal.learnable].forEach((source) => {
+		[source.abilities, source['combat arts']].forEach((subsource) => {
+			if(subsource) {
+				let type = subsource === source.abilities ? LEARNABLE_TYPE.ABILITY : LEARNABLE_TYPE.COMBAT_ART;
+				for(let skill in subsource) {
+					charData.allLearnables[skill] = charData.allLearnables[skill] || {};
+					for(let grade in subsource[skill]) {
+						if(charData.allLearnables[skill][grade]) {
+							console.warn(`Learnable already exists! ${charData.name} ${skill} ${grade}`);
+						}
+						charData.allLearnables[skill][grade] = {
+							name: subsource[skill][grade],
+							type: type,
+						};
+					}
+				}
+			}
+		});
 	});
 }
 

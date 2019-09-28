@@ -407,6 +407,9 @@ h4 {
 					min-width: 110px;
 					font-weight: 700;
 				}
+				td.learnable-row-type {
+					min-width: 75px;
+				}
 				td.learnable-row-grade {
 					min-width: 20px;
     				text-align: center;
@@ -417,17 +420,6 @@ h4 {
 			}
 			
 			table {
-				border-spacing: 0;
-				border-top: solid 1px var(--beige300);
-				border-radius: 2px;
-				td, th {
-					border-left: solid 1px var(--beige300);
-					border-bottom: solid 1px var(--beige300);
-					&:last-child {
-						border-right: solid 1px var(--beige300);
-					}
-				}
-
 				&.growths-table, &.skill-levels-table {
 					text-align: center;
 					td, th {
@@ -471,14 +463,11 @@ h4 {
 
 table {
 	border-spacing: 0;
-	border-top: solid 1px var(--beige300);
+	border: solid 1px var(--beige300);
 	border-radius: 2px;
+	border-collapse: collapse;
 	td, th {
 		border-left: solid 1px var(--beige300);
-		border-bottom: solid 1px var(--beige300);
-		&:last-child {
-			border-right: solid 1px var(--beige300);
-		}
 	}
 
 	&.condensed {
@@ -494,6 +483,9 @@ table {
 		font-size: 14px;
 		td, th {
 			padding: 8px;
+		}
+		tr {
+			border-bottom: solid 1px var(--beige300);
 		}
 	}
 
@@ -590,6 +582,6 @@ table {
 }
 
 img.skill-icon {
-	width: 25px;
-	height: 25px;
+	width: 22px;
+	height: 22px;
 }

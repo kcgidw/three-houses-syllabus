@@ -35,7 +35,7 @@ export function renderProficiency(val) {
 				</span>;
 			case 'B':
 				return <span className="budding" key={i}>
-					<i className="material-icons-outlined">lightbulb</i>
+					<i className="material-icons">lightbulb</i>
 				</span>;
 			default:
 				console.error(`Bad proficiency ${val}`);

@@ -2,6 +2,7 @@ import GrowthsTable from "./growthsTable";
 import SkillLevelsTable from "./skillLevelsTable";
 import * as Data from '../data';
 import StarButton from './star';
+import SkillCertTable from "./skillCertTable";
 
 export default class ClassCard extends React.Component {
 	constructor(props) {
@@ -61,7 +62,7 @@ export default class ClassCard extends React.Component {
 					<div className="class-card-unit class-cert">
 						<h4>Certification</h4>
 						<ol>
-							<SkillLevelsTable data={this.props.data.certification} tableType="GRADE" />
+							<SkillCertTable data={this.props.data.certification} />
 						</ol>
 					</div>
 					<div className="class-card-unit class-growths">

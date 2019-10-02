@@ -90,16 +90,18 @@ class CharacterPlan extends React.Component {
 			// iterate over all categories, not just the valid ones, to go through categories in correct order
 			if(all[skill]) {
 				for (let grade in all[skill]) {
-					let learnable = all[skill][grade];
-					let isAbility = learnable.type === 'ABILITY';
-					if(isAbility) {
-						let ability = Data.findAbility(learnable.name);
-						let isLearned = Roster.hasLearnedAbility(this.state.charPlan, ability.name);
-						let onClick = () => {
-							this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, ability.name));
-						};
-						flat.push(this.renderLearnableRow(skill, grade, ability, isLearned, onClick));
-					}
+					let learnables = all[skill][grade];
+					learnables.forEach((x) => {
+						let isAbility = x.type === 'ABILITY';
+						if(isAbility) {
+							let ability = Data.findAbility(x.name);
+							let isLearned = Roster.hasLearnedAbility(this.state.charPlan, ability.name);
+							let onClick = () => {
+								this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, ability.name));
+							};
+							flat.push(this.renderLearnableRow(skill, grade, ability, isLearned, onClick));
+						}
+					});
 				}
 			}
 		}
@@ -125,7 +127,7 @@ class CharacterPlan extends React.Component {
 							</div>
 							<div id="base-proficiencies" className="overview-unit">
 								<h3>Proficiencies</h3>
-								<SkillLevelsTable data={this.props.charData.skillLevels} tableType="PROFICIENCY" />
+								<SkillLevelsTable data={this.props.charData.skillLevels} />
 							</div>
 						</div>
 					</TabPanel>

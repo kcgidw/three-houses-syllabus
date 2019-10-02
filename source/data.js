@@ -40,13 +40,16 @@ function buildAllLearnables(charData) {
 				for(let skill in subsource) {
 					charData.allLearnables[skill] = charData.allLearnables[skill] || {};
 					for(let grade in subsource[skill]) {
-						if(charData.allLearnables[skill][grade]) {
-							console.warn(`Learnable already exists! ${charData.name} ${skill} ${grade}`);
-						}
-						charData.allLearnables[skill][grade] = {
+						let toPush = {
 							name: subsource[skill][grade],
 							type: type,
 						};
+						if(charData.allLearnables[skill][grade]) { // ability already exists
+							console.log(`Learnable already exists ${charData.name} ${skill} ${grade}`);
+							charData.allLearnables[skill][grade].push(toPush);
+						} else {
+							charData.allLearnables[skill][grade] = [toPush];
+						}
 					}
 				}
 			}

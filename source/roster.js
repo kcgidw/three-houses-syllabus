@@ -90,11 +90,14 @@ export function getAbilityRequirements(charPlan, abilityName) {
 	let learnables = cd.allLearnables;
 	for(let skill in learnables) {
 		for(let grade in learnables[skill]) {
-			if(learnables[skill][grade].name === abilityName) {
-				return {
-					skill: skill,
-					grade: grade,
-				};
+			if(learnables[skill][grade]) {
+				let res = learnables[skill][grade].find((x) => (x.name === abilityName));
+				if(res) {
+					return {
+						skill: skill,
+						grade: grade,
+					};
+				}
 			}
 		}
 	}

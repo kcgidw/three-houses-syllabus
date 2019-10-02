@@ -102,6 +102,23 @@ async.series([
 		});
 		cb();
 	}),
+	processCsvFile('skillBonus.csv', function(parsed, cb) {
+		parsed.forEach((row) => {
+			let obj = DATA.classes.find((cur) => {
+				return cur.name.trim() == row.className.trim();
+			});
+			if(obj) {
+				obj.skillBonus = {};
+				Object.keys(row).forEach((col) => {
+					let val = row[col];
+					if(col !== 'className' && val) {
+						obj.skillBonus[col] = val;
+					}
+				});
+			}
+		});
+		cb();
+	}),
 	function(cb) {
 		const filename = 'learnable.yaml';
 		console.log('Begin parsing ' + filename);

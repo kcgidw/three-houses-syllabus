@@ -30,7 +30,7 @@ export default class SupportSheetView extends React.Component {
 			</div>
 			<div className="main-card-body">
 				<div className="main-card-content">
-					<table className="supports-table textual">
+					<table className="supports-table big-table">
 						<tbody>
 							{this.renderRows()}
 						</tbody>

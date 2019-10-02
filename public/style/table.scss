@@ -1,0 +1,51 @@
+
+
+table {
+	border-spacing: 0;
+	border: solid 1px var(--beige300);
+	border-radius: 2px;
+	border-collapse: collapse;
+	td, th {
+		border-left: solid 1px var(--beige300);
+	}
+    td.neutral {
+        color: var(--beige600);
+    }
+
+	th {
+		font-weight: 500;
+		font-size: .9em;
+		background-color: var(--beige200);
+	}
+}
+
+.big-table {
+    text-align: left;
+    font-size: 14px;
+    td, th {
+        padding: 8px;
+    }
+    tr {
+        border-bottom: solid 1px var(--beige300);
+    }
+}
+.mini-table {
+    text-align: center;
+    font-size: 15px;
+    td, th {
+        padding: 4px;
+        min-width: 25px;
+    }
+}
+.growths-table {
+}
+.skill-bonus-table {
+}
+.skill-levels-table {
+}
+.supports-table {
+    text-align: left;
+    td, th {
+        padding: 8px;
+    }
+}

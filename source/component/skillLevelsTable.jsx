@@ -23,9 +23,9 @@ export default class SkillLevelsTable extends React.Component {
 	}
 	render() {
 		if(Object.keys(this.props.data).length === 0) {
-			return <div className="skill-levels-table">N/A</div>;
+			return <div className="">N/A</div>;
 		}
-		return (<table className="skill-levels-table">
+		return (<table className="mini-table skill-levels-table">
 			<thead>
 				<tr>{this.renderHeaderCells()}</tr>
 			</thead>

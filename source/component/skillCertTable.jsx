@@ -20,7 +20,7 @@ export default class SkillCertTable extends React.Component {
 	}
 	render() {
 		if(Object.keys(this.props.data).length === 0) {
-			return <div className="mini-table skill-cert-table">N/A</div>;
+			return <div className="">N/A</div>;
 		}
 		return (<table className="mini-table skill-cert-table">
 			<thead>

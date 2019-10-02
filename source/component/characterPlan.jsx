@@ -145,7 +145,7 @@ class CharacterPlan extends React.Component {
 						<div id="learning-content" className="main-card-content">
 							<div className="antiflex-wrapper">
 								<div id="learning-pinned-abilities">
-									<table className="skill-level-learned textual">
+									<table className="skill-level-learned big-table">
 										<tbody>
 											{this.renderLearnedRows()}
 										</tbody>
@@ -153,7 +153,7 @@ class CharacterPlan extends React.Component {
 								</div>
 								{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
 								<div id="learning-learnable-abilities">
-									<table className="skill-level-data textual">
+									<table className="skill-level-data big-table">
 										<tbody>
 											{this.renderAllLearnableRows()}
 										</tbody>

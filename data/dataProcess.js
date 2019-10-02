@@ -34,6 +34,12 @@ async.series([
 					res.growths[k.replace('growths_', '')] = char[k];
 				}
 			});
+			if(char['buddingTalent']) {
+				res.buddingTalent = {
+					skill: char['buddingTalentSkill'],
+					learn: char['buddingTalent'],
+				};
+			}
 			return res;
 		});
 		cb();

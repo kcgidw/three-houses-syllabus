@@ -14,7 +14,7 @@ export function loadData(cb) {
 		STATIC = data;
 		STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
 		STATIC.skillCategories = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
-		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S'];
+		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'];
 
 		STATIC.universal = findCharData('UNIVERSAL');
 		STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL'));
@@ -75,6 +75,13 @@ export function findAbility(name) {
 		console.warn(`Can't find ability ` + name);
 	}
 	return res;
+}
+export function findCombatArt(name) {
+	// TODO
+	return {
+		name,
+		desc: '',
+	};
 }
 export function filterByHouse(house) {
 	return STATIC.characters.filter((cd) => {

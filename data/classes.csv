@@ -1,6 +1,6 @@
 name,growths_hp,growths_str,growths_mag,growths_dex,growths_spd,growths_lck,growths_def,growths_res,growths_cha,cert_sword,cert_lance,cert_axe,cert_bow,cert_brawling,cert_reason,cert_faith,cert_authority,cert_heavyArmor,cert_riding,cert_flying,equip_ability1,equip_ability2,equip_ability3,mastered_ability,mastered_combat_art,tier,tags
-Noble,,,,,,,,,5,,,,,,,,,,,,,,,HP +5,,basic,
-Commoner,,,,,,,,,,,,,,,,,,,,,,,,HP +5,,basic,
+Noble,,,,,,,,,5,,,,,,,,,,,,,,,HP +5,,starter,
+Commoner,,,,,,,,,,,,,,,,,,,,,,,,HP +5,,starter,
 Myrmidon,10,,,,5,,,-5,5,D,,,,,,,,,,,,,,Speed +2,Swap,beginner,
 Soldier,10,,,5,,,,-5,5,,D,,,,,,,,,,,,,Defense +2,Reposition,beginner,
 Fighter,10,5,,,,,,-5,5,,,D,D,D,,,,,,,,,,Strength +2,Shove,beginner,

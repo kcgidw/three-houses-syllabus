@@ -15,11 +15,15 @@ export function loadData(cb) {
 		STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
 		STATIC.skillCategories = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
 		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'];
+		STATIC.classTiers = ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'];
 
 		STATIC.universal = findCharData('UNIVERSAL');
 		STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL'));
 		STATIC.characters.forEach((cd) => {
 			buildAllLearnables(cd);
+		});
+		STATIC.classes.forEach((cd) => {
+			buildRelatedSkills(cd);
 		});
 
 		console.log(STATIC);
@@ -55,6 +59,16 @@ function buildAllLearnables(charData) {
 			}
 		});
 	});
+}
+function buildRelatedSkills(classData) {
+	let skills = Object.assign({}, classData.certification, classData.skillBonus);
+	let relatedSkills = Object.keys(skills);
+	classData.relatedSkills = [];
+	for(let skill of STATIC.skillCategories) {
+		if(relatedSkills.indexOf(skill) !== -1) {
+			classData.relatedSkills.push(skill);
+		}
+	}
 }
 
 export function findCharData(name) {

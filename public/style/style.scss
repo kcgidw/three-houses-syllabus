@@ -1,5 +1,6 @@
 @import "normalize.css";
 @import "table";
+@import "classCard";
 
 :root {
 	--gray100: hsl(210, 6%, 98%);
@@ -66,6 +67,7 @@ $Crimson: 'Crimson Pro', serif;
 // $Barlow: 'Barlow', sans-serif;
 
 body {
+	margin: 0;
 	background-color: var(--lavgray900);
 	color: var(--beige800);
 	font-family: $Podkova;
@@ -157,12 +159,38 @@ body {
 	font-size: 1.2em;
 }
 .pill {
+	position: relative;
 	display: inline;
-	margin-right: 5px;
+	top: 5px;
+	margin-left: 5px;
     padding: 3px 9px;
 	border-radius: 20px;
-	background-color: var(--beige300);
-    font-size: 11px;
+	background-color: var(--beige200);
+	font-size: 11px;
+	
+	&.event {
+		border-radius: 2px;
+	}
+	&.beginner {
+		background-color: #f0e5d7;
+		color: #6e4912;
+		border-radius: 2px;
+	}
+	&.intermediate {
+		background-color: #e1ecec;
+		color: #2a6e6b;
+		border-radius: 2px;
+	}
+	&.advanced {
+		background-color: #ffeab8;
+		color: #8f6605;
+		border-radius: 2px;
+	}
+	&.master {
+		background-color: #e8e6ff;
+		color: #0e00d8;
+		border-radius: 2px;
+	}
 }
 a {
 	color: var(--lavender400);
@@ -420,10 +448,6 @@ h4 {
 				}
 			}
 
-			.classes-list {
-				display: flex;
-				flex-wrap: wrap;
-			}
 		}
 	}
 
@@ -436,53 +460,6 @@ h4 {
 		margin-left: 2px;
 	}
 
-}
-
-.class-card {
-	padding: 10px 15px 15px;
-	margin: 10px;
-	border-radius: 3px;
-	box-shadow: 0 2px 5px var(--shadow);
-	min-height: 280px;
-	width: 330px;
-	position: relative;
-
-	&:not(.pinned) {
-		border: solid 1px var(--beige300);
-		box-shadow: none;
-	}
-	&.pinned {
-		border: solid 1px var(--lavgray400);
-		box-shadow: 0 5px 10px var(--lavgray400);
-	}
-
-	.class-card-section {
-		&:not(:first-child) {
-			margin-top: 15px;
-			.class-card-unit {
-				margin-top: 15px;
-			}
-		}
-		&.class-card-header {
-			position: relative;
-			display: flex;
-			align-items: center;
-
-			.class-card-unit {
-				display: inline-block;
-			}
-			.class-name {
-				margin-bottom: 0;
-			}
-			.star-btn {
-				position: relative;
-				top: -1px;
-			}
-		}
-	}
-	h4 {
-		color: var(--beige700) !important;
-	}
 }
 
 .react-tabs {

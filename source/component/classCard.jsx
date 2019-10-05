@@ -3,6 +3,8 @@ import SkillLevelsTable from "./skillLevelsTable";
 import * as Data from '../data';
 import StarButton from './star';
 import SkillCertTable from "./skillCertTable";
+import localize from "../l10n";
+import cn from 'classnames';
 
 export default class ClassCard extends React.Component {
 	constructor(props) {
@@ -14,19 +16,16 @@ export default class ClassCard extends React.Component {
 
 	renderTags() {
 		return [this.props.data.tier].concat(this.props.data.tags).map((t) => {
-			return (<li className="pill" key={t}>{t}</li>);
+			return (<li key={t} className={'pill ' + t}>{localize(t)}</li>);
 		});
 	}
 
 	renderMasteredAbility() {
 		if (this.props.data.masteredAbility) {
 			let desc = Data.findAbility(this.props.data.masteredAbility).desc;
-			return (<div className="class-card-section">
-				<div className="class-card-unit">
-					<h4>Mastered Ability</h4>
-					<strong>{this.props.data.masteredAbility}:</strong> {desc}
-				</div>
-			</div>);
+			return (
+				<p><strong>{this.props.data.masteredAbility}:</strong> {desc}</p>
+			);
 		}
 	}
 
@@ -42,28 +41,25 @@ export default class ClassCard extends React.Component {
 	}
 
 	render() {
+		let cardCn = cn({
+			'class-card': true,
+			'card': true,
+			'col2': true,
+			'pinned': this.props.isPinned,
+		});
 		return (
-			<div className={"class-card card " + (this.props.isPinned ? "pinned" : "")}>
-				<div className="class-card-header class-card-section">
-					<div className="class-card-unit">
-						<h2 className="class-name">{this.props.data.name}</h2>
-					</div>
-					<span style={{width: '10px'}}></span>
-					<div className="class-card-unit">
-						<StarButton active={this.props.isPinned} onClick={this.props.handleClick} />
-					</div>
-				</div>
-				<div className="class-tags class-card-section">
+			<li className={cardCn}>
+				<div className="row">
+					<StarButton active={this.props.isPinned} onClick={this.props.handleClick} />
+					<h2 className="class-name">{this.props.data.name}</h2>
 					<ol>
 						{this.renderTags()}
 					</ol>
 				</div>
-				<div className="class-card-section class-cert">
+				<div className="row">
 					<div className="class-card-unit class-cert">
-						<h4>Certification</h4>
-						<ol>
-							<SkillCertTable data={this.props.data.certification} />
-						</ol>
+						<h4>Cert / Bonus</h4>
+						<SkillCertTable classData={this.props.data} />
 					</div>
 					<div className="class-card-unit class-growths">
 						<h4>Growths</h4>
@@ -71,9 +67,12 @@ export default class ClassCard extends React.Component {
 							<GrowthsTable growths={this.props.data.growths} tableType="MODIFIER"/>
 						</ol>
 					</div>
+					<div className="class-card-unit class-growths tail">
+						<h4>Mastered Ability</h4>
+						{this.renderMasteredAbility()}
+					</div>
 				</div>
-				{this.renderMasteredAbility()}
-			</div>
+			</li>
 		);
 	}
 }

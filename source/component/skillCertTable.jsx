@@ -7,19 +7,17 @@ export default class SkillCertTable extends React.Component {
 		this.renderRowCells = this.renderRowCells.bind(this);
 	}
 	renderHeaderCells() {
-		return Object.keys(this.props.data).map((s) => {
+		return this.props.classData.relatedSkills.map((s) => {
 			return (<th key={s}><SkillIcon skill={s}></SkillIcon></th>);
 		});
 	}
-	renderRowCells() {
-		let data = this.props.data;
-		return Object.keys(data).map((slColumn) => {
-			let val = data[slColumn];
-			return (<td key={slColumn} className="bold">{val}</td>);
+	renderRowCells(field) {
+		return this.props.classData.relatedSkills.map((skill) => {
+			return (<td key={field+':'+skill} className="bold">{this.props.classData[field][skill] || '-'}</td>);
 		});
 	}
 	render() {
-		if(Object.keys(this.props.data).length === 0) {
+		if(this.props.classData.relatedSkills.length === 0) {
 			return <div className="">N/A</div>;
 		}
 		return (<table className="mini-table skill-cert-table">
@@ -27,7 +25,8 @@ export default class SkillCertTable extends React.Component {
 				<tr>{this.renderHeaderCells()}</tr>
 			</thead>
 			<tbody>
-				<tr className={""}>{this.renderRowCells()}</tr>
+				<tr className={""}>{this.renderRowCells('certification')}</tr>
+				<tr className={""}>{this.renderRowCells('skillBonus')}</tr>
 			</tbody>
 		</table>);
 	}

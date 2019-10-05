@@ -42,9 +42,7 @@ class CharacterPlan extends React.Component {
 				let action = () => {
 					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, classData.name));
 				};
-				return (<li key={classData.name}>
-					<ClassCard data={classData} handleClick={action} isPinned={true} />
-				</li>);
+				return (<ClassCard key={classData.name} data={classData} handleClick={action} isPinned={true} />);
 			});
 	}
 	renderClasses() {
@@ -54,9 +52,9 @@ class CharacterPlan extends React.Component {
 				let action = () => {
 					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, name));
 				};
-				return (<li key={name}>
-					<ClassCard data={classData} handleClick={action} isPinned={Roster.hasPinnedClass(this.state.charPlan, name)} />
-				</li>);
+				return (
+					<ClassCard key={name} data={classData} handleClick={action} isPinned={Roster.hasPinnedClass(this.state.charPlan, name)} />
+				);
 			});
 	}
 	renderLearnableRow(skill, grade, learnableInfo, type, active, onClick) {

@@ -10,7 +10,7 @@
     "webpack": "webpack --env.production",
     "webpack-w": "webpack --env.development -w --debug --output-path-info --display-modules",
     "sass": "node-sass public/style/style.scss public/style/style.css --output-style compressed",
-    "sass-w": "node-sass public/style/style.scss public/style/style.css --output-style compressed --watch",
+    "sass-w": "node-sass public/style/style.scss public/style/style.css --output-style compressed --watch public/style",
     "start": "serve public"
   },
   "author": "",
@@ -38,6 +38,7 @@
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "react-tabs": "^3.0.0",
     "serve": "^11.1.0"

@@ -34,6 +34,7 @@
     "react-dom": "^16.9.0",
     "source-map-loader": "^0.2.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.2.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
   },
@@ -41,6 +42,6 @@
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "react-tabs": "^3.0.0",
-    "serve": "^11.1.0"
+    "serve": "^11.2.0"
   }
 }

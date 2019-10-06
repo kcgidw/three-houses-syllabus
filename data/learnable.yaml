@@ -57,7 +57,7 @@ UNIVERSAL:
       D: Fading Blow
       C: Rushing Blow
       B: Healing Focus
-    reason:
+    faith:
       D: Heal
       D+: Nosferatu
     heavyArmor:

@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "sidebar";
 @import "table";
 @import "classCard";
 
@@ -9,16 +10,17 @@
 	--gray400: hsl(210, 6%, 70%);
 	--gray500: hsl(210, 6%, 60%);
 	--gray700: hsl(210, 6%, 40%);
+	--gray800: hsl(210, 6%, 30%);
 	--gray900: hsl(210, 6%, 18%);
-	--beige100: hsl(55, 9%, 97%);
-	--beige200: hsl(55, 9%, 92%);
-	--beige300: hsl(55, 9%, 85%);
-	--beige400: hsl(55, 9%, 75%);
-	--beige500: hsl(55, 9%, 65%);
-	--beige600: hsl(55, 7%, 55%);
-	--beige700: hsl(50, 7%, 45%);
-	--beige800: hsl(50, 7%, 35%);
-	--beige900: hsl(50, 7%, 25%);
+	--beige100: hsl(50, 9%, 97%);
+	--beige200: hsl(50, 9%, 92%);
+	--beige300: hsl(50, 9%, 85%);
+	--beige400: hsl(50, 9%, 75%);
+	--beige500: hsl(50, 9%, 65%);
+	--beige600: hsl(50, 9%, 55%);
+	--beige700: hsl(50, 9%, 45%);
+	--beige800: hsl(50, 9%, 35%);
+	--beige900: hsl(50, 9%, 25%);
 	--lavgray100: hsl(250, 20%, 98%);
 	--lavgray200: hsl(250, 20%, 95%);
 	--lavgray300: hsl(250, 20%, 90%);
@@ -73,7 +75,7 @@ body {
 	font-family: $Podkova;
 	font-size: 14px;
 
-	--top-header-height: 30px;
+	--top-header-height: 50px;
 }
 #wrapper {
 	height: 100%;
@@ -143,6 +145,7 @@ body {
 	cursor: pointer;
 	&.active {
 		color: var(--lavender300);
+		text-shadow: 0 0 5px var(--lavender300);
 	}
 	&.active:hover {
 		color: var(--lavender200);
@@ -182,12 +185,12 @@ body {
 		border-radius: 2px;
 	}
 	&.advanced {
-		background-color: #ffeab8;
+		background-color: #fff1d1;
 		color: #8f6605;
 		border-radius: 2px;
 	}
 	&.master {
-		background-color: #e8e6ff;
+		background-color: #f0efff;
 		color: #0e00d8;
 		border-radius: 2px;
 	}
@@ -200,9 +203,6 @@ a {
 }
 
 textarea {
-	width: 100%;
-	max-width: 600px;
-	height: 200px;
 	border: solid 1px var(--beige400);
 	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 11px;
@@ -225,6 +225,7 @@ h1, h2, h3, h4 {
 }
 h1 {
 	font-family: $Crimson;
+	font-weight: 500;
 }
 h4 {
 	font-size: 11px;
@@ -235,129 +236,78 @@ h4 {
 }
 
 #top-header {
-	z-index: 2;
+	z-index: 1;
 	position: relative;
 	height: var(--top-header-height);
-	padding: 0 10px;
-	background-color: var(--beige100);
+	padding: 0 30px;
+	background-color: var(--lavgray800);
 	box-shadow: 0 0 12px var(--shadow);
 	// border-bottom: solid 1px var(--beige400);
 	box-sizing: border-box;
 	line-height: var(--top-header-height);
 	display: flex;
-	h1 {
-		margin: 0;
-		position: relative;
-		top: -2px;
-		font-size: 20px;
-		color: var(--lavgray600);
+	overflow: hidden; // margin collapse
+	h1, h2 {
+		color: var(--lavgray400);
+		font-weight: 400;
+		font-family: $Crimson;
 	}
-	#top-right {
+	#top-left, #top-right {
 		font-size: 14px;
+		position: absolute;
+	}
+	#top-right{ 
+		right: 20px;
 	}
 }
 
-#left-sidebar {
-	z-index: 1;
-	float: left;
-	width: 180px;
-	height: calc(100% - var(--top-header-height));
-	overflow-y: auto;
-
-	box-shadow: 0 0 12px var(--shadow);
-	background-color: var(--beige100);
-	color: var(--beige800);
-	font-size: 15px;
-	font-weight: 500;
-
-	h4 {
-		margin: 10px 0;
-		padding-left: 10px;
-	}
-
-	li.sidebar-clickable {
-		cursor: pointer;
-		padding: 5px 30px;
-		line-height: 19px;
-		&:not(.selected):hover {
-			background-color: var(--lavender100);
-			&.inactive {
-				color: var(--lavender400);
-				font-size: .9em;
-			}
-			&:not(.inactive) {
-				color: var(--lavender900);
-			}
-		}
-		&.selected {
-			background-color: var(--lavender200);
-			color: var(--lavender900);
-		}
-		&.inactive {
-			font-size: .9em;
-		}
-	}
-
-	.characters {
-		ul {
-			li {
-				border: none;
-				// &:not(.inactive):not(:last-child) {
-				// 	border-bottom: solid 1px var(--beige200);
-				// }
-				&.inactive {
-					color: var(--beige400);
-				}
-			}
-		}
-	}
-}
 
 #main {
 	position: relative; // ensures shadows display over this space
-	padding: 15px 15px 0;
+	padding: 14px;
 	height: calc(100% - var(--top-header-height));
 	margin-left: 180px; // sidebar width
 	background-color: var(--beige400);
-	overflow-y: scroll;
 	box-sizing: border-box;
+	display: flex;
+    justify-content: center;
 
 	.main-card {
+		width: 100%;
 		max-width: 1680px;
-		margin: 0 auto 15px;
 		padding: 0;
 		border-radius: 4px;
-		overflow: hidden; // for border-radius
+		overflow: hidden; // for border-radius & header
 		
 		box-shadow: 0 5px 12px var(--shadow);
 		background-color: var(--beige100);
 
-		.main-card-header {
-			background-color: var(--lavgray800);
-			padding: 0 30px;
-			overflow: hidden; // margin collapse
-
-			h1 {
-				color: var(--lavgray300);
-				font-size: 2em;
-				font-family: $Crimson;
-				font-weight: 500;
-				line-height: 50px;
-			}
-		}
 		.main-card-body {
-			padding: 15px 30px 30px;
-			overflow: auto;
+			padding: 15px;
 			&.has-tabs {
-				padding: 0 30px 30px;
+				padding: 0 15px 15px;
 			}
 		}
 		.main-card-content {
 			display: flex;
+			justify-content: center;
 			flex-wrap: wrap;
+			overflow: auto;
+			height: 100%;
 
-			.antiflex-wrapper {
+			&.noflex {
+				display: block;
+			}
+			#load-content-wrapper {
 				width: 100%;
+				max-width: 700px;
+				textarea {
+					width: 100%;
+					height: 200px;
+				}
+			}
+			#learning-content-wrapper {
+				text-align: center;
 			}
 
 			&#edit-roster-content {
@@ -444,15 +394,11 @@ h4 {
     				text-align: center;
 				}
 				td.learnable-row-desc {
-					width: 100%;
+					min-width: 520px;
 				}
 			}
 
 		}
-	}
-
-	#save-load-wrapper {
-		width: 100%;
 	}
 
 	.character-body {
@@ -466,9 +412,11 @@ h4 {
 	box-sizing: border-box;
 	&__tab-list {
 		width: 100%;
-		padding-left: 0;
+		height: 40px;
+		padding: 0;
 		margin: 0;
 		font-size: 15px;
+		text-align: center;
 	}
 		
 	&__tab {
@@ -479,7 +427,7 @@ h4 {
 		line-height: 2em;
 		text-align: center;
 		cursor: pointer;
-		color: var(--beige600);
+		color: var(--beige500);
 
 		&:hover:not(&--selected) {
 			border-bottom: solid 4px var(--lavender100);
@@ -493,7 +441,7 @@ h4 {
 	}
 
 	&__tab-panel {
-		padding-top: 25px;
+		height: calc(100% - 40px);
 		&:not(&--selected) {
 			display: none;
 		}

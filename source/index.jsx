@@ -21,6 +21,7 @@ class App extends React.Component {
 			roster: Roster.createRoster(this.props.data.characters, this.props.savedRoster),
 		};
 		this.setView = this.setView.bind(this);
+		this.getViewTitle = this.getViewTitle.bind(this);
 		this.getMainView = this.getMainView.bind(this);
 		this.handleRosterToggle = this.handleRosterToggle.bind(this);
 		this.getSortedRoster = this.getSortedRoster.bind(this);
@@ -76,6 +77,20 @@ class App extends React.Component {
 			roster: newRoster
 		});
 	}
+	getViewTitle() {
+		switch (this.state.view) {
+			case VIEWS.SAVELOAD:
+				return `Save / Load`;
+			case VIEWS.SUPPORTS:
+				return `Supports`;
+			case VIEWS.ROSTER:
+				return `Edit Roster`;
+			case VIEWS.CHARPLAN:
+				return this.state.charPlanFocus.name;
+			default:
+				throw 'Bad view';
+		}
+	}
 	getMainView() {
 		switch (this.state.view) {
 			case VIEWS.SAVELOAD:
@@ -97,16 +112,10 @@ class App extends React.Component {
 	}
 	render() {
 		return (<div id="wrapper">
-			<div id="top-header">
-				<div id="top-left">
+			<div id="left-sidebar">
+				<div id="sidebar-title">
 					<h1>Syllabus</h1>
 				</div>
-				<div className="flex-spacer"></div>
-				<div id="top-right">
-					<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
-				</div>
-			</div>
-			<div id="left-sidebar">
 				<div id="sidebar-menus">
 					<h4>Menu</h4>
 					<ul>
@@ -118,6 +127,18 @@ class App extends React.Component {
 				<div id="sidebar-units">
 					<h4>Unit</h4>
 					<CharacterList roster={this.getSortedRoster()} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
+				</div>
+			</div>
+			<div id="top-header">
+				<div id="top-left">
+				</div>
+				<div className="flex-spacer"></div>
+				<div id="top-center">
+					<h1>{this.getViewTitle()}</h1>
+				</div>
+				<div className="flex-spacer"></div>
+				<div id="top-right">
+					<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
 				</div>
 			</div>
 			<div id="main">

@@ -23,7 +23,7 @@ table {
     text-align: left;
     font-size: 14px;
     td, th {
-        padding: 8px;
+        padding: 9px;
     }
     tr {
         border-bottom: solid 1px var(--beige300);
@@ -45,7 +45,4 @@ table {
 }
 .supports-table {
     text-align: left;
-    td, th {
-        padding: 8px;
-    }
 }

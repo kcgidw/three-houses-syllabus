@@ -31,12 +31,9 @@ export default class SaveLoadView extends React.Component {
 	}
 	render() {
 		return (<div id="load-body" className="main-card">
-			<div className="main-card-header">
-				<h1>Save / Load</h1>
-			</div>
 			<div className="main-card-body">
 				<div className="main-card-content">
-					<div className="antiflex-wrapper">
+					<div id="load-content-wrapper">
 						<div id="save">
 							<h2>Roster Serialization</h2>
 							<p>The text below is your roster's current state converted into JSON text.</p>

@@ -1,5 +1,5 @@
 import * as Util from '../util';
-import SkillIcon from './skill-icon';
+import SkillIcon from './skillIcon';
 export default class SkillLevelsTable extends React.Component {
 	constructor(props) {
 		super(props);

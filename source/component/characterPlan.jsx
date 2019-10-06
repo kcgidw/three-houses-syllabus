@@ -7,7 +7,7 @@ import ClassCard from './classCard';
 import GrowthsTable from './growthsTable';
 import SkillLevelsTable from './skillLevelsTable';
 import StarButton from './star';
-import SkillIcon from './skill-icon';
+import SkillIcon from './skillIcon';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -119,9 +119,6 @@ class CharacterPlan extends React.Component {
 	}
 	render() {
 		return (<div className="main-card">
-			<div id="character-name" className="main-card-header">
-				<h1>{this.props.charData.name}</h1>
-			</div>
 			<div className="main-card-body has-tabs">
 				<Tabs forceRenderTabPanel>
 					<TabList>
@@ -142,7 +139,7 @@ class CharacterPlan extends React.Component {
 						</div>
 					</TabPanel>
 					<TabPanel>
-						<div id="classes-content" className="main-card-content">
+						<div id="classes-content" className="main-card-content noflex">
 							<ol className="classes-list">
 								{this.renderCharPlanClasses()}
 							</ol>
@@ -153,7 +150,7 @@ class CharacterPlan extends React.Component {
 					</TabPanel>
 					<TabPanel>
 						<div id="learning-content" className="main-card-content">
-							<div className="antiflex-wrapper">
+							<div id="learning-content-wrapper">
 								<div id="learning-pinned-abilities">
 									<table className="skill-level-learned big-table">
 										<tbody>

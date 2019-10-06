@@ -1,4 +1,4 @@
-import SkillIcon from './skill-icon';
+import SkillIcon from './skillIcon';
 
 export default class SkillCertTable extends React.Component {
 	constructor(props) {

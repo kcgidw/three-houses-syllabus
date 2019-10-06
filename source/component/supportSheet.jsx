@@ -25,9 +25,6 @@ export default class SupportSheetView extends React.Component {
 	}
 	render() {
 		return (<div id="support-sheet" className="main-card">
-			<div className="main-card-header">
-				<h1>Support Sheet</h1>
-			</div>
 			<div className="main-card-body">
 				<div className="main-card-content">
 					<table className="supports-table big-table">

@@ -235,6 +235,12 @@ h4 {
 	text-transform: uppercase;
 }
 
+#right-area {
+	&.desktop-sidebar-active {
+		margin-left: 180px; // sidebar width
+	}
+}
+
 #top-header {
 	z-index: 1;
 	position: relative;
@@ -242,7 +248,6 @@ h4 {
 	padding: 0 30px;
 	background-color: var(--lavgray800);
 	box-shadow: 0 0 12px var(--shadow);
-	// border-bottom: solid 1px var(--beige400);
 	box-sizing: border-box;
 	line-height: var(--top-header-height);
 	display: flex;
@@ -266,11 +271,14 @@ h4 {
 	position: relative; // ensures shadows display over this space
 	padding: 14px;
 	height: calc(100% - var(--top-header-height));
-	margin-left: 180px; // sidebar width
 	background-color: var(--beige400);
 	box-sizing: border-box;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
+	
+	@media(max-width: 700px) {
+		padding: 0;
+	}
 
 	.main-card {
 		width: 100%;
@@ -282,18 +290,17 @@ h4 {
 		box-shadow: 0 5px 12px var(--shadow);
 		background-color: var(--beige100);
 
-		.main-card-body {
-			padding: 15px;
-			&.has-tabs {
-				padding: 0 15px 15px;
-			}
-		}
 		.main-card-content {
+			padding: 15px;
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
 			overflow: auto;
 			height: 100%;
+
+			@media(max-width: 700px) {
+				padding: 0;
+			}
 
 			&.noflex {
 				display: block;
@@ -375,26 +382,6 @@ h4 {
 			&#overview-content {
 				.overview-unit:not(:last-child) {
 					margin-right: 30px;
-				}
-			}
-			&#learning-content {
-				td.learnable-row-star {
-					padding: 4px;
-    				text-align: center;
-				}
-				td.learnable-row-name {
-					min-width: 110px;
-					font-weight: 700;
-				}
-				td.learnable-row-type {
-					min-width: 75px;
-				}
-				td.learnable-row-grade {
-					min-width: 20px;
-    				text-align: center;
-				}
-				td.learnable-row-desc {
-					min-width: 520px;
 				}
 			}
 

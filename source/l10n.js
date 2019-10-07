@@ -1,14 +1,14 @@
+import { capitalize } from "./util";
+
 const dict = {
-	starter: 'Starter',
 	beginner: 'BEG.',
 	intermediate: 'INT.',
 	advanced: 'ADV.',
 	master: 'MASTER',
-	event: 'Event',
-	male: 'Male',
-	female: 'Female',
+	'Combat Art': 'C. Art',
+	heavyArmor: 'Heavy Armor',
 };
 
 export default function localize(str) {
-	return dict[str] || str;
+	return dict[str] || capitalize(str);
 }

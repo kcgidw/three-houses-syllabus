@@ -129,20 +129,21 @@ class App extends React.Component {
 					<CharacterList roster={this.getSortedRoster()} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
 				</div>
 			</div>
-			<div id="top-header">
-				<div id="top-left">
+			<div id="sidebar-overlay"></div>
+			<div id="right-area">
+				<div id="top-header">
+					<div className="flex-spacer"></div>
+					<div id="top-center">
+						<h1>{this.getViewTitle()}</h1>
+					</div>
+					<div className="flex-spacer"></div>
+					<div id="top-right">
+						<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
+					</div>
 				</div>
-				<div className="flex-spacer"></div>
-				<div id="top-center">
-					<h1>{this.getViewTitle()}</h1>
+				<div id="main">
+					{this.getMainView()}
 				</div>
-				<div className="flex-spacer"></div>
-				<div id="top-right">
-					<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
-				</div>
-			</div>
-			<div id="main">
-				{this.getMainView()}
 			</div>
 		</div>);
 	}

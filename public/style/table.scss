@@ -24,6 +24,9 @@ table {
     font-size: 14px;
     td, th {
         padding: 9px;
+        @media(max-width: 700px) {
+            padding: 6px;
+        }
     }
     tr {
         border-bottom: solid 1px var(--beige300);
@@ -45,4 +48,30 @@ table {
 }
 .supports-table {
     text-align: left;
+}
+.learnables-table {
+    td.learnable-row-star {
+        padding: 4px;
+        text-align: center;
+    }
+    td.learnable-row-name {
+        min-width: 110px;
+        font-weight: 700;
+    }
+    td.learnable-row-skill {
+        min-width: 43px;
+        font-size: 15px;
+        font-weight: 700;
+        span {
+            display: flex;
+            align-items: center;
+        }
+    }
+    td.learnable-row-grade {
+        min-width: 20px;
+        text-align: center;
+    }
+    td.learnable-row-desc {
+        width: 100%;
+    }
 }

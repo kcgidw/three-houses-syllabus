@@ -3,10 +3,9 @@ responsive for small devices
     main card should become full-width
 add budding talents
 better support sheet
-class skill bonuses
 remember tab when switching characters
 more tag icons - question, certificate
 add character pictures
 performance
-image bundling
 combat art data
+base64 encoding

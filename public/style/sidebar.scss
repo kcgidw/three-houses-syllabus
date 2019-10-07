@@ -3,7 +3,13 @@
 	float: left;
 	width: 180px;
 	height: 100%;
+	position: relative;
 	overflow-y: auto;
+
+	@media(max-width: 1024px) {
+		float: none;
+		position: absolute;
+	}
 
 	box-shadow: 0 0 12px var(--shadow);
 	background-color: var(--beige100);

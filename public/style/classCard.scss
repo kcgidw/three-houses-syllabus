@@ -2,6 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	min-width: 100%;
+	justify-content: center;
 }
 
 .class-card {
@@ -9,17 +10,17 @@
 	padding: 10px;
 	margin: 5px;
 	border-radius: 2px;
-	box-shadow: 0 2px 5px var(--shadow);
 	position: relative;
 	min-height: 150px;
+	border: solid 1px var(--beige300);
 
-	&:not(.pinned) {
-		border: solid 1px var(--beige300);
-		box-shadow: none;
+	@media(max-width:1366px) {
+		width: 330px;
 	}
+
 	&.pinned {
-		border: solid 1px var(--lavgray400);
-		box-shadow: 0 5px 10px var(--lavgray400);
+		border: solid 1px var(--lavender300);
+		box-shadow: 0 2px 5px var(--lavender300);
 	}
 
 	.row {

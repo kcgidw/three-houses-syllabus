@@ -8,6 +8,7 @@ import GrowthsTable from './growthsTable';
 import SkillLevelsTable from './skillLevelsTable';
 import StarButton from './star';
 import SkillIcon from './skillIcon';
+import localize from '../l10n';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -60,10 +61,9 @@ class CharacterPlan extends React.Component {
 	renderLearnableRow(skill, grade, learnableInfo, type, active, onClick) {
 		return (<tr className="learnable-row" key={learnableInfo.name}>
 			<td className="learnable-row-star"><StarButton active={active} onClick={onClick}></StarButton></td>
-			<td className="learnable-row-skill"><SkillIcon skill={skill} /></td>
-			<td className="learnable-row-grade">{grade}</td>
+			<td className="learnable-row-skill"><span><SkillIcon skill={skill} />&nbsp;{grade}</span></td>
 			<td className="learnable-row-name">{learnableInfo.name}</td>
-			<td className="learnable-row-type">{type}</td>
+			<td className="learnable-row-type">{localize(type)}</td>
 			<td className="learnable-row-desc">{learnableInfo.desc}</td>
 		</tr>);
 	}
@@ -152,7 +152,7 @@ class CharacterPlan extends React.Component {
 						<div id="learning-content" className="main-card-content">
 							<div id="learning-content-wrapper">
 								<div id="learning-pinned-abilities">
-									<table className="skill-level-learned big-table">
+									<table className="learnables-table skill-level-learned big-table">
 										<tbody>
 											{this.renderLearnedRows()}
 										</tbody>
@@ -160,7 +160,7 @@ class CharacterPlan extends React.Component {
 								</div>
 								{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
 								<div id="learning-learnable-abilities">
-									<table className="skill-level-data big-table">
+									<table className="learnables-table skill-level-data big-table">
 										<tbody>
 											{this.renderAllLearnableRows()}
 										</tbody>

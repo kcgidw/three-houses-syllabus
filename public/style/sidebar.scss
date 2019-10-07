@@ -72,21 +72,24 @@
 	}
 }
 #sidebar-overlay {
-    z-index: 1;
-    width: 100%;
+    z-index: 9;
     height: 100%;
 	position: fixed;
 	
-	opacity: .2;
 	background-color: black;
-	display: none;
+	width: 0;
+	opacity: 0;
 
-	transition: opacity .2s;
+	--target-opacity: .5;
 	
-	&.show {
-		@media(max-width: 1024px) {
-			display: initial;
-			// opacity: 0;
+	@media(max-width: 1024px) {
+		&.show {
+				width: 100%;
+				opacity: var(--target-opacity);
+		}
+		&.hide {
+				width: 0; // show and hide with width, since display doesn't play well with transitions
+				opacity: 0;
 		}
 	}
 }

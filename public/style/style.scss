@@ -237,6 +237,7 @@ h4 {
 }
 
 #right-area {
+	height: 100%;
 	transition: margin-left .2s;
 	&.desktop-sidebar-active {
 		@media(min-width: 1024px) {
@@ -288,7 +289,7 @@ h4 {
 	display: flex;
 	justify-content: center;
 	
-	@media(max-width: 700px) {
+	@media(max-width: 1024px) {
 		padding: 0;
 	}
 

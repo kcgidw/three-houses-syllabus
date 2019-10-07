@@ -1,6 +1,3 @@
-responsive for small devices
-    sidebar toggle / hamburger
-    main card should become full-width
 add budding talents
 better support sheet
 remember tab when switching characters
@@ -9,3 +6,4 @@ add character pictures
 performance
 combat art data
 base64 encoding
+sidebar overlay fading animations

@@ -5,6 +5,7 @@ import * as Roster from './roster';
 import EditRosterView from './component/editRoster';
 import SaveLoadView from './component/saveLoad';
 import SupportSheetView from "./component/supportSheet";
+import classnames from "classnames";
 
 const VIEWS = {
 	SAVELOAD: 'SAVELOAD',
@@ -19,12 +20,13 @@ class App extends React.Component {
 			view: VIEWS.ROSTER,
 			charPlanFocus: undefined,
 			roster: Roster.createRoster(this.props.data.characters, this.props.savedRoster),
+			sidebarHidden: false,
 		};
+		this.toggleSidebar = this.toggleSidebar.bind(this);
 		this.setView = this.setView.bind(this);
 		this.getViewTitle = this.getViewTitle.bind(this);
 		this.getMainView = this.getMainView.bind(this);
 		this.handleRosterToggle = this.handleRosterToggle.bind(this);
-		this.getSortedRoster = this.getSortedRoster.bind(this);
 		this.updateRoster = this.updateRoster.bind(this);
 	}
 	componentDidUpdate(prevProps) {
@@ -32,29 +34,6 @@ class App extends React.Component {
 			console.log('saving');
 			localStorage.setItem('save', JSON.stringify(this.state.roster));
 		}
-	}
-	getSortedRoster() {
-		return [... this.state.roster].sort((a, b) => {
-			// sort by active CPs
-			if(a.active && !b.active) {
-				return -1;
-			}
-			if(!a.active && b.active) {
-				return 1;
-			}
-			return 0;
-		}, (a, b) => {
-			// sort by ID
-			let aData = Data.findCharData(a);
-			let bData = Data.findCharData(b);
-			if(aData.id < bData.id) {
-				return -1;
-			}
-			if(aData.id > bData.id) {
-				return 1;
-			}
-			return 0;
-		});
 	}
 	setView(view, charPlanFocus) {
 		this.setState({
@@ -105,14 +84,24 @@ class App extends React.Component {
 				throw 'Bad view';
 		}
 	}
+	toggleSidebar() {
+		this.setState({
+			sidebarHidden: !this.state.sidebarHidden
+		});
+	}
 	loadRosterJSON(json) {
 		this.setState({
 			roster: JSON.parse(json)
 		});
 	}
 	render() {
+		let sidebarCns = classnames({
+			'left-sidebar': true,
+			'hidden': this.state.sidebarHidden,
+		});
+
 		return (<div id="wrapper">
-			<div id="left-sidebar">
+			<div id="left-sidebar" className={(this.state.sidebarHidden && 'hidden')}>
 				<div id="sidebar-title">
 					<h1>Syllabus</h1>
 				</div>
@@ -126,12 +115,15 @@ class App extends React.Component {
 				</div>
 				<div id="sidebar-units">
 					<h4>Unit</h4>
-					<CharacterList roster={this.getSortedRoster()} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
+					<CharacterList roster={Roster.sortByActive(this.state.roster)} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
 				</div>
 			</div>
-			<div id="sidebar-overlay"></div>
-			<div id="right-area">
+			<div id="sidebar-overlay" className={(!this.state.sidebarHidden && 'show')} onClick={this.toggleSidebar}></div>
+			<div id="right-area" className={(!this.state.sidebarHidden && 'desktop-sidebar-active')}>
 				<div id="top-header">
+					<div id="top-left">
+						<i className="material-icons" onClick={this.toggleSidebar}>menu</i>
+					</div>
 					<div className="flex-spacer"></div>
 					<div id="top-center">
 						<h1>{this.getViewTitle()}</h1>

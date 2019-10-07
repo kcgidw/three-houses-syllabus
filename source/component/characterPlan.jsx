@@ -9,6 +9,7 @@ import SkillLevelsTable from './skillLevelsTable';
 import StarButton from './star';
 import SkillIcon from './skillIcon';
 import localize from '../l10n';
+import { LEARNABLE_TYPE } from '../enum';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -73,10 +74,10 @@ class CharacterPlan extends React.Component {
 		if (allLearned) {
 			for (let learnedName in allLearned) {
 				let learned = Data.findAbility(learnedName);
-				let type = 'Ability';
+				let type = LEARNABLE_TYPE.ABILITY;
 				if(!learned) {
 					learned = Data.findCombatArt(learnedName);
-					type = 'Combat Art';
+					type = LEARNABLE_TYPE.COMBAT_ART;
 				}
 				let onClick = () => {
 					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, learnedName));
@@ -98,8 +99,7 @@ class CharacterPlan extends React.Component {
 						let learnables = all[skill][grade];
 						learnables.forEach((x) => {
 							let info;
-							let isAbility = x.type === 'ABILITY';
-							let type = isAbility ? 'Ability' : 'Combat Art';
+							let isAbility = x.type === LEARNABLE_TYPE.ABILITY;
 							if(isAbility) {
 								info = Data.findAbility(x.name);
 							} else {
@@ -109,7 +109,7 @@ class CharacterPlan extends React.Component {
 							let onClick = () => {
 								this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, info.name));
 							};
-							flat.push(this.renderLearnableRow(skill, grade, info, type, isLearned, onClick));
+							flat.push(this.renderLearnableRow(skill, grade, info, x.type, isLearned, onClick));
 						});
 					}
 				}

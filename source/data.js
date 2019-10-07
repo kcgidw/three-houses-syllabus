@@ -1,3 +1,5 @@
+import { LEARNABLE_TYPE } from "./enum";
+
 export let STATIC = {
 	characters: undefined,
 	universal: undefined,
@@ -31,10 +33,6 @@ export function loadData(cb) {
 	});
 }
 
-const LEARNABLE_TYPE = {
-	'ABILITY': 'ABILITY',
-	'COMBAT_ART': 'COMBAT_ART',
-};
 function buildAllLearnables(charData) {
 	charData.allLearnables = {};
 	[charData.learnable, STATIC.universal.learnable].forEach((source) => {

@@ -21,6 +21,29 @@ export function findCharPlan(roster, name) {
 export function findActiveCharPlan(roster, name) {
 	return roster.find((cp) => (cp.name == name && cp.active));
 }
+export function sortByActive(roster) {
+	return [... roster].sort((a, b) => {
+		// sort by active CPs
+		if(a.active && !b.active) {
+			return -1;
+		}
+		if(!a.active && b.active) {
+			return 1;
+		}
+		return 0;
+	}, (a, b) => {
+		// sort by ID
+		let aData = Data.findCharData(a);
+		let bData = Data.findCharData(b);
+		if(aData.id < bData.id) {
+			return -1;
+		}
+		if(aData.id > bData.id) {
+			return 1;
+		}
+		return 0;
+	});
+}
 export function filterByHouse(roster, house) {
 	let cds = Data.filterByHouse(house);
 	let res = cds.map((cd) => {
@@ -112,7 +135,3 @@ export function updateCharPlan(roster, charPlan, newState) {
 		return Object.assign({}, cp);
 	});
 }
-const LEARNABLE_TYPE = {
-	'ABILITY': 'ABILITY',
-	'COMBAT_ART': 'COMBAT_ART',
-};

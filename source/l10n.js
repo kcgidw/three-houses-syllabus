@@ -1,11 +1,13 @@
 import { capitalize } from "./util";
+import { LEARNABLE_TYPE } from "./enum";
 
 const dict = {
 	beginner: 'BEG.',
 	intermediate: 'INT.',
 	advanced: 'ADV.',
 	master: 'MASTER',
-	'Combat Art': 'C. Art',
+	[LEARNABLE_TYPE.COMBAT_ART]: 'C. Art',
+	[LEARNABLE_TYPE.ABILITY]: 'Ability',
 	heavyArmor: 'Heavy Armor',
 };
 

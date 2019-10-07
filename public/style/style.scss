@@ -76,6 +76,7 @@ body {
 	font-size: 14px;
 
 	--top-header-height: 50px;
+	--sidebar-width: 180px;
 }
 #wrapper {
 	height: 100%;
@@ -236,8 +237,11 @@ h4 {
 }
 
 #right-area {
+	transition: margin-left .2s;
 	&.desktop-sidebar-active {
-		margin-left: 180px; // sidebar width
+		@media(min-width: 1024px) {
+			margin-left: var(--sidebar-width);
+		}
 	}
 }
 
@@ -245,7 +249,7 @@ h4 {
 	z-index: 1;
 	position: relative;
 	height: var(--top-header-height);
-	padding: 0 30px;
+	padding: 0 15px;
 	background-color: var(--lavgray800);
 	box-shadow: 0 0 12px var(--shadow);
 	box-sizing: border-box;
@@ -253,13 +257,21 @@ h4 {
 	display: flex;
 	overflow: hidden; // margin collapse
 	h1, h2 {
-		color: var(--lavgray400);
+		color: var(--lavgray200);
 		font-weight: 400;
 		font-family: $Crimson;
 	}
 	#top-left, #top-right {
 		font-size: 14px;
 		position: absolute;
+	}
+	#top-left {
+		i {
+			color: var(--lavgray200);
+			font-size: 30px;
+			line-height: var(--top-header-height);
+			cursor: pointer;
+		}
 	}
 	#top-right{ 
 		right: 20px;
@@ -353,7 +365,7 @@ h4 {
 						list-style: none;
 						padding: 0;
 						margin: auto;
-						width: 180px;
+						width: var(--sidebar-width);
 						text-align: left;
 						li {
 							& > div {

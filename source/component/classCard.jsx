@@ -1,10 +1,10 @@
-import GrowthsTable from "./growthsTable";
-import SkillLevelsTable from "./skillLevelsTable";
-import * as Data from '../data';
-import StarButton from './star';
-import SkillCertTable from "./skillCertTable";
-import localize from "../l10n";
 import cn from 'classnames';
+import React from 'react';
+import * as Data from '../data';
+import localize from "../l10n";
+import GrowthsTable from "./growthsTable";
+import SkillCertTable from "./skillCertTable";
+import StarButton from './star';
 
 export default class ClassCard extends React.Component {
 	constructor(props) {

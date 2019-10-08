@@ -1,3 +1,4 @@
+import React from 'react';
 import SkillIcon from './skillIcon';
 
 export default class SkillCertTable extends React.Component {

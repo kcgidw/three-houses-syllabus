@@ -1,5 +1,5 @@
+import React from 'react';
 import * as Data from '../data';
-import * as Util from '../util';
 import * as Roster from '../roster';
 
 export default class SupportSheetView extends React.Component {

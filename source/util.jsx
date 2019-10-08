@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Data from './data';
 
 export function capitalize(str) {

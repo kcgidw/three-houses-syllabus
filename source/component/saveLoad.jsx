@@ -1,6 +1,4 @@
-import * as Data from '../data';
-import * as Util from '../util';
-import * as Roster from '../roster';
+import React from 'react';
 
 export default class SaveLoadView extends React.Component {
 	constructor(props) {

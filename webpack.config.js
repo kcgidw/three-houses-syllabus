@@ -74,10 +74,10 @@ module.exports = (env) => {
 					'react-tabs': 'react-tabs/dist/react-tabs.production.min.js'
 				}
 			},
-			externals: { // resolve to external cdns
-				'react': 'React',
-				'react-dom': 'ReactDOM',
-			}
+			// externals: { // resolve to external cdns
+			// 	'react': 'React',
+			// 	'react-dom': 'ReactDOM',
+			// }
 		});
 	} else if (env.development) {
 		_.merge(config, {
@@ -88,10 +88,6 @@ module.exports = (env) => {
 					'react-tabs': 'react-tabs/dist/react-tabs.development.js'
 				}
 			},
-			externals: { // resolve to external cdns
-				'react': 'React',
-				'react-dom': 'ReactDOM',
-			}
 		});
 	} else {
 		throw new Error('Bad webpack env');

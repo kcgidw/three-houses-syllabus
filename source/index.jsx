@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import * as Data from "./data";
 import CharacterList from "./component/characterList";
 import CharacterPlan from "./component/characterPlan";
@@ -5,7 +7,6 @@ import * as Roster from './roster';
 import EditRosterView from './component/editRoster';
 import SaveLoadView from './component/saveLoad';
 import SupportSheetView from "./component/supportSheet";
-import classnames from "classnames";
 
 const VIEWS = {
 	SAVELOAD: 'SAVELOAD',
@@ -96,7 +97,7 @@ class App extends React.Component {
 	}
 	render() {
 		return (<div id="wrapper">
-			<div id="left-sidebar" className={(this.state.sidebarHidden && 'hidden')}>
+			<div id="left-sidebar" className={(this.state.sidebarHidden ? 'hidden' : '')}>
 				<div id="sidebar-title">
 					<h1>Syllabus</h1>
 				</div>

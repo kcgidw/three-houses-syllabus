@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Data from '../data';
 import * as Util from '../util';
 

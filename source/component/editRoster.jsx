@@ -1,5 +1,4 @@
-import * as Data from '../data';
-import * as Util from '../util';
+import React from 'react';
 import * as Roster from '../roster';
 
 class EditRoster extends React.Component {

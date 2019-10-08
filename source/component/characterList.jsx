@@ -1,3 +1,4 @@
+import React from 'react';
 class CharacterList extends React.Component {
 	constructor(props) {
 		super(props);

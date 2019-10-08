@@ -1,3 +1,4 @@
+import React from 'react';
 import sword from '../../public/images/skill-icons/sword.png';
 import lance from '../../public/images/skill-icons/lance.png';
 import axe from '../../public/images/skill-icons/axe.png';

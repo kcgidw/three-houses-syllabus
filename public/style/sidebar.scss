@@ -9,7 +9,7 @@
 	transition: left .2s;
 
 	&.hidden {
-		left: calc(-1 * var(--sidebar-width));
+		left: calc(-1 * var(--sidebar-width) - 12px);
 	}
 
 	box-shadow: 0 0 12px var(--shadow);

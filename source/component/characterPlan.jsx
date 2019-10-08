@@ -118,60 +118,57 @@ class CharacterPlan extends React.Component {
 		return flat;
 	}
 	render() {
-		return (<div className="main-card">
-			<div className="main-card-body has-tabs">
-				<Tabs forceRenderTabPanel>
-					<TabList>
-						<Tab>Overview</Tab>
-						<Tab>Classes</Tab>
-						<Tab>Learning</Tab>
-					</TabList>
-					<TabPanel>
-						<div id="overview-content" className="character-body main-card-content">
-							<div id="base-growths" className="overview-unit">
-								<h3>Growths</h3>
-								<GrowthsTable growths={this.props.charData.growths} tableType="BASE" />
-							</div>
-							<div id="base-proficiencies" className="overview-unit">
-								<h3>Proficiencies</h3>
-								<SkillLevelsTable data={this.props.charData.skillLevels} />
-							</div>
+		return (<div className="main-card has-tabs">
+			<Tabs forceRenderTabPanel>
+				<TabList>
+					<Tab>Overview</Tab>
+					<Tab>Classes</Tab>
+					<Tab>Learning</Tab>
+				</TabList>
+				<TabPanel>
+					<div id="overview-content" className="character-body main-card-content">
+						<div id="base-growths" className="overview-unit">
+							<h3>Growths</h3>
+							<GrowthsTable growths={this.props.charData.growths} tableType="BASE" />
 						</div>
-					</TabPanel>
-					<TabPanel>
-						<div id="classes-content" className="main-card-content noflex">
-							<ol className="classes-list">
-								{this.renderCharPlanClasses()}
-							</ol>
-							<ol className="classes-list">
-								{this.renderClasses()}
-							</ol>
+						<div id="base-proficiencies" className="overview-unit">
+							<h3>Proficiencies</h3>
+							<SkillLevelsTable data={this.props.charData.skillLevels} />
 						</div>
-					</TabPanel>
-					<TabPanel>
-						<div id="learning-content" className="main-card-content">
-							<div id="learning-content-wrapper">
-								<div id="learning-pinned-abilities">
-									<table className="learnables-table skill-level-learned big-table">
-										<tbody>
-											{this.renderLearnedRows()}
-										</tbody>
-									</table>
-								</div>
-								{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
-								<div id="learning-learnable-abilities">
-									<table className="learnables-table skill-level-data big-table">
-										<tbody>
-											{this.renderAllLearnableRows()}
-										</tbody>
-									</table>
-								</div>
+					</div>
+				</TabPanel>
+				<TabPanel>
+					<div id="classes-content" className="main-card-content noflex">
+						<ol className="classes-list">
+							{this.renderCharPlanClasses()}
+						</ol>
+						<ol className="classes-list">
+							{this.renderClasses()}
+						</ol>
+					</div>
+				</TabPanel>
+				<TabPanel>
+					<div id="learning-content" className="main-card-content">
+						<div id="learning-content-wrapper">
+							<div id="learning-pinned-abilities">
+								<table className="learnables-table skill-level-learned big-table">
+									<tbody>
+										{this.renderLearnedRows()}
+									</tbody>
+								</table>
+							</div>
+							{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
+							<div id="learning-learnable-abilities">
+								<table className="learnables-table skill-level-data big-table">
+									<tbody>
+										{this.renderAllLearnableRows()}
+									</tbody>
+								</table>
 							</div>
 						</div>
-					</TabPanel>
-				</Tabs>
-
-			</div>
+					</div>
+				</TabPanel>
+			</Tabs>
 		</div>);
 	}
 }

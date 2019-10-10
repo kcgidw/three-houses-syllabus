@@ -72,7 +72,7 @@ $Crimson: 'Crimson Pro', serif;
 
 body {
 	margin: 0;
-	background-color: var(--lavgray900);
+	background-color: var(--beige400);
 	color: var(--beige800);
 	font-family: $Podkova;
 	font-size: 14px;
@@ -240,7 +240,7 @@ h4 {
 
 #right-area {
 	height: 100%;
-	transition: margin-left .2s;
+	transition: margin-left .1s;
 	&.desktop-sidebar-active {
 		@media(min-width: 1024px) {
 			margin-left: var(--sidebar-width);

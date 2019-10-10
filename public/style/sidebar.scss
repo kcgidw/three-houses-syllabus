@@ -4,9 +4,13 @@
 	height: 100%;
 	position: absolute;
 	left: 0px;
-	overflow-y: auto;
 
-	transition: left .2s;
+	overflow-y: auto;
+	// &:hover {
+	// 	overflow-y: auto;
+	// }
+
+	transition: left .1s linear;
 
 	&.hidden {
 		left: calc(-1 * var(--sidebar-width) - 12px);

@@ -12,7 +12,8 @@
 	border-radius: 2px;
 	position: relative;
 	min-height: 150px;
-	border: solid 1px var(--beige300);
+	border: solid 1px var(--beige400);
+	background-color: var(--beige100);
 
 	@media(max-width:1366px) {
 		width: 330px;
@@ -70,7 +71,6 @@
 		margin: 0;
 	}
 	h4 {
-		color: var(--beige600) !important;
 		margin: 0 0 2px 0;
 	}
 }

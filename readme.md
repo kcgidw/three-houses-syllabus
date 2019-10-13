@@ -8,7 +8,7 @@ I appreciate any data corrections!
 
 ## Develop
 
-Build jsx and sass with `npm run build`. There are also "watch" npm commands in `package.json`.
+Build jsx and sass to `dist` folder with `npm run build`.
 
 Rebuild `data.json` with `npm run data`.
 

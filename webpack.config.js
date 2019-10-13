@@ -1,17 +1,17 @@
 const path = require('path');
-const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const _ = require('lodash');
+const CssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
 	const config = {
-		entry: [
-			// '@babel/polyfill', corejs polyfill
-			path.resolve(__dirname, 'source', 'index.jsx')
-		],
+		entry: {
+			'index': path.resolve(__dirname, 'src', 'js', 'index.js'),
+		},
 		output: {
-			path: path.resolve(__dirname, 'public', 'js'),
-			filename: 'index.bundle.min.js'
+			path: path.resolve(__dirname, 'dist', 'js'),
+			filename: '[name].bundle.min.js'
 		},
 		module: {
 			rules: [
@@ -35,13 +35,25 @@ module.exports = (env) => {
 					]
 				},
 				{
-					test: /\.css$/,
+					test: /\.(sa|sc|c)ss$/,
 					use: [
-						'css-loader',
+						CssExtractPlugin.loader,
+						{
+							loader: "css-loader",
+							options: {
+								sourceMap: true,
+							}
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true
+							}
+						}
 					]
 				},
 				{
-					test: /\.(png|jpg|gif)$/i,
+					test: /\.(png|jpg|gif)$/,
 					use: [
 						{
 							loader: 'url-loader',
@@ -55,9 +67,19 @@ module.exports = (env) => {
 		},
 		resolve: {
 			extensions: [".js", ".jsx"],
+			alias: {
+				'assets': path.resolve(__dirname, 'assets'),
+			}
 		},
 		plugins: [
-			// new CompressionPlugin(), // gzip
+			new CssExtractPlugin({
+				filename: '../style.css',
+				ignoreOrder: false
+			}),
+			new CopyWebpackPlugin([
+				{from: 'src/data.json', to: '../data.json'},
+				{from: 'src/index.html', to: '../index.html'},
+			])
 		],
 	};
 
@@ -69,25 +91,11 @@ module.exports = (env) => {
 				minimize: true,
 				minimizer: [new UglifyJsPlugin({ sourceMap: true }),]
 			},
-			resolve: {
-				alias: { // import local development versions for devtools
-					'react-tabs': 'react-tabs/dist/react-tabs.production.min.js'
-				}
-			},
-			// externals: { // resolve to external cdns
-			// 	'react': 'React',
-			// 	'react-dom': 'ReactDOM',
-			// }
 		});
 	} else if (env.development) {
 		_.merge(config, {
 			mode: 'development',
 			devtool: 'source-map',
-			resolve: {
-				alias: { // import local development versions for devtools
-					'react-tabs': 'react-tabs/dist/react-tabs.development.js'
-				}
-			},
 		});
 	} else {
 		throw new Error('Bad webpack env');

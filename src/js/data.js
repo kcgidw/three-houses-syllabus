@@ -1,4 +1,5 @@
 import { LEARNABLE_TYPE } from "./enum";
+import DATA_JSON from '../data.json';
 
 export let STATIC = {
 	characters: undefined,
@@ -9,29 +10,22 @@ export let STATIC = {
 	grades: undefined,
 };
 
-export function loadData(cb) {
-	$.getJSON('data.json', (data) => {
-		console.log('Data retrieved.');
+STATIC = DATA_JSON;
+STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
+STATIC.skillCategories = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
+STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'];
+STATIC.classTiers = ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'];
 
-		STATIC = data;
-		STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
-		STATIC.skillCategories = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
-		STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'];
-		STATIC.classTiers = ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'];
+STATIC.universal = findCharData('UNIVERSAL');
+STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL'));
+STATIC.characters.forEach((cd) => {
+	buildAllLearnables(cd);
+});
+STATIC.classes.forEach((cd) => {
+	buildRelatedSkills(cd);
+});
 
-		STATIC.universal = findCharData('UNIVERSAL');
-		STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL'));
-		STATIC.characters.forEach((cd) => {
-			buildAllLearnables(cd);
-		});
-		STATIC.classes.forEach((cd) => {
-			buildRelatedSkills(cd);
-		});
-
-		console.log(STATIC);
-		cb(data);
-	});
-}
+console.log(STATIC);
 
 function buildAllLearnables(charData) {
 	charData.allLearnables = {};

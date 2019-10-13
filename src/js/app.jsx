@@ -115,7 +115,7 @@ class App extends React.Component {
 				</div>
 			</div>
 			<div id="sidebar-overlay" className={(this.state.sidebarHidden ? 'hide' : 'show')} onClick={this.toggleSidebar}></div>
-			<div id="right-area" className={(!this.state.sidebarHidden && 'desktop-sidebar-active')}>
+			<div id="right-area" className={(!this.state.sidebarHidden ? 'desktop-sidebar-active' : '')}>
 				<div id="top-header">
 					<div id="top-left">
 						<i className="material-icons" onClick={this.toggleSidebar}>menu</i>
@@ -154,6 +154,4 @@ let save = (function fetchLocalStorageRoster() {
 	}
 })();
 
-Data.loadData(function(data) {
-	ReactDOM.render(<App data={data} savedRoster={save}/>, document.getElementById('root'));
-});
+ReactDOM.render(<App data={Data.STATIC} savedRoster={save}/>, document.getElementById('root'));

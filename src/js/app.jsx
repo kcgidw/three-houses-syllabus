@@ -117,16 +117,18 @@ class App extends React.Component {
 			<div id="sidebar-overlay" className={(this.state.sidebarHidden ? 'hide' : 'show')} onClick={this.toggleSidebar}></div>
 			<div id="right-area" className={(!this.state.sidebarHidden ? 'desktop-sidebar-active' : '')}>
 				<div id="top-header">
-					<div id="top-left">
-						<i className="material-icons" onClick={this.toggleSidebar}>menu</i>
-					</div>
-					<div className="flex-spacer"></div>
-					<div id="top-center">
-						<h1>{this.getViewTitle()}</h1>
-					</div>
-					<div className="flex-spacer"></div>
-					<div id="top-right">
-						<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
+					<div className="gradient" />
+					<div className="pattern" />
+					<div id="top-header-content">
+						<div id="top-center">
+							<h1>{this.getViewTitle()}</h1>
+						</div>
+						<div id="top-left">
+							<i className="material-icons" onClick={this.toggleSidebar}>menu</i>
+						</div>
+						<div id="top-right">
+							<a href="https://github.com/kcgidw/three-houses-syllabus" target="_blank" id="github">Github</a>
+						</div>
 					</div>
 				</div>
 				<div id="main">

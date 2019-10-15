@@ -5,15 +5,14 @@ const renderHeaderCells = (classData) => {
 	return classData.relatedSkills.map((s) => {
 		return (<th key={s}><SkillIcon skill={s}></SkillIcon></th>);
 	});
-}
+};
 const renderRowCells = (classData, field) => {
 	return classData.relatedSkills.map((skill) => {
 		return (<td key={field+':'+skill} className="bold">{classData[field][skill] || '-'}</td>);
 	});
-}
+};
 
-const SkillCertTable = (props) => {
-	const {classData} = props;
+const SkillCertTable = ({classData}) => {
 
 	if(classData.relatedSkills.length === 0) {
 		return <div className="">N/A</div>;
@@ -28,6 +27,6 @@ const SkillCertTable = (props) => {
 			<tr className={""}>{renderRowCells(classData, 'skillBonus')}</tr>
 		</tbody>
 	</table>);
-}
+};
 
 export default SkillCertTable;

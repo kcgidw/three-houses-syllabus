@@ -15,8 +15,9 @@ table {
 
 	th {
 		font-weight: 500;
-		font-size: .9em;
-		background-color: var(--beige300);
+		font-size: .8em;
+        background-color: var(--beige300);
+        color: var(--beige800);
 	}
 }
 
@@ -58,6 +59,10 @@ table {
     td.learnable-row-name {
         min-width: 110px;
         font-weight: 700;
+        @media(max-width: 700px) {
+            min-width: 50px;
+            max-width: 110px;
+        }
     }
     td.learnable-row-skill {
         min-width: 43px;

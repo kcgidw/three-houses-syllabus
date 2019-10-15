@@ -12,17 +12,15 @@
 	--gray700: hsl(210, 6%, 40%);
 	--gray800: hsl(210, 6%, 30%);
 	--gray900: hsl(210, 6%, 18%);
-	--beige100: hsl(45, 15%, 97%);
-	--beige200: hsl(45, 15%, 92%);
-	--beige300: hsl(45, 15%, 85%);
-	--beige400: hsl(45, 15%, 75%);
-	--beige500: hsl(45, 15%, 65%);
-	--beige600: hsl(45, 9%, 55%);
-	--beige700: hsl(45, 9%, 45%);
-	--beige800: hsl(45, 9%, 35%);
-	--beige900: hsl(45, 9%, 25%);
-	--tan100: hsl(40, 40%, 90%);
-	--t2: hsl(44, 18%, 59%);
+	--beige100: hsl(45, 18%, 98%);
+	--beige200: hsl(45, 18%, 94%);
+	--beige300: hsl(45, 18%, 90%);
+	--beige400: hsl(45, 18%, 80%);
+	--beige500: hsl(45, 18%, 70%);
+	--beige600: hsl(45, 15%, 60%);
+	--beige700: hsl(45, 15%, 55%);
+	--beige800: hsl(45, 15%, 45%);
+	--beige900: hsl(45, 15%, 35%);
 	--lavgray100: hsl(250, 20%, 98%);
 	--lavgray200: hsl(250, 20%, 95%);
 	--lavgray300: hsl(250, 20%, 90%);
@@ -73,7 +71,7 @@ $Crimson: 'Crimson Pro', serif;
 body {
 	margin: 0;
 	background-color: var(--beige400);
-	color: var(--beige800);
+	color: var(--beige900);
 	font-family: $Podkova;
 	font-size: 14px;
 
@@ -134,6 +132,7 @@ body {
 		font-size: .8em;
 		font-weight: 400;
 		text-decoration: underline;
+		color: var(--beige900);
 
 		&:hover {
 			background-color: var(--beige300);
@@ -193,8 +192,8 @@ body {
 		border-radius: 2px;
 	}
 	&.master {
-		background-color: #f0efff;
-		color: #0e00d8;
+		background-color: #f3f2ff;
+		color: #817bcf;
 		border-radius: 2px;
 	}
 }
@@ -290,6 +289,7 @@ h4 {
 		position: absolute;
 	}
 	#top-left {
+		left: 20px;
 		i {
 			color: var(--lavgray200);
 			font-size: 30px;
@@ -302,6 +302,8 @@ h4 {
 	}
 	#top-center {
 		position: absolute;
+		left: 0;
+		top: 0;
 		text-align: center;
 		width: 100%;
 	}
@@ -310,7 +312,6 @@ h4 {
 
 #main {
 	position: relative; // ensures shadows display over this space
-	padding: 14px;
 	height: calc(100% - var(--top-header-height));
 	background-color: var(--beige400);
 	box-sizing: border-box;
@@ -323,118 +324,114 @@ h4 {
 
 	.main-card {
 		width: 100%;
-		max-width: 1680px;
 		padding: 0;
-		border-radius: 4px;
 		overflow: hidden; // for border-radius & header
 		
 		box-shadow: 0 5px 12px var(--shadow);
 		background-color: var(--beige100);
-
-		.main-card-content {
-			padding: 15px;
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			overflow: auto;
-			height: calc(100% - 15px * 2);
-
-			@media(max-width: 700px) {
-				padding: 0;
-				height: 100%;
-			}
-
-			&.noflex {
-				display: block;
-			}
-			#load-content-wrapper {
-				width: 100%;
-				max-width: 700px;
-				textarea {
-					width: 100%;
-					height: 200px;
-				}
-			}
-			#learning-content-wrapper {
-				text-align: center;
-			}
-
-			&#edit-roster-content {
-				.be {
-					background-color: var(--red500);
-					color: var(--beige100);
-				}
-				.bl {
-					background-color: var(--blue700);
-					color: var(--blue200);
-				}
-				.gd {
-					background-color: var(--gold500);
-					color: var(--beige900);
-				}
-				.seiros {
-					background-color: var(--teal600);
-					color: var(--teal100);
-				}
-
-				.roster-sublist {
-					h2 {
-						font-family: $Crimson;
-						font-weight: 400;
-						line-height: 2em;
-						border-radius: 2px;
-					}
-					.house-toggler {
-						margin: 10px 0;
-					}
-					min-width: 200px;
-					text-align: center;
-					padding: 10px;
-
-					ol {
-						list-style: none;
-						padding: 0;
-						margin: auto;
-						width: var(--sidebar-width);
-						text-align: left;
-						li {
-							& > div {
-								cursor: pointer;
-								padding: 10px;
-								border: solid 1px var(--lavgray400);
-								color: var(--lavgray400);
-								border-radius: 2px;
-								margin-top: 9px;
-
-								&:not(.active):hover {
-									background-color: var(--lavgray200);
-									color: var(--lavgray500);
-								}
-								&.active {
-									border-color: var(--lavender600);
-									background-color: var(--lavender100);
-									color: var(--lavender600);
-									box-shadow: 0 2px 4px var(--lavender300);
-								}
-							}
-						}
-					}
-				}
-			}
-			&#overview-content {
-				.overview-unit:not(:last-child) {
-					margin-right: 30px;
-				}
-			}
-
-		}
 	}
 
 	.character-body {
 		display: flex;
 		margin-left: 2px;
 	}
+}
+.main-card-content {
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	overflow: auto;
+	height: calc(100% - 15px * 2);
+	background-color: var(--beige200);
 
+	@media(max-width: 700px) {
+		padding: 0;
+		height: 100%;
+	}
+
+	&.noflex {
+		display: block;
+	}
+	#load-content-wrapper {
+		width: 100%;
+		max-width: 700px;
+		textarea {
+			width: 100%;
+			height: 200px;
+		}
+	}
+	#learning-content-wrapper {
+		text-align: center;
+	}
+
+	&#edit-roster-content {
+		.be {
+			background-color: var(--red500);
+			color: var(--beige100);
+		}
+		.bl {
+			background-color: var(--blue700);
+			color: var(--blue200);
+		}
+		.gd {
+			background-color: var(--gold500);
+			color: var(--beige900);
+		}
+		.seiros {
+			background-color: var(--teal600);
+			color: var(--teal100);
+		}
+
+		.roster-sublist {
+			h2 {
+				font-family: $Crimson;
+				font-weight: 400;
+				line-height: 2em;
+				border-radius: 2px;
+			}
+			.house-toggler {
+				margin: 10px 0;
+			}
+			min-width: 200px;
+			text-align: center;
+			padding: 10px;
+
+			ol {
+				list-style: none;
+				padding: 0;
+				margin: auto;
+				width: var(--sidebar-width);
+				text-align: left;
+				li {
+					& > div {
+						cursor: pointer;
+						padding: 10px;
+						border: solid 1px var(--lavgray400);
+						color: var(--lavgray400);
+						border-radius: 2px;
+						margin-top: 9px;
+
+						&:not(.active):hover {
+							background-color: var(--lavgray200);
+							color: var(--lavgray500);
+						}
+						&.active {
+							border-color: var(--lavender600);
+							background-color: var(--lavender100);
+							color: var(--lavender600);
+							box-shadow: 0 2px 4px var(--lavender300);
+						}
+					}
+				}
+			}
+		}
+	}
+	&#overview-content {
+		.overview-unit:not(:last-child) {
+			margin-right: 30px;
+		}
+	}
 }
 
 .react-tabs {
@@ -453,12 +450,15 @@ h4 {
 	&__tab {
 		display: inline-block;
 		padding: 3px 5px 0;
+		box-sizing: border-box;
 		margin-right: 5px;
 		font-size: 1em;
 		line-height: 2em;
+		height: 40px;
 		text-align: center;
 		cursor: pointer;
 		color: var(--beige500);
+		border-bottom: solid 4px var(--beige100);
 
 		&:hover:not(&--selected) {
 			border-bottom: solid 4px var(--lavender100);

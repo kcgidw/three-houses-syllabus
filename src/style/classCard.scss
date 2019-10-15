@@ -8,11 +8,11 @@
 .class-card {
 	width: 490px;
 	padding: 10px;
-	margin: 5px;
+	margin: 10px;
 	border-radius: 2px;
 	position: relative;
 	min-height: 150px;
-	border: solid 1px var(--beige400);
+	box-shadow: 0 2px 5px var(--beige300);
 	background-color: var(--beige100);
 
 	@media(max-width:1366px) {
@@ -20,7 +20,7 @@
 	}
 
 	&.pinned {
-		border: solid 1px var(--lavender300);
+		// border: solid 1px var(--lavender300);
 		box-shadow: 0 2px 5px var(--lavender300);
 	}
 

@@ -16,7 +16,8 @@ class CharacterPlan extends React.Component {
 		super(props);
 		this.state = {
 			charPlan: Roster.findCharPlan(this.props.roster, this.props.charData.name),
-			// supportable: this.getSupportable(),
+			tab: 0,
+			classesRendered: false, // rendering classes is expensive so hold off if possible
 		};
 		if(!this.state.charPlan) {
 			throw `Can't find charPlan for ` + this.props.charData.name;
@@ -27,13 +28,6 @@ class CharacterPlan extends React.Component {
 		this.renderAllLearnableRows = this.renderAllLearnableRows.bind(this);
 		this.renderLearnedRows = this.renderLearnedRows.bind(this);
 	}
-	// getSupportable() {
-	// 	let allSupports = this.props.charData.supports;
-	// 	let res = allSupports.filter((name) => {
-	// 		return Roster.findActiveCharPlan(this.props.roster, name);
-	// 	});
-	// 	return res;
-	// }
 	renderCharPlanClasses() {
 		return Object.keys(this.state.charPlan.classes)
 			.map((name) => {
@@ -48,7 +42,7 @@ class CharacterPlan extends React.Component {
 			});
 	}
 	renderClasses() {
-		return Data.STATIC.classes
+		return Data.filterClasses(this.state.charPlan)
 			.map((classData) => {
 				let name = classData.name;
 				let action = () => {
@@ -119,7 +113,12 @@ class CharacterPlan extends React.Component {
 	}
 	render() {
 		return (<div className="main-card has-tabs">
-			<Tabs forceRenderTabPanel>
+			<Tabs forceRenderTabPanel onSelect={(idx) => {
+				this.setState({
+					tab: idx,
+					classesRendered: this.state.classesRendered || idx === 1,
+				});
+			}}>
 				<TabList>
 					<Tab>Overview</Tab>
 					<Tab>Classes</Tab>
@@ -143,7 +142,7 @@ class CharacterPlan extends React.Component {
 							{this.renderCharPlanClasses()}
 						</ol>
 						<ol className="classes-list">
-							{this.renderClasses()}
+							{this.state.classesRendered && this.renderClasses()}
 						</ol>
 					</div>
 				</TabPanel>

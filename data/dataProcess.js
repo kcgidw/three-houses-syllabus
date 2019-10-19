@@ -27,6 +27,7 @@ async.series([
 				name: char.name,
 				id: idx,
 				house: char.house,
+				sex: char.sex,
 				growths: {},
 			};
 			Object.keys(char).forEach((k) => {
@@ -152,7 +153,7 @@ async.series([
 ], finish);
 
 function finish() {
-	fs.writeFile(path.resolve(__dirname, '..', 'public', 'data.json'), JSON.stringify(DATA), (err) => {
+	fs.writeFile(path.resolve(__dirname, '..', 'src', 'data.json'), JSON.stringify(DATA), (err) => {
 		if (err) {
 			throw err;
 		}

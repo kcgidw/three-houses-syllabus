@@ -10,14 +10,18 @@ export let STATIC = {
 	grades: undefined,
 };
 
-STATIC = DATA_JSON;
-STATIC.stats = ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'];
-STATIC.skillCategories = ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'];
-STATIC.grades = ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'];
-STATIC.classTiers = ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'];
-
-STATIC.universal = findCharData('UNIVERSAL');
-STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL'));
+STATIC = {
+	...DATA_JSON,
+	stats: ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'],
+	skillCategories: ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'],
+	grades: ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'],
+	classTiers: ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'],
+};
+STATIC.universal = STATIC.characters.find((cd) => (cd.name === 'UNIVERSAL')),
+STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL')),
+STATIC.charactersMap = listToMap(STATIC.characters, 'name');
+STATIC.classesMap = listToMap(STATIC.classes, 'name');
+STATIC.abilitiesMap = listToMap(STATIC.abilities, 'name');
 STATIC.characters.forEach((cd) => {
 	buildAllLearnables(cd);
 });
@@ -62,25 +66,60 @@ function buildRelatedSkills(classData) {
 		}
 	}
 }
-
-export function findCharData(name) {
-	return STATIC.characters.find((i) => {
-		return i.name == name;
+function listToMap(list, keyField) {
+	const res = {};
+	list.forEach((li) => {
+		res[li[keyField]] = li;
 	});
+	return res;
+}
+export function findCharData(name) {
+	return STATIC.charactersMap[name];
 }
 export function findClass(name) {
-	return STATIC.classes.find((c) => {
-		return c.name == name;
+	return STATIC.classesMap[name];
+}
+
+function isApplicable(classData, charData) {
+	if(classData.tags.indexOf('male') > -1 && charData.sex.indexOf('m') === -1) {
+		return false;
+	} else if(classData.tags.indexOf('female') > -1 && charData.sex.indexOf('f') === -1) {
+		return false;
+	}
+	for (let n of ['Edelgard', 'Dimitri', 'Claude', 'Byleth']) {
+		if(classData.tags.indexOf(n) > -1 && charData.name !== n) {
+			return false;
+		}
+	}
+	return true;
+}
+function hasStrength(classData, charData) {
+	// TODO
+	return true;
+}
+export function filterClasses(charPlan, filter = {pinned: false, unpinned: true, tiers: [], applicableOnly: true, strengthsOnly: true}) {
+	let charData = findCharData(charPlan.name, {});
+	return STATIC.classes.filter((classData) => {
+		if(filter.applicableOnly && !isApplicable(classData, charData)) {
+			return false;
+		}
+		if(filter.strengthsOnly && !hasStrength(classData, charData)) {
+			return false;
+		}
+		if(filter.pinned && filter.unpinned) {
+			if(!charPlan.classes[classData.name]) {
+				return false;
+			}
+		} else if(filter.unpinned && filter.pinned) {
+			if(charPlan.classes[classData.name]) {
+				return false;
+			}
+		}
+		return true;
 	});
 }
 export function findAbility(name) {
-	let res = STATIC.abilities.find((x) => {
-		return x.name == name;
-	});
-	if(!res) {
-		console.warn(`Can't find ability ` + name);
-	}
-	return res;
+	return STATIC.abilitiesMap[name];
 }
 export function findCombatArt(name) {
 	// TODO

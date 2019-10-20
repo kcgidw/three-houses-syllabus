@@ -86,6 +86,9 @@ function isApplicable(classData, charData) {
 	} else if(classData.tags.indexOf('female') > -1 && charData.sex.indexOf('f') === -1) {
 		return false;
 	}
+	if(classData.tags.indexOf('houseLeader') > -1 && ['Edelgard', 'Dimitri', 'Claude'].indexOf(charData.name) === -1) {
+		return false;
+	}
 	for (let n of ['Edelgard', 'Dimitri', 'Claude', 'Byleth']) {
 		if(classData.tags.indexOf(n) > -1 && charData.name !== n) {
 			return false;
@@ -97,7 +100,7 @@ function hasStrength(classData, charData) {
 	// TODO
 	return true;
 }
-export function filterClasses(charPlan, filter = {pinned: false, unpinned: true, tiers: [], applicableOnly: true, strengthsOnly: true}) {
+export function filterClasses(charPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true, strengthsOnly: true}) {
 	let charData = findCharData(charPlan.name, {});
 	return STATIC.classes.filter((classData) => {
 		if(filter.applicableOnly && !isApplicable(classData, charData)) {
@@ -106,14 +109,17 @@ export function filterClasses(charPlan, filter = {pinned: false, unpinned: true,
 		if(filter.strengthsOnly && !hasStrength(classData, charData)) {
 			return false;
 		}
-		if(filter.pinned && filter.unpinned) {
+		if(filter.pinned && !filter.unpinned) {
 			if(!charPlan.classes[classData.name]) {
 				return false;
 			}
-		} else if(filter.unpinned && filter.pinned) {
+		} else if(filter.unpinned && !filter.pinned) {
 			if(charPlan.classes[classData.name]) {
 				return false;
 			}
+		}
+		if(!filter.tiers[classData.tier] && classData.tier !== 'event') {
+			return false;
 		}
 		return true;
 	});

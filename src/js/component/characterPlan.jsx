@@ -10,6 +10,7 @@ import StarButton from './star';
 import SkillIcon from './skillIcon';
 import localize from '../l10n';
 import { LEARNABLE_TYPE } from '../enum';
+import ClassList from './classList';
 
 class CharacterPlan extends React.Component {
 	constructor(props) {
@@ -138,12 +139,17 @@ class CharacterPlan extends React.Component {
 				</TabPanel>
 				<TabPanel>
 					<div id="classes-content" className="main-card-content noflex">
+						<h2>Pinned</h2>
 						<ol className="classes-list">
 							{this.renderCharPlanClasses()}
 						</ol>
-						<ol className="classes-list">
-							{this.state.classesRendered && this.renderClasses()}
-						</ol>
+						<h2>Browse</h2>
+						<ClassList
+							roster={this.props.roster}
+							shouldRender={this.state.classesRendered}
+							showFilter={true}
+							charPlan={this.state.charPlan}
+							updateRoster={this.props.updateRoster} />
 					</div>
 				</TabPanel>
 				<TabPanel>

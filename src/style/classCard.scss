@@ -1,3 +1,10 @@
+#classes-content {
+	& > h2 {
+		margin-top: 10px;
+		text-align: center;
+	}
+}
+
 .classes-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -42,11 +49,6 @@
 		p {
 			margin: 0;
 		}
-		&.tail {
-			// flex-grow: 1;
-			// flex-shrink: 1;
-			// flex-basis: 150px;
-		}
 	}
 	.star-btn {
 		position: relative;
@@ -72,5 +74,16 @@
 	}
 	h4 {
 		margin: 0 0 2px 0;
+	}
+}
+
+.filter-form {
+	text-align: center;
+	label {
+		margin-left: 10px;
+		margin-right: 20px;
+	}
+	input[type=checkbox] {
+		margin-right: 3px;
 	}
 }

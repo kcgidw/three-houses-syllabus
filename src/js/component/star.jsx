@@ -1,11 +1,8 @@
 import React from 'react';
-export default class StarButton extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return <button className={"star-btn " + (this.props.active && 'active')} onClick={this.props.onClick}>
-			<i className='material-icons'>star</i>
-		</button>;
-	}
-}
+
+const StarButton = (props) => {
+	return <button className={"star-btn " + (props.active && 'active')} onClick={props.onClick}>
+		<i className='material-icons'>star</i>
+	</button>;
+};
+export default StarButton;

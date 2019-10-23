@@ -111,13 +111,13 @@ export function getAbilityRequirements(charPlan, abilityName) {
 	}
 	let cd = Data.findCharData(charPlan.name);
 	let learnables = cd.allLearnables;
-	for(let skill in learnables) {
-		for(let grade in learnables[skill]) {
-			if(learnables[skill][grade]) {
-				let res = learnables[skill][grade].find((x) => (x.name === abilityName));
+	for(let skillCat in learnables) {
+		for(let grade in learnables[skillCat]) {
+			if(learnables[skillCat][grade]) {
+				let res = learnables[skillCat][grade].find((x) => (x.name === abilityName));
 				if(res) {
 					return {
-						skill: skill,
+						skillCat: skillCat,
 						grade: grade,
 					};
 				}

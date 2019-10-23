@@ -1,25 +1,23 @@
 import React from 'react';
+import cn from 'classnames';
 class CharacterList extends React.Component {
 	constructor(props) {
 		super(props);
-		this.select = this.select.bind(this);
+		this.listCharacters = this.listCharacters.bind(this);
 	}
 
-	select(charPlan) {
-		this.props.onCharPlanSelect(charPlan);
-	}
-
-	getList() {
+	listCharacters() {
 		return this.props.roster.map((charPlan) => {
-			let classes = 'sidebar-clickable';
-			if (this.props.selected == charPlan) {
-				classes += ' selected';
-			} else if (!charPlan.active) {
-				classes += ' inactive';
-			}
-			let selectThisChar = this.select.bind(this, charPlan);
+			let cns = cn({
+				'sidebar-clickable': true,
+				'selected': this.props.selected === charPlan,
+				'inactive': !charPlan.active,
+			});
+
 			return (
-				<li key={charPlan.name} className={classes} onClick={selectThisChar}>
+				<li key={charPlan.name} className={cns} onClick={() => {
+					this.props.onCharPlanSelect(charPlan);
+				}}>
 					{charPlan.name}
 				</li>);
 		});
@@ -29,7 +27,7 @@ class CharacterList extends React.Component {
 		return (
 			<div className="characters">
 				<ul>
-					{this.getList()}
+					{this.listCharacters()}
 				</ul>
 			</div>
 		);

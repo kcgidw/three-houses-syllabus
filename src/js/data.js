@@ -73,9 +73,9 @@ function buildRelatedSkills(classData) {
 	let skills = Object.assign({}, classData.certification, classData.skillBonus);
 	let relatedSkills = Object.keys(skills);
 	classData.relatedSkills = [];
-	for(let skill of STATIC.skillCategories) {
-		if(relatedSkills.indexOf(skill) !== -1) {
-			classData.relatedSkills.push(skill);
+	for(let skillCat of STATIC.skillCategories) {
+		if(relatedSkills.indexOf(skillCat) !== -1) {
+			classData.relatedSkills.push(skillCat);
 		}
 	}
 }
@@ -93,7 +93,7 @@ export function findClass(name) {
 	return STATIC.classesMap[name];
 }
 
-function isApplicable(classData, charData) {
+function isClassApplicable(classData, charData) {
 	if(classData.tags.indexOf('male') > -1 && charData.sex.indexOf('m') === -1) {
 		return false;
 	} else if(classData.tags.indexOf('female') > -1 && charData.sex.indexOf('f') === -1) {
@@ -109,17 +109,17 @@ function isApplicable(classData, charData) {
 	}
 	return true;
 }
-function hasStrength(classData, charData) {
+function classHasStrength(classData, charData) {
 	// TODO
 	return true;
 }
 export function filterClasses(charPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true, strengthsOnly: true}) {
 	let charData = findCharData(charPlan.name, {});
 	return STATIC.classes.filter((classData) => {
-		if(filter.applicableOnly && !isApplicable(classData, charData)) {
+		if(filter.applicableOnly && !isClassApplicable(classData, charData)) {
 			return false;
 		}
-		if(filter.strengthsOnly && !hasStrength(classData, charData)) {
+		if(filter.strengthsOnly && !classHasStrength(classData, charData)) {
 			return false;
 		}
 		if(filter.pinned && !filter.unpinned) {

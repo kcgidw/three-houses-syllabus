@@ -3,7 +3,7 @@ import SkillIcon from './skillIcon';
 
 const renderHeaderCells = (classData) => {
 	return classData.relatedSkills.map((s) => {
-		return (<th key={s}><SkillIcon skill={s}></SkillIcon></th>);
+		return (<th key={s}><SkillIcon skillCat={s}></SkillIcon></th>);
 	});
 };
 const renderRowCells = (classData, field) => {

@@ -54,7 +54,7 @@ class CharacterPlan extends React.Component {
 				);
 			});
 	}
-	renderLearnableRow(skill, grade, learnableInfo, type, active, onClick) {
+	renderLearnableRow(skillCat, grade, learnableInfo, type, active, onClick) {
 		if(grade === 'BT') {
 			grade = <span className="budding">
 				<i className="material-icons">lightbulb</i>
@@ -62,7 +62,7 @@ class CharacterPlan extends React.Component {
 		}
 		return (<tr className="learnable-row" key={learnableInfo.name}>
 			<td className="learnable-row-star"><StarButton active={active} onClick={onClick}></StarButton></td>
-			<td className="learnable-row-skill"><span><SkillIcon skill={skill} />&nbsp;{grade}</span></td>
+			<td className="learnable-row-skill"><span><SkillIcon skillCat={skillCat} />&nbsp;{grade}</span></td>
 			<td className="learnable-row-name">{learnableInfo.name}</td>
 			<td className="learnable-row-type">{localize(type)}</td>
 			<td className="learnable-row-desc">{learnableInfo.desc}</td>
@@ -84,7 +84,7 @@ class CharacterPlan extends React.Component {
 					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, learnedName));
 				};
 				let reqs = Roster.getAbilityRequirements(this.state.charPlan, learnedName);
-				flat.push(this.renderLearnableRow(reqs.skill, reqs.grade, learned, type, true, onClick));
+				flat.push(this.renderLearnableRow(reqs.skillCat, reqs.grade, learned, type, true, onClick));
 			}
 		}
 		return flat.sort(Util.compareSkill);
@@ -92,12 +92,12 @@ class CharacterPlan extends React.Component {
 	renderAllLearnableRows() {
 		let flat = [];
 		let all = this.props.charData.allLearnables;
-		for (let skill of Data.STATIC.skillCategories) {
+		for (let skillCat of Data.STATIC.skillCategories) {
 			// iterate over all categories, not just the valid ones, to go through categories in correct order
-			if(all[skill]) {
+			if(all[skillCat]) {
 				for (let grade of Data.STATIC.grades) {
-					if(all[skill][grade]) {
-						let learnables = all[skill][grade];
+					if(all[skillCat][grade]) {
+						let learnables = all[skillCat][grade];
 						learnables.forEach((x) => {
 							let info;
 							let isAbility = x.type === LEARNABLE_TYPE.ABILITY;
@@ -110,7 +110,7 @@ class CharacterPlan extends React.Component {
 							let onClick = () => {
 								this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, info.name));
 							};
-							flat.push(this.renderLearnableRow(skill, grade, info, x.type, isLearned, onClick));
+							flat.push(this.renderLearnableRow(skillCat, grade, info, x.type, isLearned, onClick));
 						});
 					}
 				}

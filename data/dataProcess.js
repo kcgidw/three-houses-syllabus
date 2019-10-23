@@ -134,9 +134,9 @@ async.series([
 			let char = DATA.characters.find((c) => (c.name == characterName));
 			let abilities = data[characterName].abilities;
 			let combatArts = data[characterName]['combat arts'];
-			for(let skillType of Object.keys(abilities)) {
-				for(let grade in abilities[skillType]) {
-					validateAbilitiyExists(abilities[skillType][grade], DATA.abilities);
+			for(let skillCat of Object.keys(abilities)) {
+				for(let grade in abilities[skillCat]) {
+					validateAbilitiyExists(abilities[skillCat][grade], DATA.abilities);
 				}
 			}
 			if(char) {

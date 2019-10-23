@@ -97,6 +97,7 @@ class App extends React.Component {
 	}
 	render() {
 		return (<div id="wrapper">
+
 			<div id="left-sidebar" className={(this.state.sidebarHidden ? 'hidden' : '')}>
 				<div id="sidebar-title">
 					<h1>Syllabus</h1>
@@ -114,7 +115,9 @@ class App extends React.Component {
 					<CharacterList roster={Roster.sortByActive(this.state.roster)} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
 				</div>
 			</div>
+
 			<div id="sidebar-overlay" className={(this.state.sidebarHidden ? 'hide' : 'show')} onClick={this.toggleSidebar}></div>
+
 			<div id="right-area" className={(!this.state.sidebarHidden ? 'desktop-sidebar-active' : '')}>
 				<div id="top-header">
 					<div className="gradient" />
@@ -135,6 +138,7 @@ class App extends React.Component {
 					{this.getMainView()}
 				</div>
 			</div>
+
 		</div>);
 	}
 }

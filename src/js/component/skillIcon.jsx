@@ -14,11 +14,8 @@ import localize from '../l10n';
 
 const images = {sword, lance, axe, bow, brawling, faith, reason, riding, flying, authority, heavyArmor};
 
-export default class SkillIcon extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	render() {
-		return (<img src={images[this.props.skill]} title={this.props.skill} alt={localize(this.props.skill)} className="skill-icon"></img>);
-	}
-}
+const SkillIcon = ({skillCat}) => {
+	return (<img src={images[skillCat]} title={skillCat} alt={localize(skillCat)} className="skill-icon"></img>);
+};
+
+export default SkillIcon;

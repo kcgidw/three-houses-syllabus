@@ -10,7 +10,7 @@ export default class SkillLevelsTable extends React.Component {
 	renderHeaderCells() {
 		return Object.keys(this.props.data).map((s) => {
 			// return (<th key={s}>{Util.capitalize(s)}</th>);
-			return (<th key={s}><SkillIcon skill={s}></SkillIcon></th>);
+			return (<th key={s}><SkillIcon skillCat={s}></SkillIcon></th>);
 		});
 	}
 	renderRowCells() {

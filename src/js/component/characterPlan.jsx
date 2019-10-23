@@ -113,6 +113,30 @@ class CharacterPlan extends React.Component {
 		return flat;
 	}
 	render() {
+		let classesTopDisplay;
+		if(this.state.charPlan.classes && Object.keys(this.state.charPlan.classes).length > 0) {
+			classesTopDisplay = <React.Fragment>
+				<h2>Pinned</h2>
+				<ol className="classes-list">
+					{this.renderCharPlanClasses()}
+				</ol>
+			</React.Fragment>;
+		}
+		let learnedTopDisplay;
+		if(this.state.charPlan.learned && Object.keys(this.state.charPlan.learned).length > 0) {
+			learnedTopDisplay = <React.Fragment>
+				<div id="learning-pinned-abilities">
+					<h2>Pinned</h2>
+					<table className="learnables-table skill-level-learned big-table">
+						<tbody>
+							{this.renderLearnedRows()}
+						</tbody>
+					</table>
+				</div>
+				{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
+			</React.Fragment>;
+		}
+
 		return (<div className="main-card has-tabs">
 			<Tabs forceRenderTabPanel onSelect={(idx) => {
 				this.setState({
@@ -139,10 +163,7 @@ class CharacterPlan extends React.Component {
 				</TabPanel>
 				<TabPanel>
 					<div id="classes-content" className="main-card-content noflex">
-						<h2>Pinned</h2>
-						<ol className="classes-list">
-							{this.renderCharPlanClasses()}
-						</ol>
+						{classesTopDisplay}
 						<h2>Browse</h2>
 						<ClassList
 							roster={this.props.roster}
@@ -155,15 +176,9 @@ class CharacterPlan extends React.Component {
 				<TabPanel>
 					<div id="learning-content" className="main-card-content">
 						<div id="learning-content-wrapper">
-							<div id="learning-pinned-abilities">
-								<table className="learnables-table skill-level-learned big-table">
-									<tbody>
-										{this.renderLearnedRows()}
-									</tbody>
-								</table>
-							</div>
-							{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
 							<div id="learning-learnable-abilities">
+								{learnedTopDisplay}
+								<h2>Browse</h2>
 								<table className="learnables-table skill-level-data big-table">
 									<tbody>
 										{this.renderAllLearnableRows()}

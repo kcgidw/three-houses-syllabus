@@ -1,7 +1,9 @@
 #classes-content {
 	& > h2 {
-		margin-top: 10px;
 		text-align: center;
+		&:not(:first-child) {
+			margin-top: 10px;
+		}
 	}
 }
 

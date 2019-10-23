@@ -14,7 +14,7 @@ STATIC = {
 	...DATA_JSON,
 	stats: ['hp', 'str', 'mag', 'dex', 'spd', 'lck', 'def', 'res', 'cha'],
 	skillCategories: ['sword', 'lance', 'axe', 'bow', 'brawling', 'reason', 'faith', 'authority', 'heavyArmor', 'riding', 'flying'],
-	grades: ['E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'],
+	grades: ['BT', 'E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'],
 	classTiers: ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'],
 };
 STATIC.universal = STATIC.characters.find((cd) => (cd.name === 'UNIVERSAL')),
@@ -33,6 +33,19 @@ console.log(STATIC);
 
 function buildAllLearnables(charData) {
 	charData.allLearnables = {};
+
+	if(charData.buddingTalent) {
+		const type = determineLearnableType(charData.buddingTalent);
+		const charDataLearnableField = type === LEARNABLE_TYPE.ABILITY ? 'abilities' : 'combat arts';
+		if(!charData.learnable[charDataLearnableField]) {
+			charData.learnable[charDataLearnableField] = {};
+		}
+		if(!charData.learnable[charDataLearnableField][charData.buddingTalent.skill]) {
+			charData.learnable[charDataLearnableField][charData.buddingTalent.skill] = {};
+		}
+		charData.learnable[charDataLearnableField][charData.buddingTalent.skill].BT = charData.buddingTalent.learn;
+	}
+
 	[charData.learnable, STATIC.universal.learnable].forEach((source) => {
 		[source.abilities, source['combat arts']].forEach((subsource) => {
 			if(subsource) {
@@ -141,4 +154,13 @@ export function filterByHouse(house) {
 		}
 		return cd.house == house;
 	});
+}
+export function determineLearnableType(learnableName) {
+	let learnable = findAbility(learnableName);
+	let type = LEARNABLE_TYPE.ABILITY;
+	if(!learnable) {
+		learnable = findCombatArt(learnableName);
+		type = LEARNABLE_TYPE.COMBAT_ART;
+	}
+	return type;
 }

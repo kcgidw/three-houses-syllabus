@@ -55,6 +55,11 @@ class CharacterPlan extends React.Component {
 			});
 	}
 	renderLearnableRow(skill, grade, learnableInfo, type, active, onClick) {
+		if(grade === 'BT') {
+			grade = <span className="budding">
+				<i className="material-icons">lightbulb</i>
+			</span>;
+		}
 		return (<tr className="learnable-row" key={learnableInfo.name}>
 			<td className="learnable-row-star"><StarButton active={active} onClick={onClick}></StarButton></td>
 			<td className="learnable-row-skill"><span><SkillIcon skill={skill} />&nbsp;{grade}</span></td>
@@ -68,11 +73,12 @@ class CharacterPlan extends React.Component {
 		let flat = [];
 		if (allLearned) {
 			for (let learnedName in allLearned) {
-				let learned = Data.findAbility(learnedName);
-				let type = LEARNABLE_TYPE.ABILITY;
-				if(!learned) {
+				let learned;
+				let type = Data.determineLearnableType(learnedName);
+				if(LEARNABLE_TYPE.ABILITY === type) {
+					learned = Data.findAbility(learnedName);
+				} else {
 					learned = Data.findCombatArt(learnedName);
-					type = LEARNABLE_TYPE.COMBAT_ART;
 				}
 				let onClick = () => {
 					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, learnedName));

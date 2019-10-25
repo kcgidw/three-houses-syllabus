@@ -293,9 +293,9 @@ h4 {
 	}
 	#top-left {
 		left: 20px;
-		i {
+		i.material-icons {
 			color: var(--lavgray200);
-			font-size: 30px;
+			font-size: 30px !important;
 			line-height: var(--top-header-height);
 			cursor: pointer;
 		}

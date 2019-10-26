@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from 'react';
 import {capitalize} from '../util';
 
 const toggle = (filter, field) => {

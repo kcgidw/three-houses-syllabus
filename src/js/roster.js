@@ -1,29 +1,29 @@
 import * as Data from './data';
 
-export function createRoster(allChars, loadedRoster) {
-	let res = allChars
-		.filter((c) => (findCharPlan(allChars, c.name)))
-		.map((c) => {
-			let loadedCharPlan = loadedRoster ? findCharPlan(loadedRoster, c.name) : undefined;
-			return createCharacterPlan(c, loadedCharPlan);
+export function createRoster(allUnits, loadedRoster) {
+	let res = allUnits
+		.filter((uData) => (findUnitPlan(allUnits, uData.name)))
+		.map((uData) => {
+			let loadedUnitPlan = loadedRoster ? findUnitPlan(loadedRoster, uData.name) : undefined;
+			return createUnitPlan(uData, loadedUnitPlan);
 		});
 	return res;
 }
 export function filterByActive(roster, active = true) {
-	return roster.filter((cp) => {
-		return cp.active === active;
+	return roster.filter((uPlan) => {
+		return uPlan.active === active;
 	});
 }
-export function findCharPlan(roster, name) {
-	let res = roster.find((cp) => (cp.name == name));
+export function findUnitPlan(roster, name) {
+	let res = roster.find((uPlan) => (uPlan.name == name));
 	return res;
 }
-export function findActiveCharPlan(roster, name) {
-	return roster.find((cp) => (cp.name == name && cp.active));
+export function findActiveUnitPlan(roster, name) {
+	return roster.find((uPlan) => (uPlan.name == name && uPlan.active));
 }
 export function sortByActive(roster) {
 	return [... roster].sort((a, b) => {
-		// sort by active CPs
+		// sort by active
 		if(a.active && !b.active) {
 			return -1;
 		}
@@ -33,8 +33,8 @@ export function sortByActive(roster) {
 		return 0;
 	}, (a, b) => {
 		// sort by ID
-		let aData = Data.findCharData(a);
-		let bData = Data.findCharData(b);
+		let aData = Data.findUnitData(a);
+		let bData = Data.findUnitData(b);
 		if(aData.id < bData.id) {
 			return -1;
 		}
@@ -45,72 +45,72 @@ export function sortByActive(roster) {
 	});
 }
 export function filterByHouse(roster, house) {
-	let cds = Data.filterByHouse(house);
-	let res = cds.map((cd) => {
-		return findCharPlan(roster, cd.name);
+	let uDatas = Data.filterByHouse(house);
+	let res = uDatas.map((uData) => {
+		return findUnitPlan(roster, uData.name);
 	});
 	return res;
 }
-export function createCharacterPlan(charData, loadedCharPlan={}) {
+export function createUnitPlan(unitData, loadedUnitPlan={}) {
 	return Object.assign({}, {
-		name: charData.name,
-		active: charData.name === 'Byleth',
+		name: unitData.name,
+		active: unitData.name === 'Byleth',
 		classes: {},
 		skillLevels: {},
 		learned: {},
-	}, loadedCharPlan);
+	}, loadedUnitPlan);
 }
-export function setCharPlanActive(roster, charPlan, val) {
+export function setUnitPlanActive(roster, unitPlan, val) {
 	// toggles value if no val provided
 	let newState = {
-		active: val === undefined ? !charPlan.active : val,
+		active: val === undefined ? !unitPlan.active : val,
 	};
-	return updateCharPlan(roster, charPlan, newState);
+	return updateUnitPlan(roster, unitPlan, newState);
 }
 export function toggleHouseActive(roster, house) {
 	let targetVal = false;
-	let charPlans = filterByHouse(roster, house);
-	for(let cp of charPlans) {
-		if(!cp.active) {
+	let unitPlans = filterByHouse(roster, house);
+	for(let uPlan of unitPlans) {
+		if(!uPlan.active) {
 			targetVal = true;
 			break;
 		}
 	}
-	charPlans.forEach((cp) => {
-		roster = setCharPlanActive(roster, cp, targetVal);
+	unitPlans.forEach((uPlan) => {
+		roster = setUnitPlanActive(roster, uPlan, targetVal);
 	});
 	return roster;
 }
-export function toggleClass(roster, charPlan, className) {
-	let res = Object.assign({}, charPlan);
+export function toggleClass(roster, unitPlan, className) {
+	let res = Object.assign({}, unitPlan);
 	if(res.classes[className]) {
 		delete res.classes[className];
 	} else {
 		res.classes[className] = true;
 	}
-	return updateCharPlan(roster, charPlan, res);
+	return updateUnitPlan(roster, unitPlan, res);
 }
-export function toggleLearn(roster, charPlan, abilityName) {
-	let res = Object.assign({}, charPlan);
+export function toggleLearn(roster, unitPlan, abilityName) {
+	let res = Object.assign({}, unitPlan);
 	if (res.learned[abilityName]) {
 		delete res.learned[abilityName];
 	} else {
 		res.learned[abilityName] = true;
 	}
-	return updateCharPlan(roster, charPlan, res);
+	return updateUnitPlan(roster, unitPlan, res);
 }
-export function hasPinnedClass(charPlan, className) {
-	return charPlan.classes[className] !== undefined;
+export function hasPinnedClass(unitPlan, className) {
+	return unitPlan.classes[className] !== undefined;
 }
-export function hasLearnedAbility(charPlan, abilityName) {
-	return charPlan.learned[abilityName] !== undefined;
+export function hasLearnedAbility(unitPlan, abilityName) {
+	return unitPlan.learned[abilityName] !== undefined;
 }
-export function getAbilityRequirements(charPlan, abilityName) {
-	if (!charPlan.learned[abilityName]) {
+export function getAbilityRequirements(unitPlan, abilityName) {
+	if (!unitPlan.learned[abilityName]) {
 		return undefined;
 	}
-	let cd = Data.findCharData(charPlan.name);
-	let learnables = cd.allLearnables;
+	let uData = Data.findUnitData(unitPlan.name);
+	let learnables = uData.allLearnables;
 	for(let skillCat in learnables) {
 		for(let grade in learnables[skillCat]) {
 			if(learnables[skillCat][grade]) {
@@ -127,11 +127,11 @@ export function getAbilityRequirements(charPlan, abilityName) {
 	console.error(`Can't find requirements for ability ${abilityName}`);
 	return undefined;
 }
-export function updateCharPlan(roster, charPlan, newState) {
-	return roster.map((cp) => {
-		if(cp.name == charPlan.name) { // don't match by obj reference!
-			return Object.assign({}, cp, newState);
+export function updateUnitPlan(roster, unitPlan, newState) {
+	return roster.map((uPlan) => {
+		if(uPlan.name == unitPlan.name) { // don't match by obj reference!
+			return Object.assign({}, uPlan, newState);
 		}
-		return Object.assign({}, cp);
+		return Object.assign({}, uPlan);
 	});
 }

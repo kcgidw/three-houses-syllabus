@@ -1,26 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Data from "./data";
-import CharacterList from "./component/characterList";
-import CharacterPlan from "./component/characterPlan";
+import UnitList from "./component/UnitList";
+import UnitPlan from "./component/UnitPlan";
 import * as Roster from './roster';
-import EditRosterView from './component/editRoster';
-import SaveLoadView from './component/saveLoad';
-import SupportSheetView from "./component/supportSheet";
+import EditRosterView from './component/EditRoster';
+import SaveLoadView from './component/SaveLoad';
+import SupportSheetView from "./component/SupportSheet";
 
 const VIEWS = {
 	SAVELOAD: 'SAVELOAD',
 	SUPPORTS: 'SUPPORTS',
 	ROSTER: 'ROSTER',
-	CHARPLAN: 'CHARPLAN',
+	UNIT_PLAN: 'UNIT_PLAN',
 };
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			view: VIEWS.ROSTER,
-			charPlanFocus: undefined,
-			roster: Roster.createRoster(this.props.data.characters, this.props.savedRoster),
+			unitPlanFocus: undefined,
+			roster: Roster.createRoster(this.props.data.units, this.props.savedRoster),
 			sidebarHidden: window.matchMedia(`(max-width:1024px)`).matches,
 		};
 		this.toggleSidebar = this.toggleSidebar.bind(this);
@@ -36,15 +36,15 @@ class App extends React.Component {
 			localStorage.setItem('save', JSON.stringify(this.state.roster));
 		}
 	}
-	setView(view, charPlanFocus) {
+	setView(view, unitPlanFocus) {
 		this.setState({
-			charPlanFocus: charPlanFocus,
+			unitPlanFocus: unitPlanFocus,
 			view: view,
 		});
 	}
-	handleRosterToggle(cp) {
+	handleRosterToggle(unitPlan) {
 		this.setState({
-			roster: Roster.setCharPlanActive(this.state.roster, cp),
+			roster: Roster.setUnitPlanActive(this.state.roster, unitPlan),
 		});
 	}
 	handleHouseToggle(house) {
@@ -65,8 +65,8 @@ class App extends React.Component {
 				return `Supports`;
 			case VIEWS.ROSTER:
 				return `Edit Roster`;
-			case VIEWS.CHARPLAN:
-				return this.state.charPlanFocus.name;
+			case VIEWS.UNIT_PLAN:
+				return this.state.unitPlanFocus.name;
 			default:
 				throw 'Bad view';
 		}
@@ -79,8 +79,8 @@ class App extends React.Component {
 				return (<SupportSheetView roster={this.state.roster} />);
 			case VIEWS.ROSTER:
 				return (<EditRosterView roster={this.state.roster} onToggle={this.handleRosterToggle} onToggleHouse={this.handleHouseToggle.bind(this)} />);
-			case VIEWS.CHARPLAN:
-				return (<CharacterPlan key={this.state.charPlanFocus.name} charData={Data.findCharData(this.state.charPlanFocus.name)} roster={this.state.roster} updateRoster={this.updateRoster.bind(this)} />);
+			case VIEWS.UNIT_PLAN:
+				return (<UnitPlan key={this.state.unitPlanFocus.name} unitData={Data.findUnitData(this.state.unitPlanFocus.name)} roster={this.state.roster} updateRoster={this.updateRoster.bind(this)} />);
 			default:
 				throw 'Bad view';
 		}
@@ -112,7 +112,7 @@ class App extends React.Component {
 				</div>
 				<div id="sidebar-units">
 					<h4>Unit</h4>
-					<CharacterList roster={Roster.sortByActive(this.state.roster)} selected={this.state.charPlanFocus} onCharPlanSelect={(charPlan) => (this.setView(VIEWS.CHARPLAN, charPlan))}/>
+					<UnitList roster={Roster.sortByActive(this.state.roster)} selected={this.state.unitPlanFocus} onUnitPlanSelect={(unitPlan) => (this.setView(VIEWS.UNIT_PLAN, unitPlan))}/>
 				</div>
 			</div>
 

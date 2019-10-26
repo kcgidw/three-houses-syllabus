@@ -21,24 +21,24 @@ function processCsvFile(filename, fn, cb) {
 }
 
 async.series([
-	processCsvFile('characters.csv', function(parsed, cb) {
-		DATA.characters = parsed.map((char, idx) => {
+	processCsvFile('units.csv', function(parsed, cb) {
+		DATA.units = parsed.map((unit, idx) => {
 			let res = {
-				name: char.name,
+				name: unit.name,
 				id: idx,
-				house: char.house,
-				sex: char.sex,
+				house: unit.house,
+				sex: unit.sex,
 				growths: {},
 			};
-			Object.keys(char).forEach((k) => {
+			Object.keys(unit).forEach((k) => {
 				if (k.indexOf('growths_') !== -1) {
-					res.growths[k.replace('growths_', '')] = char[k];
+					res.growths[k.replace('growths_', '')] = unit[k];
 				}
 			});
-			if(char['buddingTalent']) {
+			if(unit['buddingTalent']) {
 				res.buddingTalent = {
-					skill: char['buddingTalentSkill'],
-					learn: char['buddingTalent'],
+					skill: unit['buddingTalentSkill'],
+					learn: unit['buddingTalent'],
 				};
 			}
 			return res;
@@ -81,7 +81,7 @@ async.series([
 	}),
 	processCsvFile('supports.csv', function(parsed, cb) {
 		parsed.forEach((i) => {
-			let obj = DATA.characters.find((cur) => {
+			let obj = DATA.units.find((cur) => {
 				return cur.name.trim() == i.name.trim();
 			});
 			if (obj) {
@@ -94,14 +94,14 @@ async.series([
 	}),
 	processCsvFile('skillLevels.csv', function(parsed, cb) {
 		parsed.forEach((row) => {
-			let obj = DATA.characters.find((cur) => {
-				return cur.name.trim() == row.character.trim();
+			let obj = DATA.units.find((cur) => {
+				return cur.name.trim() == row.unit.trim();
 			});
 			if(obj) {
 				obj.skillLevels = {};
 				Object.keys(row).forEach((col) => {
 					let val = row[col];
-					if(col !== 'character' && val) {
+					if(col !== 'unit' && val) {
 						obj.skillLevels[col] = val;
 					}
 				});
@@ -130,21 +130,21 @@ async.series([
 		const filename = 'learnable.yaml';
 		console.log('Begin parsing ' + filename);
 		let data = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, filename), 'utf-8'));
-		Object.keys(data).forEach((characterName) => {
-			let char = DATA.characters.find((c) => (c.name == characterName));
-			let abilities = data[characterName].abilities;
-			let combatArts = data[characterName]['combat arts'];
+		Object.keys(data).forEach((unitName) => {
+			let unit = DATA.units.find((uData) => (uData.name == unitName));
+			let abilities = data[unitName].abilities;
+			let combatArts = data[unitName]['combat arts'];
 			for(let skillCat of Object.keys(abilities)) {
 				for(let grade in abilities[skillCat]) {
 					validateAbilitiyExists(abilities[skillCat][grade], DATA.abilities);
 				}
 			}
-			if(char) {
-				char.learnable = data[characterName];
-			} else if(characterName === 'UNIVERSAL') {
-				DATA.characters.push({
-					name: characterName,
-					learnable: data[characterName]
+			if(unit) {
+				unit.learnable = data[unitName];
+			} else if(unitName === 'UNIVERSAL') {
+				DATA.units.push({
+					name: unitName,
+					learnable: data[unitName]
 				});
 			}
 		});

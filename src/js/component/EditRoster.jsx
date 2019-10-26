@@ -4,19 +4,19 @@ import * as Roster from '../roster';
 class EditRoster extends React.Component {
 	constructor(props) {
 		super(props);
-		this.getHouseCharPlans = this.getHouseCharPlans.bind(this);
+		this.getHouseUnitPlans = this.getHouseUnitPlans.bind(this);
 		this.renderSublist = this.renderSublist.bind(this);
 	}
-	getHouseCharPlans(house) {
+	getHouseUnitPlans(house) {
 		let arr = Roster.filterByHouse(this.props.roster, house);
-		return arr.map((cp) => {
-			let className = 'roster-char-toggle';
-			if(cp.active) {
+		return arr.map((uPlan) => {
+			let className = 'roster-unit-toggle';
+			if(uPlan.active) {
 				className += ' active';
 			}
-			return (<li key={cp.name}>
-				<div className={className} onClick={(e) => {this.props.onToggle(cp);}}>
-					{cp.name}
+			return (<li key={uPlan.name}>
+				<div className={className} onClick={(e) => {this.props.onToggle(uPlan);}}>
+					{uPlan.name}
 				</div>
 			</li>);
 		});
@@ -40,7 +40,7 @@ class EditRoster extends React.Component {
 		return (<div className="roster-sublist">
 			<h2 className={house}>{title}</h2>
 			<button className="btn tert house-toggler" onClick={(e) => {this.props.onToggleHouse(house);}}>Toggle All</button>
-			<ol>{this.getHouseCharPlans(house)}</ol>
+			<ol>{this.getHouseUnitPlans(house)}</ol>
 		</div>);
 	}
 	render() {

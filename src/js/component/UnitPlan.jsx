@@ -3,54 +3,54 @@ import * as Util from '../util';
 import * as Roster from '../roster';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import React, { Component, PropTypes } from 'react';
-import ClassCard from './classCard';
-import GrowthsTable from './growthsTable';
-import SkillLevelsTable from './skillLevelsTable';
-import StarButton from './star';
-import SkillIcon from './skillIcon';
+import ClassCard from './ClassCard';
+import GrowthsTable from './GrowthsTable';
+import SkillLevelsTable from './SkillLevelsTable';
+import StarButton from './Star';
+import SkillIcon from './SkillIcon';
 import localize from '../l10n';
 import { LEARNABLE_TYPE } from '../enum';
-import ClassList from './classList';
+import ClassList from './ClassList';
 
-class CharacterPlan extends React.Component {
+class UnitPlan extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			charPlan: Roster.findCharPlan(this.props.roster, this.props.charData.name),
+			unitPlan: Roster.findUnitPlan(this.props.roster, this.props.unitData.name),
 			tab: 0,
 			classesRendered: false, // rendering classes is expensive so hold off if possible
 		};
-		if(!this.state.charPlan) {
-			throw `Can't find charPlan for ` + this.props.charData.name;
+		if(!this.state.unitPlan) {
+			throw `Can't find unitPlan for ` + this.props.unitData.name;
 		}
-		this.renderCharPlanClasses = this.renderCharPlanClasses.bind(this);
+		this.renderUnitPlanClasses = this.renderUnitPlanClasses.bind(this);
 		this.renderClasses = this.renderClasses.bind(this);
 		this.renderLearnableRow = this.renderLearnableRow.bind(this);
 		this.renderAllLearnableRows = this.renderAllLearnableRows.bind(this);
 		this.renderLearnedRows = this.renderLearnedRows.bind(this);
 	}
-	renderCharPlanClasses() {
-		return Object.keys(this.state.charPlan.classes)
+	renderUnitPlanClasses() {
+		return Object.keys(this.state.unitPlan.classes)
 			.map((name) => {
 				return Data.findClass(name);
 			})
 			.sort(Util.compareClass)
 			.map((classData) => {
 				let action = () => {
-					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, classData.name));
+					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.unitPlan, classData.name));
 				};
 				return (<ClassCard key={classData.name} data={classData} handleClick={action} isPinned={true} />);
 			});
 	}
 	renderClasses() {
-		return Data.filterClasses(this.state.charPlan)
+		return Data.filterClasses(this.state.unitPlan)
 			.map((classData) => {
 				let name = classData.name;
 				let action = () => {
-					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.charPlan, name));
+					this.props.updateRoster(Roster.toggleClass(this.props.roster, this.state.unitPlan, name));
 				};
 				return (
-					<ClassCard key={name} data={classData} handleClick={action} isPinned={Roster.hasPinnedClass(this.state.charPlan, name)} />
+					<ClassCard key={name} data={classData} handleClick={action} isPinned={Roster.hasPinnedClass(this.state.unitPlan, name)} />
 				);
 			});
 	}
@@ -69,7 +69,7 @@ class CharacterPlan extends React.Component {
 		</tr>);
 	}
 	renderLearnedRows() {
-		let allLearned = this.state.charPlan.learned;
+		let allLearned = this.state.unitPlan.learned;
 		let flat = [];
 		if (allLearned) {
 			for (let learnedName in allLearned) {
@@ -81,9 +81,9 @@ class CharacterPlan extends React.Component {
 					learned = Data.findCombatArt(learnedName);
 				}
 				let onClick = () => {
-					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, learnedName));
+					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.unitPlan, learnedName));
 				};
-				let reqs = Roster.getAbilityRequirements(this.state.charPlan, learnedName);
+				let reqs = Roster.getAbilityRequirements(this.state.unitPlan, learnedName);
 				flat.push(this.renderLearnableRow(reqs.skillCat, reqs.grade, learned, type, true, onClick));
 			}
 		}
@@ -91,7 +91,7 @@ class CharacterPlan extends React.Component {
 	}
 	renderAllLearnableRows() {
 		let flat = [];
-		let all = this.props.charData.allLearnables;
+		let all = this.props.unitData.allLearnables;
 		for (let skillCat of Data.STATIC.skillCategories) {
 			// iterate over all categories, not just the valid ones, to go through categories in correct order
 			if(all[skillCat]) {
@@ -106,9 +106,9 @@ class CharacterPlan extends React.Component {
 							} else {
 								info = Data.findCombatArt(x.name);
 							}
-							let isLearned = Roster.hasLearnedAbility(this.state.charPlan, info.name);
+							let isLearned = Roster.hasLearnedAbility(this.state.unitPlan, info.name);
 							let onClick = () => {
-								this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.charPlan, info.name));
+								this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.unitPlan, info.name));
 							};
 							flat.push(this.renderLearnableRow(skillCat, grade, info, x.type, isLearned, onClick));
 						});
@@ -120,16 +120,16 @@ class CharacterPlan extends React.Component {
 	}
 	render() {
 		let classesTopDisplay;
-		if(this.state.charPlan.classes && Object.keys(this.state.charPlan.classes).length > 0) {
+		if(this.state.unitPlan.classes && Object.keys(this.state.unitPlan.classes).length > 0) {
 			classesTopDisplay = <React.Fragment>
 				<h2>Pinned</h2>
 				<ol className="classes-list">
-					{this.renderCharPlanClasses()}
+					{this.renderUnitPlanClasses()}
 				</ol>
 			</React.Fragment>;
 		}
 		let learnedTopDisplay;
-		if(this.state.charPlan.learned && Object.keys(this.state.charPlan.learned).length > 0) {
+		if(this.state.unitPlan.learned && Object.keys(this.state.unitPlan.learned).length > 0) {
 			learnedTopDisplay = <React.Fragment>
 				<div id="learning-pinned-abilities">
 					<h2>Pinned</h2>
@@ -139,7 +139,7 @@ class CharacterPlan extends React.Component {
 						</tbody>
 					</table>
 				</div>
-				{Object.keys(this.state.charPlan.learned).length > 0 ? <br/> : undefined}
+				{Object.keys(this.state.unitPlan.learned).length > 0 ? <br/> : undefined}
 			</React.Fragment>;
 		}
 
@@ -156,14 +156,14 @@ class CharacterPlan extends React.Component {
 					<Tab>Learning</Tab>
 				</TabList>
 				<TabPanel>
-					<div id="overview-content" className="character-body main-card-content">
+					<div id="overview-content" className="unit-body main-card-content">
 						<div id="base-growths" className="overview-unit">
 							<h3>Growths</h3>
-							<GrowthsTable growths={this.props.charData.growths} tableType="BASE" />
+							<GrowthsTable growths={this.props.unitData.growths} tableType="BASE" />
 						</div>
 						<div id="base-proficiencies" className="overview-unit">
 							<h3>Proficiencies</h3>
-							<SkillLevelsTable data={this.props.charData.skillLevels} />
+							<SkillLevelsTable data={this.props.unitData.skillLevels} />
 						</div>
 					</div>
 				</TabPanel>
@@ -175,7 +175,7 @@ class CharacterPlan extends React.Component {
 							roster={this.props.roster}
 							shouldRender={this.state.classesRendered}
 							showFilter={true}
-							charPlan={this.state.charPlan}
+							unitPlan={this.state.unitPlan}
 							updateRoster={this.props.updateRoster} />
 					</div>
 				</TabPanel>
@@ -199,4 +199,4 @@ class CharacterPlan extends React.Component {
 	}
 }
 
-export default CharacterPlan;
+export default UnitPlan;

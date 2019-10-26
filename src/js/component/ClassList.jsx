@@ -1,8 +1,8 @@
 import React from 'react';
 import * as Data from '../data';
 import * as Roster from '../roster';
-import FilterForm from './filter';
-import ClassCard from './classCard';
+import FilterForm from './Filter';
+import ClassCard from './ClassCard';
 
 export default class ClassList extends React.Component {
 	constructor(props) {
@@ -30,14 +30,14 @@ export default class ClassList extends React.Component {
 		});
 	}
 	renderClasses() {
-		const filtered = Data.filterClasses(this.props.charPlan, this.state.filter);
+		const filtered = Data.filterClasses(this.props.unitPlan, this.state.filter);
 		return filtered.map((cd) => {
 			let name = cd.name;
 			let action = () => {
-				this.props.updateRoster(Roster.toggleClass(this.props.roster, this.props.charPlan, name));
+				this.props.updateRoster(Roster.toggleClass(this.props.roster, this.props.unitPlan, name));
 			};
 			return (
-				<ClassCard key={name} data={cd} handleClick={action} isPinned={Roster.hasPinnedClass(this.props.charPlan, name)} />
+				<ClassCard key={name} data={cd} handleClick={action} isPinned={Roster.hasPinnedClass(this.props.unitPlan, name)} />
 			);
 		});
 	}

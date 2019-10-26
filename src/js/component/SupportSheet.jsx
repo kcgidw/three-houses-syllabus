@@ -8,14 +8,14 @@ export default class SupportSheetView extends React.Component {
 	}
 	renderRows() {
 		return Roster.filterByActive(this.props.roster, true)
-			.map((charPlan) => {
-				let charData = Data.findCharData(charPlan.name);
-				let activeSupports = charData.supports.filter((name) => {
-					return Roster.findActiveCharPlan(this.props.roster, name);
+			.map((unitPlan) => {
+				let unitData = Data.findUnitData(unitPlan.name);
+				let activeSupports = unitData.supports.filter((name) => {
+					return Roster.findActiveUnitPlan(this.props.roster, name);
 				});
-				return (<tr key={charPlan.name}>
+				return (<tr key={unitPlan.name}>
 					<td>
-						{charPlan.name}
+						{unitPlan.name}
 					</td>
 					<td>
 						{activeSupports.join(', ')}

@@ -2,7 +2,7 @@ import { LEARNABLE_TYPE } from "./enum";
 import DATA_JSON from '../data.json';
 
 export let STATIC = {
-	characters: undefined,
+	units: undefined,
 	universal: undefined,
 	stats: undefined,
 	classes: undefined,
@@ -17,13 +17,13 @@ STATIC = {
 	grades: ['BT', 'E', 'E+', 'D', 'D+', 'C', 'C+', 'B', 'B+', 'A', 'A+', 'S', 'S+'],
 	classTiers: ['beginner', 'intermediate', 'advanced', 'master', 'event', 'starter'],
 };
-STATIC.universal = STATIC.characters.find((cd) => (cd.name === 'UNIVERSAL')),
-STATIC.characters = STATIC.characters.filter((cd) => (cd.name !== 'UNIVERSAL')),
-STATIC.charactersMap = listToMap(STATIC.characters, 'name');
+STATIC.universal = STATIC.units.find((uData) => (uData.name === 'UNIVERSAL')),
+STATIC.units = STATIC.units.filter((uData) => (uData.name !== 'UNIVERSAL')),
+STATIC.unitsMap = listToMap(STATIC.units, 'name');
 STATIC.classesMap = listToMap(STATIC.classes, 'name');
 STATIC.abilitiesMap = listToMap(STATIC.abilities, 'name');
-STATIC.characters.forEach((cd) => {
-	buildAllLearnables(cd);
+STATIC.units.forEach((uData) => {
+	buildAllLearnables(uData);
 });
 STATIC.classes.forEach((cd) => {
 	buildRelatedSkills(cd);
@@ -31,37 +31,37 @@ STATIC.classes.forEach((cd) => {
 
 console.log(STATIC);
 
-function buildAllLearnables(charData) {
-	charData.allLearnables = {};
+function buildAllLearnables(unitData) {
+	unitData.allLearnables = {};
 
-	if(charData.buddingTalent) {
-		const type = determineLearnableType(charData.buddingTalent);
-		const charDataLearnableField = type === LEARNABLE_TYPE.ABILITY ? 'abilities' : 'combat arts';
-		if(!charData.learnable[charDataLearnableField]) {
-			charData.learnable[charDataLearnableField] = {};
+	if(unitData.buddingTalent) {
+		const type = determineLearnableType(unitData.buddingTalent);
+		const unitDataLearnableField = type === LEARNABLE_TYPE.ABILITY ? 'abilities' : 'combat arts';
+		if(!unitData.learnable[unitDataLearnableField]) {
+			unitData.learnable[unitDataLearnableField] = {};
 		}
-		if(!charData.learnable[charDataLearnableField][charData.buddingTalent.skill]) {
-			charData.learnable[charDataLearnableField][charData.buddingTalent.skill] = {};
+		if(!unitData.learnable[unitDataLearnableField][unitData.buddingTalent.skill]) {
+			unitData.learnable[unitDataLearnableField][unitData.buddingTalent.skill] = {};
 		}
-		charData.learnable[charDataLearnableField][charData.buddingTalent.skill].BT = charData.buddingTalent.learn;
+		unitData.learnable[unitDataLearnableField][unitData.buddingTalent.skill].BT = unitData.buddingTalent.learn;
 	}
 
-	[charData.learnable, STATIC.universal.learnable].forEach((source) => {
+	[unitData.learnable, STATIC.universal.learnable].forEach((source) => {
 		[source.abilities, source['combat arts']].forEach((subsource) => {
 			if(subsource) {
 				let type = subsource === source.abilities ? LEARNABLE_TYPE.ABILITY : LEARNABLE_TYPE.COMBAT_ART;
 				for(let skill in subsource) {
-					charData.allLearnables[skill] = charData.allLearnables[skill] || {};
+					unitData.allLearnables[skill] = unitData.allLearnables[skill] || {};
 					for(let grade in subsource[skill]) {
 						let toPush = {
 							name: subsource[skill][grade],
 							type: type,
 						};
-						if(charData.allLearnables[skill][grade]) { // ability already exists
-							console.log(`Learnable already exists ${charData.name} ${skill} ${grade}`);
-							charData.allLearnables[skill][grade].push(toPush);
+						if(unitData.allLearnables[skill][grade]) { // ability already exists
+							console.log(`Learnable already exists ${unitData.name} ${skill} ${grade}`);
+							unitData.allLearnables[skill][grade].push(toPush);
 						} else {
-							charData.allLearnables[skill][grade] = [toPush];
+							unitData.allLearnables[skill][grade] = [toPush];
 						}
 					}
 				}
@@ -86,48 +86,48 @@ function listToMap(list, keyField) {
 	});
 	return res;
 }
-export function findCharData(name) {
-	return STATIC.charactersMap[name];
+export function findUnitData(name) {
+	return STATIC.unitsMap[name];
 }
 export function findClass(name) {
 	return STATIC.classesMap[name];
 }
 
-function isClassApplicable(classData, charData) {
-	if(classData.tags.indexOf('male') > -1 && charData.sex.indexOf('m') === -1) {
+function isClassApplicable(classData, unitData) {
+	if(classData.tags.indexOf('male') > -1 && unitData.sex.indexOf('m') === -1) {
 		return false;
-	} else if(classData.tags.indexOf('female') > -1 && charData.sex.indexOf('f') === -1) {
+	} else if(classData.tags.indexOf('female') > -1 && unitData.sex.indexOf('f') === -1) {
 		return false;
 	}
-	if(classData.tags.indexOf('houseLeader') > -1 && ['Edelgard', 'Dimitri', 'Claude'].indexOf(charData.name) === -1) {
+	if(classData.tags.indexOf('houseLeader') > -1 && ['Edelgard', 'Dimitri', 'Claude'].indexOf(unitData.name) === -1) {
 		return false;
 	}
 	for (let n of ['Edelgard', 'Dimitri', 'Claude', 'Byleth']) {
-		if(classData.tags.indexOf(n) > -1 && charData.name !== n) {
+		if(classData.tags.indexOf(n) > -1 && unitData.name !== n) {
 			return false;
 		}
 	}
 	return true;
 }
-function classHasStrength(classData, charData) {
+function classHasStrength(classData, unitData) {
 	// TODO
 	return true;
 }
-export function filterClasses(charPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true, strengthsOnly: true}) {
-	let charData = findCharData(charPlan.name, {});
+export function filterClasses(unitPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true, strengthsOnly: true}) {
+	let unitData = findUnitData(unitPlan.name, {});
 	return STATIC.classes.filter((classData) => {
-		if(filter.applicableOnly && !isClassApplicable(classData, charData)) {
+		if(filter.applicableOnly && !isClassApplicable(classData, unitData)) {
 			return false;
 		}
-		if(filter.strengthsOnly && !classHasStrength(classData, charData)) {
+		if(filter.strengthsOnly && !classHasStrength(classData, unitData)) {
 			return false;
 		}
 		if(filter.pinned && !filter.unpinned) {
-			if(!charPlan.classes[classData.name]) {
+			if(!unitPlan.classes[classData.name]) {
 				return false;
 			}
 		} else if(filter.unpinned && !filter.pinned) {
-			if(charPlan.classes[classData.name]) {
+			if(unitPlan.classes[classData.name]) {
 				return false;
 			}
 		}
@@ -148,11 +148,11 @@ export function findCombatArt(name) {
 	};
 }
 export function filterByHouse(house) {
-	return STATIC.characters.filter((cd) => {
+	return STATIC.units.filter((uData) => {
 		if(house === 'seiros') {
-			return ['kos', 'cos'].indexOf(cd.house) > -1;
+			return ['kos', 'cos'].indexOf(uData.house) > -1;
 		}
-		return cd.house == house;
+		return uData.house == house;
 	});
 }
 export function determineLearnableType(learnableName) {

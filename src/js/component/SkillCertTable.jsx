@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillIcon from './skillIcon';
+import SkillIcon from './SkillIcon';
 
 const renderHeaderCells = (classData) => {
 	return classData.relatedSkills.map((s) => {

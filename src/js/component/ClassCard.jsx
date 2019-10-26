@@ -2,9 +2,9 @@ import cn from 'classnames';
 import React from 'react';
 import * as Data from '../data';
 import localize from "../l10n";
-import GrowthsTable from "./growthsTable";
-import SkillCertTable from "./skillCertTable";
-import StarButton from './star';
+import GrowthsTable from "./GrowthsTable";
+import SkillCertTable from "./SkillCertTable";
+import StarButton from './Star';
 
 export default class ClassCard extends React.Component {
 	constructor(props) {

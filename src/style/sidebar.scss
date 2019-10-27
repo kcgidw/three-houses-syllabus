@@ -52,27 +52,15 @@
 				color: var(--lavender900);
 			}
 		}
+		&.inactive {
+			font-size: .9em;
+			color: var(--beige500);
+			background: var(--beige200);
+			border: none;
+		}
 		&.selected {
 			background-color: var(--lavender200);
 			color: var(--lavender900);
-		}
-		&.inactive {
-			font-size: .9em;
-		}
-	}
-
-	.units {
-		ul {
-			li {
-				border: none;
-				// &:not(.inactive):not(:last-child) {
-				// 	border-bottom: solid 1px var(--beige300);
-				// }
-				&.inactive {
-					color: var(--beige500);
-					background: var(--beige200);
-				}
-			}
 		}
 	}
 }

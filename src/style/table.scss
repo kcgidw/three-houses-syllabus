@@ -22,6 +22,7 @@ table {
 }
 
 .big-table {
+	@extend %light-shadow;
     text-align: left;
     font-size: 14px;
     td, th {
@@ -53,16 +54,12 @@ table {
 }
 .learnables-table {
     td.learnable-row-star {
-        padding: 4px;
+        padding: 4px 8px;
         text-align: center;
     }
     td.learnable-row-name {
         min-width: 110px;
         font-weight: 700;
-        @media(max-width: 700px) {
-            min-width: 50px;
-            max-width: 110px;
-        }
     }
     td.learnable-row-skill {
         min-width: 43px;
@@ -72,6 +69,9 @@ table {
             display: flex;
             align-items: center;
         }
+    }
+    td.learnable-row-type {
+        min-width: 43px;
     }
     td.learnable-row-grade {
         min-width: 20px;

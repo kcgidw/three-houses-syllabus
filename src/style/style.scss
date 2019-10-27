@@ -82,6 +82,10 @@ body {
 	height: 100%;
 }
 
+%light-shadow {
+	box-shadow: 0 2px 5px var(--beige300);
+}
+
 .material-icons {
 	font-size: 20px !important;
 }
@@ -146,7 +150,7 @@ body {
 	padding: 0;
 	background: none;
 	border: none;
-	color: var(--beige300);
+	color: var(--beige400);
 	cursor: pointer;
 	&.active {
 		color: var(--lavender300);
@@ -156,7 +160,7 @@ body {
 		color: var(--lavender200);
 	}
 	&:not(.active):hover {
-		color: var(--beige400);
+		color: var(--beige500);
 	}
 }
 .bold {
@@ -254,7 +258,6 @@ h4 {
 	z-index: 1;
 	position: relative;
 	height: var(--top-header-height);
-	box-shadow: 0 0 12px var(--shadow);
 	box-sizing: border-box;
 	overflow: hidden; // margin collapse
 	h1, h2 {
@@ -349,7 +352,8 @@ h4 {
 	background-color: var(--beige200);
 
 	@media(max-width: 700px) {
-		padding: 0;
+		padding-left: 0;
+		padding-right: 0;
 		height: 100%;
 	}
 

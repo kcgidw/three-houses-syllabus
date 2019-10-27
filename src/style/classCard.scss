@@ -15,13 +15,13 @@
 }
 
 .class-card {
+	@extend %light-shadow;
 	width: 490px;
 	padding: 10px;
 	margin: 10px;
 	border-radius: 2px;
 	position: relative;
 	min-height: 150px;
-	box-shadow: 0 2px 5px var(--beige300);
 	background-color: var(--beige100);
 
 	@media(max-width:1366px) {

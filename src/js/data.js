@@ -74,7 +74,7 @@ function buildRelatedSkills(classData) {
 	let relatedSkills = Object.keys(skills);
 	classData.relatedSkills = [];
 	for(let skillCat of STATIC.skillCategories) {
-		if(relatedSkills.indexOf(skillCat) !== -1) {
+		if(relatedSkills.includes(skillCat)) {
 			classData.relatedSkills.push(skillCat);
 		}
 	}
@@ -94,16 +94,16 @@ export function findClass(name) {
 }
 
 function isClassApplicable(classData, unitData) {
-	if(classData.tags.indexOf('male') > -1 && unitData.sex.indexOf('m') === -1) {
+	if(classData.tags.includes('male') && unitData.sex.includes('m')) {
 		return false;
-	} else if(classData.tags.indexOf('female') > -1 && unitData.sex.indexOf('f') === -1) {
+	} else if(classData.tags.includes('female') && unitData.sex.includes('f')) {
 		return false;
 	}
-	if(classData.tags.indexOf('houseLeader') > -1 && ['Edelgard', 'Dimitri', 'Claude'].indexOf(unitData.name) === -1) {
+	if(classData.tags.includes('houseLeader') && ['Edelgard', 'Dimitri', 'Claude'].includes(unitData.name)) {
 		return false;
 	}
 	for (let n of ['Edelgard', 'Dimitri', 'Claude', 'Byleth']) {
-		if(classData.tags.indexOf(n) > -1 && unitData.name !== n) {
+		if(classData.tags.includes(n) && unitData.name !== n) {
 			return false;
 		}
 	}
@@ -150,7 +150,7 @@ export function findCombatArt(name) {
 export function filterByHouse(house) {
 	return STATIC.units.filter((uData) => {
 		if(house === 'seiros') {
-			return ['kos', 'cos'].indexOf(uData.house) > -1;
+			return ['kos', 'cos'].includes(uData.house);
 		}
 		return uData.house == house;
 	});

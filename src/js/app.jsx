@@ -7,6 +7,7 @@ import * as Roster from './roster';
 import EditRosterView from './component/EditRoster';
 import SaveLoadView from './component/SaveLoad';
 import SupportSheetView from "./component/SupportSheet";
+import Portrait from './component/Portrait';
 
 const VIEWS = {
 	SAVELOAD: 'SAVELOAD',
@@ -60,13 +61,16 @@ class App extends React.Component {
 	getViewTitle() {
 		switch (this.state.view) {
 			case VIEWS.SAVELOAD:
-				return `Save / Load`;
+				return <h1>Save / Load</h1>;
 			case VIEWS.SUPPORTS:
-				return `Supports`;
+				return <h1>Supports</h1>;
 			case VIEWS.ROSTER:
-				return `Edit Roster`;
+				return <h1>Edit Roster</h1>;
 			case VIEWS.UNIT_PLAN:
-				return this.state.unitPlanFocus.name;
+				return <div style={{height: '50px', display: 'inline-flex', alignItems: 'center'}}>
+					{/* <Portrait unitName={this.state.unitPlanFocus.name} className={'portrait header'}/> */}
+					<h1 style={{display: 'inline', margin: 0}}>{this.state.unitPlanFocus.name}</h1>
+				</div>;
 			default:
 				throw 'Bad view';
 		}
@@ -124,7 +128,7 @@ class App extends React.Component {
 					<div className="pattern" />
 					<div id="top-header-content">
 						<div id="top-center">
-							<h1>{this.getViewTitle()}</h1>
+							{this.getViewTitle()}
 						</div>
 						<div id="top-left">
 							<i className="material-icons" onClick={this.toggleSidebar}>menu</i>

@@ -2,6 +2,7 @@
 @import "sidebar";
 @import "table";
 @import "classCard";
+@import "images";
 
 :root {
 	--gray100: hsl(210, 6%, 98%);
@@ -311,6 +312,7 @@ h4 {
 		left: 0;
 		top: 0;
 		text-align: center;
+		height: var(--top-header-height);
 		width: 100%;
 	}
 }
@@ -480,9 +482,4 @@ h4 {
 			display: none;
 		}
 	}
-}
-
-img.skill-icon {
-	width: 20px;
-	height: 20px;
 }

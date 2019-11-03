@@ -71,10 +71,10 @@ async.series([
 			Object.keys(row).forEach((k) => {
 				let val = row[k];
 				if(val !== '') {
-					if (k.indexOf('growths_') !== -1) {
+					if (k.includes('growths_')) {
 						if(isNaN(val)) throw new Error('bad val ' + val);
 						res.growths[k.replace('growths_', '')] = val;
-					} else if (k.indexOf('cert_') !== -1) {
+					} else if (k.includes('cert_')) {
 						res.certification[k.replace('cert_', '')] = val;
 					}
 				}

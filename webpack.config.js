@@ -79,7 +79,8 @@ module.exports = (env) => {
 			new CopyWebpackPlugin([
 				{from: 'src/data.json', to: '../data.json'},
 				{from: 'src/index.html', to: '../index.html'},
-				{from: 'assets/church-on-sunday.svg', to: '../assets/church-on-sunday.svg'}
+				{from: 'assets/church-on-sunday.svg', to: '../assets/church-on-sunday.svg'},
+				{from: 'assets/images/portraits/', to: '../assets/images/portraits/'},
 			])
 		],
 	};

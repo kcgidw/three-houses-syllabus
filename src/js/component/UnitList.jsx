@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import Portrait from './Portrait';
 class UnitList extends React.Component {
 	constructor(props) {
 		super(props);
@@ -18,6 +19,7 @@ class UnitList extends React.Component {
 				<li key={unitPlan.name} className={cns} onClick={() => {
 					this.props.onUnitPlanSelect(unitPlan);
 				}}>
+					{/* <Portrait unitName={unitPlan.name} style={{height: '12px'}} className={'portrait sidebar'} /> */}
 					{unitPlan.name}
 				</li>);
 		});

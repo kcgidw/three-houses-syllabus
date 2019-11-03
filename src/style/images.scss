@@ -1,0 +1,17 @@
+
+img.skill-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.portrait {
+    &.sidebar {
+        height: 18px;
+        text-align: center;
+        position: absolute;
+        left: 10px;
+    }
+    &.header {
+        height: 45px;
+    }
+}

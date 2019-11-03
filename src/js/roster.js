@@ -135,3 +135,8 @@ export function updateUnitPlan(roster, unitPlan, newState) {
 		return Object.assign({}, uPlan);
 	});
 }
+export function getActiveSupports(roster, unitData) {
+	return unitData.supports.filter((uName) => {
+		return findActiveUnitPlan(roster, uName);
+	});
+}

@@ -336,11 +336,6 @@ h4 {
 		box-shadow: 0 5px 12px var(--shadow);
 		background-color: var(--beige100);
 	}
-
-	.unit-body {
-		display: flex;
-		margin-left: 2px;
-	}
 }
 .main-card-content {
 	padding: 15px;
@@ -435,8 +430,9 @@ h4 {
 		}
 	}
 	&#overview-content {
-		.overview-unit:not(:last-child) {
-			margin-right: 30px;
+		& > .overview-item {
+			
+		margin: 10px;
 		}
 	}
 }

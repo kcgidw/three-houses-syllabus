@@ -29,10 +29,14 @@ async.series([
 				house: unit.house,
 				sex: unit.sex,
 				growths: {},
+				recruit: false,
 			};
 			Object.keys(unit).forEach((k) => {
-				if (k.indexOf('growths_') !== -1) {
+				if (k.includes('growths_')) {
 					res.growths[k.replace('growths_', '')] = unit[k];
+				} else if (k.includes('recruit_') && unit[k]) {
+					res.recruit = res.recruit || {};
+					res.recruit[k.replace('recruit_', '')] = unit[k];
 				}
 			});
 			if(unit['buddingTalent']) {

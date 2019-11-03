@@ -87,6 +87,7 @@ class UnitPlan extends React.Component {
 				flat.push(this.renderLearnableRow(reqs.skillCat, reqs.grade, learned, type, true, onClick));
 			}
 		}
+		// TODO doesn't sort skills correctly because we're pushing the rendered content, not the learnable
 		return flat.sort(Util.compareSkill);
 	}
 	renderAllLearnableRows() {

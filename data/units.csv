@@ -1,35 +1,35 @@
-name,growths_hp,growths_str,growths_mag,growths_dex,growths_spd,growths_lck,growths_def,growths_res,growths_cha,house,startingClass,buddingTalentSkill,buddingTalent,sex
-Byleth,45,45,35,45,45,45,35,30,45,,,faith,White Magic Avoid +20,fm
-Edelgard,40,55,45,45,40,30,35,35,60,be,Noble,reason,Black Magic Crit +10,f
-Hubert,35,30,55,45,45,35,25,40,35,be,Noble,lance,Frozen Lance,m
-Dorothea,40,20,40,45,40,35,15,35,40,be,Commoner,faith,White Magic Avoid +20,f
-Ferdinand,50,45,20,40,50,40,35,20,40,be,Noble,heavyArmor,Seal Speed,m
-Bernadetta,35,35,20,55,50,25,20,30,35,be,Noble,riding,Pass,f
-Caspar,55,45,25,45,45,40,30,20,25,be,Noble,,,m
-Petra,45,40,25,50,60,45,30,15,35,be,Commoner,,,f
-Linhardt,30,30,45,40,40,45,30,45,20,be,Noble,,,m
-Dimitri,55,60,20,50,50,25,40,20,55,bl,Noble,riding,Seal Movement,m
-Dedue,60,50,15,30,20,25,50,10,30,bl,Commoner,,,m
-Felix,45,55,30,45,55,40,30,20,30,bl,Noble,reason,Black Magic Crit +10,m
-Mercedes,30,25,50,45,40,30,25,45,40,bl,Commoner,bow,Waning Shot,f
-Ashe,35,35,25,55,50,40,20,35,25,bl,Commoner,lance,Shatter Smash,m
-Annette,25,30,50,50,35,35,20,30,35,bl,Noble,,,f
-Sylvain,55,45,30,35,50,35,40,25,40,bl,Noble,reason,Black Magic Avo +20,m
-Ingrid,40,35,35,40,60,45,30,40,45,bl,Noble,,,f
-Claude,35,40,25,60,55,45,30,25,55,gd,Noble,axe,Diamond Axe,m
-Lorenz,55,40,40,45,40,25,30,40,35,gd,Noble,,,m
-Raphael,65,50,15,35,15,35,45,10,25,gd,Commoner,,,m
-Ignatz,35,35,30,50,50,55,25,35,25,gd,Commoner,reason,Seal Strength,m
-Lysithea,20,15,60,60,50,15,10,25,25,gd,Noble,sword,Soulblade,f
-Marianne,35,20,50,40,40,35,15,45,40,gd,Noble,lance,Frozen Lance,f
-Hilda,50,45,25,30,50,35,35,20,50,gd,Noble,heavyArmor,Seal Speed,f
-Leonie,40,40,20,55,60,40,40,15,40,gd,Commoner,,,f
-Seteth,50,45,35,50,50,25,30,25,45,cos,Wyvern Rider,,,m
-Flayn,25,25,55,45,35,15,25,50,45,cos,Priest,reason,Seal Magic,f
-Hanneman,40,30,55,45,20,35,25,40,35,cos,Mage,,,m
-Manuela,50,35,35,40,60,35,30,25,50,cos,Priest,,,f
-Gilbert,55,45,20,45,30,15,45,10,35,kos,Fortress Knight,,,m
-Alois,45,45,20,35,40,30,40,20,40,kos,Warrior,,,m
-Catherine,50,50,25,40,55,30,30,20,25,kos,Swordmaster,,,f
-Shamir,35,40,20,55,40,55,20,15,30,kos,Sniper,,,f
-Cyril,35,20,15,40,40,30,10,10,15,cos,Commoner,,,m
+name,growths_hp,growths_str,growths_mag,growths_dex,growths_spd,growths_lck,growths_def,growths_res,growths_cha,house,startingClass,buddingTalentSkill,buddingTalent,sex,recruit_stat_min,recruit_stat,recruit_skill_min,recruit_skill
+Byleth,45,45,35,45,45,45,35,30,45,,,faith,White Magic Avoid +20,fm,,,,
+Edelgard,40,55,45,45,40,30,35,35,60,be,Noble,reason,Black Magic Crit +10,f,,,,
+Hubert,35,30,55,45,45,35,25,40,35,be,Noble,lance,Frozen Lance,m,,,,
+Dorothea,40,20,40,45,40,35,15,35,40,be,Commoner,faith,White Magic Avoid +20,f,25,cha,b,authority
+Ferdinand,50,45,20,40,50,40,35,20,40,be,Noble,heavyArmor,Seal Speed,m,10,dex,c,heavyArmor
+Bernadetta,35,35,20,55,50,25,20,30,35,be,Noble,riding,Pass,f,20,str,c,bow
+Caspar,55,45,25,45,45,40,30,20,25,be,Noble,,,m,10,str,c,brawling
+Petra,45,40,25,50,60,45,30,15,35,be,Commoner,,,f,10,dex,c,riding
+Linhardt,30,30,45,40,40,45,30,45,20,be,Noble,,,m,10,mag,c,reason
+Dimitri,55,60,20,50,50,25,40,20,55,bl,Noble,riding,Seal Movement,m,,,,
+Dedue,60,50,15,30,20,25,50,10,30,bl,Commoner,,,m,,,,
+Felix,45,55,30,45,55,40,30,20,30,bl,Noble,reason,Black Magic Crit +10,m,15,spd,b+,sword
+Mercedes,30,25,50,45,40,30,25,45,40,bl,Commoner,bow,Waning Shot,f,15,mag,c,bow
+Ashe,35,35,25,55,50,40,20,35,25,bl,Commoner,lance,Shatter Smash,m,15,cha,c,lance
+Annette,25,30,50,50,35,35,20,30,35,bl,Noble,,,f,10,mag,b+,faith
+Sylvain,55,45,30,35,50,35,40,25,40,bl,Noble,reason,Black Magic Avo +20,m,25,cha,c,reason
+Ingrid,40,35,35,40,60,45,30,40,45,bl,Noble,,,f,15,dex,d,flying
+Claude,35,40,25,60,55,45,30,25,55,gd,Noble,axe,Diamond Axe,m,,,,
+Lorenz,55,40,40,45,40,25,30,40,35,gd,Noble,,,m,20,cha,c,reason
+Raphael,65,50,15,35,15,35,45,10,25,gd,Commoner,,,m,20,str,c,heavyArmor
+Ignatz,35,35,30,50,50,55,25,35,25,gd,Commoner,reason,Seal Strength,m,10,dex,b,authority
+Lysithea,20,15,60,60,50,15,10,25,25,gd,Noble,sword,Soulblade,f,15,mag,b,faith
+Marianne,35,20,50,40,40,35,15,45,40,gd,Noble,lance,Frozen Lance,f,10,mag,c,riding
+Hilda,50,45,25,30,50,35,35,20,50,gd,Noble,heavyArmor,Seal Speed,f,30,cha,c,axe
+Leonie,40,40,20,55,60,40,40,15,40,gd,Commoner,,,f,15,str,c,lance
+Seteth,50,45,35,50,50,25,30,25,45,cos,Wyvern Rider,,,m,,,,
+Flayn,25,25,55,45,35,15,25,50,45,cos,Priest,reason,Seal Magic,f,,,,
+Hanneman,40,30,55,45,20,35,25,40,35,cos,Mage,,,m,,,,
+Manuela,50,35,35,40,60,35,30,25,50,cos,Priest,,,f,,,,
+Gilbert,55,45,20,45,30,15,45,10,35,kos,Fortress Knight,,,m,,,,
+Alois,45,45,20,35,40,30,40,20,40,kos,Warrior,,,m,,,,
+Catherine,50,50,25,40,55,30,30,20,25,kos,Swordmaster,,,f,,,,
+Shamir,35,40,20,55,40,55,20,15,30,kos,Sniper,,,f,,,,
+Cyril,35,20,15,40,40,30,10,10,15,cos,Commoner,,,m,,,,

@@ -1,14 +1,16 @@
 #left-sidebar {
-	z-index: 10;
+	@extend %light-shadow;
+
+	z-index: 100;
 	width: var(--sidebar-width);
 	height: 100%;
 	position: absolute;
 	left: 0px;
 
-	overflow-y: auto;
-	// &:hover {
-	// 	overflow-y: auto;
-	// }
+	overflow-y: hidden;
+	&:hover {
+		overflow-y: auto;
+	}
 
 	transition: left .1s linear;
 
@@ -16,23 +18,11 @@
 		left: calc(-1 * var(--sidebar-width) - 12px);
 	}
 
-	box-shadow: 0 0 12px var(--shadow);
 	background-color: var(--beige100);
 	color: var(--beige900);
 	font-size: 15px;
 	font-weight: 500;
 
-	#sidebar-title {
-		height: var(--top-header-height);
-		line-height: var(--top-header-height);
-		text-align: center;
-		background: var(--beige300);
-		color: var(--beige700);
-		h1 {
-			font-size: 20px;
-			color: var(--lavgray800);
-		}
-	}
 	h4 {
 		margin: 10px 0;
 		padding-left: 10px;
@@ -55,7 +45,6 @@
 		&.inactive {
 			font-size: .9em;
 			color: var(--beige500);
-			background: var(--beige200);
 			border: none;
 		}
 		&.selected {
@@ -65,7 +54,7 @@
 	}
 }
 #sidebar-overlay {
-    z-index: 9;
+    z-index: 99;
     height: 100%;
 	position: fixed;
 	

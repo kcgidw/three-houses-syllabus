@@ -103,9 +103,6 @@ class App extends React.Component {
 		return (<div id="wrapper">
 
 			<div id="left-sidebar" className={(this.state.sidebarHidden ? 'hidden' : '')}>
-				<div id="sidebar-title">
-					<h1>Syllabus</h1>
-				</div>
 				<div id="sidebar-menus">
 					<h4>Menu</h4>
 					<ul>

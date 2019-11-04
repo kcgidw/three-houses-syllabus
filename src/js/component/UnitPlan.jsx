@@ -158,13 +158,23 @@ class UnitPlan extends React.Component {
 				</TabList>
 				<TabPanel>
 					<div id="overview-content" className="unit-body main-card-content">
-						<div id="base-growths" className="overview-unit">
-							<h3>Growths</h3>
-							<GrowthsTable growths={this.props.unitData.growths} tableType="BASE" />
-						</div>
-						<div id="base-proficiencies" className="overview-unit">
-							<h3>Proficiencies</h3>
-							<SkillLevelsTable data={this.props.unitData.skillLevels} />
+						<div id="overview-content-wrapper">
+							<div id="base-growths" className="overview-unit">
+								<h3>Growths</h3>
+								<GrowthsTable growths={this.props.unitData.growths} tableType="BASE" />
+							</div>
+							<div id="base-proficiencies" className="overview-unit">
+								<h3>Proficiencies</h3>
+								<SkillLevelsTable data={this.props.unitData.skillLevels} />
+							</div>
+							<div id="base-proficiencies" className="overview-unit">
+								<h3>Supports: {Roster.getActiveSupports(this.props.roster, this.props.unitData).length}</h3>
+								{this.props.unitData.supports.map((supportName) => {
+									const uPlan = Roster.findUnitPlan(this.props.roster, supportName);
+									const cn = uPlan.active ? 'active-support' : 'inactive-support';
+									return <li key={supportName} className={cn}>{supportName}</li>;
+								})}
+							</div>
 						</div>
 					</div>
 				</TabPanel>

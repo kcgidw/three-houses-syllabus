@@ -14,7 +14,7 @@
 	--gray800: hsl(210, 6%, 30%);
 	--gray900: hsl(210, 6%, 18%);
 	--beige100: hsl(45, 18%, 98%);
-	--beige200: hsl(45, 18%, 94%);
+	--beige200: hsl(45, 18%, 95%);
 	--beige300: hsl(45, 18%, 90%);
 	--beige400: hsl(45, 18%, 80%);
 	--beige500: hsl(45, 18%, 70%);
@@ -222,6 +222,13 @@ ul, ol {
 	margin: 0;
 	li {
 		list-style: none;
+		list-style-position: inside;
+	}
+	li.bullet {
+		list-style-type: disc;
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
 	}
 }
 
@@ -402,7 +409,6 @@ h4 {
 			padding: 10px;
 
 			ol {
-				list-style: none;
 				padding: 0;
 				margin: auto;
 				width: var(--sidebar-width);
@@ -445,9 +451,16 @@ h4 {
 			width: 100%;
 		}
 
+		.active-support {
+			list-style-type: disc;
+		}
 		.inactive-support {
 			color: var(--beige500);
 			list-style-type: circle;
+		}
+
+		#overview-recruitment {
+			font-weight: 700;
 		}
 	}
 }

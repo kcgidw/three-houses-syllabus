@@ -1,16 +1,17 @@
+import React from 'react';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import * as Data from '../data';
-import * as Util from '../util';
+import { LEARNABLE_TYPE } from '../enum';
+import localize from '../l10n';
 import * as Roster from '../roster';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import React, { Component, PropTypes } from 'react';
+import * as Util from '../util';
+import cn from 'classnames';
 import ClassCard from './ClassCard';
+import ClassList from './ClassList';
 import GrowthsTable from './GrowthsTable';
+import SkillIcon from './SkillIcon';
 import SkillLevelsTable from './SkillLevelsTable';
 import StarButton from './Star';
-import SkillIcon from './SkillIcon';
-import localize from '../l10n';
-import { LEARNABLE_TYPE } from '../enum';
-import ClassList from './ClassList';
 
 class UnitPlan extends React.Component {
 	constructor(props) {
@@ -144,6 +145,18 @@ class UnitPlan extends React.Component {
 			</React.Fragment>;
 		}
 
+		let renderRecruitment = null;
+		let recruitmentData = this.props.unitData.recruit;
+		if(recruitmentData) {
+			renderRecruitment = (<div id="overview-recruitment" className="overview-unit">
+				<h3>Recruitment</h3>
+				<ul>
+					<li className="bullet"><SkillIcon skillCat={recruitmentData.skill} /> {recruitmentData.skill_min.toUpperCase()}</li>
+					<li className="bullet">{localize(recruitmentData.stat)} {recruitmentData.stat_min.toUpperCase()}</li>
+				</ul>
+			</div>);
+		}
+
 		return (<div className="main-card has-tabs">
 			<Tabs forceRenderTabPanel onSelect={(idx) => {
 				this.setState({
@@ -159,22 +172,29 @@ class UnitPlan extends React.Component {
 				<TabPanel>
 					<div id="overview-content" className="unit-body main-card-content">
 						<div id="overview-content-wrapper">
-							<div id="base-growths" className="overview-unit">
+							<div id="overview-base-growths" className="overview-unit">
 								<h3>Growths</h3>
 								<GrowthsTable growths={this.props.unitData.growths} tableType="BASE" />
 							</div>
-							<div id="base-proficiencies" className="overview-unit">
+							<div id="overview-base-proficiencies" className="overview-unit">
 								<h3>Proficiencies</h3>
 								<SkillLevelsTable data={this.props.unitData.skillLevels} />
 							</div>
-							<div id="base-proficiencies" className="overview-unit">
+							<div id="overview-supports" className="overview-unit">
 								<h3>Supports: {Roster.getActiveSupports(this.props.roster, this.props.unitData).length}</h3>
-								{this.props.unitData.supports.map((supportName) => {
-									const uPlan = Roster.findUnitPlan(this.props.roster, supportName);
-									const cn = uPlan.active ? 'active-support' : 'inactive-support';
-									return <li key={supportName} className={cn}>{supportName}</li>;
-								})}
+								<ul>
+									{this.props.unitData.supports.map((supportName) => {
+										const uPlan = Roster.findUnitPlan(this.props.roster, supportName);
+										const cns = cn({
+											'active-support': uPlan.active,
+											'inactive-support': !uPlan.active,
+											'bullet': true,
+										});
+										return <li key={supportName} className={cns}>{supportName}</li>;
+									})}
+								</ul>
 							</div>
+							{renderRecruitment}
 						</div>
 					</div>
 				</TabPanel>

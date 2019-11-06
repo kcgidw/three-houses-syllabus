@@ -30,6 +30,8 @@ async.series([
 				sex: unit.sex,
 				growths: {},
 				recruit: false,
+				personalAbility: unit.personalAbility,
+				crests: [],
 			};
 			Object.keys(unit).forEach((k) => {
 				if (k.includes('growths_')) {

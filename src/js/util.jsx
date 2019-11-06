@@ -68,3 +68,11 @@ export function compareGrade(gradeA, gradeB) {
 	let b = order.indexOf(gradeB);
 	return a - b;
 }
+export function compareSupportableUnit(a, b) {
+	if(a.active && !b.active) {
+		return -1;
+	} else if(!a.active && b.active) {
+		return 1;
+	}
+	return a.id - b.id;
+}

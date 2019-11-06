@@ -130,6 +130,10 @@ class UnitPlan extends React.Component {
 				</ol>
 			</React.Fragment>;
 		}
+
+		const personalAbility = this.props.unitData.personalAbility;
+		const personalAbilityDesc = Data.findAbility(personalAbility).desc;
+
 		let learnedTopDisplay;
 		if(this.state.unitPlan.learned && Object.keys(this.state.unitPlan.learned).length > 0) {
 			learnedTopDisplay = <React.Fragment>
@@ -149,11 +153,10 @@ class UnitPlan extends React.Component {
 		let recruitmentData = this.props.unitData.recruit;
 		if(recruitmentData) {
 			renderRecruitment = (<div id="overview-recruitment" className="overview-unit">
-				<h3>Recruitment</h3>
-				<ul>
-					<li className="bullet"><SkillIcon skillCat={recruitmentData.skill} /> {recruitmentData.skill_min.toUpperCase()}</li>
-					<li className="bullet">{localize(recruitmentData.stat)} {recruitmentData.stat_min.toUpperCase()}</li>
-				</ul>
+				<h4>Recruitment</h4>
+				<SkillIcon skillCat={recruitmentData.skill} /> {recruitmentData.skillMin.toUpperCase()}
+				<br/>
+				{localize(recruitmentData.stat)} {recruitmentData.statMin.toUpperCase()}
 			</div>);
 		}
 
@@ -173,25 +176,40 @@ class UnitPlan extends React.Component {
 					<div id="overview-content" className="unit-body main-card-content">
 						<div id="overview-content-wrapper">
 							<div id="overview-base-growths" className="overview-unit">
-								<h3>Growths</h3>
+								<h4>Growths</h4>
 								<GrowthsTable growths={this.props.unitData.growths} tableType="BASE" />
 							</div>
 							<div id="overview-base-proficiencies" className="overview-unit">
-								<h3>Proficiencies</h3>
+								<h4>Proficiencies</h4>
 								<SkillLevelsTable data={this.props.unitData.skillLevels} />
 							</div>
+							<div id="overview-base-personal-ability" className="overview-unit">
+								<h4>Personal Ability</h4>
+								<strong>{personalAbility}</strong>: {personalAbilityDesc}
+							</div>
 							<div id="overview-supports" className="overview-unit">
-								<h3>Supports: {Roster.getActiveSupports(this.props.roster, this.props.unitData).length}</h3>
+								<h4>Supports</h4>
+								<strong>Roster supports: {Roster.getActiveSupports(this.props.roster, this.props.unitData).length}</strong>
 								<ul>
-									{this.props.unitData.supports.map((supportName) => {
-										const uPlan = Roster.findUnitPlan(this.props.roster, supportName);
-										const cns = cn({
-											'active-support': uPlan.active,
-											'inactive-support': !uPlan.active,
-											'bullet': true,
-										});
-										return <li key={supportName} className={cns}>{supportName}</li>;
-									})}
+									{this.props.unitData.supports
+										.map((supportName) => {
+											const uPlan = Roster.findUnitPlan(this.props.roster, supportName);
+											return {
+												name: supportName,
+												id: Data.findUnitData(supportName).id,
+												active: uPlan.active
+											};
+										})
+										.sort(Util.compareSupportableUnit)
+										.map((obj) => {
+											const cns = cn({
+												'active-support': obj.active,
+												'inactive-support': !obj.active,
+												'bullet': true,
+											});
+											return <li key={obj.name} className={cns}>{obj.name}</li>;
+										})
+									}
 								</ul>
 							</div>
 							{renderRecruitment}
@@ -229,5 +247,11 @@ class UnitPlan extends React.Component {
 		</div>);
 	}
 }
+
+const renderCrests = (uData) => {
+	return uData.crests.map((c) => {
+		return <span><em>{c.name} - {c.type}</em>: {c.desc}</span>;
+	});
+};
 
 export default UnitPlan;

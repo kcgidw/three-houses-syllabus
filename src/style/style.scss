@@ -166,6 +166,9 @@ body {
 .bold {
 	font-weight: 700;
 }
+strong {
+	font-weight: 700;
+}
 .heavy {
 	font-weight: 700;
 	font-size: 1.2em;
@@ -223,11 +226,8 @@ ul, ol {
 	li {
 		list-style: none;
 		list-style-position: inside;
-	}
-	li.bullet {
-		list-style-type: disc;
-		&:not(:last-child) {
-			margin-bottom: 4px;
+		&.bullet {
+			list-style-type: disc;
 		}
 	}
 }
@@ -447,7 +447,7 @@ h4 {
 		}
 
 		.overview-unit {
-			margin: 10px;
+			margin: 15px;
 			width: 100%;
 		}
 
@@ -468,6 +468,7 @@ h4 {
 .react-tabs {
 	box-sizing: border-box;
 	height: 100%;
+	--bar-height: 35px;
 
 	&__tab-list {
 		@extend %light-shadow;
@@ -475,7 +476,7 @@ h4 {
 		z-index: 9;
 		
 		width: 100%;
-		height: 40px;
+		height: var(--bar-height);
 		padding: 0;
 		margin: 0;
 		font-size: 15px;
@@ -489,25 +490,25 @@ h4 {
 		margin-right: 5px;
 		font-size: 1em;
 		line-height: 2em;
-		height: 40px;
+		height: var(--bar-height);
 		text-align: center;
 		cursor: pointer;
 		color: var(--beige500);
-		border-bottom: solid 4px var(--beige100);
+		border-bottom: solid 3px var(--beige100);
 
 		&:hover:not(&--selected) {
-			border-bottom: solid 4px var(--lavender100);
+			border-bottom: solid 3px var(--lavender100);
 			color: var(--lavender800);
 		}
 
 		&--selected {
 			color: var(--lavender900);
-			border-bottom: solid 4px var(--lavender300);
+			border-bottom: solid 3px var(--lavender300);
 		}
 	}
 
 	&__tab-panel {
-		height: calc(100% - 40px);
+		height: calc(100% - var(--bar-height));
 		&:not(&--selected) {
 			display: none;
 		}

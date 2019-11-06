@@ -99,7 +99,7 @@ Veteran Knight,Unit takes 2 less damage while in formation with a battalion.,Per
 Charm,Adjacent allies deal 3 extra damage during combat.,"Class: Lord, Armored Lord, High Lord, Wyvern Master, Emperor, Great Lord, Barbarossa"
 Advocate,Adjacent male allies deal 3 extra damage during combat.,Personal: Hilda
 Guardian,Adjacent female allies deal 3 extra damage during combat.,Personal: Seteth
-Lily’s Poise,Adjacent allies take 3 less damage during combat.,Personal: Flayn
+Lily's Poise,Adjacent allies take 3 less damage during combat.,Personal: Flayn
 Infirmary Master,Adjacent allies gain Crit Avo +10 during combat.,Personal: Manuela
 Philanderer,"If a female ally is adjacent, unit deals 2 extra damage and takes 2 less damage during combat.",Personal: Sylvain
 Rivalry,"If a male ally is adjacent, unit deals 2 extra damage and takes 2 less damage during combat.",Personal: Leonie
@@ -136,7 +136,7 @@ Renewal,Unit recovers up to 20% of max HP at the start of each turn.,Class maste
 Catnap,"If unit takes no action except Wait, recovers up to 10% of max HP.",Personal: Linhardt
 Goody Basket,Chance to recover up to 10% of max HP at the start of each turn. Trigger % = Lck stat.,Personal: Raphael
 Songstress,Adjacent allies recover up to 10% of max HP at the start of each turn.,Personal: Dorothea
-Hunter’s Boon,Grants Crit +20 when foe’s HP is ? 50%.,Personal: Petra
+Hunter's Boon,Grants Crit +20 when foe's HP is ≤ 50%.,Personal: Petra
 Poison Strike,"If unit initiates combat and lands a hit, targeted foe loses up to 20% of max HP after combat.",Class mastered: Dark Mage
 Live to Serve,"When healing an ally with white magic, unit recovers the same amount of HP.",Personal: Mercedes
 Lifetaker,Unit recovers HP equal to 50% of damage dealt after defeating a foe.,Class mastered: Dark Bishop
@@ -149,14 +149,14 @@ Miracle,"Chance to survive lethal damage with 1 HP, if HP is > 1. Trigger % = Lc
 Terrain Resistance,Nullifies damage from terrain.,"Class: Paladin, Bishop, Enlightened One, Holy Knight"
 Special Dance,"When using the Dance ability, grant Dex/Spd/Lck +4 to target ally.",Class mastered: Dancer
 Paragon,Doubles experience earned.,
-Professor’s Guidance,Multiplies this unit’s and adjacent allies’ experience earned by 1.2.,Personal: Protagonist
+Professor's Guidance,Multiplies this unit's and adjacent allies' experience earned by 1.2.,Personal: Protagonist
 Discipline,Doubles skill experience earned in battle.,
 Aptitude,Makes each stat 20% more likely to increase on level up.,Personal: Cyril
 Vantage,"When foe initiates combat, unit still attacks first if HP is ≤ 50%.","Class mastered: Mercenary, Class: Hero"
 Missing Number,Missing Number (icon is based on Wary Fighter),SpoOoOoky
-Desperation,"If unit initiates combat with HP ≤ 50%, unit’s follow-up attack (if possible) occurs before foe’s counterattack.",Class mastered: Cavalier
-Quick Riposte,"If foe initiates combat while unit’s HP is ≥ 50%, unit makes guaranteed follow-up attack.",Class mastered: War Master
-Wrath,"If foe initiates combat while unit’s HP is ≤ 50%, grants Crit +50.",Class mastered: Warrior
+Desperation,"If unit initiates combat with HP ≤ 50%, unit's follow-up attack (if possible) occurs before foe's counterattack.",Class mastered: Cavalier
+Quick Riposte,"If foe initiates combat while unit's HP is ≥ 50%, unit makes guaranteed follow-up attack.",Class mastered: War Master
+Wrath,"If foe initiates combat while unit's HP is ≤ 50%, grants Crit +50.",Class mastered: Warrior
 Dance,Use Dance to allow an ally to move again.,Class: Dancer
 Steal,Allows unit to steal a non-weapon item from a foe with a lower Spd stat.,"Class: Thief, Class mastered: Thief"
 Locktouch,Allows unit to open doors and chests without keys.,"Class: Thief, Assassin"
@@ -199,12 +199,12 @@ Anti-Magic Armor,Nullifies damage from magic attacks.,Enemy Demonic Beasts
 Divine Dragon Horn,Unit recovers 100% of HP at the start of each turn if a White Beast is within 10 spaces.,
 Path of the Conqueror,On Hold,Unused?
 Noncombatant,Unit cannot be targeted by foes.,
-Battalion Desperation,"If unit initiates combat when battalion endurance is ≤ 1/3, unit’s follow-up attack (if possible) occurs before foe’s counterattack.","Raise Authority skill level to C for Dorothea, Ferdinand, Ashe, Ingrid, Claude, Lysithea, Ignatz, Leonie, Hanneman, Cyril or Shamir. Raise to A for protagonist, Hubert or Seteth."
+Battalion Desperation,"If unit initiates combat when battalion endurance is ≤ 1/3, unit's follow-up attack (if possible) occurs before foe's counterattack.","Raise Authority skill level to C for Dorothea, Ferdinand, Ashe, Ingrid, Claude, Lysithea, Ignatz, Leonie, Hanneman, Cyril or Shamir. Raise to A for protagonist, Hubert or Seteth."
 Cursed Power,Unit recovers HP on swamp terrain.,
 Anchor,Prevents unit from being moved.,
 Counterattack,Allows unit to counterattack regardless of distance to attacker.,Enemy
 Twin Crests,Allows unit to take two actions in one turn.,Enemy
-Ancient Dragon Wrath,Calculates damage using the lower of foe’s Prt or Rsl.,Enemy
+Ancient Dragon Wrath,Calculates damage using the lower of foe's Prt or Rsl.,Enemy
 Surging Light,Performs Staggering Blow immediately.,Enemy
 Ancient Dragonskin,"Halves all damage taken, negates some abilities and combat arts, and prevents unit from being moved.",Enemy
 Keen Intuition,Grants Avo +30 during combat with a foe 2 or more spaces away.,
@@ -219,7 +219,7 @@ Crest Scholar,Use Rally to grant Mag +4 to an ally.,Personal: Hanneman
 Compassion,Use Rally to grant Lck +8 to an ally.,Personal: Alois
 Lockpick,Allows unit to open doors and chests without keys.,Personal: Ashe
 Battalion Vantage,"When foe initiates combat, unit still attacks first if battalion endurance is ≤ 1/3.","Raise Authority skill level to C for protagonist, Edelgard, Felix, Sylvain, Lorenz or Catherine. Raise to A for Dimitri or Ignatz."
-Battalion Wrath,"If foe initiates combat while unit’s battalion endurance is ≤ 1/3, grants Crit +50.","Raise Authority skill level to C for Hubert, Bernadetta, Caspar, Petra, Dimitri, Dedue, Hilda, Raphael, Seteth, Alois or Gibert. Raise to A for Annette or Claude."
+Battalion Wrath,"If foe initiates combat while unit's battalion endurance is ≤ 1/3, grants Crit +50.","Raise Authority skill level to C for Hubert, Bernadetta, Caspar, Petra, Dimitri, Dedue, Hilda, Raphael, Seteth, Alois or Gibert. Raise to A for Annette or Claude."
 Battalion Renewal,Unit recovers up to 30% of max HP at the start of each turn while battalion endurance is ≤ 1/3.,"Raise Authority skill level to C for Linhardt, Mercedes, Annette, Marianne, Manuela or Flayn. Raise to A for Edelgard."
 Black Magic Uses Up+,Quadruples the number of uses for black magic.,
 Dark Magic Uses x4,Quadruples the number of uses for dark magic.,
@@ -229,7 +229,7 @@ Mighty King of Legend,Negates 1 attack per turn and strengthens stats while the 
 Alert Stance,"If unit takes no action except Wait, grants Avo +15 for 1 turn.",Raise Flying skill level to B
 Alert Stance+,"If unit takes no action except Wait, grants Avo +30 for 1 turn.",Raise Flying skill level to A+
 Close Counter,Allows unit to counterattack adjacent foes.,Raise Bow skill level to C
-Professor’s Guidance+,Unit deals 2 extra damage during combat. Multiplies this unit’s and adjacent allies’ experience earned by 1.2.,Personal: Protagonist (halfway through Chapter 10’s story mission)
+Professor's Guidance+,Unit deals 2 extra damage during combat. Multiplies this unit's and adjacent allies' experience earned by 1.2.,Personal: Protagonist (halfway through Chapter 10's story mission)
 Imperial Lineage+,"If unit takes no action except Wait, grants Res +4 for 1 turn. Multiplies experience earned by 1.2.",Personal: Edelgard (from Part 2)
 Royal Lineage+,Grants Avo +20 while unit is at full HP. Multiplies experience earned by 1.2.,Personal: Dimitri (from Part 2)
 Leicester Lineage+,Allows unit to pass through spaces occupied by foes. Multiplies experience earned by 1.2.,Personal: Claude (from Part 2)

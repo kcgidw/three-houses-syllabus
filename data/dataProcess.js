@@ -142,7 +142,7 @@ async.series([
 			let combatArts = data[unitName]['combat arts'];
 			for(let skillCat of Object.keys(abilities)) {
 				for(let grade in abilities[skillCat]) {
-					validateAbilitiyExists(abilities[skillCat][grade], DATA.abilities);
+					validateAbilityExists(abilities[skillCat][grade], DATA.abilities);
 				}
 			}
 			if(unit) {
@@ -167,7 +167,7 @@ function finish() {
 	});
 }
 
-function validateAbilitiyExists(abilityName, abilities) {
+function validateAbilityExists(abilityName, abilities) {
 	let found = abilities.find((a) => (a.name == abilityName));
 	if(!found) {
 		throw `Bad ability ${abilityName}`;

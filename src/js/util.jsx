@@ -53,14 +53,14 @@ export function compareClass(dataA, dataB) {
 	}
 	return dataA.name.localeCompare(dataB.name);
 }
-export function compareSkill(skillA, skillB, gradeA, gradeB) {
+export function compareLearnable(lA, lB) {
 	const order = Data.STATIC.skillCategories;
-	let a = order.indexOf(skillA);
-	let b = order.indexOf(skillB);
+	let a = order.indexOf(lA.reqs.skillCat);
+	let b = order.indexOf(lB.reqs.skillCat);
 	if(a !== b) {
 		return a - b;
 	}
-	return compareGrade(gradeA, gradeB);
+	return compareGrade(lA.reqs.grade, lB.reqs.grade);
 }
 export function compareGrade(gradeA, gradeB) {
 	const order = Data.STATIC.grades;

@@ -74,22 +74,30 @@ class UnitPlan extends React.Component {
 		let flat = [];
 		if (allLearned) {
 			for (let learnedName in allLearned) {
-				let learned;
+				let learnedData;
 				let type = Data.determineLearnableType(learnedName);
 				if(LEARNABLE_TYPE.ABILITY === type) {
-					learned = Data.findAbility(learnedName);
+					learnedData = Data.findAbility(learnedName);
 				} else {
-					learned = Data.findCombatArt(learnedName);
+					learnedData = Data.findCombatArt(learnedName);
 				}
 				let onClick = () => {
 					this.props.updateRoster(Roster.toggleLearn(this.props.roster, this.state.unitPlan, learnedName));
 				};
 				let reqs = Roster.getAbilityRequirements(this.state.unitPlan, learnedName);
-				flat.push(this.renderLearnableRow(reqs.skillCat, reqs.grade, learned, type, true, onClick));
+				flat.push({
+					reqs,
+					learnedData,
+					type,
+					onClick
+				});
 			}
 		}
-		// TODO doesn't sort skills correctly because we're pushing the rendered content, not the learnable
-		return flat.sort(Util.compareSkill);
+		return flat
+			.sort(Util.compareLearnable)
+			.map((flatItem) => {
+				return this.renderLearnableRow(flatItem.reqs.skillCat, flatItem.reqs.grade, flatItem.learnedData, flatItem.type, true, flatItem.onClick);
+			});
 	}
 	renderAllLearnableRows() {
 		let flat = [];

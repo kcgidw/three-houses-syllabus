@@ -494,16 +494,16 @@ h4 {
 		text-align: center;
 		cursor: pointer;
 		color: var(--beige500);
-		border-bottom: solid 3px var(--beige100);
+		border-bottom: solid 2px var(--beige100);
 
 		&:hover:not(&--selected) {
-			border-bottom: solid 3px var(--lavender100);
+			border-bottom-color: var(--lavender100);
 			color: var(--lavender800);
 		}
 
 		&--selected {
 			color: var(--lavender900);
-			border-bottom: solid 3px var(--lavender300);
+			border-bottom-color: var(--lavender300);
 		}
 	}
 

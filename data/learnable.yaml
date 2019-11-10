@@ -57,11 +57,12 @@ UNIVERSAL:
       D: Fading Blow
       C: Rushing Blow
       B: Healing Focus
+    heavyArmor:
+      B: Smite
+  spells:
     faith:
       D: Heal
       D+: Nosferatu
-    heavyArmor:
-      B: Smite
 
 Byleth:
   abilities:
@@ -77,6 +78,10 @@ Byleth:
     brawling:
       C+: Draining Blow 
       A: Mystic Blow
+  spells:
+    faith:
+      C: Recover
+      A: Aura
     reason:
       D: Fire
       D+: Thunder
@@ -99,6 +104,15 @@ Edelgard:
     axe:
       C+: Monster Breaker
       A: Lightning Axe
+  spells:
+    faith:
+      C: Recover
+      B: Seraphim
+    reason:
+      D: Fire
+      C: Bolganone
+      B: Luna
+      A: Hades
 Hubert:
   abilities:
     authority:
@@ -111,6 +125,15 @@ Hubert:
     bow:
       C+: Heavy Draw
       A: Schism Shot
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Miasma
+      D+: Mire
+      C: Banshee
+      B: Death
+      A: Dark Spikes
 Dorothea:
   abilities:
     authority:
@@ -119,6 +142,15 @@ Dorothea:
   combat arts:
     sword:
       C+: Hexblade
+  spells:
+    faith:
+      C: Physics
+    reason:
+      D: Thunder
+      C: Thoron
+      B: Sagittae
+      A: Meteor
+      A+: Agnea's Arrow
 Ferdinand:
   abilities:
     authority:
@@ -133,6 +165,15 @@ Ferdinand:
     axe:
       C+: Focused Strike
       A: Armored Strike
+  spells:
+    faith:
+      C: Ward
+      B: Restore
+    reason:
+      D: Thunder
+      D+: Fire
+      C: Thoron
+      B: Bolganone
 Bernadetta:
   abilities:
     authority:
@@ -143,6 +184,15 @@ Bernadetta:
     bow:
       C+: Deadeye
       A: Encloser
+  spells:
+    faith:
+      C: Physic
+      A: Rescue
+    reason:
+      D: Blizzard
+      D+: Thunder
+      C: Thoron
+      A: Fimbulvetr
 Caspar:
   abilities:
     authority:
@@ -154,6 +204,12 @@ Caspar:
     brawling:
       C+: Bombard
       A: Mighty Blow
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Fire
+      C: Bolganone
 Petra:
   abilities:
     authority:
@@ -167,10 +223,27 @@ Petra:
       A: Diamond Axe
     bow:
       C+: Warning Shot
+  spells:
+    faith:
+      C: Restore
+    reason:
+      D: Wind
+      C: Sagittae
 Linhardt:
   abilities:
     authority:
       C: Battalion Renewal
+  spells:
+    faith:
+      C: Physic
+      B: Restore
+      A: Warp
+    reason:
+      D: Wind
+      D+: Fire
+      C: Cutting Gale
+      B: Bolganone
+      A: Excalibur
 
 # blue lion
 
@@ -188,6 +261,13 @@ Dimitri:
     lance:
       C+: Monster Piercer
       A: Glowing Ember
+  spells:
+    faith:
+      C: Recover
+      A: Aura
+    reason:
+      D: Thunder
+      C: Thoron
 Dedue:
   abilities:
     authority:
@@ -201,6 +281,13 @@ Dedue:
     brawling:
       C+: One-Two Punch
       A: Mighty Blow
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Fire
+      C: Bolganone
+      A: Ragnarok
 Felix:
   abilities:
     authority:
@@ -214,10 +301,27 @@ Felix:
     brawling:
       C+: Nimble Combo
       A: Mystic Blow
+  spells:
+    faith:
+      C: Recover
+      B: Restore
+    reason:
+      D: Thunder
+      C: Thoron
 Mercedes:
   abilities:
     authority:
       C: Battalion Renewal
+  spells:
+    faith:
+      C: Physic
+      B: Restore
+      A: Fortify
+    reason:
+      D: Fire
+      D+: Thunder
+      C: Bolganone
+      A: Ragnarok
 Ashe:
   abilities:
     authority:
@@ -228,6 +332,12 @@ Ashe:
     bow:
       C+: Deadeye
       A: Warning Shot
+  spells:
+    faith:
+      C: Physic
+    reason:
+      D: Wind
+      C: Cutting Gale
 Annette:
   abilities:
     authority:
@@ -239,6 +349,15 @@ Annette:
   combat arts:
     axe:
       C+: Lightning Axe
+  spells:
+    faith:
+      C: Recover
+      A: Abraxas
+    reason:
+      D: Wind
+      C: Bolganone
+      B: Sagittae
+      A: Ragnarok
 Sylvain:
   abilities:
     authority:
@@ -250,6 +369,15 @@ Sylvain:
     axe:
       C+: Spike
       A: Lightning Axe
+  spells:
+    faith:
+      C: Physic
+      B: Seraphim
+    reason:
+      D: Fire
+      C: Bolganone
+      B: Sagittae
+      A: Ragnarok
 Ingrid:
   abilities:
     authority:
@@ -261,6 +389,14 @@ Ingrid:
     lance:
       C+: Hit and Run
       A: Frozen Lance
+  spells:
+    faith:
+      C: Physic
+      B: Seraphim
+    reason:
+      D: Blizzard
+      C: Thoron
+      A: Fimbulvetr
 
 # golden deer
 
@@ -278,6 +414,15 @@ Claude:
     bow:
       C+: Monster Blast
       A: Encloser
+  spells:
+    faith:
+      C: Physic
+      A: Silence
+    reason:
+      D: Wind
+      C: Sagittae
+      B: Cutting Gale
+      A: Excalibur
 Lorenz:
   abilities:
     authority:
@@ -285,6 +430,15 @@ Lorenz:
   combat arts:
     lance:
       C+: Frozen Lance
+  spells:
+    faith:
+      C: Physic
+      B: Ward
+    reason:
+      D: Fire
+      C: Sagittae
+      B: Ragnarok
+      A: Agnea's Arrow
 Hilda:
   abilities:
     authority:
@@ -295,6 +449,13 @@ Hilda:
     axe:
       C+: Spike
       A: Diamond Axe
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Thunder
+      C: Thoron
+      A: Bolting
 Raphael:
   abilities:
     authority:
@@ -306,10 +467,27 @@ Raphael:
     brawling:
       C+: Monster Crusher
       A: Draining Blow
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Fire
+      C: Bolganone
 Lysithea:
   abilities:
     authority:
       C: Battalion Desperation
+  spells:
+    faith:
+      C: Seraphim
+      B: Warp
+      A: Abraxas
+    reason:
+      D: Miasma
+      D+: Swarm
+      C: Luna
+      B: Dark Spikes
+      A: Hades
 Ignatz:
   abilities:
     authority:
@@ -324,6 +502,14 @@ Ignatz:
     bow:
       C+: Break Shot
       A: Ward Arrow
+  spells:
+    faith:
+      C: Physic
+      B: Ward
+    reason:
+      D: Blizzard
+      C: Cutting Gale
+      A: Fimbulvetr
 Marianne:
   abilities:
     authority:
@@ -331,6 +517,16 @@ Marianne:
   combat arts:
     sword:
       C+: Soulblade
+  spells:
+    faith:
+      C: Physic
+      B: Silence
+      A: Aura
+    reason:
+      D: Blizzard
+      C: Thoron
+      B: Cutting Gale
+      A: Fimbulvetr
 Leonie:
   abilities:
     authority:
@@ -342,6 +538,14 @@ Leonie:
     bow:
       C+: Break Shot
       A: Point-Blank Volley
+  spells:
+    faith:
+      C: Physic
+      B: Restore
+    reason:
+      D: Fire
+      C: Bolganone
+      A: Ragnarok
 
 # seiros
 
@@ -353,6 +557,15 @@ Manuela:
   combat arts:
     sword:
       C+: Hexblade
+  spells:
+    faith:
+      C: Ward
+      B: Silence
+      A: Warp
+    reason:
+      D: Thunder
+      C: Bolganone
+      A: Bolting
 Hanneman:
   abilities:
     authority:
@@ -361,6 +574,16 @@ Hanneman:
     bow:
       C+: Schism Shot
       A: Ward Arrow
+  spells:
+    faith:
+      C: Recover
+      B: Ward
+    reason:
+      D: Wind
+      C: Sagittae
+      B: Thoron
+      A: Ragnarok
+      A+: Meteor
 Seteth:
   abilities:
     authority:
@@ -378,6 +601,14 @@ Seteth:
     lance:
       C+: Monster Piercer
       A: Swift Strikes
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Wind
+      C: Cutting Gale
+      B: Bolganone
+      A: Excalibur
 Flayn:
   abilities:
     authority:
@@ -387,6 +618,16 @@ Flayn:
     lance:
       C+: Hit and Run
       A: Frozen Lance
+  spells:
+    faith:
+      C: Restore
+      B: Rescue
+      A: Fortify
+    reason:
+      D: Wind
+      D+: Fire
+      C: Cutting Gale
+      A: Excalibur
 Cyril:
   abilities:
     authority:
@@ -400,6 +641,12 @@ Cyril:
       A: Armored Strike
     bow:
       C+: Point-Blank Volley
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Wind
+      C: Cutting Gale
 Catherine:
   abilities:
     authority:
@@ -411,6 +658,13 @@ Catherine:
     brawling:
       C+: Nimble Combo
       A: Bombard
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Fire
+      C: Bolganone
+      A: Ragnarok
 Alois:
   abilities:
     authority:
@@ -423,6 +677,12 @@ Alois:
     brawling:
       C+: One-Two Punch
       A: Mighty Blow
+  spells:
+    faith:
+      C: Recover
+    reason:
+      D: Fire
+      C: Bolganone
 Gilbert:
   abilities:
     authority:
@@ -434,6 +694,12 @@ Gilbert:
       A: Glowing Ember
     axe:
       C+: Spike
+  spells:
+    faith:
+      C: Ward
+    reason:
+      D: Thunder
+      C: Thoron
 Shamir:
   abilities:
     authority:
@@ -445,3 +711,11 @@ Shamir:
     bow:
       C+: Heavy Draw
       A: Monster Blast
+  spells:
+    faith:
+      C: Physic
+    reason:
+      D: Blizzard
+      D+: Wind
+      C: Sagittae
+      A: Fimbulvetr

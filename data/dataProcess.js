@@ -135,11 +135,12 @@ async.series([
 	function(cb) {
 		const filename = 'learnable.yaml';
 		console.log('Begin parsing ' + filename);
-		let data = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, filename), 'utf-8'));
+		const data = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, filename), 'utf-8'));
 		Object.keys(data).forEach((unitName) => {
-			let unit = DATA.units.find((uData) => (uData.name == unitName));
+			const unit = DATA.units.find((uData) => (uData.name == unitName));
 			let abilities = data[unitName].abilities;
 			let combatArts = data[unitName]['combat arts'];
+			let spells = data[unitName].spells;
 			for(let skillCat of Object.keys(abilities)) {
 				for(let grade in abilities[skillCat]) {
 					validateAbilityExists(abilities[skillCat][grade], DATA.abilities);

@@ -153,7 +153,6 @@ Professor's Guidance,Multiplies this unit's and adjacent allies' experience earn
 Discipline,Doubles skill experience earned in battle.,
 Aptitude,Makes each stat 20% more likely to increase on level up.,Personal: Cyril
 Vantage,"When foe initiates combat, unit still attacks first if HP is ≤ 50%.","Class mastered: Mercenary, Class: Hero"
-Missing Number,Missing Number (icon is based on Wary Fighter),SpoOoOoky
 Desperation,"If unit initiates combat with HP ≤ 50%, unit's follow-up attack (if possible) occurs before foe's counterattack.",Class mastered: Cavalier
 Quick Riposte,"If foe initiates combat while unit's HP is ≥ 50%, unit makes guaranteed follow-up attack.",Class mastered: War Master
 Wrath,"If foe initiates combat while unit's HP is ≤ 50%, grants Crit +50.",Class mastered: Warrior

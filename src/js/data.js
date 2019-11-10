@@ -47,9 +47,22 @@ function buildAllLearnables(unitData) {
 	}
 
 	[unitData.learnable, STATIC.universal.learnable].forEach((source) => {
-		[source.abilities, source['combat arts']].forEach((subsource) => {
+		[source.abilities, source['combat arts'], source.spells].forEach((subsource) => {
 			if(subsource) {
-				let type = subsource === source.abilities ? LEARNABLE_TYPE.ABILITY : LEARNABLE_TYPE.COMBAT_ART;
+				let type;
+				switch(subsource) {
+					case source.abilities:
+						type = LEARNABLE_TYPE.ABILITY;
+						break;
+					case source['combat arts']:
+						type = LEARNABLE_TYPE.COMBAT_ART;
+						break;
+					case source.spells:
+						type = LEARNABLE_TYPE.SPELL;
+						break;
+					default:
+						throw `Bad subsource ${subsource}`;
+				}
 				for(let skill in subsource) {
 					unitData.allLearnables[skill] = unitData.allLearnables[skill] || {};
 					for(let grade in subsource[skill]) {
@@ -161,6 +174,9 @@ export function determineLearnableType(learnableName) {
 	if(!learnable) {
 		learnable = findCombatArt(learnableName);
 		type = LEARNABLE_TYPE.COMBAT_ART;
+	}
+	if(!learnable) {
+		type = LEARNABLE_TYPE.SPELL;
 	}
 	return type;
 }

@@ -8,6 +8,7 @@ const dict = {
 	master: 'MASTER',
 	[LEARNABLE_TYPE.COMBAT_ART]: 'C. Art',
 	[LEARNABLE_TYPE.ABILITY]: 'Ability',
+	[LEARNABLE_TYPE.SPELL]: 'Spell',
 	heavyArmor: 'Heavy Armor',
 };
 

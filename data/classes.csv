@@ -14,7 +14,7 @@ Brigand,30,10,,,,,,-5,5,,,C,,,,,,,,,,,,Death Blow,,intermediate,
 Archer,5,,,10,,5,,,5,,,,C,,,,,,,,Bowrange +1,,,Hit +20,,intermediate,
 Brawler,30,,-10,10,10,,,-10,5,,,,,C,,,,,,,Unarmed Combat,,,Unarmed Combat,,intermediate,male
 Mage,5,-5,10,5,,,-5,5,5,,,,,,C,,,,,,Fire,,,Fiendish Blow,,intermediate,
-Dark Mage,5,-5,10,5,,,-5,5,,,,,,,C,,,,,,Miasma Δ,Heartseeker,,Poison Strike,,intermediate,male
+Dark Mage,5,-5,10,5,,,-5,5,,,,,,,C,,,,,,Miasma,Heartseeker,,Poison Strike,,intermediate,male
 Priest,5,-5,5,5,,,-5,10,10,,,,,,,C,,,,,Heal,White Magic Heal +5,,Miracle,,intermediate,
 Pegasus Knight,15,,,,10,,,5,10,,C,,,,,,,,,D,Canto,Avo +10,,Darting Blow,Triangle Attack,intermediate,female
 Armored Lord,20,5,5,,,,5,5,10,,,,,,,,,,,,Charm,Axefaire,,Pomp & Circumstance,,advanced,Edelgard
@@ -30,7 +30,7 @@ Warrior,40,15,-5,,,,,,5,,,A,,,,,,,,,Axefaire,Axe Crit +10,,Wrath,,advanced,
 Sniper,10,5,,20,,10,,,5,,,,A,,,,,,,,Bowfaire,Bowrange +1,,,Hunters Volley,advanced,
 Grappler,40,10,,10,10,,,,5,,,,,A,,,,,,,Fistfaire,Unarmed Combat,,Tomebreaker,Fierce Iron Fist,advanced,male
 Warlock,10,,10,,,,-5,5,5,,,,,,A,,,,,,Black Tomefaire,Black Magic Uses x2,,Bowbreaker,,advanced,
-Dark Bishop,10,,10,,,,-5,5,,,,,,,A,,,,,,Miasma Δ,Fiendish Blow,Heartseeker,Lifetaker,,advanced,male
+Dark Bishop,10,,10,,,,-5,5,,,,,,,A,,,,,,Miasma,Fiendish Blow,Heartseeker,Lifetaker,,advanced,male
 Bishop,10,,10,,,10,-5,5,10,,,,,,,A,,,,,White Magic Uses x2,White Magic Heal +10,Terrain Resistance,Renewal,,advanced,
 Enlightened One,20,10,10,,,,5,,5,,,,,,,,,,,,Swordfaire,Terrain Resistance,,Sacred Power,,master,Byleth
 Emperor,30,10,10,,,,5,5,10,,,,,,,,,,,,Charm,Axefaire,,,Flickering Flower,master,Edelgard

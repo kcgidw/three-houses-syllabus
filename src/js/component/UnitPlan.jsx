@@ -44,7 +44,7 @@ class UnitPlan extends React.Component {
 			});
 	}
 	renderClasses() {
-		return Data.filterClasses(this.state.unitPlan)
+		return Roster.filterClasses(this.state.unitPlan)
 			.map((classData) => {
 				let name = classData.name;
 				let action = () => {

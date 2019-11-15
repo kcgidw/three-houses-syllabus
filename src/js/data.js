@@ -106,7 +106,7 @@ export function findClass(name) {
 	return STATIC.classesMap[name];
 }
 
-function isClassApplicable(classData, unitData) {
+export function isClassApplicable(classData, unitData) {
 	if(classData.tags.includes('male') && unitData.sex.includes('m')) {
 		return false;
 	} else if(classData.tags.includes('female') && unitData.sex.includes('f')) {
@@ -122,33 +122,9 @@ function isClassApplicable(classData, unitData) {
 	}
 	return true;
 }
-function classHasStrength(classData, unitData) {
+export function classHasStrength(classData, unitData) {
 	// TODO
 	return true;
-}
-export function filterClasses(unitPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true, strengthsOnly: true}) {
-	let unitData = findUnitData(unitPlan.name, {});
-	return STATIC.classes.filter((classData) => {
-		if(filter.applicableOnly && !isClassApplicable(classData, unitData)) {
-			return false;
-		}
-		if(filter.strengthsOnly && !classHasStrength(classData, unitData)) {
-			return false;
-		}
-		if(filter.pinned && !filter.unpinned) {
-			if(!unitPlan.classes[classData.name]) {
-				return false;
-			}
-		} else if(filter.unpinned && !filter.pinned) {
-			if(unitPlan.classes[classData.name]) {
-				return false;
-			}
-		}
-		if(!filter.tiers[classData.tier] && classData.tier !== 'event') {
-			return false;
-		}
-		return true;
-	});
 }
 export function findAbility(name) {
 	return STATIC.abilitiesMap[name];

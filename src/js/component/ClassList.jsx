@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Data from '../data';
 import * as Roster from '../roster';
 import FilterForm from './Filter';
 import ClassCard from './ClassCard';
@@ -30,7 +29,7 @@ export default class ClassList extends React.Component {
 		});
 	}
 	renderClasses() {
-		const filtered = Data.filterClasses(this.props.unitPlan, this.state.filter);
+		const filtered = Roster.filterClasses(this.props.unitPlan, this.state.filter);
 		return filtered.map((cd) => {
 			let name = cd.name;
 			let action = () => {

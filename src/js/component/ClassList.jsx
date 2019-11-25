@@ -18,7 +18,6 @@ export default class ClassList extends React.Component {
 					'master': true,
 				},
 				applicableOnly: true,
-				strengthsOnly: false,
 			}
 		};
 		this.changeFilter = this.changeFilter.bind(this);

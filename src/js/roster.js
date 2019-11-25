@@ -140,13 +140,10 @@ export function getActiveSupports(roster, unitData) {
 		return findActiveUnitPlan(roster, uName);
 	});
 }
-export function filterClasses(unitPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true, strengthsOnly: true}) {
+export function filterClasses(unitPlan, filter = {pinned: false, unpinned: true, tiers: {}, applicableOnly: true}) {
 	let unitData = Data.findUnitData(unitPlan.name, {});
 	return Data.STATIC.classes.filter((classData) => {
 		if(filter.applicableOnly && !Data.isClassApplicable(classData, unitData)) {
-			return false;
-		}
-		if(filter.strengthsOnly && !Data.classHasStrength(classData, unitData)) {
 			return false;
 		}
 		if(filter.pinned && !filter.unpinned) {

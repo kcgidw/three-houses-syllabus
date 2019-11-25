@@ -35,7 +35,7 @@ function buildAllLearnables(unitData) {
 	unitData.allLearnables = {};
 
 	if(unitData.buddingTalent) {
-		const type = determineLearnableType(unitData.buddingTalent);
+		const type = determineLearnableType(unitData.buddingTalent.learn);
 		const unitDataLearnableField = type === LEARNABLE_TYPE.ABILITY ? 'abilities' : 'combat arts';
 		if(!unitData.learnable[unitDataLearnableField]) {
 			unitData.learnable[unitDataLearnableField] = {};
@@ -120,10 +120,6 @@ export function isClassApplicable(classData, unitData) {
 			return false;
 		}
 	}
-	return true;
-}
-export function classHasStrength(classData, unitData) {
-	// TODO
 	return true;
 }
 export function findAbility(name) {

@@ -112,7 +112,7 @@ export function isClassApplicable(classData, unitData) {
 	} else if(classData.tags.includes('female') && !unitData.sex.includes('f')) {
 		return false;
 	}
-	if(classData.tags.includes('houseLeader') && !['Edelgard', 'Dimitri', 'Claude'].includes(unitData.name)) {
+	if(classData.tags.includes('house leader') && !['Edelgard', 'Dimitri', 'Claude'].includes(unitData.name)) {
 		return false;
 	}
 	for (let n of ['Edelgard', 'Dimitri', 'Claude', 'Byleth']) {

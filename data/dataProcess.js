@@ -68,7 +68,7 @@ async.series([
 				certification: {},
 				masteredAbility: row.mastered_ability,
 				tier: row.tier,
-				tags: row.tags ? row.tags.replace(/ /g,'').split(',') : [],
+				tags: row.tags ? row.tags.replace(/, /g,',').split(',') : [],
 			};
 			Object.keys(row).forEach((k) => {
 				let val = row[k];

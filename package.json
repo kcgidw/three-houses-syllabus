@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --env.production",
     "clean": "rm -rf dist/*",
     "data": "node data/dataProcess.js",
-    "watch": "webpack --env.development -w --debug --output-path-info --display-modules",
-    "start": "serve dist"
+    "build": "webpack --env.production --display-modules",
+    "hot": "webpack-dev-server --env.development --debug --output-path-info --display-modules",
+    "watch": "webpack -w --env.development --debug --output-path-info --display-modules",
+    "start": "serve dist -l 3000"
   },
   "author": "",
   "license": "ISC",
@@ -24,8 +24,8 @@
     "babel-loader": "^8.0.6",
     "babel-preset-minify": "^0.5.1",
     "compression": "^1.7.4",
-    "compression-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
+    "compression-webpack-plugin": "^3.1.0",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.2.0",
     "csv-parse": "^4.4.6",
     "js-yaml": "^3.13.1",
@@ -36,10 +36,11 @@
     "sass-loader": "^8.0.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
+    "terser-webpack-plugin": "^2.3.1",
     "url-loader": "^2.2.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "classnames": "^2.2.6",

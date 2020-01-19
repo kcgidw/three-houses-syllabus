@@ -1,8 +1,8 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const _ = require('lodash');
 const CssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env) => {
 	const config = {
@@ -81,17 +81,24 @@ module.exports = (env) => {
 				{from: 'src/index.html', to: '../index.html'},
 				{from: 'assets/church-on-sunday.svg', to: '../assets/church-on-sunday.svg'},
 				{from: 'assets/images/portraits/', to: '../assets/images/portraits/'},
-			])
+			]),
 		],
+		devServer: {
+    		contentBase: path.resolve(__dirname, 'dist'),
+			compress: true,
+			index: 'index.html',
+			publicPath: '/js/',
+			hot: true,
+			port: 3000,
+		},
 	};
 
 	if (env.production) {
 		_.merge(config, {
 			mode: 'production',
-			stats: 'minimal',
 			optimization: {
 				minimize: true,
-				minimizer: [new UglifyJsPlugin({ sourceMap: true }),]
+				minimizer: [new TerserPlugin({ sourceMap: false }),]
 			},
 		});
 	} else if (env.development) {

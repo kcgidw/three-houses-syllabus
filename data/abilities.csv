@@ -236,3 +236,11 @@ Murderous Intent,"If unit initiates combat, grants Hit +20 during combat.",
 Sacred Power,Adjacent allies deal 3 extra damage and take 3 less damage during combat.,"Personal: Rhea, Class mastered: Enlightened One"
 Agarthan Technology,Adjacent foes deal 3 less damage during combat.,Enemy
 Blade Breaker,"If unit damages foe, foe suffers Str/Def -6 for 1 turn after combat.",Personal: Jeralt
+Honorable Spirit,"If unit is not near an ally, grants Atk +3 when in combat with a foe one space away.",Personal: Yuri
+King Of Grappling,Grants Str/Def +6 when HP is < 50%,Personal: Balthus
+Circadian Beat,Grants Str/Mag +3 when indoors and Def/Res +3 when outdoors.,Personal: Constance
+Monstrous Appeal,Makes all attacks effective against monsters and makes it easier for monsters to target unit.,Personal: Hapi
+Duelist's Blow,"If unit initiates combat, grants Avo +20 during combat.",Class mastered: Trickster
+Lucky Seven,"Each turn, grants +5 to one of the following stats: Str, Mag, Spd, Def, Res, Hit, or Avo.",Class: Trickster
+Transmute,"If unit is hit with a magic attack during enemy phase, grants +3 to all stats until next player phase ends.","Class: Dark Flier, Class mastered: Dark Flier"
+Uncanny Blow,"If unit initiates combat, grants Hit +30 during combat.",Class mastered: Valkyrie

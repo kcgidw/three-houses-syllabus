@@ -33,3 +33,7 @@ Alois,45,45,20,35,40,30,40,20,40,kos,Warrior,,,m,,,,,Compassion
 Catherine,50,50,25,40,55,30,30,20,25,kos,Swordmaster,,,f,,,,,Fighting Spirit
 Shamir,35,40,20,55,40,55,20,15,30,kos,Sniper,,,f,,,,,Survival Instinct
 Cyril,35,20,15,40,40,30,10,10,15,cos,Commoner,,,m,,,,,Aptitude
+Yuri,30,40,35,40,65,45,30,35,50,aw,Noble,bow,Deadeye,m,15,dex,c,faith,Honorable Spirit
+Balthus,50,50,30,25,30,20,45,30,30,aw,Noble,reason,Black Magic Crit +10,m,15,str,c,brawling,King Of Grappling
+Constance,20,20,60,30,35,15,15,30,25,aw,Noble,brawling,Mystic Blow,f,15,mag,d,flying,Circadian Beat
+Hapi,35,35,45,45,40,20,15,45,25,aw,Noble,axe,Exhaustive Strike,f,10,res,c,riding,Monstrous Appeal

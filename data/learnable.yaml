@@ -719,3 +719,94 @@ Shamir:
       D+: Wind
       C: Sagittae
       A: Fimbulvetr
+
+# ashen wolves
+
+Yuri:
+  abilities:
+    authority:
+      C: Battalion Vantage
+      C+: Model Leader
+  combat arts:
+    sword:
+      C+: Haze Slice
+      A: Finesse Blade
+  spells:
+    faith:
+      D: Heal
+      D+: Nosferatu
+      C: Recover
+      B: Silence
+      A: Aura
+    reason:
+      D: Wind
+      C: Cutting Gale
+      B: Sagittae
+      A: Excalibur
+Balthus:
+  abilities:
+    authority:
+      D: Rally Strength
+      B: Battalion Desperation
+  combat arts:
+    sword:
+      C+: Bane Of Monsters
+    axe:
+      C+: Diamond Axe
+      A: Armored Strike
+    brawling:
+      C+: Draining Blow
+      A: Mighty Blow
+  spells:
+    faith:
+      D: Heal
+      D+: Nosferatu
+      B: Seraphim
+      A: Restore
+    reason:
+      D: Fire
+      C: Bolganone
+      A: Ragnarok
+Constance:
+  abilities:
+    authority:
+      D: Rally Magic
+      C: Rally Resistance
+  combat arts:
+    sword:
+      C+: Soulblade
+      A: Hexblade
+  spells:
+    faith:
+      D: Heal
+      D+: Nosferatu
+      C: Ward
+      B: Rescue
+      A: Abraxas
+    reason:
+      D: Fire
+      C: Sagittae
+      B: Fimbulvetr
+      A: Bolting
+      A+: Agnea's Arrow
+Hapi:
+  abilities:
+    authority:
+      D: Rally Dexterity
+      C: Battalion Wrath
+    reason:
+      S: Dark Magic Range +1
+      S+: Dark Tomefaire
+  spells:
+    faith:
+      D: Heal
+      D+: Nosferatu
+      C: Physic
+      B: Seraphim
+      A: Warp
+    reason:
+      D: Miasma
+      D+: Swarm Z
+      C: Banshee
+      B: Death
+      A: Hades

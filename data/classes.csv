@@ -46,3 +46,7 @@ Holy Knight,10,,10,,-5,10,5,10,10,,C,,,,,B+,,,A,,Canto,White Tomefaire,Terrain R
 War Master,40,15,,,10,,,,5,,,A,,A,,,,,,,Fistfaire,Axefaire,Crit +20,Quick Riposte,War Masters Strike,master,male
 Gremory,10,,10,10,,,,5,10,,,,,,A,A,,,,,Black Magic Uses x2,Dark Magic Uses x2,White Magic Uses x2,Defiant Mag,,master,female
 Dancer,20,-5, , , , ,-5,-5,10,,,,,,,,,,,,Dance,,,Special Dance,,event,
+Trickster,20,,,15,20,10,,5,,B,,,,,,B,,,,,Locktouch,Stealth,Lucky Seven,Duelist's Blow,Foul Play,advanced,
+War Monk/Cleric,40,10,5,10,,,,5,5,,,,,B+,,C+,,,,,Fistfaire,Unarmed Combat,Heal,Brawl Avo +20,Pneuma Gale,advanced,
+Dark Flier,20,,,,10,,,10,10,,,,,,B+,,,,,C,Canto,Black Tomefaire,,Transmute,,advanced,female
+Valkyrie,5,,5,,-5,5,5,10,10,,,,,,B,,,,B,,Black Magic Range +1,Dark Magic Range +1,,Uncanny Blow,,advanced,female

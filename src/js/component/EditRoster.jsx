@@ -36,6 +36,9 @@ class EditRoster extends React.Component {
 			case 'seiros':
 				title = 'Seiros';
 				break;
+			case 'aw':
+				title = 'Ashen Wolves';
+				break;
 		}
 		return (<div className="roster-sublist">
 			<h2 className={house}>{title}</h2>
@@ -50,6 +53,7 @@ class EditRoster extends React.Component {
 				{this.renderSublist('bl')}
 				{this.renderSublist('gd')}
 				{this.renderSublist('seiros')}
+				{this.renderSublist('aw')}
 			</div>
 		</div>);
 	}
